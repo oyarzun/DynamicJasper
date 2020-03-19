@@ -266,10 +266,10 @@ public class Style implements Serializable, Cloneable {
 
 		//Aligns
 		if (getHorizontalAlign() != null)
-			transformedStyle.setHorizontalAlignment(HorizontalAlignEnum.getByValue(getHorizontalAlign().getValue() ));
+			transformedStyle.setHorizontalTextAlign(getHorizontalAlign().getJrAlign());
 
 		if (getVerticalAlign() != null)
-			transformedStyle.setVerticalAlignment(VerticalAlignEnum.getByValue(getVerticalAlign().getValue()));
+			transformedStyle.setVerticalTextAlign(getVerticalAlign().getJrAlign());
 
 		transformedStyle.setBlankWhenNull(blankWhenNull);
 

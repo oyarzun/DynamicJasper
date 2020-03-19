@@ -49,7 +49,7 @@ public class FormatInfoRegistry {
 
 	public static final String EXPORTER_CLASS_XLS = "net.sf.jasperreports.engine.export.JRXlsExporter";
 	public static final String EXPORTER_CLASS_CSV = "net.sf.jasperreports.engine.export.JRCsvExporter";
-	public static final String EXPORTER_CLASS_HTML = "net.sf.jasperreports.engine.export.JRHtmlExporter";
+	public static final String EXPORTER_CLASS_HTML = "net.sf.jasperreports.engine.export.HtmlExporter";
 	public static final String EXPORTER_CLASS_PDF = "net.sf.jasperreports.engine.export.JRPdfExporter";
 	public static final String EXPORTER_CLASS_XML = "net.sf.jasperreports.engine.export.JRXmlExporter";
 	public static final String EXPORTER_CLASS_RTF = "net.sf.jasperreports.engine.export.JRRtfExporter";

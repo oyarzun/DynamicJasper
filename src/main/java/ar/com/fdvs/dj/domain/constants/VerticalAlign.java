@@ -29,24 +29,24 @@
 
 package ar.com.fdvs.dj.domain.constants;
 
+import net.sf.jasperreports.engine.type.VerticalTextAlignEnum;
 
-public class VerticalAlign  extends BaseDomainConstant {
-	
-	private static final long serialVersionUID = 1L;
-	
-	public static VerticalAlign TOP = new VerticalAlign((byte)1);
-	public static VerticalAlign BOTTOM = new VerticalAlign((byte)3);
-	public static VerticalAlign MIDDLE = new VerticalAlign((byte)2);
-	public static VerticalAlign JUSTIFIED = new VerticalAlign((byte)4);
+public class VerticalAlign extends BaseDomainConstant {
 
-	private byte value;
+    private static final long serialVersionUID = 1L;
 
-	public byte getValue() {
-		return value;
-	}
+    public static VerticalAlign TOP = new VerticalAlign(VerticalTextAlignEnum.TOP);
+    public static VerticalAlign BOTTOM = new VerticalAlign(VerticalTextAlignEnum.BOTTOM);
+    public static VerticalAlign MIDDLE = new VerticalAlign(VerticalTextAlignEnum.MIDDLE);
+    public static VerticalAlign JUSTIFIED = new VerticalAlign(VerticalTextAlignEnum.JUSTIFIED);
 
-	private VerticalAlign(byte value){
-		this.value = value;
-	}
+    private VerticalTextAlignEnum jrAlign;
 
+    private VerticalAlign(VerticalTextAlignEnum value) {
+        this.jrAlign = value;
+    }
+
+    public VerticalTextAlignEnum getJrAlign() {
+        return jrAlign;
+    }
 }

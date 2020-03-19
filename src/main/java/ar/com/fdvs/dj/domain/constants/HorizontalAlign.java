@@ -29,23 +29,25 @@
 
 package ar.com.fdvs.dj.domain.constants;
 
-public class HorizontalAlign  extends BaseDomainConstant {
+import net.sf.jasperreports.engine.type.HorizontalTextAlignEnum;
 
-	private static final long serialVersionUID = 1L;
-	
-	public static HorizontalAlign LEFT = new HorizontalAlign((byte)1);
-	public static HorizontalAlign RIGHT = new HorizontalAlign((byte)3);
-	public static HorizontalAlign CENTER = new HorizontalAlign((byte)2);
-	public static HorizontalAlign JUSTIFY = new HorizontalAlign((byte)4);
+public class HorizontalAlign extends BaseDomainConstant {
 
-	private final byte value;
+    private static final long serialVersionUID = 1L;
 
-	public byte getValue() {
-		return value;
-	}
+    public static HorizontalAlign LEFT = new HorizontalAlign(HorizontalTextAlignEnum.LEFT);
+    public static HorizontalAlign RIGHT = new HorizontalAlign(HorizontalTextAlignEnum.RIGHT);
+    public static HorizontalAlign CENTER = new HorizontalAlign(HorizontalTextAlignEnum.CENTER);
+    public static HorizontalAlign JUSTIFY = new HorizontalAlign(HorizontalTextAlignEnum.JUSTIFIED);
 
-	private HorizontalAlign(byte value){
-		this.value = value;
-	}
+    private final HorizontalTextAlignEnum jrAlign;
+
+    private HorizontalAlign(HorizontalTextAlignEnum value) {
+        this.jrAlign = value;
+    }
+
+    public HorizontalTextAlignEnum getJrAlign() {
+        return jrAlign;
+    }
 
 }
