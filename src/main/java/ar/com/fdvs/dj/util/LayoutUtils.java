@@ -163,6 +163,7 @@ public class LayoutUtils {
 	 * @return
 	 */
 	public static JRDesignBand getBandFromSection(JRDesignSection section) {
+	    if (section.getBandsList() == null || section.getBandsList().isEmpty()) return null;
 		return (JRDesignBand) section.getBandsList().get(0);		
 	}
 
