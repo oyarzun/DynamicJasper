@@ -31,7 +31,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>ar.com.fdvs</groupId>
     <artifactId>DynamicJasper</artifactId>
-    <version>5.3.1.nebulose</version>
+    <version>5.2.0-SNAPSHOT</version>
     <name>DynamicJasper</name>
     <packaging>jar</packaging>
     <description>
@@ -67,10 +67,10 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
-                <version>3.8.1</version>
+                <version>2.5.1</version>
                 <configuration>
-                    <source>1.8</source>
-                    <target>1.8</target>
+                    <source>1.6</source>
+                    <target>1.6</target>
                     <debug>true</debug>
                     <fork>true</fork>
                 </configuration>
@@ -246,8 +246,6 @@
                         <artifactId>cobertura-maven-plugin</artifactId>
                         <version>2.7</version>
                         <configuration>
-                            <check>
-                            </check>
                             <formats>
                                 <format>html</format>
                             </formats>
@@ -281,14 +279,14 @@
         <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
-            <version>4.12</version>
-            <scope>test</scope>
+            <version>3.8.1</version>
+            
         </dependency>
 
         <dependency>
             <groupId>net.sf.jasperreports</groupId>
             <artifactId>jasperreports</artifactId>
-            <version>[6.8.0, 6.13.0]</version>
+            <version>6.9.0</version>
             <exclusions>
                 <exclusion>
                     <groupId>commons-collections</groupId>
@@ -349,7 +347,7 @@
             <groupId>org.apache.poi</groupId>
             <artifactId>poi-ooxml</artifactId>
             <version>4.1.2</version>
-            <scope>test</scope>
+            
         </dependency>
         <dependency>
             <groupId>org.apache.xmlgraphics</groupId>
@@ -361,31 +359,31 @@
             <groupId>net.sourceforge.jexcelapi</groupId>
             <artifactId>jxl</artifactId>
             <version>2.6</version>
-            <scope>test</scope>
+            
         </dependency>
         <dependency>
             <groupId>xalan</groupId>
             <artifactId>xalan</artifactId>
             <version>2.7.0</version>
-            <scope>test</scope>
+            
         </dependency>
         <dependency>
             <groupId>mysql</groupId>
             <artifactId>mysql-connector-java</artifactId>
             <version>3.1.12</version>
-            <scope>test</scope>
+            
         </dependency>
         <dependency>
             <groupId>log4j</groupId>
             <artifactId>log4j</artifactId>
             <version>1.2.14</version>
-            <scope>test</scope>
+            
         </dependency>
         <dependency>
             <groupId>hsqldb</groupId>
             <artifactId>hsqldb</artifactId>
             <version>1.8.0.7</version>
-            <scope>test</scope>
+            
         </dependency>
         <dependency>
             <groupId>org.hibernate</groupId>
@@ -396,19 +394,19 @@
             <groupId>javax.transaction</groupId>
             <artifactId>jta</artifactId>
             <version>1.1</version>
-            <scope>test</scope>
+            
         </dependency>
         <dependency>
             <groupId>httpunit</groupId>
             <artifactId>httpunit</artifactId>
             <version>1.6.2</version>
-            <scope>test</scope>
+            
         </dependency>
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-beans</artifactId>
             <version>3.2.2.RELEASE</version>
-            <scope>test</scope>
+            
             <optional>true</optional>
         </dependency>
 
@@ -423,19 +421,19 @@
             <groupId>ar.com.fdvs</groupId>
             <artifactId>DynamicJasper-test-fonts</artifactId>
             <version>2.0.0</version>
-            <scope>test</scope>
+            
         </dependency>
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-core</artifactId>
             <version>3.2.2.RELEASE</version>
-            <scope>test</scope>
+            
         </dependency>
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-test</artifactId>
             <version>3.2.2.RELEASE</version>
-            <scope>test</scope>
+            
         </dependency>
     </dependencies>
 

@@ -29,6 +29,7 @@
 
 package ar.com.fdvs.dj.domain.constants;
 
+import net.sf.jasperreports.engine.type.VerticalImageAlignEnum;
 import net.sf.jasperreports.engine.type.VerticalTextAlignEnum;
 
 public class VerticalAlign extends BaseDomainConstant {
@@ -48,5 +49,16 @@ public class VerticalAlign extends BaseDomainConstant {
 
     public VerticalTextAlignEnum getJrAlign() {
         return jrAlign;
+    }
+
+    public VerticalImageAlignEnum getJrImageAlign() {
+        switch (this.jrAlign) {
+        case TOP:
+            return VerticalImageAlignEnum.TOP;
+        case BOTTOM:
+            return VerticalImageAlignEnum.BOTTOM;
+        default:
+            return VerticalImageAlignEnum.MIDDLE;
+        }
     }
 }
