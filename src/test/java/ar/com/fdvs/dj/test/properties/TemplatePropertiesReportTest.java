@@ -32,10 +32,10 @@ package ar.com.fdvs.dj.test.properties;
 
 import java.util.Date;
 
-import net.sf.jasperreports.view.JasperViewer;
 import ar.com.fdvs.dj.domain.DynamicReport;
 import ar.com.fdvs.dj.domain.builders.FastReportBuilder;
 import ar.com.fdvs.dj.test.BaseDjReportTest;
+import net.sf.jasperreports.view.JasperViewer;
 
 public class TemplatePropertiesReportTest extends BaseDjReportTest {
 
@@ -58,7 +58,7 @@ public class TemplatePropertiesReportTest extends BaseDjReportTest {
 			.setTitle("November " + getYear() +" sales report")
 			.setSubtitle("This report was generated at " + new Date())
 			.setProperty("myProp1", "my propery 1")
-			.setTemplateFile("templates/TemplateReportTest.jrxml")
+			.setTemplateFile(getClass().getClassLoader().getResourceAsStream("templates/TemplateReportTest.jrxml"))
 			.setUseFullPageWidth(true);
 
 		DynamicReport dr = drb.build();

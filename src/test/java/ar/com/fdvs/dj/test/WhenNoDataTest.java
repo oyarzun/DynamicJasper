@@ -33,10 +33,6 @@ package ar.com.fdvs.dj.test;
 import java.util.Collections;
 import java.util.Date;
 
-import net.sf.jasperreports.engine.JRDataSource;
-import net.sf.jasperreports.engine.data.JRBeanCollectionDataSource;
-import net.sf.jasperreports.view.JasperDesignViewer;
-import net.sf.jasperreports.view.JasperViewer;
 import ar.com.fdvs.dj.domain.AutoText;
 import ar.com.fdvs.dj.domain.DynamicReport;
 import ar.com.fdvs.dj.domain.ImageBanner;
@@ -46,6 +42,10 @@ import ar.com.fdvs.dj.domain.builders.StyleBuilder;
 import ar.com.fdvs.dj.domain.constants.Font;
 import ar.com.fdvs.dj.domain.constants.HorizontalAlign;
 import ar.com.fdvs.dj.domain.constants.ImageScaleMode;
+import net.sf.jasperreports.engine.JRDataSource;
+import net.sf.jasperreports.engine.data.JRBeanCollectionDataSource;
+import net.sf.jasperreports.view.JasperDesignViewer;
+import net.sf.jasperreports.view.JasperViewer;
 
 public class WhenNoDataTest extends BaseDjReportTest {
 
@@ -81,7 +81,7 @@ public class WhenNoDataTest extends BaseDjReportTest {
 			.addImageBanner(System.getProperty("user.dir") +"/target/test-classes/images/dynamicJasper_60.jpg", 150, 25, ImageBanner.Alignment.Right, ImageScaleMode.FILL);
 			
 		
-		drb.setTemplateFile("templates/TemplateReportTest.jrxml");
+		drb.setTemplateFile(getClass().getClassLoader().getResourceAsStream("templates/TemplateReportTest.jrxml"));
 
 		DynamicReport dr = drb.build();
 

@@ -32,13 +32,13 @@ package ar.com.fdvs.dj.test;
 
 import java.sql.Connection;
 
-import net.sf.jasperreports.engine.xml.JRXmlWriter;
-import net.sf.jasperreports.view.JasperViewer;
 import ar.com.fdvs.dj.core.DJConstants;
 import ar.com.fdvs.dj.core.DynamicJasperHelper;
 import ar.com.fdvs.dj.core.layout.ClassicLayoutManager;
 import ar.com.fdvs.dj.domain.DynamicReport;
 import ar.com.fdvs.dj.domain.builders.FastReportBuilder;
+import net.sf.jasperreports.engine.xml.JRXmlWriter;
+import net.sf.jasperreports.view.JasperViewer;
 
 public class QueryReportTest extends BaseDjReportTest {
 
@@ -57,7 +57,7 @@ public class QueryReportTest extends BaseDjReportTest {
 			.setTitle("Customers")
 			.setQuery("select * from customer where firstname like $P{start}", DJConstants.QUERY_LANGUAGE_SQL)
 			//.setQuery("select * from customer", DJConstants.QUERY_LANGUAGE_SQL)
-			.setTemplateFile("templates/TemplateReportTest.jrxml")
+			.setTemplateFile(getClass().getClassLoader().getResourceAsStream("templates/TemplateReportTest.jrxml"))
 			.setUseFullPageWidth(true);
 
 		DynamicReport dr = drb.build();

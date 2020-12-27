@@ -2,10 +2,6 @@ package ar.com.fdvs.dj.test;
 
 import java.util.List;
 
-import net.sf.jasperreports.engine.JRDataSource;
-import net.sf.jasperreports.engine.query.JRHibernateQueryExecuterFactory;
-import net.sf.jasperreports.view.JasperViewer;
-
 import org.hibernate.Session;
 
 import ar.com.fdvs.dj.core.DJConstants;
@@ -18,6 +14,9 @@ import ar.com.fdvs.dj.domain.constants.GroupLayout;
 import ar.com.fdvs.dj.test.domain.db.Customer;
 import ar.com.fdvs.dj.test.hibernate.HibernateUtil;
 import ar.com.fdvs.dj.test.hibernate.TestSchema;
+import net.sf.jasperreports.engine.JRDataSource;
+import net.sf.jasperreports.engine.query.JRHibernateQueryExecuterFactory;
+import net.sf.jasperreports.view.JasperViewer;
 
 public class HQLReportTest extends BaseDjReportTest {
 
@@ -38,7 +37,7 @@ public class HQLReportTest extends BaseDjReportTest {
 			.setTitle("Customers")
 			.setSubtitle("Order by city and last name")
 			.setQuery("from Customer order by city, lastName", DJConstants.QUERY_LANGUAGE_HQL)
-			.setTemplateFile("templates/TemplateReportTest.jrxml")
+			.setTemplateFile(getClass().getClassLoader().getResourceAsStream("templates/TemplateReportTest.jrxml"))
 			.setUseFullPageWidth(true);
 
 		DynamicReport dr = drb.build();

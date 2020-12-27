@@ -1,5 +1,7 @@
 package ar.com.fdvs.dj.core;
 
+import java.util.Map;
+
 import net.sf.jasperreports.engine.JRDefaultScriptlet;
 import net.sf.jasperreports.engine.JRParameter;
 import net.sf.jasperreports.engine.JRScriptletException;
@@ -8,10 +10,6 @@ import net.sf.jasperreports.engine.fill.JRFillField;
 import net.sf.jasperreports.engine.fill.JRFillGroup;
 import net.sf.jasperreports.engine.fill.JRFillParameter;
 import net.sf.jasperreports.engine.fill.JRFillVariable;
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
-
-import java.util.Map;
 
 /**
  * This class handles parameter passing to custom expressions in runtime (during report fill)
@@ -24,7 +22,7 @@ public class DJDefaultScriptlet extends JRDefaultScriptlet {
         super();
     }
 
-    private static final Log logger = LogFactory.getLog(DJDefaultScriptlet.class);
+//    private static final Log logger = LogFactory.getLog(DJDefaultScriptlet.class);
 
 
     protected FieldMapWrapper fieldMapWrapper = new FieldMapWrapper();

@@ -33,8 +33,6 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
-import net.sf.jasperreports.view.JasperDesignViewer;
-import net.sf.jasperreports.view.JasperViewer;
 import ar.com.fdvs.dj.core.DJConstants;
 import ar.com.fdvs.dj.core.layout.ClassicLayoutManager;
 import ar.com.fdvs.dj.domain.DynamicReport;
@@ -43,6 +41,8 @@ import ar.com.fdvs.dj.domain.builders.SubReportBuilder;
 import ar.com.fdvs.dj.domain.entities.Subreport;
 import ar.com.fdvs.dj.test.BaseDjReportTest;
 import ar.com.fdvs.dj.test.domain.Product;
+import net.sf.jasperreports.view.JasperDesignViewer;
+import net.sf.jasperreports.view.JasperViewer;
 
 /**
  * This tests makes the subreport to use it's own parameters map (which a map stored in the parent parameters map)
@@ -118,7 +118,7 @@ public class SubReportBuilder2Test extends BaseDjReportTest {
 		.addColumn("Amount", "amount", Float.class.getName(), 50)
 		.addGroups(1)
 //		.setMargins(5, 5, 20, 20)
-		.setTemplateFile("templates/TemplateReportTest.jrxml")
+		.setTemplateFile(getClass().getClassLoader().getResourceAsStream("templates/TemplateReportTest.jrxml"))
 		.setUseFullPageWidth(true)
 		.setTitle("Subreport for this group")
 		.build();

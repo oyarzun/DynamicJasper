@@ -28,6 +28,16 @@
  */
 package ar.com.fdvs.dj.domain.builders;
 
+import java.awt.Color;
+import java.io.IOException;
+import java.io.InputStream;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Locale;
+import java.util.Map;
+
 import ar.com.fdvs.dj.core.DJConstants;
 import ar.com.fdvs.dj.core.DJException;
 import ar.com.fdvs.dj.core.JasperDesignDecorator;
@@ -63,14 +73,6 @@ import ar.com.fdvs.dj.domain.entities.columns.GlobalGroupColumn;
 import ar.com.fdvs.dj.domain.entities.columns.PercentageColumn;
 import ar.com.fdvs.dj.domain.entities.columns.PropertyColumn;
 import net.sf.jasperreports.engine.JasperReport;
-
-import java.awt.Color;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Locale;
-import java.util.Map;
 
 /**
  * Builder created to give users a friendly way of creating a
@@ -987,9 +989,10 @@ public class DynamicReportBuilder {
      *
      * @param path
      * @return
+     * @throws IOException 
      */
-    public DynamicReportBuilder setTemplateFile(String path) {
-        report.setTemplateFileName(path);
+    public DynamicReportBuilder setTemplateFile(InputStream stream) throws IOException {
+        report.readTemplateStream(stream);
         return this;
     }
 
@@ -999,9 +1002,10 @@ public class DynamicReportBuilder {
      *
      * @param path
      * @return
+     * @throws IOException 
      */
-    public DynamicReportBuilder setTemplateFile(String path, boolean importFields, boolean importVariables, boolean importParameters, boolean importDatasets) {
-        report.setTemplateFileName(path);
+    public DynamicReportBuilder setTemplateFile(InputStream stream, boolean importFields, boolean importVariables, boolean importParameters, boolean importDatasets) throws IOException {
+        report.readTemplateStream(stream);
         report.setTemplateImportFields(importFields);
         report.setTemplateImportParameters(importParameters);
         report.setTemplateImportVariables(importVariables);

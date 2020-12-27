@@ -30,6 +30,7 @@
 package ar.com.fdvs.dj.test;
 
 import java.awt.Color;
+import java.io.FileInputStream;
 
 import net.sf.jasperreports.view.JasperViewer;
 import ar.com.fdvs.dj.domain.DynamicReport;
@@ -141,7 +142,7 @@ public class TemplateFileReportTest extends BaseDjReportTest {
 										//the columns width proportionally to meet the page width.
 
 		//This look for the resource in the classpath
-		drb.setTemplateFile("templates/TemplateReportTest.jrxml");
+		drb.setTemplateFile(getClass().getClassLoader().getResourceAsStream("templates/TemplateReportTest.jrxml"));
 
 		//Portrait (looks the resource as a file in the filesystem)
 //		drb.setTemplateFile(System.getProperty("user.dir") + "/target/test-classes/templates/TemplateReportTest.jrxml");

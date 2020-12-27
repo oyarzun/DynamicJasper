@@ -41,12 +41,17 @@ import ar.com.fdvs.dj.domain.entities.columns.AbstractColumn;
 import ar.com.fdvs.dj.domain.entities.columns.ExpressionColumn;
 import ar.com.fdvs.dj.domain.entities.columns.SimpleColumn;
 
+import java.io.ByteArrayInputStream;
+import java.io.IOException;
+import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Locale;
 import java.util.Map;
+
+import org.apache.commons.io.IOUtils;
 
 /**
  * One of the main classes of this product. It represents the report itself.
@@ -105,7 +110,8 @@ public class DynamicReport extends DJBaseElement {
 
 	private Map<String, String> properties = new HashMap<String, String>();
 
-	private String templateFileName = null;
+	
+	private byte[] template = null;
 	private boolean templateImportDatasets = false;
 	private boolean templateImportFields = false;
 	private boolean templateImportVariables = false;
@@ -230,12 +236,27 @@ public class DynamicReport extends DJBaseElement {
 		this.titleIsJrExpression = isExp;
 	}
 
-	public String getTemplateFileName() {
-		return templateFileName;
+	public boolean hasTemplate() {
+	    return template != null;
+	}
+	
+	/**
+	 * Creates a new stream with the template data
+	 * @return
+	 */
+	public InputStream newTemplateStream() {
+		return new ByteArrayInputStream(template);
 	}
 
-	public void setTemplateFileName(String templateFileName) {
-		this.templateFileName = templateFileName;
+	/**
+	 * Reads the stream fully and closes it.
+	 *  
+	 * @param templateStream
+	 * @throws IOException
+	 */
+	public void readTemplateStream(InputStream templateStream) throws IOException {
+		this.template = IOUtils.toByteArray(templateStream);
+		templateStream.close();
 	}
 
 	public List<ColumnProperty> getFields() {
