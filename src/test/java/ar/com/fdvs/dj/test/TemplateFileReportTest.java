@@ -37,9 +37,9 @@ import ar.com.fdvs.dj.domain.builders.ColumnBuilder;
 import ar.com.fdvs.dj.domain.builders.DynamicReportBuilder;
 import ar.com.fdvs.dj.domain.constants.Border;
 import ar.com.fdvs.dj.domain.constants.Font;
-import ar.com.fdvs.dj.domain.constants.Transparency;
 import ar.com.fdvs.dj.domain.entities.columns.AbstractColumn;
 import net.sf.jasperreports.engine.type.HorizontalTextAlignEnum;
+import net.sf.jasperreports.engine.type.ModeEnum;
 import net.sf.jasperreports.view.JasperViewer;
 
 public class TemplateFileReportTest extends BaseDjReportTest {
@@ -53,7 +53,7 @@ public class TemplateFileReportTest extends BaseDjReportTest {
 		headerStyle.setBorderBottom(Border.THIN());
 		headerStyle.getBorderBottom().setColor(Color.black);
 		headerStyle.setHorizontalTextAlignEnum(HorizontalTextAlignEnum.CENTER);
-		headerStyle.setTransparency(Transparency.OPAQUE);
+		headerStyle.setTransparency(ModeEnum.OPAQUE);
 
 		Style titleStyle = new Style();
 		titleStyle.setHorizontalTextAlignEnum(HorizontalTextAlignEnum.CENTER);

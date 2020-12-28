@@ -34,10 +34,10 @@ import java.awt.Color;
 import ar.com.fdvs.dj.domain.Style;
 import ar.com.fdvs.dj.domain.constants.Border;
 import ar.com.fdvs.dj.domain.constants.Font;
-import ar.com.fdvs.dj.domain.constants.Rotation;
 import ar.com.fdvs.dj.domain.constants.Stretching;
-import ar.com.fdvs.dj.domain.constants.Transparency;
 import net.sf.jasperreports.engine.type.HorizontalTextAlignEnum;
+import net.sf.jasperreports.engine.type.ModeEnum;
+import net.sf.jasperreports.engine.type.RotationEnum;
 import net.sf.jasperreports.engine.type.VerticalTextAlignEnum;
 
 public class StyleBuilder {
@@ -122,7 +122,7 @@ public class StyleBuilder {
 		return this;
 	}
 
-	public StyleBuilder setTransparency(Transparency transparency){
+	public StyleBuilder setTransparency(ModeEnum transparency){
 		style.setTransparency(transparency);
 		return this;
 	}
@@ -200,7 +200,7 @@ public class StyleBuilder {
 	}
 
 
-	public StyleBuilder setRotation(Rotation rotation) {
+	public StyleBuilder setRotation(RotationEnum rotation) {
 		style.setRotation(rotation);
 		return this;
 	}

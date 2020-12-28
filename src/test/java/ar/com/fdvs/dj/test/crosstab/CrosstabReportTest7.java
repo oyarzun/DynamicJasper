@@ -44,9 +44,9 @@ import ar.com.fdvs.dj.domain.builders.StyleBuilder;
 import ar.com.fdvs.dj.domain.constants.Border;
 import ar.com.fdvs.dj.domain.constants.Font;
 import ar.com.fdvs.dj.domain.constants.Page;
-import ar.com.fdvs.dj.domain.constants.Transparency;
 import ar.com.fdvs.dj.test.BaseDjReportTest;
 import net.sf.jasperreports.engine.type.HorizontalTextAlignEnum;
+import net.sf.jasperreports.engine.type.ModeEnum;
 import net.sf.jasperreports.engine.type.VerticalTextAlignEnum;
 import net.sf.jasperreports.view.JasperDesignViewer;
 import net.sf.jasperreports.view.JasperViewer;
@@ -133,7 +133,7 @@ public class CrosstabReportTest7 extends BaseDjReportTest {
 			.setFont(Font.ARIAL_BIG_BOLD)
 			.setHorizontalTextAlignEnum(HorizontalTextAlignEnum.LEFT)
 			.setVerticalTextAlignEnum(VerticalTextAlignEnum.MIDDLE)
-			.setTransparency(Transparency.OPAQUE)
+			.setTransparency(ModeEnum.OPAQUE)
 			.setBorderBottom(Border.PEN_2_POINT())
 			.build();
 
@@ -141,7 +141,7 @@ public class CrosstabReportTest7 extends BaseDjReportTest {
 			.setHorizontalTextAlignEnum(HorizontalTextAlignEnum.CENTER)
 			.setVerticalTextAlignEnum(VerticalTextAlignEnum.MIDDLE)
 			.setFont(Font.ARIAL_MEDIUM_BOLD)
-			.setTransparency(Transparency.OPAQUE)
+			.setTransparency(ModeEnum.OPAQUE)
 			.setTextColor(Color.BLUE)
 			.setBackgroundColor(Color.GREEN)
 			.build();

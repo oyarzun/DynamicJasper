@@ -32,8 +32,6 @@ package ar.com.fdvs.dj.domain.chart.builder;
 import java.awt.Color;
 import java.util.List;
 
-import org.jfree.chart.plot.PlotOrientation;
-
 import ar.com.fdvs.dj.domain.DJHyperLink;
 import ar.com.fdvs.dj.domain.StringExpression;
 import ar.com.fdvs.dj.domain.chart.DJChart;
@@ -45,6 +43,7 @@ import ar.com.fdvs.dj.domain.entities.columns.AbstractColumn;
 import ar.com.fdvs.dj.domain.entities.columns.PropertyColumn;
 import ar.com.fdvs.dj.domain.hyperlink.LiteralExpression;
 import net.sf.jasperreports.charts.type.EdgeEnum;
+import net.sf.jasperreports.charts.type.PlotOrientationEnum;
 import net.sf.jasperreports.engine.type.CalculationEnum;
 import net.sf.jasperreports.engine.type.LineStyleEnum;
 
@@ -408,7 +407,7 @@ public class DJScatterChartBuilder extends AbstractChartBuilder<DJScatterChartBu
 	 *
 	 * @param orientation the plot orientation
 	 **/
-	public DJScatterChartBuilder setOrientation(PlotOrientation orientation) {
+	public DJScatterChartBuilder setOrientation(PlotOrientationEnum orientation) {
 		getPlot().setOrientation(orientation);
 		return this;
 	}

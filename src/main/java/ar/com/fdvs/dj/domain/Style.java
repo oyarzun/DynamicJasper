@@ -29,19 +29,23 @@
 
 package ar.com.fdvs.dj.domain;
 
+import java.awt.Color;
+import java.io.Serializable;
+
+import ar.com.fdvs.dj.domain.constants.Border;
 import ar.com.fdvs.dj.domain.constants.Font;
-import ar.com.fdvs.dj.domain.constants.Transparency;
-import ar.com.fdvs.dj.domain.constants.*;
+import ar.com.fdvs.dj.domain.constants.Stretching;
 import ar.com.fdvs.dj.domain.entities.Entity;
 import ar.com.fdvs.dj.util.LayoutUtils;
 import net.sf.jasperreports.engine.base.JRBaseStyle;
-import net.sf.jasperreports.engine.base.JRBoxPen;
 import net.sf.jasperreports.engine.design.JRDesignConditionalStyle;
 import net.sf.jasperreports.engine.design.JRDesignStyle;
-import net.sf.jasperreports.engine.type.*;
-
-import java.awt.*;
-import java.io.Serializable;
+import net.sf.jasperreports.engine.type.HorizontalImageAlignEnum;
+import net.sf.jasperreports.engine.type.HorizontalTextAlignEnum;
+import net.sf.jasperreports.engine.type.ModeEnum;
+import net.sf.jasperreports.engine.type.RotationEnum;
+import net.sf.jasperreports.engine.type.VerticalImageAlignEnum;
+import net.sf.jasperreports.engine.type.VerticalTextAlignEnum;
 
 /**
  * Class that should be used to define the different styles in a friendly <br>
@@ -78,7 +82,7 @@ public class Style implements Serializable, Cloneable {
 	private Integer padding = 2;
 	private Integer radius = 0;
 
-	private Transparency transparency = Transparency.TRANSPARENT;
+	private ModeEnum transparency = ModeEnum.TRANSPARENT;
 
 	private VerticalTextAlignEnum verticalTextAlign = VerticalTextAlignEnum.BOTTOM;
 	private VerticalImageAlignEnum verticalImageAlign = VerticalImageAlignEnum.BOTTOM;
@@ -87,7 +91,7 @@ public class Style implements Serializable, Cloneable {
     private HorizontalTextAlignEnum horizontalTextAlign = HorizontalTextAlignEnum.LEFT;
     private HorizontalImageAlignEnum horizontalImageAlign = HorizontalImageAlignEnum.LEFT;
 
-    private Rotation rotation = Rotation.NONE;
+    private RotationEnum rotation = RotationEnum.NONE;
 
     private Stretching streching = Stretching.RELATIVE_TO_TALLEST_OBJECT;
 
@@ -228,23 +232,23 @@ public class Style implements Serializable, Cloneable {
 		this.textColor = textColor;
 	}
 
-	public Transparency getTransparency() {
+	public ModeEnum getTransparency() {
 		return transparency;
 	}
 
-	public void setTransparency(Transparency transparency) {
+	public void setTransparency(ModeEnum transparency) {
 		this.transparency = transparency;
 	}
 
 	public boolean isTransparent(){
-		return this.transparency.equals(Transparency.TRANSPARENT);
+		return this.transparency.equals(ModeEnum.TRANSPARENT);
 	}
 
 	public void setTransparent(boolean transparent) {
 		if (transparent)
-			this.setTransparency(Transparency.TRANSPARENT);
+			this.setTransparency(ModeEnum.TRANSPARENT);
 		else
-			this.setTransparency(Transparency.OPAQUE);
+			this.setTransparency(ModeEnum.OPAQUE);
 	}
 
 	public VerticalTextAlignEnum getVerticalAlign() {
@@ -271,7 +275,6 @@ public class Style implements Serializable, Cloneable {
 	}
 
 	protected void setJRBaseStyleProperties(JRBaseStyle transformedStyle) {
-        JRBoxPen pen = transformedStyle.getLineBox().getPen();
         if (getBorder()!=null){
             LayoutUtils.convertBorderToPen(getBorder(),transformedStyle.getLineBox().getPen());
         }
@@ -334,10 +337,10 @@ public class Style implements Serializable, Cloneable {
 		transformedStyle.setForecolor(getTextColor());
 
 		if (getTransparency() != null)
-			transformedStyle.setMode(ModeEnum.getByValue( getTransparency().getValue() ));
+			transformedStyle.setMode(getTransparency());
 
 		if (getRotation() != null)
-			transformedStyle.setRotation(RotationEnum.getByValue( getRotation().getValue() ));
+			transformedStyle.setRotation(getRotation());
 
 		if (getRadius() != null)
 			transformedStyle.setRadius(Integer.valueOf(getRadius().intValue()));
@@ -409,11 +412,11 @@ public class Style implements Serializable, Cloneable {
         this.getBorder().setColor(borderColor);
 	}
 
-	public Rotation getRotation() {
+	public RotationEnum getRotation() {
 		return rotation;
 	}
 
-	public void setRotation(Rotation rotation) {
+	public void setRotation(RotationEnum rotation) {
 		this.rotation = rotation;
 	}
 

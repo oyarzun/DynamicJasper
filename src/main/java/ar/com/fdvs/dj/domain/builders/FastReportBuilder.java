@@ -48,13 +48,13 @@ import ar.com.fdvs.dj.domain.constants.Border;
 import ar.com.fdvs.dj.domain.constants.DJVariableResetType;
 import ar.com.fdvs.dj.domain.constants.Font;
 import ar.com.fdvs.dj.domain.constants.GroupLayout;
-import ar.com.fdvs.dj.domain.constants.Transparency;
 import ar.com.fdvs.dj.domain.entities.DJGroup;
 import ar.com.fdvs.dj.domain.entities.DJGroupVariable;
 import ar.com.fdvs.dj.domain.entities.DJVariable;
 import ar.com.fdvs.dj.domain.entities.columns.AbstractColumn;
 import ar.com.fdvs.dj.domain.entities.columns.PropertyColumn;
 import net.sf.jasperreports.engine.type.HorizontalTextAlignEnum;
+import net.sf.jasperreports.engine.type.ModeEnum;
 import net.sf.jasperreports.engine.type.ScaleImageEnum;
 import net.sf.jasperreports.engine.type.VerticalTextAlignEnum;
 
@@ -76,7 +76,6 @@ import net.sf.jasperreports.engine.type.VerticalTextAlignEnum;
  * Like with all DJ's builders, it's usage must end with a call to build() mehtod.
  * <br>
  */
-@SuppressWarnings({"WeakerAccess", "CanBeFinal"})
 public class FastReportBuilder extends DynamicReportBuilder {
 
 	Style currencyStyle;
@@ -97,7 +96,7 @@ public class FastReportBuilder extends DynamicReportBuilder {
 		defaultHeaderStyle.setBorderBottom(Border.THIN());
 		defaultHeaderStyle.setVerticalTextAlignEnum(VerticalTextAlignEnum.MIDDLE);
 		defaultHeaderStyle.setBackgroundColor(Color.LIGHT_GRAY);
-		defaultHeaderStyle.setTransparency(Transparency.OPAQUE);
+		defaultHeaderStyle.setTransparency(ModeEnum.OPAQUE);
 
 		Style titleStyle2 = report.getTitleStyle();
 		titleStyle2.setFont(Font.ARIAL_BIG_BOLD);

@@ -36,9 +36,9 @@ import ar.com.fdvs.dj.domain.Style;
 import ar.com.fdvs.dj.domain.builders.ColumnBuilder;
 import ar.com.fdvs.dj.domain.builders.DynamicReportBuilder;
 import ar.com.fdvs.dj.domain.constants.Border;
-import ar.com.fdvs.dj.domain.constants.Transparency;
 import ar.com.fdvs.dj.domain.entities.columns.AbstractColumn;
 import net.sf.jasperreports.engine.type.HorizontalTextAlignEnum;
+import net.sf.jasperreports.engine.type.ModeEnum;
 import net.sf.jasperreports.view.JasperViewer;
 
 public class FixedColumnWidhTest extends BaseDjReportTest {
@@ -49,10 +49,10 @@ public class FixedColumnWidhTest extends BaseDjReportTest {
         detailStyle.setBorder(Border.THIN());
         detailStyle.getBorder().setColor(Color.BLACK);
         detailStyle.setStretchWithOverflow(false);
-//			detailStyle.setTransparency(Transparency.OPAQUE);
+//			detailStyle.setTransparency(ModeEnum.OPAQUE);
         Style headerStyle = new Style();
         headerStyle.setBackgroundColor(new Color(230, 230, 230));
-        headerStyle.setTransparency(Transparency.OPAQUE);
+        headerStyle.setTransparency(ModeEnum.OPAQUE);
 
         Style titleStyle = new Style();
         Style subtitleStyle = new Style();

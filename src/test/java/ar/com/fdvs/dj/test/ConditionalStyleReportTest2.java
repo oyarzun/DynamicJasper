@@ -23,7 +23,6 @@ import ar.com.fdvs.dj.domain.builders.ColumnBuilderException;
 import ar.com.fdvs.dj.domain.builders.DynamicReportBuilder;
 import ar.com.fdvs.dj.domain.constants.Font;
 import ar.com.fdvs.dj.domain.constants.Page;
-import ar.com.fdvs.dj.domain.constants.Transparency;
 import ar.com.fdvs.dj.domain.entities.columns.AbstractColumn;
 import ar.com.fdvs.dj.domain.entities.conditionalStyle.ConditionStyleExpression;
 import ar.com.fdvs.dj.domain.entities.conditionalStyle.ConditionalStyle;
@@ -33,6 +32,7 @@ import net.sf.jasperreports.engine.JRException;
 import net.sf.jasperreports.engine.JasperPrint;
 import net.sf.jasperreports.engine.data.JRBeanCollectionDataSource;
 import net.sf.jasperreports.engine.type.HorizontalTextAlignEnum;
+import net.sf.jasperreports.engine.type.ModeEnum;
 import net.sf.jasperreports.engine.type.VerticalTextAlignEnum;
 
 /**
@@ -79,7 +79,7 @@ public class ConditionalStyleReportTest2 extends TestCase {
 
     private static Style getRedStyle() {
         Style alertStyle = new Style();
-        alertStyle.setTransparency(Transparency.OPAQUE);
+        alertStyle.setTransparency(ModeEnum.OPAQUE);
         alertStyle.setBackgroundColor(Color.RED);
         alertStyle.setTextColor(Color.BLACK);
         alertStyle.setVerticalTextAlignEnum(VerticalTextAlignEnum.TOP);
@@ -88,7 +88,7 @@ public class ConditionalStyleReportTest2 extends TestCase {
 
     private static Style getBlueStyle() {
         Style alertStyle = new Style();
-        alertStyle.setTransparency(Transparency.OPAQUE);
+        alertStyle.setTransparency(ModeEnum.OPAQUE);
         alertStyle.setBackgroundColor(Color.BLUE);
         alertStyle.setTextColor(Color.BLACK);
         alertStyle.setVerticalTextAlignEnum(VerticalTextAlignEnum.TOP);
@@ -97,7 +97,7 @@ public class ConditionalStyleReportTest2 extends TestCase {
 
     private static Style getGrayStyle() {
         Style alertStyle = new Style();
-        alertStyle.setTransparency(Transparency.OPAQUE);
+        alertStyle.setTransparency(ModeEnum.OPAQUE);
         alertStyle.setBackgroundColor(Color.LIGHT_GRAY);
         alertStyle.setTextColor(Color.BLACK);
         alertStyle.setVerticalTextAlignEnum(VerticalTextAlignEnum.TOP);
@@ -106,7 +106,7 @@ public class ConditionalStyleReportTest2 extends TestCase {
 
     private static Style getGreenStyle() {
         Style alertStyle = new Style();
-        alertStyle.setTransparency(Transparency.OPAQUE);
+        alertStyle.setTransparency(ModeEnum.OPAQUE);
         alertStyle.setBackgroundColor(Color.GREEN);
         alertStyle.setTextColor(Color.BLACK);
         alertStyle.setVerticalTextAlignEnum(VerticalTextAlignEnum.TOP);
@@ -115,7 +115,7 @@ public class ConditionalStyleReportTest2 extends TestCase {
 
     private static Style getYellowStyle() {
         Style alertStyle = new Style();
-        alertStyle.setTransparency(Transparency.OPAQUE);
+        alertStyle.setTransparency(ModeEnum.OPAQUE);
         alertStyle.setBackgroundColor(Color.YELLOW);
         alertStyle.setTextColor(Color.BLACK);
         alertStyle.setVerticalTextAlignEnum(VerticalTextAlignEnum.TOP);
@@ -124,7 +124,7 @@ public class ConditionalStyleReportTest2 extends TestCase {
 
     private static Style getOrangeStyle() {
         Style alertStyle = new Style();
-        alertStyle.setTransparency(Transparency.OPAQUE);
+        alertStyle.setTransparency(ModeEnum.OPAQUE);
         alertStyle.setBackgroundColor(Color.ORANGE);
         alertStyle.setTextColor(Color.BLACK);
         alertStyle.setVerticalTextAlignEnum(VerticalTextAlignEnum.TOP);
@@ -134,7 +134,7 @@ public class ConditionalStyleReportTest2 extends TestCase {
     private static Style getHeaderStyle() {
         Style headerStyle = new Style();
         headerStyle.setFont(Font.ARIAL_MEDIUM_BOLD);
-        headerStyle.setTransparency(Transparency.OPAQUE);
+        headerStyle.setTransparency(ModeEnum.OPAQUE);
         headerStyle.setBackgroundColor(Color.BLUE);
         headerStyle.setTextColor(Color.WHITE);
         headerStyle.setVerticalTextAlignEnum(VerticalTextAlignEnum.TOP);
@@ -145,7 +145,7 @@ public class ConditionalStyleReportTest2 extends TestCase {
 
     private static Style getDataStyle() {
         Style dataStyle = new Style();
-        dataStyle.setTransparency(Transparency.TRANSPARENT);
+        dataStyle.setTransparency(ModeEnum.TRANSPARENT);
         dataStyle.setTextColor(Color.BLACK);
         dataStyle.setVerticalTextAlignEnum(VerticalTextAlignEnum.TOP);
         return dataStyle;

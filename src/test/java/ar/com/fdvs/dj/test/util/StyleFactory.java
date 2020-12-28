@@ -5,8 +5,8 @@ import java.awt.Color;
 import ar.com.fdvs.dj.domain.Style;
 import ar.com.fdvs.dj.domain.constants.Border;
 import ar.com.fdvs.dj.domain.constants.Font;
-import ar.com.fdvs.dj.domain.constants.Transparency;
 import net.sf.jasperreports.engine.type.HorizontalTextAlignEnum;
+import net.sf.jasperreports.engine.type.ModeEnum;
 import net.sf.jasperreports.engine.type.VerticalTextAlignEnum;
 
 public class StyleFactory {
@@ -38,7 +38,7 @@ public class StyleFactory {
 		headerStyle.setTextColor(Color.white);
 		headerStyle.setHorizontalTextAlignEnum(HorizontalTextAlignEnum.CENTER);
 		headerStyle.setVerticalTextAlignEnum(VerticalTextAlignEnum.MIDDLE);
-		headerStyle.setTransparency(Transparency.OPAQUE);
+		headerStyle.setTransparency(ModeEnum.OPAQUE);
 		return headerStyle;
 	}
 	public static Style createHeaderStyle2(String name){
@@ -48,7 +48,7 @@ public class StyleFactory {
 		headerStyle.setBorderBottom(Border.THIN());
 		headerStyle.setVerticalTextAlignEnum(VerticalTextAlignEnum.MIDDLE);
 		headerStyle.setBackgroundColor(Color.LIGHT_GRAY);
-		headerStyle.setTransparency(Transparency.OPAQUE);
+		headerStyle.setTransparency(ModeEnum.OPAQUE);
 		return headerStyle;
 	}
 

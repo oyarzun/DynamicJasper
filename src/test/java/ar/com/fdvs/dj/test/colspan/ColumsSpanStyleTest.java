@@ -29,16 +29,16 @@
 
 package ar.com.fdvs.dj.test.colspan;
 
+import java.awt.Color;
+import java.util.Date;
+
 import ar.com.fdvs.dj.domain.DynamicReport;
 import ar.com.fdvs.dj.domain.Style;
 import ar.com.fdvs.dj.domain.builders.FastReportBuilder;
-import ar.com.fdvs.dj.domain.constants.*;
-import ar.com.fdvs.dj.domain.constants.Transparency;
+import ar.com.fdvs.dj.domain.constants.Border;
 import ar.com.fdvs.dj.test.BaseDjReportTest;
+import net.sf.jasperreports.engine.type.ModeEnum;
 import net.sf.jasperreports.view.JasperViewer;
-
-import java.awt.*;
-import java.util.Date;
 
 public class ColumsSpanStyleTest extends BaseDjReportTest {
 
@@ -59,7 +59,7 @@ public class ColumsSpanStyleTest extends BaseDjReportTest {
 
                 Style colspanStyle = new Style();
                 colspanStyle.setBackgroundColor(Color.RED);
-                colspanStyle.setTransparency(Transparency.OPAQUE);
+                colspanStyle.setTransparency(ModeEnum.OPAQUE);
                 colspanStyle.setBorder(Border.PEN_1_POINT());
 
                 frb.setColspan(1, 2, "Estimated", colspanStyle);

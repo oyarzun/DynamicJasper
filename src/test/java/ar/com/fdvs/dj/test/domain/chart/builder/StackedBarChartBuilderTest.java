@@ -49,7 +49,6 @@ import ar.com.fdvs.dj.domain.chart.plot.DJAxisFormat;
 import ar.com.fdvs.dj.domain.constants.Border;
 import ar.com.fdvs.dj.domain.constants.Font;
 import ar.com.fdvs.dj.domain.constants.GroupLayout;
-import ar.com.fdvs.dj.domain.constants.Transparency;
 import ar.com.fdvs.dj.domain.entities.DJGroup;
 import ar.com.fdvs.dj.domain.entities.columns.AbstractColumn;
 import ar.com.fdvs.dj.domain.entities.columns.PropertyColumn;
@@ -64,6 +63,7 @@ import net.sf.jasperreports.engine.design.JRDesignGroup;
 import net.sf.jasperreports.engine.design.JRDesignVariable;
 import net.sf.jasperreports.engine.type.HorizontalTextAlignEnum;
 import net.sf.jasperreports.engine.type.LineStyleEnum;
+import net.sf.jasperreports.engine.type.ModeEnum;
 import net.sf.jasperreports.engine.type.VerticalTextAlignEnum;
 import net.sf.jasperreports.view.JasperViewer;
 
@@ -82,7 +82,7 @@ public class StackedBarChartBuilderTest extends BaseDjReportTest {
 		headerStyle.setVerticalTextAlignEnum(VerticalTextAlignEnum.MIDDLE);
 		headerStyle.setBackgroundColor(Color.DARK_GRAY);
 		headerStyle.setTextColor(Color.WHITE);
-		headerStyle.setTransparency(Transparency.OPAQUE);
+		headerStyle.setTransparency(ModeEnum.OPAQUE);
 		drb.setDefaultStyles(null, null, headerStyle, null);			
 		
 		AbstractColumn columnState = ColumnBuilder.getNew()

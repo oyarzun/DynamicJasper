@@ -29,13 +29,13 @@
 
 package ar.com.fdvs.dj.test.colspan;
 
+import java.util.Date;
+
 import ar.com.fdvs.dj.domain.DynamicReport;
 import ar.com.fdvs.dj.domain.builders.FastReportBuilder;
 import ar.com.fdvs.dj.domain.constants.Border;
 import ar.com.fdvs.dj.test.BaseDjReportTest;
 import net.sf.jasperreports.view.JasperViewer;
-
-import java.util.Date;
 
 public class ColumnsSpanTest extends BaseDjReportTest {
 

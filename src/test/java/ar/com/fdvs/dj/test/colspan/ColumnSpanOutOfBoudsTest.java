@@ -29,12 +29,12 @@
 
 package ar.com.fdvs.dj.test.colspan;
 
+import java.util.Calendar;
+import java.util.Date;
+
 import ar.com.fdvs.dj.domain.builders.ColumnBuilderException;
 import ar.com.fdvs.dj.domain.builders.FastReportBuilder;
 import junit.framework.TestCase;
-
-import java.util.Calendar;
-import java.util.Date;
 
 public class ColumnSpanOutOfBoudsTest extends TestCase {
 

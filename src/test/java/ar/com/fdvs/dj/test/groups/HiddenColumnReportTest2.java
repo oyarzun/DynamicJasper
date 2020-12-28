@@ -40,12 +40,12 @@ import ar.com.fdvs.dj.domain.builders.GroupBuilder;
 import ar.com.fdvs.dj.domain.constants.Border;
 import ar.com.fdvs.dj.domain.constants.Font;
 import ar.com.fdvs.dj.domain.constants.GroupLayout;
-import ar.com.fdvs.dj.domain.constants.Transparency;
 import ar.com.fdvs.dj.domain.entities.DJGroup;
 import ar.com.fdvs.dj.domain.entities.columns.AbstractColumn;
 import ar.com.fdvs.dj.domain.entities.columns.PropertyColumn;
 import ar.com.fdvs.dj.test.BaseDjReportTest;
 import net.sf.jasperreports.engine.type.HorizontalTextAlignEnum;
+import net.sf.jasperreports.engine.type.ModeEnum;
 import net.sf.jasperreports.engine.type.VerticalTextAlignEnum;
 import net.sf.jasperreports.view.JasperViewer;
 
@@ -61,7 +61,7 @@ public class HiddenColumnReportTest2 extends BaseDjReportTest {
 //		specialHeaderStyle.setVerticalTextAlignEnum(VerticalTextAlignEnum.MIDDLE);
 //		specialHeaderStyle.setBackgroundColor(Color.DARK_GRAY);
 //		specialHeaderStyle.setTextColor(Color.WHITE);
-//		specialHeaderStyle.setTransparency(Transparency.OPAQUE);
+//		specialHeaderStyle.setTransparency(ModeEnum.OPAQUE);
 
 		Style headerStyle = new Style();
 		headerStyle.setFont(Font.VERDANA_MEDIUM_BOLD);
@@ -70,7 +70,7 @@ public class HiddenColumnReportTest2 extends BaseDjReportTest {
 		headerStyle.setVerticalTextAlignEnum(VerticalTextAlignEnum.MIDDLE);
 		headerStyle.setBackgroundColor(Color.DARK_GRAY);
 		headerStyle.setTextColor(Color.WHITE);
-		headerStyle.setTransparency(Transparency.OPAQUE);
+		headerStyle.setTransparency(ModeEnum.OPAQUE);
 
 		Style titleStyle = new Style();
 		titleStyle.setFont(new Font(18, Font._FONT_VERDANA, true));
@@ -79,7 +79,7 @@ public class HiddenColumnReportTest2 extends BaseDjReportTest {
 		Style oddRowStyle = new Style();
 		oddRowStyle.setBorder(Border.NO_BORDER());
 		oddRowStyle.setBackgroundColor(Color.LIGHT_GRAY);
-		oddRowStyle.setTransparency(Transparency.OPAQUE);
+		oddRowStyle.setTransparency(ModeEnum.OPAQUE);
 
 		Style specialDetailStyle = new Style();
 		specialDetailStyle.setFont(new Font(20,"Arial",true));

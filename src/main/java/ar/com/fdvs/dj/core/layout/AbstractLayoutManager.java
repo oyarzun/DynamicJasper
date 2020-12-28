@@ -56,7 +56,6 @@ import ar.com.fdvs.dj.domain.DynamicJasperDesign;
 import ar.com.fdvs.dj.domain.DynamicReport;
 import ar.com.fdvs.dj.domain.Style;
 import ar.com.fdvs.dj.domain.chart.DJChartOptions;
-import ar.com.fdvs.dj.domain.constants.Transparency;
 import ar.com.fdvs.dj.domain.entities.DJColSpan;
 import ar.com.fdvs.dj.domain.entities.DJGroup;
 import ar.com.fdvs.dj.domain.entities.columns.AbstractColumn;
@@ -90,7 +89,6 @@ import net.sf.jasperreports.engine.design.JRDesignTextElement;
 import net.sf.jasperreports.engine.design.JRDesignTextField;
 import net.sf.jasperreports.engine.design.JRDesignVariable;
 import net.sf.jasperreports.engine.design.JasperDesign;
-import net.sf.jasperreports.engine.type.CalculationEnum;
 import net.sf.jasperreports.engine.type.EvaluationTimeEnum;
 import net.sf.jasperreports.engine.type.ModeEnum;
 import net.sf.jasperreports.engine.type.OnErrorTypeEnum;
@@ -906,7 +904,7 @@ public abstract class AbstractLayoutManager implements LayoutManager {
 
         for (ConditionalStyle condition : column.getConditionalStyles()) {
             if (getReport().getOptions().isPrintBackgroundOnOddRows()
-                    && Transparency.TRANSPARENT == condition.getStyle().getTransparency()) { //condition style + odd row (only if conditional style's background is transparent)
+                    && ModeEnum.TRANSPARENT == condition.getStyle().getTransparency()) { //condition style + odd row (only if conditional style's background is transparent)
 
                 JRDesignExpression expressionForConditionalStyle = ExpressionUtils.getExpressionForConditionalStyle(condition, column.getTextForExpression());
                 String expStr = JRExpressionUtil.getExpressionText(expressionForConditionalStyle);

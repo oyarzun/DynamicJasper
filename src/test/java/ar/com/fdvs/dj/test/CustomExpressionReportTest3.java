@@ -43,12 +43,12 @@ import ar.com.fdvs.dj.domain.builders.GroupBuilder;
 import ar.com.fdvs.dj.domain.constants.Border;
 import ar.com.fdvs.dj.domain.constants.Font;
 import ar.com.fdvs.dj.domain.constants.GroupLayout;
-import ar.com.fdvs.dj.domain.constants.Transparency;
 import ar.com.fdvs.dj.domain.entities.DJGroup;
 import ar.com.fdvs.dj.domain.entities.DJGroupVariable;
 import ar.com.fdvs.dj.domain.entities.columns.AbstractColumn;
 import ar.com.fdvs.dj.domain.entities.columns.PropertyColumn;
 import net.sf.jasperreports.engine.type.HorizontalTextAlignEnum;
+import net.sf.jasperreports.engine.type.ModeEnum;
 import net.sf.jasperreports.engine.type.VerticalTextAlignEnum;
 import net.sf.jasperreports.view.JasperViewer;
 
@@ -68,7 +68,7 @@ public class CustomExpressionReportTest3 extends BaseDjReportTest {
 		Style oddRowStyle = new Style();
 		oddRowStyle.setBorder(Border.NO_BORDER());
 		Color veryLightGrey = new Color(230,230,230);
-		oddRowStyle.setBackgroundColor(veryLightGrey);oddRowStyle.setTransparency(Transparency.OPAQUE);
+		oddRowStyle.setBackgroundColor(veryLightGrey);oddRowStyle.setTransparency(ModeEnum.OPAQUE);
 
 		DynamicReportBuilder drb = new DynamicReportBuilder();
 		Integer margin = 20;

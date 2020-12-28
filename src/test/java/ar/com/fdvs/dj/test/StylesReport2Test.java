@@ -42,12 +42,12 @@ import ar.com.fdvs.dj.domain.builders.GroupBuilder;
 import ar.com.fdvs.dj.domain.builders.StyleBuilder;
 import ar.com.fdvs.dj.domain.constants.Border;
 import ar.com.fdvs.dj.domain.constants.Font;
-import ar.com.fdvs.dj.domain.constants.Rotation;
-import ar.com.fdvs.dj.domain.constants.Transparency;
 import ar.com.fdvs.dj.domain.entities.DJGroup;
 import ar.com.fdvs.dj.domain.entities.columns.AbstractColumn;
 import ar.com.fdvs.dj.domain.entities.columns.PropertyColumn;
 import net.sf.jasperreports.engine.type.HorizontalTextAlignEnum;
+import net.sf.jasperreports.engine.type.ModeEnum;
+import net.sf.jasperreports.engine.type.RotationEnum;
 import net.sf.jasperreports.engine.type.VerticalTextAlignEnum;
 import net.sf.jasperreports.view.JasperViewer;
 
@@ -56,7 +56,7 @@ public class StylesReport2Test extends BaseDjReportTest {
 	public DynamicReport buildReport() throws Exception {
 
 //		Style detailStyle = new Style();
-		Style detailStyle = new StyleBuilder(false).setTransparency(Transparency.OPAQUE).setBackgroundColor(new Color(200,200,230)).build();
+		Style detailStyle = new StyleBuilder(false).setTransparency(ModeEnum.OPAQUE).setBackgroundColor(new Color(200,200,230)).build();
 
 		Style headerStyle = new Style();
 		headerStyle.setFont(Font.ARIAL_MEDIUM_BOLD);
@@ -64,11 +64,11 @@ public class StylesReport2Test extends BaseDjReportTest {
 		headerStyle.setBorderTop(Border.PEN_2_POINT());
 		headerStyle.setBorderBottom(Border.THIN());
 		headerStyle.setBackgroundColor(Color.blue);
-		headerStyle.setTransparency(Transparency.OPAQUE);
+		headerStyle.setTransparency(ModeEnum.OPAQUE);
 		headerStyle.setTextColor(Color.white);
 		headerStyle.setHorizontalTextAlignEnum(HorizontalTextAlignEnum.CENTER);
 		headerStyle.setVerticalTextAlignEnum(VerticalTextAlignEnum.MIDDLE);
-		headerStyle.setRotation(Rotation.LEFT);
+		headerStyle.setRotation(RotationEnum.LEFT);
 
 		Style titleStyle = new Style();
 		titleStyle.setFont(new Font(10,Font._FONT_VERDANA,true));
@@ -77,14 +77,14 @@ public class StylesReport2Test extends BaseDjReportTest {
 		Style amountStyle = new Style();
 		amountStyle.setHorizontalTextAlignEnum(HorizontalTextAlignEnum.RIGHT);
 		amountStyle.setBackgroundColor(Color.cyan);
-		amountStyle.setTransparency(Transparency.OPAQUE);
+		amountStyle.setTransparency(ModeEnum.OPAQUE);
 		amountStyle.setFont(Font.ARIAL_MEDIUM_BOLD);
 		amountStyle.getFont().setUnderline(true);
 		amountStyle.setPaddingBottom(5);
 		Style oddRowStyle = new Style();
 		oddRowStyle.setBorder(Border.NO_BORDER());
 		Color veryLightGrey = new Color(230,230,230);
-		oddRowStyle.setBackgroundColor(veryLightGrey);oddRowStyle.setTransparency(Transparency.OPAQUE);
+		oddRowStyle.setBackgroundColor(veryLightGrey);oddRowStyle.setTransparency(ModeEnum.OPAQUE);
 
 		Style variableStyle = new Style();
 		BeanUtils.copyProperties(variableStyle, amountStyle);

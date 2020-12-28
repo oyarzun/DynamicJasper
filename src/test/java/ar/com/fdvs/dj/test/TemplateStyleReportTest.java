@@ -37,9 +37,9 @@ import ar.com.fdvs.dj.domain.builders.ColumnBuilder;
 import ar.com.fdvs.dj.domain.builders.DynamicReportBuilder;
 import ar.com.fdvs.dj.domain.constants.Border;
 import ar.com.fdvs.dj.domain.constants.Font;
-import ar.com.fdvs.dj.domain.constants.Transparency;
 import ar.com.fdvs.dj.domain.entities.columns.AbstractColumn;
 import net.sf.jasperreports.engine.type.HorizontalTextAlignEnum;
+import net.sf.jasperreports.engine.type.ModeEnum;
 import net.sf.jasperreports.view.JasperViewer;
 
 public class TemplateStyleReportTest extends BaseDjReportTest {
@@ -53,7 +53,7 @@ public class TemplateStyleReportTest extends BaseDjReportTest {
 		headerStyle.setBorderBottom(Border.THIN());
 		headerStyle.getBorderBottom().setColor(Color.black);
 		headerStyle.setHorizontalTextAlignEnum(HorizontalTextAlignEnum.CENTER);
-		headerStyle.setTransparency(Transparency.OPAQUE);
+		headerStyle.setTransparency(ModeEnum.OPAQUE);
 
 		/*
 		  "titleStyle" exists in the template .jrxml file
@@ -67,7 +67,7 @@ public class TemplateStyleReportTest extends BaseDjReportTest {
 		 */
 		Style subtitleStyleParent = new Style("subtitleParent");
 		subtitleStyleParent.setBackgroundColor(Color.CYAN);
-		subtitleStyleParent.setTransparency(Transparency.OPAQUE);
+		subtitleStyleParent.setTransparency(ModeEnum.OPAQUE);
 
 		Style subtitleStyle = Style.createBlankStyle("subtitleStyle","subtitleParent");
 		subtitleStyle.setFont(Font.GEORGIA_SMALL_BOLD);

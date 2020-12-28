@@ -37,10 +37,10 @@ import ar.com.fdvs.dj.domain.builders.ColumnBuilder;
 import ar.com.fdvs.dj.domain.builders.DynamicReportBuilder;
 import ar.com.fdvs.dj.domain.constants.Border;
 import ar.com.fdvs.dj.domain.constants.Font;
-import ar.com.fdvs.dj.domain.constants.Transparency;
 import ar.com.fdvs.dj.domain.entities.columns.AbstractColumn;
 import net.sf.jasperreports.engine.type.HorizontalTextAlignEnum;
 import net.sf.jasperreports.engine.type.LineStyleEnum;
+import net.sf.jasperreports.engine.type.ModeEnum;
 import net.sf.jasperreports.engine.type.VerticalTextAlignEnum;
 import net.sf.jasperreports.view.JasperViewer;
 
@@ -54,7 +54,7 @@ public class StylesReportTest extends BaseDjReportTest {
 		headerStyle.setBorderTop(Border.PEN_2_POINT());
 		headerStyle.setBorderBottom(Border.THIN());
 		headerStyle.setBackgroundColor(Color.blue);
-		headerStyle.setTransparency(Transparency.OPAQUE);
+		headerStyle.setTransparency(ModeEnum.OPAQUE);
 		headerStyle.setTextColor(Color.white);
 		headerStyle.setHorizontalTextAlignEnum(HorizontalTextAlignEnum.CENTER);
 		headerStyle.setVerticalTextAlignEnum(VerticalTextAlignEnum.MIDDLE);
@@ -67,13 +67,13 @@ public class StylesReportTest extends BaseDjReportTest {
 		Style amountStyle = new Style();
 		amountStyle.setHorizontalTextAlignEnum(HorizontalTextAlignEnum.RIGHT);
 		amountStyle.setBackgroundColor(Color.cyan);
-		amountStyle.setTransparency(Transparency.OPAQUE);
+		amountStyle.setTransparency(ModeEnum.OPAQUE);
 		Style oddRowStyle = new Style();
 		oddRowStyle.setBorder(Border.THIN());
 		Color veryLightGrey = new Color(230,230,230);
 		Color veryLightBlue = new Color(210,210,250);
 		oddRowStyle.getBorder().setColor(veryLightBlue);
-		oddRowStyle.setBackgroundColor(veryLightGrey);oddRowStyle.setTransparency(Transparency.OPAQUE);
+		oddRowStyle.setBackgroundColor(veryLightGrey);oddRowStyle.setTransparency(ModeEnum.OPAQUE);
 
 		DynamicReportBuilder drb = new DynamicReportBuilder();
 		Integer margin = 20;

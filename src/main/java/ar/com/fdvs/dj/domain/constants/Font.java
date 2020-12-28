@@ -258,11 +258,11 @@ public class Font extends BaseDomainConstant implements Cloneable {
 		JRDesignFont font = new JRDesignFont(new JRBaseFont());
 		font.setFontName(getFontName());
 		font.setFontSize(getFontSize());
-		font.setBold(isBold());
-		font.setItalic(isItalic());
-		font.setUnderline(isUnderline());
+		font.setBold((Boolean)isBold());
+		font.setItalic((Boolean)isItalic());
+		font.setUnderline((Boolean)isUnderline());
 		font.setPdfFontName(getPdfFontName());
-		font.setPdfEmbedded(isPdfFontEmbedded());
+		font.setPdfEmbedded((Boolean)isPdfFontEmbedded());
 		font.setPdfEncoding(getPdfFontEncoding());
 		return font;
 	}

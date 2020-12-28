@@ -55,7 +55,6 @@ import ar.com.fdvs.dj.domain.Style;
 import ar.com.fdvs.dj.domain.constants.Border;
 import ar.com.fdvs.dj.domain.constants.GroupLayout;
 import ar.com.fdvs.dj.domain.constants.LabelPosition;
-import ar.com.fdvs.dj.domain.constants.Transparency;
 import ar.com.fdvs.dj.domain.entities.DJGroup;
 import ar.com.fdvs.dj.domain.entities.DJGroupVariable;
 import ar.com.fdvs.dj.domain.entities.Subreport;
@@ -97,7 +96,6 @@ import net.sf.jasperreports.engine.type.StretchTypeEnum;
  * It provides DJ full features (styles, groups, conditional styles, <br>
  * expressions, group and total variables, etc)
  */
-@SuppressWarnings("WeakerAccess")
 public class ClassicLayoutManager extends AbstractLayoutManager {
 
 	protected static final String PAGE_BREAK_FOR_ = "pageBreak_for_";
@@ -691,8 +689,8 @@ public class ClassicLayoutManager extends AbstractLayoutManager {
 
         LayoutUtils.convertBorderToPen(Border.NO_BORDER(), rect.getLinePen());
 
-		rect.setMode(ModeEnum.getByValue( Transparency.TRANSPARENT.getValue()) );
-//		rect.setMode(Transparency.OPAQUE.getValue());
+		rect.setMode(ModeEnum.getByValue( ModeEnum.TRANSPARENT.getValue()) );
+//		rect.setMode(ModeEnum.OPAQUE.getValue());
 //		rect.setBackcolor(Color.RED);
 		rect.setWidth(getReport().getOptions().getPrintableWidth());
 		rect.setHeight(amount);
