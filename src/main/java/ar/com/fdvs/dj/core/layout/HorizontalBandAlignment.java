@@ -31,7 +31,7 @@ package ar.com.fdvs.dj.core.layout;
 
 import net.sf.jasperreports.engine.design.JRDesignBand;
 import net.sf.jasperreports.engine.design.JRDesignElement;
-import net.sf.jasperreports.engine.type.HorizontalAlignEnum;
+import net.sf.jasperreports.engine.type.HorizontalTextAlignEnum;
 
 /**
  * @author msimone
@@ -44,12 +44,12 @@ public abstract class HorizontalBandAlignment {
 	 * @param aligment
 	 * @return
 	 */
-	public static HorizontalBandAlignment buildAligment(byte aligment){
-		if (aligment == RIGHT.getAlignment())
+	public static HorizontalBandAlignment buildAligment(HorizontalTextAlignEnum aligment){
+		if (aligment == HorizontalTextAlignEnum.RIGHT)
 			return RIGHT;
-		else if (aligment == LEFT.getAlignment())
+		else if (aligment == HorizontalTextAlignEnum.LEFT)
 			return LEFT;
-		else if (aligment == CENTER.getAlignment())
+		else if (aligment == HorizontalTextAlignEnum.CENTER)
 			return CENTER;
 
 		return LEFT;
@@ -62,8 +62,8 @@ public abstract class HorizontalBandAlignment {
 			band.addElement(element);
 		}
 
-		public byte getAlignment() {
-			return HorizontalAlignEnum.RIGHT.getValue();
+		public HorizontalTextAlignEnum getAlignment() {
+			return HorizontalTextAlignEnum.RIGHT;
 		}
 	};
 
@@ -73,8 +73,8 @@ public abstract class HorizontalBandAlignment {
 			band.addElement(element);
 		}
 
-		public byte getAlignment() {
-			return HorizontalAlignEnum.LEFT.getValue();
+		public HorizontalTextAlignEnum getAlignment() {
+			return HorizontalTextAlignEnum.LEFT;
 		}
 	};
 
@@ -84,12 +84,12 @@ public abstract class HorizontalBandAlignment {
 			band.addElement(element);
 		}
 
-		public byte getAlignment() {
-			return HorizontalAlignEnum.CENTER.getValue();
+		public HorizontalTextAlignEnum getAlignment() {
+			return HorizontalTextAlignEnum.CENTER;
 		}
 	};
 
-	public abstract byte getAlignment();
+	public abstract HorizontalTextAlignEnum getAlignment();
 	public abstract void align(int totalWidth, int offset, JRDesignBand band, JRDesignElement element);
 
 }

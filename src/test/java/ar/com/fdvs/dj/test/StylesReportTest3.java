@@ -31,7 +31,6 @@ package ar.com.fdvs.dj.test;
 
 import java.awt.Color;
 
-import net.sf.jasperreports.view.JasperViewer;
 import ar.com.fdvs.dj.domain.DynamicReport;
 import ar.com.fdvs.dj.domain.Style;
 import ar.com.fdvs.dj.domain.builders.ColumnBuilder;
@@ -39,10 +38,11 @@ import ar.com.fdvs.dj.domain.builders.DynamicReportBuilder;
 import ar.com.fdvs.dj.domain.builders.GroupBuilder;
 import ar.com.fdvs.dj.domain.constants.Font;
 import ar.com.fdvs.dj.domain.constants.GroupLayout;
-import ar.com.fdvs.dj.domain.constants.HorizontalAlign;
 import ar.com.fdvs.dj.domain.entities.DJGroup;
 import ar.com.fdvs.dj.domain.entities.columns.AbstractColumn;
 import ar.com.fdvs.dj.domain.entities.columns.PropertyColumn;
+import net.sf.jasperreports.engine.type.HorizontalTextAlignEnum;
+import net.sf.jasperreports.view.JasperViewer;
 
 /**
  * This test aims to generate a report with almost no styles, ensuring that there are no errors
@@ -74,7 +74,7 @@ public class StylesReportTest3 extends BaseDjReportTest {
 
 		Style style1 = new Style("style1");
 		style1.setFont(Font.ARIAL_MEDIUM_BOLD);
-		style1.setHorizontalAlign(HorizontalAlign.CENTER);
+		style1.setHorizontalTextAlignEnum(HorizontalTextAlignEnum.CENTER);
 		drb.addStyle(style1);
 
 		Style style2 = Style.createBlankStyle("style2", "style1");

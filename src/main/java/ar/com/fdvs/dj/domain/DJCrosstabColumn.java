@@ -29,9 +29,9 @@
 
 package ar.com.fdvs.dj.domain;
 
-import ar.com.fdvs.dj.domain.entities.Entity;
-
 import java.util.Comparator;
+
+import ar.com.fdvs.dj.domain.entities.Entity;
 
 public class DJCrosstabColumn extends DJBaseElement {
 

@@ -5,15 +5,15 @@ import java.awt.Color;
 import ar.com.fdvs.dj.domain.Style;
 import ar.com.fdvs.dj.domain.constants.Border;
 import ar.com.fdvs.dj.domain.constants.Font;
-import ar.com.fdvs.dj.domain.constants.HorizontalAlign;
 import ar.com.fdvs.dj.domain.constants.Transparency;
-import ar.com.fdvs.dj.domain.constants.VerticalAlign;
+import net.sf.jasperreports.engine.type.HorizontalTextAlignEnum;
+import net.sf.jasperreports.engine.type.VerticalTextAlignEnum;
 
 public class StyleFactory {
 
 	public static Style createDetailStyle(String name){
 		Style detailStyle = new Style(name);
-		detailStyle.setVerticalAlign(VerticalAlign.TOP);
+		detailStyle.setVerticalTextAlignEnum(VerticalTextAlignEnum.TOP);
 		return detailStyle;
 	}
 
@@ -27,7 +27,7 @@ public class StyleFactory {
 		Style style = new Style(name);
 		style.setFont(Font.ARIAL_BIG_BOLD);
 		style.setBorderBottom(Border.THIN());
-		style.setVerticalAlign(VerticalAlign.TOP);
+		style.setVerticalTextAlignEnum(VerticalTextAlignEnum.TOP);
 		return style;
 	}
 
@@ -36,17 +36,17 @@ public class StyleFactory {
 		headerStyle.setFont(Font.ARIAL_MEDIUM_BOLD);
 		headerStyle.setBackgroundColor(Color.gray);
 		headerStyle.setTextColor(Color.white);
-		headerStyle.setHorizontalAlign(HorizontalAlign.CENTER);
-		headerStyle.setVerticalAlign(VerticalAlign.MIDDLE);
+		headerStyle.setHorizontalTextAlignEnum(HorizontalTextAlignEnum.CENTER);
+		headerStyle.setVerticalTextAlignEnum(VerticalTextAlignEnum.MIDDLE);
 		headerStyle.setTransparency(Transparency.OPAQUE);
 		return headerStyle;
 	}
 	public static Style createHeaderStyle2(String name){
 		Style headerStyle = new Style(name);
 		headerStyle.setFont(Font.ARIAL_MEDIUM_BOLD);
-		headerStyle.setHorizontalAlign(HorizontalAlign.CENTER);
+		headerStyle.setHorizontalTextAlignEnum(HorizontalTextAlignEnum.CENTER);
 		headerStyle.setBorderBottom(Border.THIN());
-		headerStyle.setVerticalAlign(VerticalAlign.MIDDLE);
+		headerStyle.setVerticalTextAlignEnum(VerticalTextAlignEnum.MIDDLE);
 		headerStyle.setBackgroundColor(Color.LIGHT_GRAY);
 		headerStyle.setTransparency(Transparency.OPAQUE);
 		return headerStyle;
@@ -56,8 +56,8 @@ public class StyleFactory {
 		Style style = new Style(name);
 		style.setFont(Font.ARIAL_MEDIUM_BOLD);
 		style.setBorderTop(Border.THIN());
-		style.setHorizontalAlign(HorizontalAlign.RIGHT);
-		style.setVerticalAlign(VerticalAlign.MIDDLE);
+		style.setHorizontalTextAlignEnum(HorizontalTextAlignEnum.RIGHT);
+		style.setVerticalTextAlignEnum(VerticalTextAlignEnum.MIDDLE);
 		style.setTextColor(new Color(50,50,150));
 		return style;
 	}
@@ -66,8 +66,8 @@ public class StyleFactory {
 		Style style = new Style(name);
 		style.setFont(Font.ARIAL_MEDIUM_BOLD);
 		style.setTextColor(new Color(150,150,150));
-		style.setHorizontalAlign(HorizontalAlign.RIGHT);
-		style.setVerticalAlign(VerticalAlign.MIDDLE);
+		style.setHorizontalTextAlignEnum(HorizontalTextAlignEnum.RIGHT);
+		style.setVerticalTextAlignEnum(VerticalTextAlignEnum.MIDDLE);
 		return style;
 	}
 

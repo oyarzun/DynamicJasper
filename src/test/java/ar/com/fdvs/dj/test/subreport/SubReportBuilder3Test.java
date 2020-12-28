@@ -27,6 +27,10 @@
 
 package ar.com.fdvs.dj.test.subreport;
 
+import java.util.Date;
+import java.util.HashMap;
+import java.util.Map;
+
 import ar.com.fdvs.dj.core.DJConstants;
 import ar.com.fdvs.dj.core.layout.ClassicLayoutManager;
 import ar.com.fdvs.dj.domain.CustomExpression;
@@ -38,10 +42,6 @@ import ar.com.fdvs.dj.test.BaseDjReportTest;
 import ar.com.fdvs.dj.test.domain.Product;
 import net.sf.jasperreports.view.JasperDesignViewer;
 import net.sf.jasperreports.view.JasperViewer;
-
-import java.util.Date;
-import java.util.HashMap;
-import java.util.Map;
 
 /**
  * This tests makes the subreport to use it's own parameters map (which a map stored in the parent parameters map)

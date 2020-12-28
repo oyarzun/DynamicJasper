@@ -2,14 +2,13 @@ package ar.com.fdvs.dj.test.groups;
 
 import java.util.Map;
 
+import org.apache.log4j.Logger;
+
+import ar.com.fdvs.dj.core.DJDefaultScriptlet;
 import net.sf.jasperreports.engine.JRScriptletException;
 import net.sf.jasperreports.engine.JasperReport;
 import net.sf.jasperreports.engine.fill.JRFillParameter;
 import net.sf.jasperreports.engine.fill.JRFillVariable;
-
-import org.apache.log4j.Logger;
-
-import ar.com.fdvs.dj.core.DJDefaultScriptlet;
 
 /**
  * It is very important to extend {@link DJDefaultScriptlet} because it is needed for the normal operation of the Report.

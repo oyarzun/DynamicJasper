@@ -1,8 +1,8 @@
 package ar.com.fdvs.dj.domain;
 
-import ar.com.fdvs.dj.domain.entities.Entity;
-
 import java.io.Serializable;
+
+import ar.com.fdvs.dj.domain.entities.Entity;
 
 public abstract class DJBaseElement implements Entity, Serializable {
 

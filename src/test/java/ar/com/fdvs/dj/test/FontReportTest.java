@@ -32,12 +32,12 @@ package ar.com.fdvs.dj.test;
 
 import java.util.Date;
 
-import net.sf.jasperreports.view.JasperViewer;
 import ar.com.fdvs.dj.domain.DynamicReport;
 import ar.com.fdvs.dj.domain.Style;
 import ar.com.fdvs.dj.domain.builders.FastReportBuilder;
 import ar.com.fdvs.dj.domain.builders.StyleBuilder;
 import ar.com.fdvs.dj.domain.constants.Font;
+import net.sf.jasperreports.view.JasperViewer;
 
 public class FontReportTest extends BaseDjReportTest {
 

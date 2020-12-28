@@ -29,6 +29,8 @@
 
 package ar.com.fdvs.dj.domain.builders;
 
+import java.util.Comparator;
+
 import ar.com.fdvs.dj.core.DJConstants;
 import ar.com.fdvs.dj.core.layout.CrossTabColorShema;
 import ar.com.fdvs.dj.core.layout.LayoutException;
@@ -43,8 +45,6 @@ import ar.com.fdvs.dj.domain.DJLabel;
 import ar.com.fdvs.dj.domain.DJValueFormatter;
 import ar.com.fdvs.dj.domain.Style;
 import ar.com.fdvs.dj.domain.constants.Border;
-
-import java.util.Comparator;
 
 public class CrosstabBuilder {
 

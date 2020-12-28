@@ -29,6 +29,8 @@
 
 package ar.com.fdvs.dj.core.layout;
 
+import java.util.Random;
+
 import ar.com.fdvs.dj.domain.AutoText;
 import ar.com.fdvs.dj.domain.DynamicJasperDesign;
 import ar.com.fdvs.dj.domain.DynamicReport;
@@ -39,8 +41,6 @@ import net.sf.jasperreports.engine.design.JRDesignTextField;
 import net.sf.jasperreports.engine.type.EvaluationTimeEnum;
 import net.sf.jasperreports.engine.type.HorizontalTextAlignEnum;
 import net.sf.jasperreports.engine.type.PositionTypeEnum;
-
-import java.util.Random;
 
 /**
  * @author msimone

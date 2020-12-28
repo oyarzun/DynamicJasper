@@ -33,8 +33,6 @@ import java.awt.Color;
 import java.util.HashMap;
 import java.util.Map;
 
-import net.sf.jasperreports.engine.JRParameter;
-import net.sf.jasperreports.view.JasperViewer;
 import ar.com.fdvs.dj.domain.AutoText;
 import ar.com.fdvs.dj.domain.DJCalculation;
 import ar.com.fdvs.dj.domain.DynamicReport;
@@ -46,13 +44,15 @@ import ar.com.fdvs.dj.domain.builders.GroupBuilder;
 import ar.com.fdvs.dj.domain.constants.Border;
 import ar.com.fdvs.dj.domain.constants.Font;
 import ar.com.fdvs.dj.domain.constants.GroupLayout;
-import ar.com.fdvs.dj.domain.constants.HorizontalAlign;
 import ar.com.fdvs.dj.domain.constants.Transparency;
-import ar.com.fdvs.dj.domain.constants.VerticalAlign;
 import ar.com.fdvs.dj.domain.entities.DJGroup;
 import ar.com.fdvs.dj.domain.entities.columns.AbstractColumn;
 import ar.com.fdvs.dj.domain.entities.columns.PropertyColumn;
 import ar.com.fdvs.dj.test.BaseDjReportTest;
+import net.sf.jasperreports.engine.JRParameter;
+import net.sf.jasperreports.engine.type.HorizontalTextAlignEnum;
+import net.sf.jasperreports.engine.type.VerticalTextAlignEnum;
+import net.sf.jasperreports.view.JasperViewer;
 
 public class SystemVariableReportTest extends BaseDjReportTest {
 
@@ -65,20 +65,20 @@ public class SystemVariableReportTest extends BaseDjReportTest {
 		headerStyle.setBorderBottom(Border.PEN_1_POINT());
 		headerStyle.setBackgroundColor(Color.gray);
 		headerStyle.setTextColor(Color.white);
-		headerStyle.setHorizontalAlign(HorizontalAlign.CENTER);
-		headerStyle.setVerticalAlign(VerticalAlign.MIDDLE);
+		headerStyle.setHorizontalTextAlignEnum(HorizontalTextAlignEnum.CENTER);
+		headerStyle.setVerticalTextAlignEnum(VerticalTextAlignEnum.MIDDLE);
 		headerStyle.setTransparency(Transparency.OPAQUE);
 
 		Style headerVariables = new Style();
 		headerVariables.setFont(Font.ARIAL_MEDIUM_BOLD);
 //		headerVariables.setBorderBottom(Border.THIN());
-		headerVariables.setHorizontalAlign(HorizontalAlign.RIGHT);
-		headerVariables.setVerticalAlign(VerticalAlign.MIDDLE);
+		headerVariables.setHorizontalTextAlignEnum(HorizontalTextAlignEnum.RIGHT);
+		headerVariables.setVerticalTextAlignEnum(VerticalTextAlignEnum.MIDDLE);
 
 		Style titleStyle = new Style();
 		titleStyle.setFont(new Font(18, Font._FONT_VERDANA, true));
 		Style importeStyle = new Style();
-		importeStyle.setHorizontalAlign(HorizontalAlign.RIGHT);
+		importeStyle.setHorizontalTextAlignEnum(HorizontalTextAlignEnum.RIGHT);
 		Style oddRowStyle = new Style();
 		oddRowStyle.setBorder(Border.NO_BORDER());
 		oddRowStyle.setBackgroundColor(Color.LIGHT_GRAY);

@@ -33,8 +33,6 @@ package ar.com.fdvs.dj.test.crosstab;
 import java.awt.Color;
 import java.util.Date;
 
-import net.sf.jasperreports.view.JasperDesignViewer;
-import net.sf.jasperreports.view.JasperViewer;
 import ar.com.fdvs.dj.core.layout.CrossTabColorShema;
 import ar.com.fdvs.dj.domain.DJCalculation;
 import ar.com.fdvs.dj.domain.DJCrosstab;
@@ -45,11 +43,13 @@ import ar.com.fdvs.dj.domain.builders.FastReportBuilder;
 import ar.com.fdvs.dj.domain.builders.StyleBuilder;
 import ar.com.fdvs.dj.domain.constants.Border;
 import ar.com.fdvs.dj.domain.constants.Font;
-import ar.com.fdvs.dj.domain.constants.HorizontalAlign;
 import ar.com.fdvs.dj.domain.constants.Page;
 import ar.com.fdvs.dj.domain.constants.Transparency;
-import ar.com.fdvs.dj.domain.constants.VerticalAlign;
 import ar.com.fdvs.dj.test.BaseDjReportTest;
+import net.sf.jasperreports.engine.type.HorizontalTextAlignEnum;
+import net.sf.jasperreports.engine.type.VerticalTextAlignEnum;
+import net.sf.jasperreports.view.JasperDesignViewer;
+import net.sf.jasperreports.view.JasperViewer;
 
 /**
  * This uses the main datasource instead of one passed as parameter
@@ -131,52 +131,52 @@ public class CrosstabReportTest7 extends BaseDjReportTest {
 	private void initStyles() {
 		titleStyle =  new StyleBuilder(false)
 			.setFont(Font.ARIAL_BIG_BOLD)
-			.setHorizontalAlign(HorizontalAlign.LEFT)
-			.setVerticalAlign(VerticalAlign.MIDDLE)
+			.setHorizontalTextAlignEnum(HorizontalTextAlignEnum.LEFT)
+			.setVerticalTextAlignEnum(VerticalTextAlignEnum.MIDDLE)
 			.setTransparency(Transparency.OPAQUE)
 			.setBorderBottom(Border.PEN_2_POINT())
 			.build();
 
 		totalHeaderStyle = new StyleBuilder(false)
-			.setHorizontalAlign(HorizontalAlign.CENTER)
-			.setVerticalAlign(VerticalAlign.MIDDLE)
+			.setHorizontalTextAlignEnum(HorizontalTextAlignEnum.CENTER)
+			.setVerticalTextAlignEnum(VerticalTextAlignEnum.MIDDLE)
 			.setFont(Font.ARIAL_MEDIUM_BOLD)
 			.setTransparency(Transparency.OPAQUE)
 			.setTextColor(Color.BLUE)
 			.setBackgroundColor(Color.GREEN)
 			.build();
 		rowHeaderStyle = new StyleBuilder(false)
-			.setHorizontalAlign(HorizontalAlign.LEFT)
-			.setVerticalAlign(VerticalAlign.TOP)
+			.setHorizontalTextAlignEnum(HorizontalTextAlignEnum.LEFT)
+			.setVerticalTextAlignEnum(VerticalTextAlignEnum.TOP)
 			.setFont(Font.ARIAL_MEDIUM_BOLD)
 			.setBackgroundColor(new Color(240,248,255))
 			.setBackgroundColor(Color.BLUE)
 			.build();
 		colHeaderStyle = new StyleBuilder(false)
-			.setHorizontalAlign(HorizontalAlign.LEFT)
-			.setVerticalAlign(VerticalAlign.TOP)
+			.setHorizontalTextAlignEnum(HorizontalTextAlignEnum.LEFT)
+			.setVerticalTextAlignEnum(VerticalTextAlignEnum.TOP)
 			.setFont(Font.ARIAL_MEDIUM_BOLD)
 			.setBackgroundColor(new Color(255,240,248))
 			.setBackgroundColor(Color.RED)
 			.build();
 		mainHeaderStyle = new StyleBuilder(false)
-			.setHorizontalAlign(HorizontalAlign.CENTER)
-			.setVerticalAlign(VerticalAlign.MIDDLE)
+			.setHorizontalTextAlignEnum(HorizontalTextAlignEnum.CENTER)
+			.setVerticalTextAlignEnum(VerticalTextAlignEnum.MIDDLE)
 			.setFont(Font.ARIAL_BIG_BOLD)
 			.setTextColor(Color.BLACK)
 			.build();
 		totalStyle = new StyleBuilder(false).setPattern("#,###.##")
-			.setHorizontalAlign(HorizontalAlign.RIGHT)
+			.setHorizontalTextAlignEnum(HorizontalTextAlignEnum.RIGHT)
 			.setFont(Font.ARIAL_MEDIUM_BOLD)
 			.build();
         Style measureStyle = new StyleBuilder(false).setPattern("#,###.##")
-                .setHorizontalAlign(HorizontalAlign.RIGHT)
+                .setHorizontalTextAlignEnum(HorizontalTextAlignEnum.RIGHT)
                 .setFont(Font.ARIAL_MEDIUM)
                 .setBackgroundColor(Color.WHITE)
                 .build();
 
 		measureStyle2 = new StyleBuilder(false).setPattern("#,###.##")
-		.setHorizontalAlign(HorizontalAlign.RIGHT)
+		.setHorizontalTextAlignEnum(HorizontalTextAlignEnum.RIGHT)
 		.setFont(new Font(Font.MEDIUM,Font._FONT_ARIAL,false,true,false))
 		.setTextColor(Color.RED)
 		.build();

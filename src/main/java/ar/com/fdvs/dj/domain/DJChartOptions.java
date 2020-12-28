@@ -29,10 +29,10 @@
 
 package ar.com.fdvs.dj.domain;
 
-import ar.com.fdvs.dj.domain.entities.Entity;
-
-import java.awt.*;
+import java.awt.Color;
 import java.util.List;
+
+import ar.com.fdvs.dj.domain.entities.Entity;
 
 /**
  * @deprecated

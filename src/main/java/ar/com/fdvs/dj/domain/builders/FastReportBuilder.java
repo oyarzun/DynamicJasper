@@ -29,6 +29,12 @@
 
 package ar.com.fdvs.dj.domain.builders;
 
+import java.awt.Color;
+import java.io.InputStream;
+import java.math.BigDecimal;
+import java.sql.Timestamp;
+import java.util.Date;
+
 import ar.com.fdvs.dj.core.BarcodeTypes;
 import ar.com.fdvs.dj.core.DJConstants;
 import ar.com.fdvs.dj.domain.ColumnProperty;
@@ -42,21 +48,15 @@ import ar.com.fdvs.dj.domain.constants.Border;
 import ar.com.fdvs.dj.domain.constants.DJVariableResetType;
 import ar.com.fdvs.dj.domain.constants.Font;
 import ar.com.fdvs.dj.domain.constants.GroupLayout;
-import ar.com.fdvs.dj.domain.constants.HorizontalAlign;
 import ar.com.fdvs.dj.domain.constants.ImageScaleMode;
 import ar.com.fdvs.dj.domain.constants.Transparency;
-import ar.com.fdvs.dj.domain.constants.VerticalAlign;
 import ar.com.fdvs.dj.domain.entities.DJGroup;
 import ar.com.fdvs.dj.domain.entities.DJGroupVariable;
 import ar.com.fdvs.dj.domain.entities.DJVariable;
 import ar.com.fdvs.dj.domain.entities.columns.AbstractColumn;
 import ar.com.fdvs.dj.domain.entities.columns.PropertyColumn;
-
-import java.awt.Color;
-import java.io.InputStream;
-import java.math.BigDecimal;
-import java.sql.Timestamp;
-import java.util.Date;
+import net.sf.jasperreports.engine.type.HorizontalTextAlignEnum;
+import net.sf.jasperreports.engine.type.VerticalTextAlignEnum;
 
 /**
  * Builder created to give users a friendly way of creating a DynamicReport.<br>
@@ -86,23 +86,23 @@ public class FastReportBuilder extends DynamicReportBuilder {
 
 	public FastReportBuilder(){
 		currencyStyle = new Style("currencyStyle");
-		currencyStyle.setHorizontalAlign(HorizontalAlign.RIGHT);
+		currencyStyle.setHorizontalTextAlignEnum(HorizontalTextAlignEnum.RIGHT);
 
 		numberStyle = new Style("numberStyle");
-		numberStyle.setHorizontalAlign(HorizontalAlign.RIGHT);
+		numberStyle.setHorizontalTextAlignEnum(HorizontalTextAlignEnum.RIGHT);
 
 		Style defaultHeaderStyle = options.getDefaultHeaderStyle();
 		defaultHeaderStyle.setFont(Font.ARIAL_MEDIUM_BOLD);
-		defaultHeaderStyle.setHorizontalAlign(HorizontalAlign.CENTER);
+		defaultHeaderStyle.setHorizontalTextAlignEnum(HorizontalTextAlignEnum.CENTER);
 		defaultHeaderStyle.setBorderBottom(Border.THIN());
-		defaultHeaderStyle.setVerticalAlign(VerticalAlign.MIDDLE);
+		defaultHeaderStyle.setVerticalTextAlignEnum(VerticalTextAlignEnum.MIDDLE);
 		defaultHeaderStyle.setBackgroundColor(Color.LIGHT_GRAY);
 		defaultHeaderStyle.setTransparency(Transparency.OPAQUE);
 
 		Style titleStyle2 = report.getTitleStyle();
 		titleStyle2.setFont(Font.ARIAL_BIG_BOLD);
-		titleStyle2.setHorizontalAlign(HorizontalAlign.CENTER);
-		titleStyle2.setVerticalAlign(VerticalAlign.TOP);
+		titleStyle2.setHorizontalTextAlignEnum(HorizontalTextAlignEnum.CENTER);
+		titleStyle2.setVerticalTextAlignEnum(VerticalTextAlignEnum.TOP);
 	}
 
 	public DynamicReport build(){

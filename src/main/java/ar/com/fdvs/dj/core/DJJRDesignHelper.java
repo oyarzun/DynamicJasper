@@ -29,24 +29,38 @@
 
 package ar.com.fdvs.dj.core;
 
+import java.lang.reflect.InvocationTargetException;
+import java.util.List;
+
+import org.apache.commons.beanutils.BeanUtils;
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
+
 import ar.com.fdvs.dj.domain.DJQuery;
 import ar.com.fdvs.dj.domain.DynamicJasperDesign;
 import ar.com.fdvs.dj.domain.DynamicReport;
 import ar.com.fdvs.dj.domain.DynamicReportOptions;
 import ar.com.fdvs.dj.domain.constants.Page;
 import ar.com.fdvs.dj.util.LayoutUtils;
-import net.sf.jasperreports.engine.*;
-import net.sf.jasperreports.engine.design.*;
+import net.sf.jasperreports.engine.JRBand;
+import net.sf.jasperreports.engine.JRDataset;
+import net.sf.jasperreports.engine.JRException;
+import net.sf.jasperreports.engine.JRField;
+import net.sf.jasperreports.engine.JRParameter;
+import net.sf.jasperreports.engine.JRQuery;
+import net.sf.jasperreports.engine.JRReportTemplate;
+import net.sf.jasperreports.engine.JRStyle;
+import net.sf.jasperreports.engine.JRVariable;
+import net.sf.jasperreports.engine.design.JRDesignBand;
+import net.sf.jasperreports.engine.design.JRDesignDataset;
+import net.sf.jasperreports.engine.design.JRDesignQuery;
+import net.sf.jasperreports.engine.design.JRDesignSection;
+import net.sf.jasperreports.engine.design.JRDesignVariable;
+import net.sf.jasperreports.engine.design.JasperDesign;
 import net.sf.jasperreports.engine.type.OrientationEnum;
 import net.sf.jasperreports.engine.type.PrintOrderEnum;
 import net.sf.jasperreports.engine.type.WhenNoDataTypeEnum;
 import net.sf.jasperreports.engine.type.WhenResourceMissingTypeEnum;
-import org.apache.commons.beanutils.BeanUtils;
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
-
-import java.lang.reflect.InvocationTargetException;
-import java.util.List;
 
 public class DJJRDesignHelper {
 

@@ -29,14 +29,30 @@
 
 package ar.com.fdvs.dj.test.domain.chart.builder;
 
-import ar.com.fdvs.dj.domain.*;
+import java.awt.Color;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
+import org.jfree.data.time.Month;
+
+import ar.com.fdvs.dj.domain.DJCalculation;
+import ar.com.fdvs.dj.domain.DJHyperLink;
+import ar.com.fdvs.dj.domain.DynamicJasperDesign;
+import ar.com.fdvs.dj.domain.DynamicReport;
+import ar.com.fdvs.dj.domain.StringExpression;
+import ar.com.fdvs.dj.domain.Style;
 import ar.com.fdvs.dj.domain.builders.ColumnBuilder;
 import ar.com.fdvs.dj.domain.builders.DynamicReportBuilder;
 import ar.com.fdvs.dj.domain.chart.DJChart;
 import ar.com.fdvs.dj.domain.chart.DJChartOptions;
 import ar.com.fdvs.dj.domain.chart.builder.DJTimeSeriesChartBuilder;
 import ar.com.fdvs.dj.domain.chart.plot.DJAxisFormat;
-import ar.com.fdvs.dj.domain.constants.*;
+import ar.com.fdvs.dj.domain.constants.Border;
 import ar.com.fdvs.dj.domain.constants.Font;
 import ar.com.fdvs.dj.domain.constants.Transparency;
 import ar.com.fdvs.dj.domain.entities.columns.AbstractColumn;
@@ -51,15 +67,10 @@ import net.sf.jasperreports.engine.data.JRBeanCollectionDataSource;
 import net.sf.jasperreports.engine.design.JRDesignChart;
 import net.sf.jasperreports.engine.design.JRDesignGroup;
 import net.sf.jasperreports.engine.design.JRDesignVariable;
+import net.sf.jasperreports.engine.type.HorizontalTextAlignEnum;
 import net.sf.jasperreports.engine.type.LineStyleEnum;
+import net.sf.jasperreports.engine.type.VerticalTextAlignEnum;
 import net.sf.jasperreports.view.JasperViewer;
-import org.jfree.data.time.Month;
-
-import java.awt.*;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.*;
-import java.util.List;
 
 public class TimeSeriesChartBuilderTest extends BaseDjReportTest {
 	private DynamicReportBuilder drb; 
@@ -72,8 +83,8 @@ public class TimeSeriesChartBuilderTest extends BaseDjReportTest {
 		Style headerStyle = new Style();
 		headerStyle.setFont(Font.VERDANA_MEDIUM_BOLD);
 		headerStyle.setBorderBottom(Border.PEN_2_POINT());
-		headerStyle.setHorizontalAlign(HorizontalAlign.CENTER);
-		headerStyle.setVerticalAlign(VerticalAlign.MIDDLE);
+		headerStyle.setHorizontalTextAlignEnum(HorizontalTextAlignEnum.CENTER);
+		headerStyle.setVerticalTextAlignEnum(VerticalTextAlignEnum.MIDDLE);
 		headerStyle.setBackgroundColor(Color.DARK_GRAY);
 		headerStyle.setTextColor(Color.WHITE);
 		headerStyle.setTransparency(Transparency.OPAQUE);

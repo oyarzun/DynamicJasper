@@ -30,22 +30,29 @@
 package ar.com.fdvs.dj.test.crosstab;
 
 
+import java.awt.Color;
+import java.util.Date;
+import java.util.Map;
+
 import ar.com.fdvs.dj.core.DJConstants;
-import ar.com.fdvs.dj.domain.*;
+import ar.com.fdvs.dj.domain.DJCalculation;
+import ar.com.fdvs.dj.domain.DJCrosstab;
+import ar.com.fdvs.dj.domain.DjBaseMMValueFormatter;
+import ar.com.fdvs.dj.domain.DynamicReport;
+import ar.com.fdvs.dj.domain.Style;
 import ar.com.fdvs.dj.domain.builders.CrosstabBuilder;
 import ar.com.fdvs.dj.domain.builders.FastReportBuilder;
 import ar.com.fdvs.dj.domain.builders.StyleBuilder;
-import ar.com.fdvs.dj.domain.constants.*;
+import ar.com.fdvs.dj.domain.constants.Border;
 import ar.com.fdvs.dj.domain.constants.Font;
+import ar.com.fdvs.dj.domain.constants.Page;
 import ar.com.fdvs.dj.domain.constants.Transparency;
 import ar.com.fdvs.dj.test.BaseDjReportTest;
 import ar.com.fdvs.dj.test.TestRepositoryProducts;
 import ar.com.fdvs.dj.util.SortUtils;
+import net.sf.jasperreports.engine.type.HorizontalTextAlignEnum;
+import net.sf.jasperreports.engine.type.VerticalTextAlignEnum;
 import net.sf.jasperreports.view.JasperViewer;
-
-import java.awt.*;
-import java.util.Date;
-import java.util.Map;
 
 public class CrosstabReportWithMMValueFormatterTest extends BaseDjReportTest {
 
@@ -136,36 +143,36 @@ public class CrosstabReportWithMMValueFormatterTest extends BaseDjReportTest {
 	private void initStyles() {
 		titleStyle =  new StyleBuilder(false)
 			.setFont(Font.ARIAL_BIG_BOLD)
-			.setHorizontalAlign(HorizontalAlign.LEFT)
-			.setVerticalAlign(VerticalAlign.MIDDLE)
+			.setHorizontalTextAlignEnum(HorizontalTextAlignEnum.LEFT)
+			.setVerticalTextAlignEnum(VerticalTextAlignEnum.MIDDLE)
 			.setTransparency(Transparency.OPAQUE)
 			.setBorderBottom(Border.PEN_1_POINT())
 			.build();
 
 		totalColHeaderStyle = new StyleBuilder(false)
-			.setHorizontalAlign(HorizontalAlign.CENTER)
-			.setVerticalAlign(VerticalAlign.MIDDLE)
+			.setHorizontalTextAlignEnum(HorizontalTextAlignEnum.CENTER)
+			.setVerticalTextAlignEnum(VerticalTextAlignEnum.MIDDLE)
 			.setFont(Font.ARIAL_MEDIUM_BOLD)
 			.setTextColor(Color.WHITE)
 			.setBackgroundColor(Color.BLUE)
 			.build();
 
 		totalRowHeaderStyle = new StyleBuilder(false)
-			.setHorizontalAlign(HorizontalAlign.CENTER)
-			.setVerticalAlign(VerticalAlign.MIDDLE)
+			.setHorizontalTextAlignEnum(HorizontalTextAlignEnum.CENTER)
+			.setVerticalTextAlignEnum(VerticalTextAlignEnum.MIDDLE)
 			.setFont(Font.ARIAL_MEDIUM_BOLD)
 			.setTextColor(Color.WHITE)
 			.setBackgroundColor(Color.GREEN)
 			.build();
 
 		rowHeaderStyle = new StyleBuilder(false)
-			.setHorizontalAlign(HorizontalAlign.LEFT)
-			.setVerticalAlign(VerticalAlign.TOP)
+			.setHorizontalTextAlignEnum(HorizontalTextAlignEnum.LEFT)
+			.setVerticalTextAlignEnum(VerticalTextAlignEnum.TOP)
 			.setFont(Font.ARIAL_MEDIUM_BOLD)
 			.build();
 		mainHeaderStyle = new StyleBuilder(false)
-			.setHorizontalAlign(HorizontalAlign.CENTER)
-			.setVerticalAlign(VerticalAlign.MIDDLE)
+			.setHorizontalTextAlignEnum(HorizontalTextAlignEnum.CENTER)
+			.setVerticalTextAlignEnum(VerticalTextAlignEnum.MIDDLE)
 			.setFont(Font.ARIAL_BIG_BOLD)
 			.setTextColor(Color.WHITE)
 			.setTransparency(Transparency.OPAQUE)
@@ -173,24 +180,24 @@ public class CrosstabReportWithMMValueFormatterTest extends BaseDjReportTest {
 			.build();
 
 		totalColStyle = new StyleBuilder(false).setPattern("#,###.##")
-			.setHorizontalAlign(HorizontalAlign.RIGHT)
+			.setHorizontalTextAlignEnum(HorizontalTextAlignEnum.RIGHT)
 			.setFont(Font.ARIAL_MEDIUM_BOLD)
 			.setTextColor(Color.GREEN)
 			.build();
 
 		totalRowStyle = new StyleBuilder(false).setPattern("#,###.##")
-			.setHorizontalAlign(HorizontalAlign.RIGHT)
+			.setHorizontalTextAlignEnum(HorizontalTextAlignEnum.RIGHT)
 			.setFont(Font.ARIAL_MEDIUM_BOLD)
 			.setTextColor(Color.MAGENTA)
 			.build();
 
 		measureStyle = new StyleBuilder(false).setPattern("#,###.##")
-			.setHorizontalAlign(HorizontalAlign.RIGHT)
+			.setHorizontalTextAlignEnum(HorizontalTextAlignEnum.RIGHT)
 			.setFont(Font.ARIAL_MEDIUM)
 			.build();
 
 		measureStyle2 = new StyleBuilder(false).setPattern("#,###.##")
-		.setHorizontalAlign(HorizontalAlign.RIGHT)
+		.setHorizontalTextAlignEnum(HorizontalTextAlignEnum.RIGHT)
 		.setFont(new Font(Font.MEDIUM,Font._FONT_ARIAL,false,true,false))
 		.setTextColor(Color.BLUE)
 		.build();

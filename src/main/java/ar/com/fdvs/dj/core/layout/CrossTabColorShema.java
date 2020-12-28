@@ -29,9 +29,9 @@
 
 package ar.com.fdvs.dj.core.layout;
 
-import ar.com.fdvs.dj.domain.DJCrosstab;
+import java.awt.Color;
 
-import java.awt.*;
+import ar.com.fdvs.dj.domain.DJCrosstab;
 
 public class CrossTabColorShema {
 

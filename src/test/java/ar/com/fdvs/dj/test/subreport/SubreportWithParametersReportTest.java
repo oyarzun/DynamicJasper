@@ -32,9 +32,6 @@ package ar.com.fdvs.dj.test.subreport;
 
 import java.sql.Connection;
 
-import net.sf.jasperreports.engine.xml.JRXmlWriter;
-import net.sf.jasperreports.view.JasperDesignViewer;
-import net.sf.jasperreports.view.JasperViewer;
 import ar.com.fdvs.dj.core.DJConstants;
 import ar.com.fdvs.dj.core.DynamicJasperHelper;
 import ar.com.fdvs.dj.core.layout.ClassicLayoutManager;
@@ -44,12 +41,15 @@ import ar.com.fdvs.dj.domain.Style;
 import ar.com.fdvs.dj.domain.builders.FastReportBuilder;
 import ar.com.fdvs.dj.domain.constants.Border;
 import ar.com.fdvs.dj.domain.constants.GroupLayout;
-import ar.com.fdvs.dj.domain.constants.HorizontalAlign;
 import ar.com.fdvs.dj.domain.constants.Transparency;
 import ar.com.fdvs.dj.domain.entities.SubreportParameter;
 import ar.com.fdvs.dj.test.BaseDjReportTest;
 import ar.com.fdvs.dj.test.ReportExporter;
 import ar.com.fdvs.dj.test.util.StyleFactory;
+import net.sf.jasperreports.engine.type.HorizontalTextAlignEnum;
+import net.sf.jasperreports.engine.xml.JRXmlWriter;
+import net.sf.jasperreports.view.JasperDesignViewer;
+import net.sf.jasperreports.view.JasperViewer;
 
 public class SubreportWithParametersReportTest extends BaseDjReportTest {
 
@@ -97,7 +97,7 @@ public class SubreportWithParametersReportTest extends BaseDjReportTest {
 		Style vstyle = StyleFactory.createGroup2VariableStyle("v2g");
 		Style header = StyleFactory.createHeaderStyle2("s1header");
 		header.setTransparency(Transparency.TRANSPARENT);
-		vstyle.setHorizontalAlign(HorizontalAlign.RIGHT);
+		vstyle.setHorizontalTextAlignEnum(HorizontalTextAlignEnum.RIGHT);
 		FastReportBuilder rb = new FastReportBuilder();
 		DynamicReport dr = rb
 			.addColumn("Invoice", "invoiceid", Long.class.getName(), 40)

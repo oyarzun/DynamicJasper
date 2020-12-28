@@ -31,16 +31,16 @@ package ar.com.fdvs.dj.test;
 
 import java.awt.Color;
 
-import net.sf.jasperreports.view.JasperViewer;
 import ar.com.fdvs.dj.domain.DynamicReport;
 import ar.com.fdvs.dj.domain.Style;
 import ar.com.fdvs.dj.domain.builders.ColumnBuilder;
 import ar.com.fdvs.dj.domain.builders.DynamicReportBuilder;
 import ar.com.fdvs.dj.domain.constants.Border;
 import ar.com.fdvs.dj.domain.constants.Font;
-import ar.com.fdvs.dj.domain.constants.HorizontalAlign;
 import ar.com.fdvs.dj.domain.constants.Transparency;
 import ar.com.fdvs.dj.domain.entities.columns.AbstractColumn;
+import net.sf.jasperreports.engine.type.HorizontalTextAlignEnum;
+import net.sf.jasperreports.view.JasperViewer;
 
 public class TemplateStyleReportTest extends BaseDjReportTest {
 
@@ -52,7 +52,7 @@ public class TemplateStyleReportTest extends BaseDjReportTest {
 		headerStyle.setBackgroundColor(new Color(230,230,230));
 		headerStyle.setBorderBottom(Border.THIN());
 		headerStyle.getBorderBottom().setColor(Color.black);
-		headerStyle.setHorizontalAlign(HorizontalAlign.CENTER);
+		headerStyle.setHorizontalTextAlignEnum(HorizontalTextAlignEnum.CENTER);
 		headerStyle.setTransparency(Transparency.OPAQUE);
 
 		/*
@@ -72,7 +72,7 @@ public class TemplateStyleReportTest extends BaseDjReportTest {
 		Style subtitleStyle = Style.createBlankStyle("subtitleStyle","subtitleParent");
 		subtitleStyle.setFont(Font.GEORGIA_SMALL_BOLD);
 
-		Style amountStyle = new Style(); amountStyle.setHorizontalAlign(HorizontalAlign.RIGHT);
+		Style amountStyle = new Style(); amountStyle.setHorizontalTextAlignEnum(HorizontalTextAlignEnum.RIGHT);
 
 		/*
 		  Creates the DynamicReportBuilder and sets the basic options for

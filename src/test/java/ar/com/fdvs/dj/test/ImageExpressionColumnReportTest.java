@@ -34,23 +34,23 @@ import java.awt.Color;
 import java.util.Date;
 import java.util.Map;
 
-import net.sf.jasperreports.view.JasperViewer;
 import ar.com.fdvs.dj.domain.CustomExpression;
 import ar.com.fdvs.dj.domain.DynamicReport;
 import ar.com.fdvs.dj.domain.Style;
 import ar.com.fdvs.dj.domain.builders.FastReportBuilder;
 import ar.com.fdvs.dj.domain.builders.StyleBuilder;
 import ar.com.fdvs.dj.domain.constants.Border;
-import ar.com.fdvs.dj.domain.constants.HorizontalAlign;
 import ar.com.fdvs.dj.domain.constants.ImageScaleMode;
 import ar.com.fdvs.dj.domain.constants.Stretching;
+import net.sf.jasperreports.engine.type.HorizontalTextAlignEnum;
+import net.sf.jasperreports.view.JasperViewer;
 
 public class ImageExpressionColumnReportTest extends BaseDjReportTest {
 
 	public DynamicReport buildReport() throws Exception {
 
 
-		Style style = new StyleBuilder(false).setHorizontalAlign(HorizontalAlign.CENTER)
+		Style style = new StyleBuilder(false).setHorizontalTextAlignEnum(HorizontalTextAlignEnum.CENTER)
 		.setStretching(Stretching.RELATIVE_TO_TALLEST_OBJECT)
 		.setBorderColor(Color.BLACK).setBorder(Border.THIN()).build();
 		/*

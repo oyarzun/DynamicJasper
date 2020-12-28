@@ -29,6 +29,10 @@
 
 package ar.com.fdvs.dj.test.subreport;
 
+import java.util.Collection;
+import java.util.Date;
+import java.util.Map;
+
 import ar.com.fdvs.dj.core.DJConstants;
 import ar.com.fdvs.dj.core.layout.ClassicLayoutManager;
 import ar.com.fdvs.dj.domain.CustomExpression;
@@ -40,10 +44,6 @@ import ar.com.fdvs.dj.domain.builders.FastReportBuilder;
 import ar.com.fdvs.dj.domain.entities.columns.AbstractColumn;
 import ar.com.fdvs.dj.test.BaseDjReportTest;
 import net.sf.jasperreports.view.JasperViewer;
-
-import java.util.Collection;
-import java.util.Date;
-import java.util.Map;
 
 public class SubReportRecursive2Test extends BaseDjReportTest {
 

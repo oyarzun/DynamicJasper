@@ -29,16 +29,16 @@
 
 package ar.com.fdvs.dj.domain.builders;
 
+import java.awt.Color;
+
 import ar.com.fdvs.dj.domain.Style;
 import ar.com.fdvs.dj.domain.constants.Border;
 import ar.com.fdvs.dj.domain.constants.Font;
-import ar.com.fdvs.dj.domain.constants.HorizontalAlign;
 import ar.com.fdvs.dj.domain.constants.Rotation;
 import ar.com.fdvs.dj.domain.constants.Stretching;
 import ar.com.fdvs.dj.domain.constants.Transparency;
-import ar.com.fdvs.dj.domain.constants.VerticalAlign;
-
-import java.awt.Color;
+import net.sf.jasperreports.engine.type.HorizontalTextAlignEnum;
+import net.sf.jasperreports.engine.type.VerticalTextAlignEnum;
 
 public class StyleBuilder {
 
@@ -97,13 +97,13 @@ public class StyleBuilder {
 		return this;
 	}
 
-	public StyleBuilder setHorizontalAlign(HorizontalAlign horizontalAlign){
-		style.setHorizontalAlign(horizontalAlign);
+	public StyleBuilder setHorizontalTextAlignEnum(HorizontalTextAlignEnum horizontalAlign){
+		style.setHorizontalTextAlignEnum(horizontalAlign);
 		return this;
 	}
 
-	public StyleBuilder setVerticalAlign(VerticalAlign verticalAlign){
-		style.setVerticalAlign(verticalAlign);
+	public StyleBuilder setVerticalTextAlignEnum(VerticalTextAlignEnum verticalAlign){
+		style.setVerticalTextAlignEnum(verticalAlign);
 		return this;
 	}
 

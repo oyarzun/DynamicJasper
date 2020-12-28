@@ -30,7 +30,15 @@
 package ar.com.fdvs.dj.test.groups.labels;
 
 
-import ar.com.fdvs.dj.domain.*;
+import java.util.Date;
+import java.util.Map;
+
+import ar.com.fdvs.dj.domain.DJCalculation;
+import ar.com.fdvs.dj.domain.DJGroupLabel;
+import ar.com.fdvs.dj.domain.DJValueFormatter;
+import ar.com.fdvs.dj.domain.DynamicReport;
+import ar.com.fdvs.dj.domain.StringExpression;
+import ar.com.fdvs.dj.domain.Style;
 import ar.com.fdvs.dj.domain.builders.FastReportBuilder;
 import ar.com.fdvs.dj.domain.constants.Border;
 import ar.com.fdvs.dj.domain.constants.LabelPosition;
@@ -38,9 +46,6 @@ import ar.com.fdvs.dj.domain.entities.DJGroupVariable;
 import ar.com.fdvs.dj.test.BaseDjReportTest;
 import net.sf.jasperreports.view.JasperDesignViewer;
 import net.sf.jasperreports.view.JasperViewer;
-
-import java.util.Date;
-import java.util.Map;
 
 public class LabelFooterValuesTest extends BaseDjReportTest {
 

@@ -31,7 +31,6 @@ package ar.com.fdvs.dj.test.groups;
 
 import java.awt.Color;
 
-import net.sf.jasperreports.view.JasperViewer;
 import ar.com.fdvs.dj.domain.AutoText;
 import ar.com.fdvs.dj.domain.DJCalculation;
 import ar.com.fdvs.dj.domain.DynamicReport;
@@ -43,20 +42,21 @@ import ar.com.fdvs.dj.domain.builders.GroupBuilder;
 import ar.com.fdvs.dj.domain.constants.Border;
 import ar.com.fdvs.dj.domain.constants.Font;
 import ar.com.fdvs.dj.domain.constants.GroupLayout;
-import ar.com.fdvs.dj.domain.constants.HorizontalAlign;
 import ar.com.fdvs.dj.domain.constants.Transparency;
-import ar.com.fdvs.dj.domain.constants.VerticalAlign;
 import ar.com.fdvs.dj.domain.entities.DJGroup;
 import ar.com.fdvs.dj.domain.entities.columns.AbstractColumn;
 import ar.com.fdvs.dj.domain.entities.columns.PropertyColumn;
 import ar.com.fdvs.dj.test.BaseDjReportTest;
+import net.sf.jasperreports.engine.type.HorizontalTextAlignEnum;
+import net.sf.jasperreports.engine.type.VerticalTextAlignEnum;
+import net.sf.jasperreports.view.JasperViewer;
 
 public class GroupsReportTestG2T1 extends BaseDjReportTest {
 
 	public DynamicReport buildReport() throws Exception {
 
 		Style detailStyle = new Style();
-		detailStyle.setVerticalAlign(VerticalAlign.TOP);
+		detailStyle.setVerticalTextAlignEnum(VerticalTextAlignEnum.TOP);
 
 		Style groupTitleStyle = new Style();
 		groupTitleStyle.setFont(Font.ARIAL_BIG);
@@ -64,34 +64,34 @@ public class GroupsReportTestG2T1 extends BaseDjReportTest {
 		Style col2Style = new Style();
 		col2Style.setFont(Font.ARIAL_BIG_BOLD);
 		col2Style.setBorderBottom(Border.THIN());
-		col2Style.setVerticalAlign(VerticalAlign.TOP);
+		col2Style.setVerticalTextAlignEnum(VerticalTextAlignEnum.TOP);
 
 		Style headerStyle = new Style();
 		headerStyle.setFont(Font.ARIAL_MEDIUM_BOLD);
 		headerStyle.setBackgroundColor(Color.gray);
 		headerStyle.setTextColor(Color.white);
-		headerStyle.setHorizontalAlign(HorizontalAlign.CENTER);
-		headerStyle.setVerticalAlign(VerticalAlign.MIDDLE);
+		headerStyle.setHorizontalTextAlignEnum(HorizontalTextAlignEnum.CENTER);
+		headerStyle.setVerticalTextAlignEnum(VerticalTextAlignEnum.MIDDLE);
 		headerStyle.setTransparency(Transparency.OPAQUE);
 
 		Style g1VariablesStyle = new Style();
 		g1VariablesStyle.setFont(Font.ARIAL_MEDIUM_BOLD);
 		g1VariablesStyle.setBorderTop(Border.THIN());
-		g1VariablesStyle.setHorizontalAlign(HorizontalAlign.RIGHT);
-		g1VariablesStyle.setVerticalAlign(VerticalAlign.MIDDLE);
+		g1VariablesStyle.setHorizontalTextAlignEnum(HorizontalTextAlignEnum.RIGHT);
+		g1VariablesStyle.setVerticalTextAlignEnum(VerticalTextAlignEnum.MIDDLE);
 		g1VariablesStyle.setTextColor(new Color(50,50,150));
 
 		Style g2VariablesStyle = new Style();
 		g2VariablesStyle.setFont(Font.ARIAL_MEDIUM_BOLD);
 		g2VariablesStyle.setTextColor(new Color(150,150,150));
-		g2VariablesStyle.setHorizontalAlign(HorizontalAlign.RIGHT);
-		g2VariablesStyle.setVerticalAlign(VerticalAlign.MIDDLE);
+		g2VariablesStyle.setHorizontalTextAlignEnum(HorizontalTextAlignEnum.RIGHT);
+		g2VariablesStyle.setVerticalTextAlignEnum(VerticalTextAlignEnum.MIDDLE);
 
 		
 		Style titleStyle = new Style();
 		titleStyle.setFont(new Font(18, Font._FONT_VERDANA, true));
 		Style importeStyle = new Style();
-		importeStyle.setHorizontalAlign(HorizontalAlign.RIGHT);
+		importeStyle.setHorizontalTextAlignEnum(HorizontalTextAlignEnum.RIGHT);
 		Style oddRowStyle = new Style();
 		oddRowStyle.setBorder(Border.NO_BORDER());
 		oddRowStyle.setBackgroundColor(Color.LIGHT_GRAY);

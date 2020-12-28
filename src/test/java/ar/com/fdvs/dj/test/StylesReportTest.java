@@ -31,17 +31,17 @@ package ar.com.fdvs.dj.test;
 
 import java.awt.Color;
 
-import net.sf.jasperreports.view.JasperViewer;
 import ar.com.fdvs.dj.domain.DynamicReport;
 import ar.com.fdvs.dj.domain.Style;
 import ar.com.fdvs.dj.domain.builders.ColumnBuilder;
 import ar.com.fdvs.dj.domain.builders.DynamicReportBuilder;
 import ar.com.fdvs.dj.domain.constants.Border;
 import ar.com.fdvs.dj.domain.constants.Font;
-import ar.com.fdvs.dj.domain.constants.HorizontalAlign;
 import ar.com.fdvs.dj.domain.constants.Transparency;
-import ar.com.fdvs.dj.domain.constants.VerticalAlign;
 import ar.com.fdvs.dj.domain.entities.columns.AbstractColumn;
+import net.sf.jasperreports.engine.type.HorizontalTextAlignEnum;
+import net.sf.jasperreports.engine.type.VerticalTextAlignEnum;
+import net.sf.jasperreports.view.JasperViewer;
 
 public class StylesReportTest extends BaseDjReportTest {
 
@@ -55,16 +55,16 @@ public class StylesReportTest extends BaseDjReportTest {
 		headerStyle.setBackgroundColor(Color.blue);
 		headerStyle.setTransparency(Transparency.OPAQUE);
 		headerStyle.setTextColor(Color.white);
-		headerStyle.setHorizontalAlign(HorizontalAlign.CENTER);
-		headerStyle.setVerticalAlign(VerticalAlign.MIDDLE);
+		headerStyle.setHorizontalTextAlignEnum(HorizontalTextAlignEnum.CENTER);
+		headerStyle.setVerticalTextAlignEnum(VerticalTextAlignEnum.MIDDLE);
 
 		Style titleStyle = new Style();
 		titleStyle.setFont(new Font(18,Font._FONT_VERDANA,true));
 		Style numberStyle = new Style();
-		numberStyle.setHorizontalAlign(HorizontalAlign.RIGHT);
+		numberStyle.setHorizontalTextAlignEnum(HorizontalTextAlignEnum.RIGHT);
         detailStyle.setBorder(new Border(Border.BORDER_WIDTH_THIN, Border.BORDER_STYLE_SOLID, Color.green));
 		Style amountStyle = new Style();
-		amountStyle.setHorizontalAlign(HorizontalAlign.RIGHT);
+		amountStyle.setHorizontalTextAlignEnum(HorizontalTextAlignEnum.RIGHT);
 		amountStyle.setBackgroundColor(Color.cyan);
 		amountStyle.setTransparency(Transparency.OPAQUE);
 		Style oddRowStyle = new Style();

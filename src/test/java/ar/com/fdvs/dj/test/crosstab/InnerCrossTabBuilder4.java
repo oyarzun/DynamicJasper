@@ -5,22 +5,43 @@
 
 package ar.com.fdvs.dj.test.crosstab;
 
+import java.io.FileNotFoundException;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
 import ar.com.fdvs.dj.core.DJConstants;
 import ar.com.fdvs.dj.core.DynamicJasperHelper;
 import ar.com.fdvs.dj.core.layout.ClassicLayoutManager;
 import ar.com.fdvs.dj.core.layout.LayoutManager;
-import ar.com.fdvs.dj.domain.*;
-import ar.com.fdvs.dj.domain.builders.*;
-import ar.com.fdvs.dj.domain.constants.*;
+import ar.com.fdvs.dj.domain.CustomExpression;
+import ar.com.fdvs.dj.domain.DJCalculation;
+import ar.com.fdvs.dj.domain.DJCrosstab;
+import ar.com.fdvs.dj.domain.DJLabel;
+import ar.com.fdvs.dj.domain.DynamicReport;
+import ar.com.fdvs.dj.domain.Style;
+import ar.com.fdvs.dj.domain.builders.BuilderException;
+import ar.com.fdvs.dj.domain.builders.ColumnBuilder;
+import ar.com.fdvs.dj.domain.builders.CrosstabBuilder;
+import ar.com.fdvs.dj.domain.builders.FastReportBuilder;
+import ar.com.fdvs.dj.domain.builders.StyleBuilder;
+import ar.com.fdvs.dj.domain.constants.Border;
+import ar.com.fdvs.dj.domain.constants.Font;
+import ar.com.fdvs.dj.domain.constants.GroupLayout;
+import ar.com.fdvs.dj.domain.constants.Page;
 import ar.com.fdvs.dj.domain.entities.columns.AbstractColumn;
 import ar.com.fdvs.dj.test.ReportExporter;
 import junit.framework.TestCase;
-import net.sf.jasperreports.engine.*;
+import net.sf.jasperreports.engine.JRDataSource;
+import net.sf.jasperreports.engine.JRException;
+import net.sf.jasperreports.engine.JasperFillManager;
+import net.sf.jasperreports.engine.JasperPrint;
+import net.sf.jasperreports.engine.JasperReport;
 import net.sf.jasperreports.engine.data.JRBeanCollectionDataSource;
+import net.sf.jasperreports.engine.type.HorizontalTextAlignEnum;
 import net.sf.jasperreports.view.JasperViewer;
-
-import java.io.FileNotFoundException;
-import java.util.*;
 
 /**
  * @author rve
@@ -87,7 +108,7 @@ public class InnerCrossTabBuilder4 extends TestCase {
     private DynamicReport buildInnerDynamicReport() throws ClassNotFoundException, BuilderException {
         FastReportBuilder drb = new FastReportBuilder();
 
-        Style titlestyle = new StyleBuilder(false).setHorizontalAlign(HorizontalAlign.LEFT).setFont(Font.ARIAL_MEDIUM_BOLD).build();
+        Style titlestyle = new StyleBuilder(false).setHorizontalTextAlignEnum(HorizontalTextAlignEnum.LEFT).setFont(Font.ARIAL_MEDIUM_BOLD).build();
 
         drb.addColumn("", "year", String.class.getName(), 200)
                 .addField("detail", Collection.class.getName())

@@ -29,11 +29,11 @@
 
 package ar.com.fdvs.dj.domain.builders;
 
+import java.util.Comparator;
+
 import ar.com.fdvs.dj.domain.ColumnProperty;
 import ar.com.fdvs.dj.domain.DJCrosstabColumn;
 import ar.com.fdvs.dj.domain.Style;
-
-import java.util.Comparator;
 
 public class CrosstabColumnBuilder {
 

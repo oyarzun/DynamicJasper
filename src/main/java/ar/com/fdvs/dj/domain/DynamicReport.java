@@ -29,18 +29,6 @@
 
 package ar.com.fdvs.dj.domain;
 
-import ar.com.fdvs.dj.core.DJConstants;
-import ar.com.fdvs.dj.core.JasperDesignDecorator;
-import ar.com.fdvs.dj.domain.builders.StyleBuilder;
-import ar.com.fdvs.dj.domain.constants.Stretching;
-import ar.com.fdvs.dj.domain.entities.DJGroup;
-import ar.com.fdvs.dj.domain.entities.DJVariable;
-import ar.com.fdvs.dj.domain.entities.Entity;
-import ar.com.fdvs.dj.domain.entities.Parameter;
-import ar.com.fdvs.dj.domain.entities.columns.AbstractColumn;
-import ar.com.fdvs.dj.domain.entities.columns.ExpressionColumn;
-import ar.com.fdvs.dj.domain.entities.columns.SimpleColumn;
-
 import java.io.ByteArrayInputStream;
 import java.io.IOException;
 import java.io.InputStream;
@@ -52,6 +40,18 @@ import java.util.Locale;
 import java.util.Map;
 
 import org.apache.commons.io.IOUtils;
+
+import ar.com.fdvs.dj.core.DJConstants;
+import ar.com.fdvs.dj.core.JasperDesignDecorator;
+import ar.com.fdvs.dj.domain.builders.StyleBuilder;
+import ar.com.fdvs.dj.domain.constants.Stretching;
+import ar.com.fdvs.dj.domain.entities.DJGroup;
+import ar.com.fdvs.dj.domain.entities.DJVariable;
+import ar.com.fdvs.dj.domain.entities.Entity;
+import ar.com.fdvs.dj.domain.entities.Parameter;
+import ar.com.fdvs.dj.domain.entities.columns.AbstractColumn;
+import ar.com.fdvs.dj.domain.entities.columns.ExpressionColumn;
+import ar.com.fdvs.dj.domain.entities.columns.SimpleColumn;
 
 /**
  * One of the main classes of this product. It represents the report itself.

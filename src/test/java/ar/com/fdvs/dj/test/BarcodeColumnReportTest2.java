@@ -33,21 +33,21 @@ package ar.com.fdvs.dj.test;
 import java.util.Date;
 import java.util.List;
 
-import net.sf.jasperreports.engine.JRDataSource;
-import net.sf.jasperreports.engine.data.JRBeanCollectionDataSource;
-import net.sf.jasperreports.view.JasperDesignViewer;
-import net.sf.jasperreports.view.JasperViewer;
 import ar.com.fdvs.dj.core.BarcodeTypes;
 import ar.com.fdvs.dj.domain.DynamicReport;
 import ar.com.fdvs.dj.domain.Style;
 import ar.com.fdvs.dj.domain.builders.FastReportBuilder;
 import ar.com.fdvs.dj.domain.builders.StyleBuilder;
 import ar.com.fdvs.dj.domain.constants.Border;
-import ar.com.fdvs.dj.domain.constants.HorizontalAlign;
 import ar.com.fdvs.dj.domain.constants.ImageScaleMode;
 import ar.com.fdvs.dj.domain.constants.Stretching;
 import ar.com.fdvs.dj.test.domain.Product;
 import ar.com.fdvs.dj.util.SortUtils;
+import net.sf.jasperreports.engine.JRDataSource;
+import net.sf.jasperreports.engine.data.JRBeanCollectionDataSource;
+import net.sf.jasperreports.engine.type.HorizontalTextAlignEnum;
+import net.sf.jasperreports.view.JasperDesignViewer;
+import net.sf.jasperreports.view.JasperViewer;
 
 public class BarcodeColumnReportTest2 extends BaseDjReportTest {
 
@@ -55,7 +55,7 @@ public class BarcodeColumnReportTest2 extends BaseDjReportTest {
 	public DynamicReport buildReport() throws Exception {
 
 
-		Style style = new StyleBuilder(true).setHorizontalAlign(HorizontalAlign.CENTER).build();
+		Style style = new StyleBuilder(true).setHorizontalTextAlignEnum(HorizontalTextAlignEnum.CENTER).build();
 		Style defStyle = new StyleBuilder(true).
 			setBorderBottom(Border.THIN())
 			.setStretching(Stretching.RELATIVE_TO_TALLEST_OBJECT)

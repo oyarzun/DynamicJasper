@@ -33,14 +33,6 @@ import java.awt.Color;
 import java.util.HashMap;
 import java.util.Map;
 
-import net.sf.jasperreports.charts.design.JRDesignAreaPlot;
-import net.sf.jasperreports.charts.design.JRDesignCategoryDataset;
-import net.sf.jasperreports.engine.JRFont;
-import net.sf.jasperreports.engine.design.JRDesignChart;
-import net.sf.jasperreports.engine.design.JRDesignGroup;
-import net.sf.jasperreports.engine.design.JRDesignVariable;
-import net.sf.jasperreports.engine.type.LineStyleEnum;
-import net.sf.jasperreports.view.JasperViewer;
 import ar.com.fdvs.dj.domain.DJCalculation;
 import ar.com.fdvs.dj.domain.DJHyperLink;
 import ar.com.fdvs.dj.domain.DynamicJasperDesign;
@@ -61,6 +53,14 @@ import ar.com.fdvs.dj.domain.entities.columns.AbstractColumn;
 import ar.com.fdvs.dj.domain.entities.columns.PropertyColumn;
 import ar.com.fdvs.dj.domain.hyperlink.LiteralExpression;
 import ar.com.fdvs.dj.test.BaseDjReportTest;
+import net.sf.jasperreports.charts.design.JRDesignAreaPlot;
+import net.sf.jasperreports.charts.design.JRDesignCategoryDataset;
+import net.sf.jasperreports.engine.JRFont;
+import net.sf.jasperreports.engine.design.JRDesignChart;
+import net.sf.jasperreports.engine.design.JRDesignGroup;
+import net.sf.jasperreports.engine.design.JRDesignVariable;
+import net.sf.jasperreports.engine.type.LineStyleEnum;
+import net.sf.jasperreports.view.JasperViewer;
 
 public class AbstractChartBuilderTest extends BaseDjReportTest {
 	private DynamicReportBuilder drb; 

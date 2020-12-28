@@ -69,9 +69,9 @@ public class AutoText extends DJBaseElement {
      */
     public static final byte ALIGMENT_RIGHT = 3;
 
-    public static final byte ALIGNMENT_LEFT = 1;
-    public static final byte ALIGNMENT_CENTER = 2;
-    public static final byte ALIGNMENT_RIGHT = 3;
+    public static final HorizontalBandAlignment ALIGNMENT_LEFT = HorizontalBandAlignment.LEFT;
+    public static final HorizontalBandAlignment ALIGNMENT_CENTER = HorizontalBandAlignment.CENTER;
+    public static final HorizontalBandAlignment ALIGNMENT_RIGHT = HorizontalBandAlignment.RIGHT;
 
     public static final byte PATTERN_DATE_DATE_ONLY = 1;
     public static final byte PATTERN_DATE_TIME_ONLY = 2;

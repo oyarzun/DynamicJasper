@@ -29,14 +29,15 @@
 
 package ar.com.fdvs.dj.core.layout;
 
-import ar.com.fdvs.dj.domain.entities.columns.AbstractColumn;
-import net.sf.jasperreports.engine.design.JRDesignBand;
-import net.sf.jasperreports.engine.design.JRDesignTextField;
+import java.util.HashMap;
+import java.util.Map;
+
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 
-import java.util.HashMap;
-import java.util.Map;
+import ar.com.fdvs.dj.domain.entities.columns.AbstractColumn;
+import net.sf.jasperreports.engine.design.JRDesignBand;
+import net.sf.jasperreports.engine.design.JRDesignTextField;
 
 /**
  * Simple Layout Manager recommended when we want to get a ready to operate <br>

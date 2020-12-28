@@ -1,13 +1,13 @@
 package ar.com.fdvs.dj.test;
 
+import java.util.Date;
+
 import ar.com.fdvs.dj.core.layout.ExtendedListLayoutManager;
 import ar.com.fdvs.dj.core.layout.LayoutManager;
 import ar.com.fdvs.dj.domain.DynamicReport;
 import ar.com.fdvs.dj.domain.Style;
 import ar.com.fdvs.dj.domain.builders.FastReportBuilder;
 import ar.com.fdvs.dj.domain.constants.Page;
-
-import java.util.Date;
 
 public class XlsWithTitleReportTest extends BaseDjReportTest {
 

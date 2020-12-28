@@ -33,8 +33,8 @@ import ar.com.fdvs.dj.domain.DynamicReport;
 import ar.com.fdvs.dj.domain.Style;
 import ar.com.fdvs.dj.domain.builders.ColumnBuilder;
 import ar.com.fdvs.dj.domain.builders.DynamicReportBuilder;
-import ar.com.fdvs.dj.domain.constants.HorizontalAlign;
 import ar.com.fdvs.dj.domain.entities.columns.AbstractColumn;
+import net.sf.jasperreports.engine.type.HorizontalTextAlignEnum;
 
 public class PlainReportTest extends BaseDjReportTest {
 
@@ -45,7 +45,7 @@ public class PlainReportTest extends BaseDjReportTest {
 
 		Style titleStyle = new Style();
 		Style subtitleStyle = new Style();
-		Style amountStyle = new Style(); amountStyle.setHorizontalAlign(HorizontalAlign.RIGHT);
+		Style amountStyle = new Style(); amountStyle.setHorizontalTextAlignEnum(HorizontalTextAlignEnum.RIGHT);
 
 		/*
 		  Creates the DynamicReportBuilder and sets the basic options for

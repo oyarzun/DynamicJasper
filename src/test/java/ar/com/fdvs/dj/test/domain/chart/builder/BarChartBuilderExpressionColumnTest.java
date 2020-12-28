@@ -29,7 +29,17 @@
 
 package ar.com.fdvs.dj.test.domain.chart.builder;
 
-import ar.com.fdvs.dj.domain.*;
+import java.awt.Color;
+import java.util.HashMap;
+import java.util.Map;
+
+import ar.com.fdvs.dj.domain.CustomExpression;
+import ar.com.fdvs.dj.domain.DJCalculation;
+import ar.com.fdvs.dj.domain.DJHyperLink;
+import ar.com.fdvs.dj.domain.DynamicJasperDesign;
+import ar.com.fdvs.dj.domain.DynamicReport;
+import ar.com.fdvs.dj.domain.StringExpression;
+import ar.com.fdvs.dj.domain.Style;
 import ar.com.fdvs.dj.domain.builders.ColumnBuilder;
 import ar.com.fdvs.dj.domain.builders.DynamicReportBuilder;
 import ar.com.fdvs.dj.domain.builders.GroupBuilder;
@@ -38,8 +48,9 @@ import ar.com.fdvs.dj.domain.chart.DJChartOptions;
 import ar.com.fdvs.dj.domain.chart.NumberExpression;
 import ar.com.fdvs.dj.domain.chart.builder.DJBarChartBuilder;
 import ar.com.fdvs.dj.domain.chart.plot.DJAxisFormat;
-import ar.com.fdvs.dj.domain.constants.*;
+import ar.com.fdvs.dj.domain.constants.Border;
 import ar.com.fdvs.dj.domain.constants.Font;
+import ar.com.fdvs.dj.domain.constants.GroupLayout;
 import ar.com.fdvs.dj.domain.constants.Transparency;
 import ar.com.fdvs.dj.domain.entities.DJGroup;
 import ar.com.fdvs.dj.domain.entities.columns.AbstractColumn;
@@ -52,12 +63,10 @@ import net.sf.jasperreports.engine.JRFont;
 import net.sf.jasperreports.engine.design.JRDesignChart;
 import net.sf.jasperreports.engine.design.JRDesignGroup;
 import net.sf.jasperreports.engine.design.JRDesignVariable;
+import net.sf.jasperreports.engine.type.HorizontalTextAlignEnum;
 import net.sf.jasperreports.engine.type.LineStyleEnum;
+import net.sf.jasperreports.engine.type.VerticalTextAlignEnum;
 import net.sf.jasperreports.view.JasperViewer;
-
-import java.awt.*;
-import java.util.HashMap;
-import java.util.Map;
 
 public class BarChartBuilderExpressionColumnTest extends BaseDjReportTest {
 	private DynamicReportBuilder drb; 
@@ -69,8 +78,8 @@ public class BarChartBuilderExpressionColumnTest extends BaseDjReportTest {
 		Style headerStyle = new Style();
 		headerStyle.setFont(Font.VERDANA_MEDIUM_BOLD);
 		headerStyle.setBorderBottom(Border.PEN_2_POINT());
-		headerStyle.setHorizontalAlign(HorizontalAlign.CENTER);
-		headerStyle.setVerticalAlign(VerticalAlign.MIDDLE);
+		headerStyle.setHorizontalTextAlignEnum(HorizontalTextAlignEnum.CENTER);
+		headerStyle.setVerticalTextAlignEnum(VerticalTextAlignEnum.MIDDLE);
 		headerStyle.setBackgroundColor(Color.DARK_GRAY);
 		headerStyle.setTextColor(Color.WHITE);
 		headerStyle.setTransparency(Transparency.OPAQUE);

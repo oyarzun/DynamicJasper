@@ -40,10 +40,10 @@ import ar.com.fdvs.dj.domain.Style;
 import ar.com.fdvs.dj.domain.builders.FastReportBuilder;
 import ar.com.fdvs.dj.domain.builders.StyleBuilder;
 import ar.com.fdvs.dj.domain.constants.Font;
-import ar.com.fdvs.dj.domain.constants.HorizontalAlign;
 import ar.com.fdvs.dj.domain.constants.ImageScaleMode;
 import net.sf.jasperreports.engine.JRDataSource;
 import net.sf.jasperreports.engine.data.JRBeanCollectionDataSource;
+import net.sf.jasperreports.engine.type.HorizontalTextAlignEnum;
 import net.sf.jasperreports.view.JasperDesignViewer;
 import net.sf.jasperreports.view.JasperViewer;
 
@@ -59,7 +59,7 @@ public class WhenNoDataTest extends BaseDjReportTest {
 		FastReportBuilder drb = new FastReportBuilder();
 		Style noDataStyle = new StyleBuilder(false)
 								.setFont(Font.ARIAL_MEDIUM_BOLD)
-								.setHorizontalAlign(HorizontalAlign.CENTER).build();
+								.setHorizontalTextAlignEnum(HorizontalTextAlignEnum.CENTER).build();
 		drb.addColumn("State", "state", String.class.getName(),30)
 //			.addColumn("Branch", "branch", String.class.getName(),30)
 //			.addColumn("Product Line", "productLine", String.class.getName(),50)

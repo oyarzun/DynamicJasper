@@ -1,6 +1,6 @@
 package ar.com.fdvs.dj.core.layout;
 
-import java.awt.*;
+import java.awt.Color;
 
 public abstract class CrossTabColorShemaGenerator extends CrossTabColorShema {
 

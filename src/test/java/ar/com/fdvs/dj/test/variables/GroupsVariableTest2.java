@@ -29,13 +29,23 @@
 
 package ar.com.fdvs.dj.test.variables;
 
-import ar.com.fdvs.dj.domain.*;
+import java.awt.Color;
+import java.util.Collection;
+import java.util.Iterator;
+import java.util.Map;
+
+import ar.com.fdvs.dj.domain.AutoText;
+import ar.com.fdvs.dj.domain.CustomExpression;
+import ar.com.fdvs.dj.domain.DJCalculation;
+import ar.com.fdvs.dj.domain.DynamicReport;
+import ar.com.fdvs.dj.domain.Style;
 import ar.com.fdvs.dj.domain.builders.ColumnBuilder;
 import ar.com.fdvs.dj.domain.builders.DynamicReportBuilder;
 import ar.com.fdvs.dj.domain.builders.GroupBuilder;
+import ar.com.fdvs.dj.domain.constants.Border;
 import ar.com.fdvs.dj.domain.constants.Font;
+import ar.com.fdvs.dj.domain.constants.GroupLayout;
 import ar.com.fdvs.dj.domain.constants.Transparency;
-import ar.com.fdvs.dj.domain.constants.*;
 import ar.com.fdvs.dj.domain.entities.DJGroup;
 import ar.com.fdvs.dj.domain.entities.columns.AbstractColumn;
 import ar.com.fdvs.dj.domain.entities.columns.PropertyColumn;
@@ -44,13 +54,10 @@ import ar.com.fdvs.dj.test.TestRepositoryProducts;
 import ar.com.fdvs.dj.util.SortUtils;
 import net.sf.jasperreports.engine.JRDataSource;
 import net.sf.jasperreports.engine.data.JRBeanCollectionDataSource;
+import net.sf.jasperreports.engine.type.HorizontalTextAlignEnum;
+import net.sf.jasperreports.engine.type.VerticalTextAlignEnum;
 import net.sf.jasperreports.view.JasperDesignViewer;
 import net.sf.jasperreports.view.JasperViewer;
-
-import java.awt.*;
-import java.util.Collection;
-import java.util.Iterator;
-import java.util.Map;
 
 /**
  * This test demonstrates how to add a variable into a group and use it later inside an custom expression.
@@ -66,28 +73,28 @@ public class GroupsVariableTest2 extends BaseDjReportTest {
 		headerStyle.setBorderBottom(Border.PEN_1_POINT());
 		headerStyle.setBackgroundColor(Color.gray);
 		headerStyle.setTextColor(Color.white);
-		headerStyle.setHorizontalAlign(HorizontalAlign.CENTER);
-		headerStyle.setVerticalAlign(VerticalAlign.MIDDLE);
+		headerStyle.setHorizontalTextAlignEnum(HorizontalTextAlignEnum.CENTER);
+		headerStyle.setVerticalTextAlignEnum(VerticalTextAlignEnum.MIDDLE);
 		headerStyle.setTransparency(Transparency.OPAQUE);
 
 		Style headerVariables = new Style("headerVariables");
 		headerVariables.setFont(Font.ARIAL_BIG_BOLD);
 		headerVariables.setBorderBottom(Border.THIN());
-		headerVariables.setHorizontalAlign(HorizontalAlign.RIGHT);
-		headerVariables.setVerticalAlign(VerticalAlign.TOP);
+		headerVariables.setHorizontalTextAlignEnum(HorizontalTextAlignEnum.RIGHT);
+		headerVariables.setVerticalTextAlignEnum(VerticalTextAlignEnum.TOP);
 		headerVariables.setStretchWithOverflow(true);
 
 		Style groupVariables = new Style("groupVariables");
 		groupVariables.setFont(Font.ARIAL_MEDIUM_BOLD);
 		groupVariables.setTextColor(Color.BLUE);
 		groupVariables.setBorderBottom(Border.THIN());
-		groupVariables.setHorizontalAlign(HorizontalAlign.RIGHT);
-		groupVariables.setVerticalAlign(VerticalAlign.BOTTOM);
+		groupVariables.setHorizontalTextAlignEnum(HorizontalTextAlignEnum.RIGHT);
+		groupVariables.setVerticalTextAlignEnum(VerticalTextAlignEnum.BOTTOM);
 
 		Style titleStyle = new Style("titleStyle");
 		titleStyle.setFont(new Font(18, Font._FONT_VERDANA, true));
 		Style importeStyle = new Style();
-		importeStyle.setHorizontalAlign(HorizontalAlign.RIGHT);
+		importeStyle.setHorizontalTextAlignEnum(HorizontalTextAlignEnum.RIGHT);
 		Style oddRowStyle = new Style();
 		oddRowStyle.setBorder(Border.NO_BORDER());
 		oddRowStyle.setBackgroundColor(Color.LIGHT_GRAY);

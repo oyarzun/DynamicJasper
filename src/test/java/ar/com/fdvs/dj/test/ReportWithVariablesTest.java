@@ -32,21 +32,21 @@ package ar.com.fdvs.dj.test;
 
 import java.util.Date;
 
-import net.sf.jasperreports.view.JasperDesignViewer;
-import net.sf.jasperreports.view.JasperViewer;
 import ar.com.fdvs.dj.domain.DJCalculation;
 import ar.com.fdvs.dj.domain.DynamicReport;
 import ar.com.fdvs.dj.domain.Style;
 import ar.com.fdvs.dj.domain.builders.FastReportBuilder;
-import ar.com.fdvs.dj.domain.constants.HorizontalAlign;
 import ar.com.fdvs.dj.domain.customexpression.DJSimpleExpression;
 import ar.com.fdvs.dj.domain.entities.DJVariable;
+import net.sf.jasperreports.engine.type.HorizontalTextAlignEnum;
+import net.sf.jasperreports.view.JasperDesignViewer;
+import net.sf.jasperreports.view.JasperViewer;
 
 public class ReportWithVariablesTest extends BaseDjReportTest {
 
 	public DynamicReport buildReport() throws Exception {
 		Style style = new Style("currency");
-		style.setHorizontalAlign(HorizontalAlign.RIGHT);
+		style.setHorizontalTextAlignEnum(HorizontalTextAlignEnum.RIGHT);
 		style.setPattern("$ #,###.00");
 
 		/*

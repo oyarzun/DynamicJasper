@@ -27,6 +27,9 @@
 
 package ar.com.fdvs.dj.test;
 
+import java.util.Date;
+import java.util.HashMap;
+
 import ar.com.fdvs.dj.core.DynamicJasperHelper;
 import ar.com.fdvs.dj.domain.AutoText;
 import ar.com.fdvs.dj.domain.DynamicReport;
@@ -36,9 +39,6 @@ import ar.com.fdvs.dj.domain.builders.StyleBuilder;
 import ar.com.fdvs.dj.domain.constants.Font;
 import net.sf.jasperreports.view.JasperDesignViewer;
 import net.sf.jasperreports.view.JasperViewer;
-
-import java.util.Date;
-import java.util.HashMap;
 
 public class BuiltinFontsReportTest extends BaseDjReportTest {
 

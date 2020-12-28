@@ -28,13 +28,13 @@
 package ar.com.fdvs.dj.test;
 
 
+import java.util.Date;
+
 import ar.com.fdvs.dj.core.DJConstants;
 import ar.com.fdvs.dj.domain.DynamicReport;
 import ar.com.fdvs.dj.domain.builders.FastReportBuilder;
 import net.sf.jasperreports.view.JasperDesignViewer;
 import net.sf.jasperreports.view.JasperViewer;
-
-import java.util.Date;
 
 public class ReportLanguageTest extends BaseDjReportTest {
 

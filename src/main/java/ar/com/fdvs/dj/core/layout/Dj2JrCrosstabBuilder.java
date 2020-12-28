@@ -29,9 +29,29 @@
 
 package ar.com.fdvs.dj.core.layout;
 
+import java.awt.Color;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Map;
+import java.util.Random;
+
+import org.apache.commons.beanutils.BeanUtils;
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
+
 import ar.com.fdvs.dj.core.DJDefaultScriptlet;
 import ar.com.fdvs.dj.core.registration.EntitiesRegistrationException;
-import ar.com.fdvs.dj.domain.*;
+import ar.com.fdvs.dj.domain.DJCRosstabMeasurePrecalculatedTotalProvider;
+import ar.com.fdvs.dj.domain.DJCrosstab;
+import ar.com.fdvs.dj.domain.DJCrosstabColumn;
+import ar.com.fdvs.dj.domain.DJCrosstabMeasure;
+import ar.com.fdvs.dj.domain.DJCrosstabRow;
+import ar.com.fdvs.dj.domain.DJValueFormatter;
+import ar.com.fdvs.dj.domain.DynamicJasperDesign;
+import ar.com.fdvs.dj.domain.Style;
 import ar.com.fdvs.dj.domain.constants.Border;
 import ar.com.fdvs.dj.domain.entities.conditionalStyle.ConditionalStyle;
 import ar.com.fdvs.dj.util.ExpressionUtils;
@@ -63,12 +83,6 @@ import net.sf.jasperreports.engine.design.JasperDesign;
 import net.sf.jasperreports.engine.type.CalculationEnum;
 import net.sf.jasperreports.engine.type.ModeEnum;
 import net.sf.jasperreports.engine.type.PositionTypeEnum;
-import org.apache.commons.beanutils.BeanUtils;
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
-
-import java.awt.Color;
-import java.util.*;
 
 public class Dj2JrCrosstabBuilder {
 

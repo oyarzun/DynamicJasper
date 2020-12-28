@@ -1,8 +1,8 @@
 package ar.com.fdvs.dj.domain;
 
-import ar.com.fdvs.dj.domain.constants.Font;
+import java.awt.Color;
 
-import java.awt.*;
+import ar.com.fdvs.dj.domain.constants.Font;
 
 /**
  * Created by DJ Mamana on 04/12/2015.

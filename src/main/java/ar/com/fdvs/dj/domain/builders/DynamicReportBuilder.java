@@ -92,7 +92,6 @@ import net.sf.jasperreports.engine.JasperReport;
  * mehtod.
  * <br>
  */
-@SuppressWarnings("WeakerAccess")
 public class DynamicReportBuilder {
 
     /**
@@ -147,9 +146,8 @@ public class DynamicReportBuilder {
      *                  PATTERN_DATE_TIME_ONLY <br> PATTERN_DATE_DATE_TIME
      * @return
      */
-    public DynamicReportBuilder addAutoText(byte type, byte position, byte alignment, byte pattern) {
-        HorizontalBandAlignment alignment_ = HorizontalBandAlignment.buildAligment(alignment);
-        AutoText text = new AutoText(type, position, alignment_, pattern);
+    public DynamicReportBuilder addAutoText(byte type, byte position, HorizontalBandAlignment alignment, byte pattern) {
+        AutoText text = new AutoText(type, position, alignment, pattern);
         addAutoText(text);
         return this;
     }
@@ -177,9 +175,8 @@ public class DynamicReportBuilder {
      *                  variable
      * @return
      */
-    public DynamicReportBuilder addAutoText(byte type, byte position, byte alignment, byte pattern, int width, int width2) {
-        HorizontalBandAlignment alignment_ = HorizontalBandAlignment.buildAligment(alignment);
-        AutoText text = new AutoText(type, position, alignment_, pattern, width, width2);
+    public DynamicReportBuilder addAutoText(byte type, byte position, HorizontalBandAlignment alignment, byte pattern, int width, int width2) {
+        AutoText text = new AutoText(type, position, alignment, pattern, width, width2);
         addAutoText(text);
 
         return this;
@@ -199,9 +196,8 @@ public class DynamicReportBuilder {
      *                  ALIGMENT_RIGHT
      * @return
      */
-    public DynamicReportBuilder addAutoText(String message, byte position, byte alignment) {
-        HorizontalBandAlignment alignment_ = HorizontalBandAlignment.buildAligment(alignment);
-        AutoText text = new AutoText(message, position, alignment_);
+    public DynamicReportBuilder addAutoText(String message, byte position, HorizontalBandAlignment alignment) {
+        AutoText text = new AutoText(message, position, alignment);
         text.setWidth(AutoText.WIDTH_NOT_SET);
         addAutoText(text);
         return this;
@@ -222,16 +218,14 @@ public class DynamicReportBuilder {
      * @param width     the width of the message
      * @return
      */
-    public DynamicReportBuilder addAutoText(String message, byte position, byte alignment, int width) {
-        HorizontalBandAlignment alignment_ = HorizontalBandAlignment.buildAligment(alignment);
-        AutoText text = new AutoText(message, position, alignment_, width);
+    public DynamicReportBuilder addAutoText(String message, byte position, HorizontalBandAlignment alignment, int width) {
+        AutoText text = new AutoText(message, position, alignment, width);
         addAutoText(text);
         return this;
     }
 
-    public DynamicReportBuilder addAutoText(String message, byte position, byte alignment, int width, Style style) {
-        HorizontalBandAlignment alignment_ = HorizontalBandAlignment.buildAligment(alignment);
-        AutoText text = new AutoText(message, position, alignment_, width);
+    public DynamicReportBuilder addAutoText(String message, byte position, HorizontalBandAlignment alignment, int width, Style style) {
+        AutoText text = new AutoText(message, position, alignment, width);
         text.setStyle(style);
         addAutoText(text);
         return this;
@@ -252,26 +246,24 @@ public class DynamicReportBuilder {
      *                  ALIGMENT_RIGHT
      * @return
      */
-    public DynamicReportBuilder addAutoText(byte type, byte position, byte alignment, int width, int width2) {
-        HorizontalBandAlignment alignment_ = HorizontalBandAlignment.buildAligment(alignment);
-        AutoText text = new AutoText(type, position, alignment_);
+    public DynamicReportBuilder addAutoText(byte type, byte position, HorizontalBandAlignment alignment, int width, int width2) {
+        AutoText text = new AutoText(type, position, alignment);
         text.setWidth(width);
         text.setWidth2(width2);
         addAutoText(text);
         return this;
     }
 
-    public DynamicReportBuilder addAutoText(byte type, byte position, byte alignment, int width, int width2, Style style) {
+    public DynamicReportBuilder addAutoText(byte type, byte position, HorizontalBandAlignment alignment, int width, int width2, Style style) {
         return addAutoText(type, position, alignment, width, width2, 0, false, style);
     }
 
-    public DynamicReportBuilder addAutoText(byte type, byte position, byte alignment, int width, int width2, int pageOffset, Style style) {
+    public DynamicReportBuilder addAutoText(byte type, byte position, HorizontalBandAlignment alignment, int width, int width2, int pageOffset, Style style) {
         return addAutoText(type, position, alignment, width, width2, pageOffset, false, style);
     }
 
-    public DynamicReportBuilder addAutoText(byte type, byte position, byte alignment, int width, int width2, int pageOffset, boolean useI18n, Style style) {
-        HorizontalBandAlignment alignment_ = HorizontalBandAlignment.buildAligment(alignment);
-        AutoText text = new AutoText(type, position, alignment_);
+    public DynamicReportBuilder addAutoText(byte type, byte position, HorizontalBandAlignment alignment, int width, int width2, int pageOffset, boolean useI18n, Style style) {
+        AutoText text = new AutoText(type, position, alignment);
         text.setPageOffset(pageOffset);
         text.setUseI18n(useI18n);
         text.setWidth(width);
@@ -296,9 +288,8 @@ public class DynamicReportBuilder {
      *                  ALIGMENT_RIGHT
      * @return
      */
-    public DynamicReportBuilder addAutoText(byte type, byte position, byte alignment) {
-        HorizontalBandAlignment alignment_ = HorizontalBandAlignment.buildAligment(alignment);
-        AutoText text = new AutoText(type, position, alignment_);
+    public DynamicReportBuilder addAutoText(byte type, byte position, HorizontalBandAlignment alignment) {
+        AutoText text = new AutoText(type, position, alignment);
         text.setWidth(AutoText.WIDTH_NOT_SET);
         text.setWidth2(AutoText.WIDTH_NOT_SET);
         addAutoText(text);

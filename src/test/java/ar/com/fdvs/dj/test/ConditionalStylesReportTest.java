@@ -33,8 +33,6 @@ import java.awt.Color;
 import java.lang.reflect.InvocationTargetException;
 import java.util.ArrayList;
 
-import net.sf.jasperreports.view.JasperViewer;
-
 import org.apache.commons.beanutils.BeanUtils;
 
 import ar.com.fdvs.dj.domain.DynamicReport;
@@ -43,12 +41,13 @@ import ar.com.fdvs.dj.domain.builders.ColumnBuilder;
 import ar.com.fdvs.dj.domain.builders.DynamicReportBuilder;
 import ar.com.fdvs.dj.domain.constants.Border;
 import ar.com.fdvs.dj.domain.constants.Font;
-import ar.com.fdvs.dj.domain.constants.HorizontalAlign;
 import ar.com.fdvs.dj.domain.constants.Transparency;
-import ar.com.fdvs.dj.domain.constants.VerticalAlign;
 import ar.com.fdvs.dj.domain.entities.columns.AbstractColumn;
 import ar.com.fdvs.dj.domain.entities.conditionalStyle.ConditionalStyle;
 import ar.com.fdvs.dj.domain.entities.conditionalStyle.StatusLightCondition;
+import net.sf.jasperreports.engine.type.HorizontalTextAlignEnum;
+import net.sf.jasperreports.engine.type.VerticalTextAlignEnum;
+import net.sf.jasperreports.view.JasperViewer;
 
 public class ConditionalStylesReportTest extends BaseDjReportTest {
 
@@ -58,8 +57,8 @@ public class ConditionalStylesReportTest extends BaseDjReportTest {
 		Style headerStyle = new Style();
 		headerStyle.setFont(Font.ARIAL_BIG_BOLD);
 		headerStyle.setBorderBottom(Border.PEN_2_POINT());
-		headerStyle.setHorizontalAlign(HorizontalAlign.CENTER);
-		headerStyle.setVerticalAlign(VerticalAlign.MIDDLE);
+		headerStyle.setHorizontalTextAlignEnum(HorizontalTextAlignEnum.CENTER);
+		headerStyle.setVerticalTextAlignEnum(VerticalTextAlignEnum.MIDDLE);
 		headerStyle.setBackgroundColor(Color.LIGHT_GRAY);
 		headerStyle.setTextColor(Color.WHITE);
 		headerStyle.setTransparency(Transparency.OPAQUE);
@@ -67,7 +66,7 @@ public class ConditionalStylesReportTest extends BaseDjReportTest {
 		Style titleStyle = new Style();
 		titleStyle.setFont(new Font(18,Font._FONT_VERDANA,true));
 		Style amountStyle = new Style();
-		amountStyle.setHorizontalAlign(HorizontalAlign.RIGHT);
+		amountStyle.setHorizontalTextAlignEnum(HorizontalTextAlignEnum.RIGHT);
 		Style oddRowStyle = new Style();
 		oddRowStyle.setBorder(Border.NO_BORDER());
 		Color veryLightGrey = new Color(230,230,230);

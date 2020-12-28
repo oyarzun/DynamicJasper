@@ -1,8 +1,8 @@
 package ar.com.fdvs.dj.domain;
 
-import ar.com.fdvs.dj.core.DJException;
-
 import java.util.Map;
+
+import ar.com.fdvs.dj.core.DJException;
 
 /*
   FDV Solutions
