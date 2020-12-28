@@ -30,6 +30,7 @@
 package ar.com.fdvs.dj.domain;
 
 import java.io.ByteArrayInputStream;
+import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
@@ -38,8 +39,6 @@ import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Locale;
 import java.util.Map;
-
-import org.apache.commons.io.IOUtils;
 
 import ar.com.fdvs.dj.core.DJConstants;
 import ar.com.fdvs.dj.core.JasperDesignDecorator;
@@ -255,8 +254,10 @@ public class DynamicReport extends DJBaseElement {
 	 * @throws IOException
 	 */
 	public void readTemplateStream(InputStream templateStream) throws IOException {
-		this.template = IOUtils.toByteArray(templateStream);
-		templateStream.close();
+	    ByteArrayOutputStream bytes = new ByteArrayOutputStream(16*1024);
+	    templateStream.transferTo(bytes);
+	    templateStream.close();
+		this.template = bytes.toByteArray();
 	}
 
 	public List<ColumnProperty> getFields() {

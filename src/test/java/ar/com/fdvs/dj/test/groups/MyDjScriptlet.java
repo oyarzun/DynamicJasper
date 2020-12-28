@@ -2,8 +2,6 @@ package ar.com.fdvs.dj.test.groups;
 
 import java.util.Map;
 
-import org.apache.log4j.Logger;
-
 import ar.com.fdvs.dj.core.DJDefaultScriptlet;
 import net.sf.jasperreports.engine.JRScriptletException;
 import net.sf.jasperreports.engine.JasperReport;
@@ -19,7 +17,6 @@ public class MyDjScriptlet extends DJDefaultScriptlet {
 	/**
 	 * Logger for this class
 	 */
-	private static final Logger logger = Logger.getLogger(MyDjScriptlet.class);
 	private Map precalculatedValues;
 
 	public void afterGroupInit(String groupName) throws JRScriptletException {		
@@ -27,7 +24,6 @@ public class MyDjScriptlet extends DJDefaultScriptlet {
 		
 		String currentGroupValue = (String) getFieldValue("state");
 		
-		logger.debug("afterGroupInit [" + groupName + "] = " + currentGroupValue);
 
         JRFillParameter report = parametersMap.get("JASPER_REPORT");
         String prefix = ((JasperReport)report.getValue()).getName() + "_";
