@@ -95,7 +95,7 @@ import net.sf.jasperreports.engine.type.OnErrorTypeEnum;
 import net.sf.jasperreports.engine.type.PositionTypeEnum;
 import net.sf.jasperreports.engine.type.ResetTypeEnum;
 import net.sf.jasperreports.engine.type.ScaleImageEnum;
-import net.sf.jasperreports.engine.type.StretchTypeEnum;
+import net.sf.jasperreports.engine.type.TextAdjustEnum;
 import net.sf.jasperreports.engine.util.JRExpressionUtil;
 
 /**
@@ -394,7 +394,7 @@ public abstract class AbstractLayoutManager implements LayoutManager {
                 image.setHeight(getReport().getOptions().getDetailHeight());
                 image.setWidth(column.getWidth());
                 image.setX(column.getPosX());
-                image.setScaleImage(ScaleImageEnum.getByValue(imageColumn.getScaleMode().getValue()));
+                image.setScaleImage(imageColumn.getScaleMode());
 
                 applyStyleToElement(column.getStyle(), image);
 
@@ -481,7 +481,6 @@ public abstract class AbstractLayoutManager implements LayoutManager {
             if (col.getHeaderMarkup() != null)
                 textField.setMarkup(col.getHeaderMarkup().toLowerCase());
 
-            expression.setValueClass(String.class);
 
             textField.setKey("header_" + col.getTitle());
             textField.setExpression(expression);
@@ -579,7 +578,7 @@ public abstract class AbstractLayoutManager implements LayoutManager {
         }
         if (designElemen instanceof JRDesignTextField) {
             JRDesignTextField textField = (JRDesignTextField) designElemen;
-            textField.setStretchWithOverflow(style.isStretchWithOverflow());
+            textField.setTextAdjust(style.isStretchWithOverflow() ? TextAdjustEnum.STRETCH_HEIGHT : TextAdjustEnum.CUT_TEXT);
 
             if (!textField.isBlankWhenNull() && style.isBlankWhenNull()) //TODO Re check if this condition is ok
                 textField.setBlankWhenNull(true);
@@ -587,7 +586,7 @@ public abstract class AbstractLayoutManager implements LayoutManager {
 
         if (designElemen instanceof JRDesignGraphicElement) {
             JRDesignGraphicElement graphicElement = (JRDesignGraphicElement) designElemen;
-            graphicElement.setStretchType(StretchTypeEnum.getByValue(style.getStreching().getValue()));
+            graphicElement.setStretchType(style.getStreching());
             graphicElement.setPositionType(PositionTypeEnum.FLOAT);
         }
     }
@@ -646,7 +645,7 @@ public abstract class AbstractLayoutManager implements LayoutManager {
                 if (!iter.hasNext()) {
                     col.setWidth(printableArea - notRezisableWidth - acumulated);
                 } else {
-                    colFinalWidth = (new Float(col.getWidth() * factor)).intValue();
+                    colFinalWidth = (int) (col.getWidth() * factor);
                     acumulated += colFinalWidth;
                     col.setWidth(colFinalWidth);
                 }
@@ -783,7 +782,6 @@ public abstract class AbstractLayoutManager implements LayoutManager {
 
         }
 
-        exp.setValueClassName(col.getValueClassNameForExpression());
         textField.setExpression(exp);
         textField.setWidth(col.getWidth());
         textField.setX(col.getPosX());
@@ -872,7 +870,6 @@ public abstract class AbstractLayoutManager implements LayoutManager {
 
         if (getReport().getOptions().isPrintBackgroundOnOddRows() && Utils.isEmpty(column.getConditionalStyles())) {
             JRDesignExpression expression = new JRDesignExpression();
-            expression.setValueClass(Boolean.class);
             expression.setText(EXPRESSION_TRUE_WHEN_ODD);
 
             Style oddRowBackgroundStyle = getReport().getOptions().getOddRowBackgroundStyle();
@@ -899,7 +896,6 @@ public abstract class AbstractLayoutManager implements LayoutManager {
 
                 //ODD
                 JRDesignExpression expressionOdd = new JRDesignExpression();
-                expressionOdd.setValueClass(Boolean.class);
                 expressionOdd.setText("new java.lang.Boolean(" + EXPRESSION_TRUE_WHEN_ODD + ".booleanValue() && ((java.lang.Boolean)" + expStr + ").booleanValue() )");
 
                 Style oddRowBackgroundStyle = getReport().getOptions().getOddRowBackgroundStyle();
@@ -913,7 +909,6 @@ public abstract class AbstractLayoutManager implements LayoutManager {
 
                 //EVEN
                 JRDesignExpression expressionEven = new JRDesignExpression();
-                expressionEven.setValueClass(Boolean.class);
                 expressionEven.setText("new java.lang.Boolean(" + EXPRESSION_TRUE_WHEN_EVEN + ".booleanValue() && ((java.lang.Boolean)" + expStr + ").booleanValue() )");
 
                 JRDesignConditionalStyle condStyleEven = makeConditionalStyle(condition.getStyle());
@@ -933,7 +928,6 @@ public abstract class AbstractLayoutManager implements LayoutManager {
         if (getReport().getOptions().isPrintBackgroundOnOddRows()) {
 
             JRDesignExpression expressionOdd = new JRDesignExpression();
-            expressionOdd.setValueClass(Boolean.class);
             expressionOdd.setText(EXPRESSION_TRUE_WHEN_ODD);
 
             Style oddRowBackgroundStyle = getReport().getOptions().getOddRowBackgroundStyle();
@@ -947,7 +941,6 @@ public abstract class AbstractLayoutManager implements LayoutManager {
 
             //EVEN
             JRDesignExpression expressionEven = new JRDesignExpression();
-            expressionEven.setValueClass(Boolean.class);
             expressionEven.setText(EXPRESSION_TRUE_WHEN_EVEN);
 
             JRDesignConditionalStyle condStyleEven = new JRDesignConditionalStyle();
@@ -1086,7 +1079,6 @@ public abstract class AbstractLayoutManager implements LayoutManager {
 
                 ExpressionColumn expCol = (ExpressionColumn) col;
                 expression.setText(expCol.getTextForExpression());
-                expression.setValueClassName(expCol.getExpression().getClassName());
             } else {
                 try {
                     clazz = Class.forName(((PropertyColumn) col).getColumnProperty().getValueClassName());
@@ -1095,7 +1087,6 @@ public abstract class AbstractLayoutManager implements LayoutManager {
                 }
 
                 expression.setText("$F{" + ((PropertyColumn) col).getColumnProperty().getProperty() + "}");
-                expression.setValueClass(clazz);
             }
 
             JRDesignVariable var = new JRDesignVariable();

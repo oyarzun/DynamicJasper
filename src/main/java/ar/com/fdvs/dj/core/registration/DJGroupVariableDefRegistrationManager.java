@@ -69,7 +69,6 @@ public class DJGroupVariableDefRegistrationManager extends AbstractEntityRegistr
 	protected void registerEntity(Entity entity) {
 		try {
             DJGroupVariableDef columnsGroupVariable = (DJGroupVariableDef) entity;
-            CalculationEnum op = columnsGroupVariable.getOperation();
 
             columnsGroupVariable.setName(this.getDjd().getName() + "_" + columnsGroupVariable.getName());
 
@@ -97,7 +96,6 @@ public class DJGroupVariableDefRegistrationManager extends AbstractEntityRegistr
 			ColumnProperty prop = columnsGroupVariable.getColumnProperty();
 			
 			expression.setText("$F{" + prop.getProperty() + "}");
-			expression.setValueClassName(prop.getValueClassName());
 			registerField(prop);
 			
 			valueClassName = ExpressionUtils.getValueClassNameForOperation(op, prop);
@@ -109,11 +107,9 @@ public class DJGroupVariableDefRegistrationManager extends AbstractEntityRegistr
 			if (col instanceof ExpressionColumn && ((ExpressionColumn)col).getExpressionForCalculation() != null){
 				ExpressionColumn expcol = (ExpressionColumn)col;
 				expression.setText(expcol.getTextForExpressionForCalculartion());
-				expression.setValueClassName(expcol.getExpressionForCalculation().getClassName());
 			} 
 			else {
 				expression.setText(col.getTextForExpression());
-				expression.setValueClassName(col.getValueClassNameForExpression());
 			}
 
 			valueClassName = col.getVariableClassName(op);
@@ -122,7 +118,7 @@ public class DJGroupVariableDefRegistrationManager extends AbstractEntityRegistr
 
 		JRDesignVariable variable = new JRDesignVariable();
 		variable.setExpression(expression);
-		variable.setCalculation(CalculationEnum.getByValue( columnsGroupVariable.getOperation().getValue() ));
+		variable.setCalculation(columnsGroupVariable.getOperation());
 		variable.setName(columnsGroupVariable.getName());
 
         log.debug("Transforming group variable " + variable.getName());
@@ -137,7 +133,6 @@ public class DJGroupVariableDefRegistrationManager extends AbstractEntityRegistr
 
 		JRDesignExpression initialExp = new JRDesignExpression();
 		initialExp.setText(initialExpression);
-		initialExp.setValueClassName(valueClassName);
 		variable.setInitialValueExpression(initialExp);
 
 		return variable;

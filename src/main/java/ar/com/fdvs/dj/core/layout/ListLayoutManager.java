@@ -47,46 +47,38 @@ import net.sf.jasperreports.engine.design.JRDesignTextField;
  */
 public class ListLayoutManager extends AbstractLayoutManager {
 
-	private static final Log log = LogFactory.getLog(ListLayoutManager.class);
-	
-	protected Map<String, Object> referencesMap = new HashMap<String, Object>();
+    private static final Log log = LogFactory.getLog(ListLayoutManager.class);
 
-	public Map<String, Object> getReferencesMap() {
-		return referencesMap;
-	}	
+    protected Map<String, Object> referencesMap = new HashMap<String, Object>();
 
-	protected void startLayout() {
-		getReport().getOptions().setColumnsPerPage(1);
-		getReport().getOptions().setColumnSpace(0);
-		getDesign().setColumnCount(1);
-		getDesign().setColumnWidth(getReport().getOptions().getColumnWidth());
-		super.startLayout();
-		if (getReport().getOptions().isPrintColumnNames()){
-			generateHeaderBand();
-		}
-		getDesign().setIgnorePagination(getReport().getOptions().isIgnorePagination());
-	}
+    public Map<String, Object> getReferencesMap() {
+        return referencesMap;
+    }
 
-	protected void transformDetailBandTextField(AbstractColumn column, JRDesignTextField textField) {
-		log.debug("transforming detail band text field...");
-		textField.setPrintRepeatedValues(true);
-		try {
-			//if we have a java.lang.Number then the pattern must be ignored in order to let Excel recognize the number correctly.
-			if (Number.class.isAssignableFrom(Class.forName(textField.getExpression().getValueClassName())))
-				textField.setPattern(null);
-		} catch (ClassNotFoundException e) {
-			throw new LayoutException(e.getMessage(),e);
-		}
-	}
+    protected void startLayout() {
+        getReport().getOptions().setColumnsPerPage(1);
+        getReport().getOptions().setColumnSpace(0);
+        getDesign().setColumnCount(1);
+        getDesign().setColumnWidth(getReport().getOptions().getColumnWidth());
+        super.startLayout();
+        if (getReport().getOptions().isPrintColumnNames()) {
+            generateHeaderBand();
+        }
+        getDesign().setIgnorePagination(getReport().getOptions().isIgnorePagination());
+    }
 
-	protected void generateHeaderBand() {
-		log.debug("generating header band...");
-		JRDesignBand header = (JRDesignBand) getDesign().getColumnHeader();
-		if (header == null) {
-			header = new JRDesignBand();
-			getDesign().setColumnHeader(header);
-		}
-//		if (!DynamicJasperHelper.existsGroupWithColumnNames(getReport().getColumnsGroups()))
-			generateHeaderBand(header);
-	}
+    protected void transformDetailBandTextField(AbstractColumn column, JRDesignTextField textField) {
+        log.debug("transforming detail band text field...");
+        textField.setPrintRepeatedValues(true);
+    }
+
+    protected void generateHeaderBand() {
+        log.debug("generating header band...");
+        JRDesignBand header = (JRDesignBand) getDesign().getColumnHeader();
+        if (header == null) {
+            header = new JRDesignBand();
+            getDesign().setColumnHeader(header);
+        }
+        generateHeaderBand(header);
+    }
 }

@@ -35,7 +35,6 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.Iterator;
 import java.util.List;
-import java.util.Map;
 import java.util.Random;
 
 import org.apache.commons.beanutils.BeanUtils;
@@ -80,9 +79,9 @@ import net.sf.jasperreports.engine.design.JRDesignField;
 import net.sf.jasperreports.engine.design.JRDesignStyle;
 import net.sf.jasperreports.engine.design.JRDesignTextField;
 import net.sf.jasperreports.engine.design.JasperDesign;
-import net.sf.jasperreports.engine.type.CalculationEnum;
 import net.sf.jasperreports.engine.type.ModeEnum;
 import net.sf.jasperreports.engine.type.PositionTypeEnum;
+import net.sf.jasperreports.engine.type.TextAdjustEnum;
 
 public class Dj2JrCrosstabBuilder {
 
@@ -111,7 +110,6 @@ public class Dj2JrCrosstabBuilder {
 
 		JRDesignExpression mapExp = new JRDesignExpression();
 		mapExp.setText("$P{REPORT_PARAMETERS_MAP}");
-		mapExp.setValueClass(Map.class);
 		jrcross.setParametersMapExpression(mapExp);
 
 		JRDesignCrosstabParameter crossParameter = new JRDesignCrosstabParameter();
@@ -119,7 +117,6 @@ public class Dj2JrCrosstabBuilder {
 		crossParameter.setValueClassName(DJDefaultScriptlet.class.getName());
 		JRDesignExpression expression = new JRDesignExpression();
 		expression.setText("$P{"+JRParameter.REPORT_PARAMETERS_MAP+"}.get(\"REPORT_SCRIPTLET\")");
-		expression.setValueClassName(DJDefaultScriptlet.class.getName());
 		crossParameter.setExpression(expression);
 		try {
 			jrcross.addParameter(crossParameter);
@@ -183,7 +180,7 @@ public class Dj2JrCrosstabBuilder {
 
 		jrcross.setColumnBreakOffset(djcross.getColumnBreakOffset());
 
-        jrcross.setIgnoreWidth(djcross.isIgnoreWidth());
+        jrcross.setIgnoreWidth((Boolean)djcross.isIgnoreWidth());
 	}
 
 	private void createMainHeaderCell() {
@@ -216,7 +213,7 @@ public class Dj2JrCrosstabBuilder {
 
 		element.setWidth(auxWidth);
 		element.setHeight(auxHeight);
-		element.setStretchWithOverflow(true);
+		element.setTextAdjust(TextAdjustEnum.STRETCH_HEIGHT);
 
 		if (djcross.getHeaderStyle() != null)
 			layoutManager.applyStyleToElement(djcross.getHeaderStyle(), element);
@@ -428,23 +425,19 @@ public class Dj2JrCrosstabBuilder {
 
 					boolean isTotalCell = isRowTotal || isColumnTotal;
 
-					String measureValueClassName = djmeasure.getProperty().getValueClassName();
 
                     String measureProperty = djmeasure.getMeasureIdentifier(measureIdx);
                     String meausrePrefix = djmeasure.getMeasurePrefix(measureIdx);
 
 					if (!isTotalCell){
 						if (djmeasure.getValueFormatter()== null){
-							measureExp.setValueClassName(measureValueClassName); //FIXME Shouldn't this be of a class "compatible" with measure's operation?
                             measureExp.setText("$V{"+ measureProperty +"}");
 						} else {
                             measureExp.setText(djmeasure.getTextForValueFormatterExpression(measureProperty, djcross.getMeasures()));
-							measureExp.setValueClassName(djmeasure.getValueFormatter().getClassName());
 						}
 					} else { //is a total cell
 						if (djmeasure.getValueFormatter()== null){
 							if (djmeasure.getPrecalculatedTotalProvider() == null) {
-								measureExp.setValueClassName(measureValueClassName);
 								measureExp.setText("$V{"+measureProperty+"}");
 							} else {
 								//call the precalculated value.
@@ -454,7 +447,6 @@ public class Dj2JrCrosstabBuilder {
 							if (djmeasure.getPrecalculatedTotalProvider() == null) {
 								//has value formatter, no total provider
 								measureExp.setText(djmeasure.getTextForValueFormatterExpression(measureProperty, djcross.getMeasures()));
-								measureExp.setValueClassName(djmeasure.getValueFormatter().getClassName());
 
 							} else {
 								//NO value formatter, call the precalculated value only
@@ -505,7 +497,6 @@ public class Dj2JrCrosstabBuilder {
 						}
 						layoutManager.applyStyleToElement(null, element);
 						jrstyle = (JRDesignStyle)element.getStyle();
-						jrstyle.setBlankWhenNull(true);
 					}
 
 					JRDesignStyle alternateStyle = Utils.cloneStyle(jrstyle);
@@ -609,7 +600,6 @@ public class Dj2JrCrosstabBuilder {
 				+ "("+expText+"), " + fieldsMap +", " + variablesMap + ", " + parametersMap +" ))";
 
 			measureExp.setText(stringExpression);
-			measureExp.setValueClassName(djmeasure.getValueFormatter().getClassName());
 		} else {
 
 //			String expText = "((("+DJCRosstabMeasurePrecalculatedTotalProvider.class.getName()+")$P{crosstab-measure__"+djmeasure.getProperty().getProperty()+"_totalProvider}).getValueFor( "
@@ -623,9 +613,6 @@ public class Dj2JrCrosstabBuilder {
 			log.debug("text for crosstab total provider is: " + expText);
 
 			measureExp.setText(expText);
-//			measureExp.setValueClassName(djmeasure.getValueFormatter().getClassName());
-			String valueClassNameForOperation = ExpressionUtils.getValueClassNameForOperation(djmeasure.getOperation(),djmeasure.getProperty());
-			measureExp.setValueClassName(valueClassNameForOperation);
 		}
 
 	}
@@ -692,10 +679,9 @@ public class Dj2JrCrosstabBuilder {
 			JRDesignCrosstabMeasure measure = new JRDesignCrosstabMeasure();
 
 			measure.setName(meausrePrefix + djmeasure.getProperty().getProperty()); //makes the measure.name unique in this crosstab
-			measure.setCalculation(CalculationEnum.getByValue( djmeasure.getOperation().getValue() ));
+			measure.setCalculation( djmeasure.getOperation());
 			measure.setValueClassName(djmeasure.getProperty().getValueClassName());
 			JRDesignExpression valueExp = new JRDesignExpression();
-			valueExp.setValueClassName(djmeasure.getProperty().getValueClassName());
 			valueExp.setText("$F{"+djmeasure.getProperty().getProperty()+"}");
 			measure.setValueExpression(valueExp);
 
@@ -805,7 +791,6 @@ public class Dj2JrCrosstabBuilder {
 			JRDesignTextField rowTitle = new JRDesignTextField();
 
 			JRDesignExpression rowTitExp = new JRDesignExpression();
-			rowTitExp.setValueClassName(crosstabRow.getProperty().getValueClassName());
 			rowTitExp.setText("$V{"+crosstabRow.getProperty().getProperty()+"}");
 
 			rowTitle.setExpression(rowTitExp);
@@ -900,7 +885,6 @@ public class Dj2JrCrosstabBuilder {
 			JRDesignTextField colTitle = new JRDesignTextField();
 
 			JRDesignExpression colTitleExp = new JRDesignExpression();
-			colTitleExp.setValueClassName(crosstabColumn.getProperty().getValueClassName());
 			colTitleExp.setText("$V{"+crosstabColumn.getProperty().getProperty()+"}");
 
 

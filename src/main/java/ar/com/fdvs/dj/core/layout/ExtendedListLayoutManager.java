@@ -51,7 +51,6 @@ public class ExtendedListLayoutManager extends ListLayoutManager {
         }else {
             exp.setText("\"" + Utils.escapeTextForExpression( getReport().getTitle()) + "\"");
         }
-        exp.setValueClass(String.class);
         title.setExpression(exp);
         title.setWidth(getReport().getOptions().getPrintableWidth());
         title.setHeight(getReport().getOptions().getTitleHeight());
@@ -66,7 +65,6 @@ public class ExtendedListLayoutManager extends ListLayoutManager {
         if (getReport().getSubtitle() != null) {
             JRDesignExpression exp2 = new JRDesignExpression();
             exp2.setText("\"" + getReport().getSubtitle() + "\"");
-            exp2.setValueClass(String.class);
             subtitle.setExpression(exp2);
             subtitle.setWidth(getReport().getOptions().getPrintableWidth());
             subtitle.setHeight(getReport().getOptions().getSubtitleHeight());

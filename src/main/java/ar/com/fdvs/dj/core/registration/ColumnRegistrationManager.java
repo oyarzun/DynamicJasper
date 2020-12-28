@@ -57,8 +57,6 @@ import net.sf.jasperreports.engine.design.JRDesignParameter;
  */
 public class ColumnRegistrationManager extends AbstractEntityRegistrationManager {
 
-	private static final String FIELD_ALREADY_REGISTERED = "The field has already been registered";
-
 	private static final Log log = LogFactory.getLog(ColumnRegistrationManager.class);
 
 	private int colCounter = 0;
