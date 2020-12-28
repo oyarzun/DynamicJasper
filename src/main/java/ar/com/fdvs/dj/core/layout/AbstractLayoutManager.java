@@ -573,7 +573,7 @@ public abstract class AbstractLayoutManager implements LayoutManager {
         if (designElemen instanceof JRDesignTextElement) {
             JRDesignTextElement textField = (JRDesignTextElement) designElemen;
             if (style.getStreching() != null)
-                textField.setStretchType(StretchTypeEnum.getByValue(style.getStreching().getValue()));
+                textField.setStretchType(style.getStreching());
             textField.setPositionType(PositionTypeEnum.FLOAT);
 
         }

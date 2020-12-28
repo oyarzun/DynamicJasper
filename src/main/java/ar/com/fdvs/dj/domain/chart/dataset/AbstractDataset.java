@@ -29,6 +29,9 @@
 
 package ar.com.fdvs.dj.domain.chart.dataset;
 
+import java.util.List;
+import java.util.Map;
+
 import ar.com.fdvs.dj.domain.DJBaseElement;
 import ar.com.fdvs.dj.domain.DynamicJasperDesign;
 import ar.com.fdvs.dj.domain.entities.Entity;
@@ -38,11 +41,8 @@ import net.sf.jasperreports.engine.design.JRDesignChartDataset;
 import net.sf.jasperreports.engine.design.JRDesignExpression;
 import net.sf.jasperreports.engine.design.JRDesignGroup;
 import net.sf.jasperreports.engine.design.JRDesignVariable;
+import net.sf.jasperreports.engine.type.DatasetResetTypeEnum;
 import net.sf.jasperreports.engine.type.IncrementTypeEnum;
-import net.sf.jasperreports.engine.type.ResetTypeEnum;
-
-import java.util.List;
-import java.util.Map;
 
 public abstract class AbstractDataset extends DJBaseElement {
 	private static final long serialVersionUID = Entity.SERIAL_VERSION_UID;
@@ -54,7 +54,6 @@ public abstract class AbstractDataset extends DJBaseElement {
 	protected static JRDesignExpression getExpressionFromVariable(JRDesignVariable var){
 		JRDesignExpression exp = new JRDesignExpression();
 		exp.setText("$V{" + var.getName() + "}");
-		exp.setValueClass(var.getValueClass());
 		return exp;
 	}
 	
@@ -64,9 +63,9 @@ public abstract class AbstractDataset extends DJBaseElement {
 		dataset.setIncrementType( IncrementTypeEnum.GROUP );
 		dataset.setIncrementGroup(group);
 		if (dataset.getResetGroup().equals(group))
-			dataset.setResetType( ResetTypeEnum.REPORT );
+			dataset.setResetType( DatasetResetTypeEnum.REPORT );
 		else
-			dataset.setResetType( ResetTypeEnum.GROUP );
+			dataset.setResetType( DatasetResetTypeEnum.GROUP );
 	}
 	
 	public abstract PropertyColumn getColumnsGroup();

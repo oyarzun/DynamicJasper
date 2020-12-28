@@ -147,12 +147,10 @@ public class ColumnsGroupVariablesRegistrationManager extends AbstractEntityRegi
 		if (col instanceof ExpressionColumn && ((ExpressionColumn)col).getExpressionForCalculation() != null){
 			ExpressionColumn expcol = (ExpressionColumn)col;
 			expression.setText(expcol.getTextForExpressionForCalculartion());
-			expression.setValueClassName(expcol.getExpressionForCalculation().getClassName());
 		} 
 		else if (col instanceof PercentageColumn) {
 			PercentageColumn pcol = (PercentageColumn) col;
 			expression.setText(pcol.getPercentageColumn().getTextForExpression());
-			expression.setValueClassName(pcol.getPercentageColumn().getValueClassNameForExpression());
 			
 			DJGroup djgroup = groupVariable.getGroup();
 			registeredGroup = LayoutUtils.findParentJRGroup(djgroup, getDynamicReport(), getDjd(), getLayoutManager());
@@ -161,16 +159,14 @@ public class ColumnsGroupVariablesRegistrationManager extends AbstractEntityRegi
 			if (col.getTextFormatter() != null){
 				PropertyColumn pcol = (PropertyColumn) col; 
 				expression.setText("$F{" + pcol.getColumnProperty().getProperty() + "}");
-				expression.setValueClassName(pcol.getColumnProperty().getValueClassName());
 			} else {
 				expression.setText(col.getTextForExpression());
-				expression.setValueClassName(col.getValueClassNameForExpression());
 			}
 		}
 		
 		JRDesignVariable variable = new JRDesignVariable();
 		variable.setExpression(expression);
-		variable.setCalculation(CalculationEnum.getByValue(groupVariable.getOperation().getValue()));
+		variable.setCalculation(groupVariable.getOperation());
 		variable.setName(variableName);		
 
 		variable.setResetType(ResetTypeEnum.GROUP );
@@ -188,7 +184,6 @@ public class ColumnsGroupVariablesRegistrationManager extends AbstractEntityRegi
 		if (initialExpression != null){
 			JRDesignExpression initialExp = new JRDesignExpression();
 			initialExp.setText(initialExpression);
-			initialExp.setValueClassName(valueClassName);
 			variable.setInitialValueExpression(initialExp);
 		}
 

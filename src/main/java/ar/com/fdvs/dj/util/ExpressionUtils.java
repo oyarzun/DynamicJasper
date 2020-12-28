@@ -52,7 +52,6 @@ import net.sf.jasperreports.engine.JRVariable;
 import net.sf.jasperreports.engine.data.JRBeanArrayDataSource;
 import net.sf.jasperreports.engine.data.JRBeanCollectionDataSource;
 import net.sf.jasperreports.engine.design.JRDesignExpression;
-import net.sf.jasperreports.engine.design.JRDesignField;
 import net.sf.jasperreports.engine.design.JRDesignParameter;
 import net.sf.jasperreports.engine.design.JasperDesign;
 import net.sf.jasperreports.engine.type.CalculationEnum;
@@ -74,7 +73,6 @@ public class ExpressionUtils {
      */
     public static JRDesignExpression getParameterExpression(Subreport sr) {
         JRDesignExpression exp = new JRDesignExpression();
-        exp.setValueClassName(java.util.Map.class.getName());
         if (sr.isUseParentReportParameters()) {
             exp.setText(REPORT_PARAMETERS_MAP);
             return exp;
@@ -104,7 +102,6 @@ public class ExpressionUtils {
      */
     public static JRDesignExpression getDataSourceExpression(DJDataSource ds) {
         JRDesignExpression exp = new JRDesignExpression();
-        exp.setValueClass(JRDataSource.class);
 
         String dsType = getDataSourceTypeStr(ds.getDataSourceType());
         String expText = null;
@@ -125,7 +122,6 @@ public class ExpressionUtils {
 
     public static JRDesignExpression getConnectionExpression(DJDataSource ds) {
         JRDesignExpression exp = new JRDesignExpression();
-        exp.setValueClass(Connection.class);
 
         String dsType = getDataSourceTypeStr(ds.getDataSourceType());
         String expText = dsType + REPORT_PARAMETERS_MAP + ".get( \"" + ds.getDataSourceExpression() + "\" ) )";
@@ -143,7 +139,6 @@ public class ExpressionUtils {
     public static JRDesignExpression getReportConnectionExpression() {
         JRDesignExpression connectionExpression = new JRDesignExpression();
         connectionExpression.setText("$P{" + JRDesignParameter.REPORT_CONNECTION + "}");
-        connectionExpression.setValueClass(Connection.class);
         return connectionExpression;
     }
 
@@ -166,39 +161,27 @@ public class ExpressionUtils {
 
     public static JRDesignExpression createStringExpression(String text) {
         JRDesignExpression exp = new JRDesignExpression();
-        exp.setValueClass(String.class);
         exp.setText(text);
         return exp;
     }
 
     public static JRDesignExpression createExpression(String text, Class clazz) {
         JRDesignExpression exp = new JRDesignExpression();
-        exp.setValueClass(clazz);
         exp.setText(text);
         return exp;
     }
 
     public static JRDesignExpression createExpression(String text, String className) {
         JRDesignExpression exp = new JRDesignExpression();
-        exp.setValueClassName(className);
         exp.setText(text);
         return exp;
     }
 
     public static JRDesignExpression createExpression(JasperDesign jasperDesign, SubreportParameter sp) {
         JRDesignExpression exp = new JRDesignExpression();
-        exp.setValueClassName(sp.getClassName());
         String text;
         if (sp.getParameterOrigin() == DJConstants.SUBREPORT_PARAM_ORIGIN_FIELD) {
             text = "$F{" + sp.getExpression() + "}";
-            //We need to set proper class type to expression according to field class
-            if (sp.getClassName() == null) {
-                JRDesignField jrField = (JRDesignField) jasperDesign.getFieldsMap().get(sp.getExpression());
-                if (jrField != null)
-                    exp.setValueClass(jrField.getValueClass());
-                else
-                    exp.setValueClass(Object.class);
-            }
         } else if (sp.getParameterOrigin() == DJConstants.SUBREPORT_PARAM_ORIGIN_PARAMETER) {
             text = REPORT_PARAMETERS_MAP + ".get( \"" + sp.getExpression() + "\")";
         } else if (sp.getParameterOrigin() == DJConstants.SUBREPORT_PARAM_ORIGIN_VARIABLE) {
@@ -392,7 +375,6 @@ public class ExpressionUtils {
 
         String text = "((" + ConditionStyleExpression.class.getName() + ")$P{" + JRParameter.REPORT_PARAMETERS_MAP + "}.get(\"" + condition.getName() + "\"))." + CustomExpression.EVAL_METHOD_NAME + "(" + evalMethodParams + ")";
         JRDesignExpression expression = new JRDesignExpression();
-        expression.setValueClass(Boolean.class);
         expression.setText(text);
         return expression;
     }
