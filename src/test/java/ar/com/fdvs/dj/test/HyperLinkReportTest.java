@@ -41,10 +41,10 @@ import ar.com.fdvs.dj.domain.Style;
 import ar.com.fdvs.dj.domain.builders.FastReportBuilder;
 import ar.com.fdvs.dj.domain.builders.StyleBuilder;
 import ar.com.fdvs.dj.domain.constants.Border;
-import ar.com.fdvs.dj.domain.constants.ImageScaleMode;
 import ar.com.fdvs.dj.domain.constants.Stretching;
 import ar.com.fdvs.dj.domain.hyperlink.LiteralExpression;
 import net.sf.jasperreports.engine.type.HorizontalTextAlignEnum;
+import net.sf.jasperreports.engine.type.ScaleImageEnum;
 import net.sf.jasperreports.view.JasperViewer;
 
 public class HyperLinkReportTest extends BaseDjReportTest {
@@ -63,7 +63,7 @@ public class HyperLinkReportTest extends BaseDjReportTest {
 		drb.addColumn("State", "state", String.class.getName(),30)
 			.addColumn("Branch", "branch", String.class.getName(),30)
 			.addColumn("Product Line", "productLine", String.class.getName(),50)
-			.addImageColumn("IMG", "image", 50, true,ImageScaleMode.FILL ,style)
+			.addImageColumn("IMG", "image", 50, true,ScaleImageEnum.FILL_FRAME ,style)
 			.addColumn("Item", "item", String.class.getName(),20)
 			.addColumn("Item Code", "id", Long.class.getName(),30,true)
 			.addColumn("Quantity", "quantity", Long.class.getName(),60,true)

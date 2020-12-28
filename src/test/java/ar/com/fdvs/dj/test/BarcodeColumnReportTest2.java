@@ -39,13 +39,13 @@ import ar.com.fdvs.dj.domain.Style;
 import ar.com.fdvs.dj.domain.builders.FastReportBuilder;
 import ar.com.fdvs.dj.domain.builders.StyleBuilder;
 import ar.com.fdvs.dj.domain.constants.Border;
-import ar.com.fdvs.dj.domain.constants.ImageScaleMode;
 import ar.com.fdvs.dj.domain.constants.Stretching;
 import ar.com.fdvs.dj.test.domain.Product;
 import ar.com.fdvs.dj.util.SortUtils;
 import net.sf.jasperreports.engine.JRDataSource;
 import net.sf.jasperreports.engine.data.JRBeanCollectionDataSource;
 import net.sf.jasperreports.engine.type.HorizontalTextAlignEnum;
+import net.sf.jasperreports.engine.type.ScaleImageEnum;
 import net.sf.jasperreports.view.JasperDesignViewer;
 import net.sf.jasperreports.view.JasperViewer;
 
@@ -74,7 +74,7 @@ public class BarcodeColumnReportTest2 extends BaseDjReportTest {
 			.addColumn("Branch", "branch", String.class.getName(),30,defStyle)
 			.addColumn("Quantity", "quantity", Long.class.getName(),60,defStyle,null,true)
 			.addColumn("Amount", "amount", Float.class.getName(),70,defStyle,null,true)
-			.addBarcodeColumn("Bar-Code", "amount", Long.class.getName(), BarcodeTypes.USD3, true, false,null, 100, true, ImageScaleMode.FILL, defStyle)
+			.addBarcodeColumn("Bar-Code", "amount", Long.class.getName(), BarcodeTypes.USD3, true, false,null, 100, true, ScaleImageEnum.FILL_FRAME, defStyle)
 			.addGroups(1)
 			.setDetailHeight(30)
 			.addField("productLine",  String.class.getName())

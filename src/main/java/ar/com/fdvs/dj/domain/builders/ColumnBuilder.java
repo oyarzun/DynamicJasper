@@ -41,7 +41,6 @@ import ar.com.fdvs.dj.domain.ColumnOperation;
 import ar.com.fdvs.dj.domain.ColumnProperty;
 import ar.com.fdvs.dj.domain.CustomExpression;
 import ar.com.fdvs.dj.domain.Style;
-import ar.com.fdvs.dj.domain.constants.ImageScaleMode;
 import ar.com.fdvs.dj.domain.entities.DJGroup;
 import ar.com.fdvs.dj.domain.entities.columns.AbstractColumn;
 import ar.com.fdvs.dj.domain.entities.columns.BarCodeColumn;
@@ -53,6 +52,7 @@ import ar.com.fdvs.dj.domain.entities.columns.PropertyColumn;
 import ar.com.fdvs.dj.domain.entities.columns.SimpleColumn;
 import ar.com.fdvs.dj.domain.entities.conditionalStyle.ConditionalStyle;
 import ar.com.fdvs.dj.util.PropertiesMap;
+import net.sf.jasperreports.engine.type.ScaleImageEnum;
 
 /**
  * Builder created to give users a friendly way of adding columns to a report.<br>
@@ -87,7 +87,7 @@ public class ColumnBuilder {
 	private ColumnOperation operation;
 	private List<SimpleColumn> operationColumns = new ArrayList<SimpleColumn>();
 	private PropertiesMap<String, String> fieldProperties = new PropertiesMap<String, String>();
-	private ImageScaleMode imageScaleMode = ImageScaleMode.FILL_PROPORTIONALLY;
+	private ScaleImageEnum imageScaleMode = ScaleImageEnum.FILL_FRAME;
 	private String fieldDescription;
 	private String truncateSuffix;
 	private Format textFormatter;
@@ -399,7 +399,7 @@ public class ColumnBuilder {
 		return this;
 	}
 
-	public ColumnBuilder setImageScaleMode(ImageScaleMode imageScaleMode) {
+	public ColumnBuilder setScaleImageEnum(ScaleImageEnum imageScaleMode) {
 		this.imageScaleMode = imageScaleMode;
 		return this;
 	}

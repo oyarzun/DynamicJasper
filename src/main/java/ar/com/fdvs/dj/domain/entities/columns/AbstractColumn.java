@@ -29,6 +29,10 @@
 
 package ar.com.fdvs.dj.domain.entities.columns;
 
+import java.text.Format;
+import java.util.ArrayList;
+import java.util.List;
+
 import ar.com.fdvs.dj.domain.DJBaseElement;
 import ar.com.fdvs.dj.domain.DJCalculation;
 import ar.com.fdvs.dj.domain.DJHyperLink;
@@ -36,10 +40,6 @@ import ar.com.fdvs.dj.domain.Style;
 import ar.com.fdvs.dj.domain.entities.DJColSpan;
 import ar.com.fdvs.dj.domain.entities.Entity;
 import ar.com.fdvs.dj.domain.entities.conditionalStyle.ConditionalStyle;
-
-import java.text.Format;
-import java.util.ArrayList;
-import java.util.List;
 
 /**
  * Abstract Class used as base for the different Column types.

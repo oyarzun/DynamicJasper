@@ -58,7 +58,6 @@ import ar.com.fdvs.dj.domain.ImageBanner;
 import ar.com.fdvs.dj.domain.Style;
 import ar.com.fdvs.dj.domain.constants.Font;
 import ar.com.fdvs.dj.domain.constants.GroupLayout;
-import ar.com.fdvs.dj.domain.constants.ImageScaleMode;
 import ar.com.fdvs.dj.domain.constants.Page;
 import ar.com.fdvs.dj.domain.entities.DJColSpan;
 import ar.com.fdvs.dj.domain.entities.DJGroup;
@@ -73,6 +72,7 @@ import ar.com.fdvs.dj.domain.entities.columns.GlobalGroupColumn;
 import ar.com.fdvs.dj.domain.entities.columns.PercentageColumn;
 import ar.com.fdvs.dj.domain.entities.columns.PropertyColumn;
 import net.sf.jasperreports.engine.JasperReport;
+import net.sf.jasperreports.engine.type.ScaleImageEnum;
 
 /**
  * Builder created to give users a friendly way of creating a
@@ -799,7 +799,7 @@ public class DynamicReportBuilder {
     }
 
     @Deprecated
-    public DynamicReportBuilder addImageBanner(String path, int width, int height, byte align, ImageScaleMode scaleMode) {
+    public DynamicReportBuilder addImageBanner(String path, int width, int height, byte align, ScaleImageEnum scaleMode) {
         ImageBanner.Alignment alignment = ImageBanner.Alignment.fromValue(align);
         if (alignment == null)
             throw new DJException("Invalid ImageBanner.Alignment");
@@ -810,7 +810,7 @@ public class DynamicReportBuilder {
         return this;
     }
 
-    public DynamicReportBuilder addImageBanner(String path, int width, int height, ImageBanner.Alignment alignment, ImageScaleMode scaleMode) {
+    public DynamicReportBuilder addImageBanner(String path, int width, int height, ImageBanner.Alignment alignment, ScaleImageEnum scaleMode) {
         ImageBanner banner = new ImageBanner(path, width, height, alignment);
         banner.setScaleMode(scaleMode);
         options.getImageBanners().put(alignment, banner);
@@ -818,7 +818,7 @@ public class DynamicReportBuilder {
     }
 
     @Deprecated
-    public DynamicReportBuilder addFooterImageBanner(String path, int width, int height, byte align, ImageScaleMode scaleMode) {
+    public DynamicReportBuilder addFooterImageBanner(String path, int width, int height, byte align, ScaleImageEnum scaleMode) {
         ImageBanner.Alignment alignment = ImageBanner.Alignment.fromValue(align);
         if (alignment == null)
             throw new DJException("Invalid ImageBanner.Alignment");
@@ -829,7 +829,7 @@ public class DynamicReportBuilder {
         return this;
     }
 
-    public DynamicReportBuilder addFooterImageBanner(String path, int width, int height, ImageBanner.Alignment alignment, ImageScaleMode scaleMode) {
+    public DynamicReportBuilder addFooterImageBanner(String path, int width, int height, ImageBanner.Alignment alignment, ScaleImageEnum scaleMode) {
         ImageBanner banner = new ImageBanner(path, width, height, alignment);
         banner.setScaleMode(scaleMode);
         options.getFooterImageBanners().put(alignment, banner);
@@ -872,7 +872,7 @@ public class DynamicReportBuilder {
     }
 
     @Deprecated
-    public DynamicReportBuilder addFirstPageImageBanner(String path, int width, int height, byte align, ImageScaleMode scaleMode) {
+    public DynamicReportBuilder addFirstPageImageBanner(String path, int width, int height, byte align, ScaleImageEnum scaleMode) {
         ImageBanner.Alignment alignment = ImageBanner.Alignment.fromValue(align);
         if (alignment == null)
             throw new DJException("Invalid ImageBanner.Alignment");
@@ -883,7 +883,7 @@ public class DynamicReportBuilder {
         return this;
     }
 
-    public DynamicReportBuilder addFirstPageImageBanner(String path, int width, int height, ImageBanner.Alignment alignment, ImageScaleMode scaleMode) {
+    public DynamicReportBuilder addFirstPageImageBanner(String path, int width, int height, ImageBanner.Alignment alignment, ScaleImageEnum scaleMode) {
         ImageBanner banner = new ImageBanner(path, width, height, alignment);
         banner.setScaleMode(scaleMode);
         options.getFirstPageImageBanners().put(alignment, banner);

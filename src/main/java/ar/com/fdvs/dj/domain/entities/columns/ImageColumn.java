@@ -29,12 +29,13 @@
 
 package ar.com.fdvs.dj.domain.entities.columns;
 
-import ar.com.fdvs.dj.core.DJException;
-import ar.com.fdvs.dj.domain.constants.ImageScaleMode;
-import ar.com.fdvs.dj.domain.entities.Entity;
-import ar.com.fdvs.dj.util.ExpressionUtils;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
+
+import ar.com.fdvs.dj.core.DJException;
+import ar.com.fdvs.dj.domain.entities.Entity;
+import ar.com.fdvs.dj.util.ExpressionUtils;
+import net.sf.jasperreports.engine.type.ScaleImageEnum;
 
 /**
  * Just for marking the column as ImageColum
@@ -47,13 +48,13 @@ public class ImageColumn extends ExpressionColumn {
 	
 	private static final Log log = LogFactory.getLog(ImageColumn.class);
 	
-	private ImageScaleMode scaleMode = ImageScaleMode.FILL_PROPORTIONALLY;
+	private ScaleImageEnum scaleMode = ScaleImageEnum.RETAIN_SHAPE;
 
-	public ImageScaleMode getScaleMode() {
+	public ScaleImageEnum getScaleMode() {
 		return scaleMode;
 	}
 
-	public void setScaleMode(ImageScaleMode scaleMode) {
+	public void setScaleMode(ScaleImageEnum scaleMode) {
 		this.scaleMode = scaleMode;
 	}
 

@@ -332,7 +332,7 @@
             <groupId>org.apache.xmlgraphics</groupId>
             <artifactId>batik-bridge</artifactId>
             <version>1.13</version>
-            <scope>compile</scope>
+            <scope>test</scope>
             <optional>true</optional>
             <exclusions>
                 <exclusion>

@@ -29,8 +29,8 @@
 
 package ar.com.fdvs.dj.domain;
 
-import ar.com.fdvs.dj.domain.constants.ImageScaleMode;
 import ar.com.fdvs.dj.domain.entities.Entity;
+import net.sf.jasperreports.engine.type.ScaleImageEnum;
 
 public class ImageBanner extends DJBaseElement {
 
@@ -50,7 +50,7 @@ public class ImageBanner extends DJBaseElement {
 	private int height= 0;
 	private Alignment align = Alignment.Left;
 
-	private ImageScaleMode scaleMode = ImageScaleMode.FILL_PROPORTIONALLY;
+	private ScaleImageEnum scaleMode = ScaleImageEnum.RETAIN_SHAPE;
 	
 	public ImageBanner(){}
 
@@ -84,11 +84,11 @@ public class ImageBanner extends DJBaseElement {
 		this.width = width;
 	}
 	
-	public ImageScaleMode getScaleMode() {
+	public ScaleImageEnum getScaleMode() {
 		return scaleMode;
 	}
 
-	public void setScaleMode(ImageScaleMode scaleMode) {
+	public void setScaleMode(ScaleImageEnum scaleMode) {
 		this.scaleMode = scaleMode;
 	}
 

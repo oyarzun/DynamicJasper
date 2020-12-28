@@ -40,10 +40,10 @@ import ar.com.fdvs.dj.domain.Style;
 import ar.com.fdvs.dj.domain.builders.FastReportBuilder;
 import ar.com.fdvs.dj.domain.builders.StyleBuilder;
 import ar.com.fdvs.dj.domain.constants.Font;
-import ar.com.fdvs.dj.domain.constants.ImageScaleMode;
 import net.sf.jasperreports.engine.JRDataSource;
 import net.sf.jasperreports.engine.data.JRBeanCollectionDataSource;
 import net.sf.jasperreports.engine.type.HorizontalTextAlignEnum;
+import net.sf.jasperreports.engine.type.ScaleImageEnum;
 import net.sf.jasperreports.view.JasperDesignViewer;
 import net.sf.jasperreports.view.JasperViewer;
 
@@ -71,14 +71,14 @@ public class WhenNoDataTest extends BaseDjReportTest {
 			.addAutoText(AutoText.AUTOTEXT_PAGE_X,AutoText.POSITION_HEADER,AutoText.ALIGNMENT_LEFT)
 			.setTitle("November " + getYear() +" sales report")
 			.setSubtitle("This report was generated at " + new Date())
-//			.setWhenNoData("No data for this report", noDataStyle)
+			.setWhenNoData("No data for this report", noDataStyle)
 //			.setWhenNoData("No data for this report", noDataStyle,true,false)
 			.setWhenNoData("No data for this report", null,true,true)
 			.setUseFullPageWidth(true)
 //			.addFirstPageImageBanner(System.getProperty("user.dir") +"/target/test-classes/images/logo_fdv_solutions_60.png", new Integer(197), new Integer(60), ImageBanner.Alignment.Left)
 //			.addFirstPageImageBanner(System.getProperty("user.dir") +"/target/test-classes/images/dynamicJasper_60.jpg", new Integer(300), new Integer(60), ImageBanner.Alignment.Right)
-			.addImageBanner(System.getProperty("user.dir") +"/target/test-classes/images/logo_fdv_solutions_60.png", 100, 25, ImageBanner.Alignment.Left, ImageScaleMode.FILL)
-			.addImageBanner(System.getProperty("user.dir") +"/target/test-classes/images/dynamicJasper_60.jpg", 150, 25, ImageBanner.Alignment.Right, ImageScaleMode.FILL);
+			.addImageBanner(System.getProperty("user.dir") +"/target/test-classes/images/logo_fdv_solutions_60.png", 100, 25, ImageBanner.Alignment.Left, ScaleImageEnum.FILL_FRAME)
+			.addImageBanner(System.getProperty("user.dir") +"/target/test-classes/images/dynamicJasper_60.jpg", 150, 25, ImageBanner.Alignment.Right, ScaleImageEnum.FILL_FRAME);
 			
 		
 		drb.setTemplateFile(getClass().getClassLoader().getResourceAsStream("templates/TemplateReportTest.jrxml"));

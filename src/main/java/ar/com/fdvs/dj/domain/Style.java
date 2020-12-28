@@ -350,7 +350,7 @@ public class Style implements Serializable, Cloneable {
         //TODO Check if this is still necessary
         /*transformedStyle.setPen((byte)0);
 		transformedStyle.setFill((byte)1);
-		transformedStyle.setScaleImage(ImageScaleMode.NO_RESIZE.getValue());*/
+		transformedStyle.setScaleImage(ScaleImageEnum.NO_RESIZE.getValue());*/
 
 	}
 

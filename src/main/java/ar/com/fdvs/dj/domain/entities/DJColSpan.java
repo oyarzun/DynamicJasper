@@ -28,10 +28,10 @@
 
 package ar.com.fdvs.dj.domain.entities;
 
+import java.util.List;
+
 import ar.com.fdvs.dj.domain.Style;
 import ar.com.fdvs.dj.domain.entities.columns.AbstractColumn;
-
-import java.util.List;
 
 public class DJColSpan  {
 
