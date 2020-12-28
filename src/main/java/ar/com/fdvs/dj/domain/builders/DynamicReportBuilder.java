@@ -47,7 +47,6 @@ import ar.com.fdvs.dj.domain.AutoText;
 import ar.com.fdvs.dj.domain.ColumnProperty;
 import ar.com.fdvs.dj.domain.CustomExpression;
 import ar.com.fdvs.dj.domain.DJCalculation;
-import ar.com.fdvs.dj.domain.DJChart;
 import ar.com.fdvs.dj.domain.DJCrosstab;
 import ar.com.fdvs.dj.domain.DJQuery;
 import ar.com.fdvs.dj.domain.DJValueFormatter;
@@ -928,18 +927,6 @@ public class DynamicReportBuilder {
      */
     public List<ColumnProperty> getFields() {
         return report.getFields();
-    }
-
-    /**
-     * Registers a field that is not necesary bound to a column, it can be used
-     * in a custom expression
-     *
-     * @return A Dynamic Report Builder
-     * @deprecated
-     */
-    public DynamicReportBuilder addChart(DJChart chart) {
-        report.getCharts().add(chart);
-        return this;
     }
 
     /**

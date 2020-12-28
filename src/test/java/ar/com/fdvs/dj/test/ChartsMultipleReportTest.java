@@ -32,14 +32,15 @@ package ar.com.fdvs.dj.test;
 import java.awt.Color;
 
 import ar.com.fdvs.dj.domain.DJCalculation;
-import ar.com.fdvs.dj.domain.DJChart;
-import ar.com.fdvs.dj.domain.DJChartOptions;
 import ar.com.fdvs.dj.domain.DynamicReport;
 import ar.com.fdvs.dj.domain.Style;
 import ar.com.fdvs.dj.domain.builders.ColumnBuilder;
-import ar.com.fdvs.dj.domain.builders.DJChartBuilder;
 import ar.com.fdvs.dj.domain.builders.DynamicReportBuilder;
 import ar.com.fdvs.dj.domain.builders.GroupBuilder;
+import ar.com.fdvs.dj.domain.chart.DJChart;
+import ar.com.fdvs.dj.domain.chart.DJChartOptions;
+import ar.com.fdvs.dj.domain.chart.builder.DJBarChartBuilder;
+import ar.com.fdvs.dj.domain.chart.builder.DJPieChartBuilder;
 import ar.com.fdvs.dj.domain.constants.Border;
 import ar.com.fdvs.dj.domain.constants.Font;
 import ar.com.fdvs.dj.domain.constants.GroupLayout;
@@ -147,37 +148,35 @@ public class ChartsMultipleReportTest extends BaseDjReportTest {
 
 		drb.setUseFullPageWidth(true);
 
-		DJChartBuilder cb = new DJChartBuilder();
-		DJChart chart =  cb.setType(DJChart.BAR_CHART)
+		var cb = new DJBarChartBuilder();
+		DJChart chart =  cb
 						.setOperation(DJChart.CALCULATION_SUM)
-						.setColumnsGroup(g1)
-						.addColumn(columnAmount)
+                        .setColumnGroup((PropertyColumn) columnState)
+                        .addSerie(columnAmount)
 						.setPosition(DJChartOptions.POSITION_HEADER)
 						.setShowLabels(true)
 						.setHeight(200)
 						.build();
 
-		//drb.addChart(chart); //add chart
+		drb.addChart(chart); //add chart
 		
-		DJChartBuilder cb2 = new DJChartBuilder();
-		DJChart chart2 =  cb2.addType(DJChart.PIE_CHART)
+		DJPieChartBuilder cb2 = new DJPieChartBuilder();
+		DJChart chart2 =  cb2
 						.setOperation(DJChart.CALCULATION_SUM)
-						.setColumnsGroup(g1)
-						.addColumn(columnAmount)
+                        .setColumnGroup((PropertyColumn) columnState)
+						.addSerie(columnAmount)
 						.setPosition(DJChartOptions.POSITION_HEADER)
-						.setShowLabels(true)
 						.setHeight(200)
 						.build();
 
 		drb.addChart(chart2); //add chart
 		
-		DJChartBuilder cb3 = new DJChartBuilder();
-		DJChart chart3 =  cb3.setType(DJChart.PIE_CHART)
+		DJPieChartBuilder cb3 = new DJPieChartBuilder();
+		DJChart chart3 =  cb3
 		.setOperation(DJChart.CALCULATION_SUM)
-		.setColumnsGroup(g1)
-		.addColumn(columnAmount)
+        .setColumnGroup((PropertyColumn) columnState)
+        .addSerie(columnAmount)
 		.setPosition(DJChartOptions.POSITION_HEADER)
-		.setShowLabels(true)
 		.setHeight(200)
 		.build();
 		

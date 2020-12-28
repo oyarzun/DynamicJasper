@@ -34,14 +34,14 @@ import java.util.Map;
 
 import ar.com.fdvs.dj.domain.CustomExpression;
 import ar.com.fdvs.dj.domain.DJCalculation;
-import ar.com.fdvs.dj.domain.DJChart;
-import ar.com.fdvs.dj.domain.DJChartOptions;
 import ar.com.fdvs.dj.domain.DynamicReport;
 import ar.com.fdvs.dj.domain.Style;
 import ar.com.fdvs.dj.domain.builders.ColumnBuilder;
-import ar.com.fdvs.dj.domain.builders.DJChartBuilder;
 import ar.com.fdvs.dj.domain.builders.DynamicReportBuilder;
 import ar.com.fdvs.dj.domain.builders.GroupBuilder;
+import ar.com.fdvs.dj.domain.chart.DJChart;
+import ar.com.fdvs.dj.domain.chart.DJChartOptions;
+import ar.com.fdvs.dj.domain.chart.builder.DJBarChartBuilder;
 import ar.com.fdvs.dj.domain.constants.Border;
 import ar.com.fdvs.dj.domain.constants.Font;
 import ar.com.fdvs.dj.domain.constants.GroupLayout;
@@ -167,11 +167,11 @@ public class ChartReportWithExpressionColumnTest extends BaseDjReportTest {
 
 		drb.setUseFullPageWidth(true);
 
-		DJChartBuilder cb = new DJChartBuilder();
-		DJChart chart =  cb.setType(DJChart.BAR_CHART)
+		DJBarChartBuilder cb = new DJBarChartBuilder();
+		DJChart chart =  cb
 						.setOperation(DJChart.CALCULATION_SUM)
-						.setColumnsGroup(g1)
-						.addColumn(columnAmount)
+						.setColumnGroup((PropertyColumn) columnState)
+						.addSerie(columnAmount)
 //						.addColumn(columnaQuantity)
 						.setPosition(DJChartOptions.POSITION_HEADER)
 						.setShowLabels(true)

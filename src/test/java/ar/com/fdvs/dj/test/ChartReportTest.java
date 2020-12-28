@@ -32,14 +32,14 @@ package ar.com.fdvs.dj.test;
 import java.awt.Color;
 
 import ar.com.fdvs.dj.domain.DJCalculation;
-import ar.com.fdvs.dj.domain.DJChart;
-import ar.com.fdvs.dj.domain.DJChartOptions;
 import ar.com.fdvs.dj.domain.DynamicReport;
 import ar.com.fdvs.dj.domain.Style;
 import ar.com.fdvs.dj.domain.builders.ColumnBuilder;
-import ar.com.fdvs.dj.domain.builders.DJChartBuilder;
 import ar.com.fdvs.dj.domain.builders.DynamicReportBuilder;
 import ar.com.fdvs.dj.domain.builders.GroupBuilder;
+import ar.com.fdvs.dj.domain.chart.DJChart;
+import ar.com.fdvs.dj.domain.chart.DJChartOptions;
+import ar.com.fdvs.dj.domain.chart.builder.DJBarChartBuilder;
 import ar.com.fdvs.dj.domain.constants.Border;
 import ar.com.fdvs.dj.domain.constants.Font;
 import ar.com.fdvs.dj.domain.constants.GroupLayout;
@@ -86,37 +86,37 @@ public class ChartReportTest extends BaseDjReportTest {
 
 		AbstractColumn columnState = ColumnBuilder.getNew()
 				.setColumnProperty("state", String.class.getName()).setTitle(
-						"State").setWidth(new Integer(85))
+						"State").setWidth(85)
 				.setStyle(detailStyle).setHeaderStyle(headerStyle).build();
 
 		AbstractColumn columnBranch = ColumnBuilder.getNew()
 				.setColumnProperty("branch", String.class.getName()).setTitle(
-						"Branch").setWidth(new Integer(85)).setStyle(
+						"Branch").setWidth(85).setStyle(
 						detailStyle).setHeaderStyle(headerStyle).build();
 
 		AbstractColumn columnaProductLine = ColumnBuilder.getNew()
 				.setColumnProperty("productLine", String.class.getName())
-				.setTitle("Product Line").setWidth(new Integer(85)).setStyle(
+				.setTitle("Product Line").setWidth(85).setStyle(
 						detailStyle).setHeaderStyle(headerStyle).build();
 
 		AbstractColumn columnaItem = ColumnBuilder.getNew()
 				.setColumnProperty("item", String.class.getName()).setTitle(
-						"Item").setWidth(new Integer(85)).setStyle(detailStyle)
+						"Item").setWidth(85).setStyle(detailStyle)
 				.setHeaderStyle(headerStyle).build();
 
 		AbstractColumn columnCode = ColumnBuilder.getNew()
 				.setColumnProperty("id", Long.class.getName()).setTitle("ID")
-				.setWidth(new Integer(40)).setStyle(importeStyle)
+				.setWidth(40).setStyle(importeStyle)
 				.setHeaderStyle(headerStyle).build();
 
 		AbstractColumn columnaQuantity = ColumnBuilder.getNew()
 				.setColumnProperty("quantity", Long.class.getName()).setTitle(
-						"Quantity").setWidth(new Integer(80)).setStyle(
+						"Quantity").setWidth(80).setStyle(
 						importeStyle).setHeaderStyle(headerStyle).build();
 
 		AbstractColumn columnAmount = ColumnBuilder.getNew()
 				.setColumnProperty("amount", Float.class.getName()).setTitle(
-						"Amount").setWidth(new Integer(90))
+						"Amount").setWidth(90)
 				.setPattern("$ 0.00").setStyle(importeStyle).setHeaderStyle(
 						headerStyle).build();
 
@@ -151,12 +151,12 @@ public class ChartReportTest extends BaseDjReportTest {
 
 		drb.setUseFullPageWidth(true);
 
-		DJChartBuilder cb = new DJChartBuilder();
-		DJChart chart =  cb.setType(DJChart.BAR_CHART)
+		DJBarChartBuilder cb = new  DJBarChartBuilder();
+		DJChart chart =  cb
 						.setOperation(DJChart.CALCULATION_SUM)
-						.setColumnsGroup(g1)
-						.addColumn(columnAmount)
-						.addColumn(columnaQuantity)
+						.setColumnGroup((PropertyColumn) columnState)
+						.addSerie (columnAmount)
+						.addSerie(columnaQuantity)
 						.setPosition(DJChartOptions.POSITION_HEADER)
 						.setShowLabels(true)
 						.build();

@@ -38,14 +38,14 @@ import java.util.Locale;
 
 import ar.com.fdvs.dj.domain.AutoText;
 import ar.com.fdvs.dj.domain.DJCalculation;
-import ar.com.fdvs.dj.domain.DJChart;
 import ar.com.fdvs.dj.domain.DynamicReport;
 import ar.com.fdvs.dj.domain.ImageBanner;
 import ar.com.fdvs.dj.domain.Style;
 import ar.com.fdvs.dj.domain.builders.ColumnBuilder;
-import ar.com.fdvs.dj.domain.builders.DJChartBuilder;
 import ar.com.fdvs.dj.domain.builders.DynamicReportBuilder;
 import ar.com.fdvs.dj.domain.builders.GroupBuilder;
+import ar.com.fdvs.dj.domain.chart.DJChart;
+import ar.com.fdvs.dj.domain.chart.builder.DJBarChartBuilder;
 import ar.com.fdvs.dj.domain.constants.Border;
 import ar.com.fdvs.dj.domain.constants.Font;
 import ar.com.fdvs.dj.domain.constants.GroupLayout;
@@ -184,11 +184,11 @@ public class FullFeatureReportTest extends BaseDjReportTest {
 		drb.setReportLocale(Locale.ENGLISH);
 
 		//Charts
-		DJChartBuilder cb = new DJChartBuilder();
-		DJChart chart =  cb.setType(DJChart.BAR_CHART)
+		DJBarChartBuilder cb = new DJBarChartBuilder();
+		DJChart chart =  cb
 						.setOperation(DJChart.CALCULATION_SUM)
-						.setColumnsGroup(g2).setHeight(150)
-						.addColumn(columnAmount)
+						.setColumnGroup((PropertyColumn) columnBranch).setHeight(150)
+						.addSerie(columnAmount)
 						.build();
 
 		drb.addChart(chart); //add chart

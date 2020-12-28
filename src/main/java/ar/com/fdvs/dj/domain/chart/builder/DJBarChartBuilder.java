@@ -31,6 +31,7 @@ package ar.com.fdvs.dj.domain.chart.builder;
 
 import ar.com.fdvs.dj.domain.DJHyperLink;
 import ar.com.fdvs.dj.domain.StringExpression;
+import ar.com.fdvs.dj.domain.builders.DynamicReportBuilder;
 import ar.com.fdvs.dj.domain.chart.DJChart;
 import ar.com.fdvs.dj.domain.chart.dataset.CategoryDataset;
 import ar.com.fdvs.dj.domain.chart.plot.BarPlot;
@@ -489,4 +490,5 @@ public class DJBarChartBuilder extends AbstractChartBuilder<DJBarChartBuilder> {
 	protected byte getChartType() {
 		return DJChart.BAR_CHART;
 	}
+
 }
