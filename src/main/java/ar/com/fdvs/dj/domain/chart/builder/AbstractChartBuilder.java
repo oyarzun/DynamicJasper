@@ -44,6 +44,7 @@ import ar.com.fdvs.dj.domain.entities.columns.AbstractColumn;
 import ar.com.fdvs.dj.domain.entities.columns.PropertyColumn;
 import net.sf.jasperreports.charts.type.EdgeEnum;
 import net.sf.jasperreports.engine.type.CalculationEnum;
+import net.sf.jasperreports.engine.type.LineStyleEnum;
 
 @SuppressWarnings("unchecked")
 public abstract class AbstractChartBuilder<T extends AbstractChartBuilder> {
@@ -255,11 +256,11 @@ public abstract class AbstractChartBuilder<T extends AbstractChartBuilder> {
 	public abstract T setSubtitle(StringExpression subtitleExpression);
 
 	/**
-	 * Sets the line style (DJChartOptions.LINE_STYLE_SOLID, DJChartOptions.LINE_STYLE_DASHED, DJChartOptions.LINE_STYLE_DOTTED, DJChartOptions.LINE_STYLE_DOUBLE).
+	 * Sets the line style (DJChartOptions.LINE_STYLE_SOLID, DJChartOptions.LINE_STYLE_DASHED, LineStyleEnum.DOTTED, DJChartOptions.LINE_STYLE_DOUBLE).
 	 * 
 	 * @param lineStyle one of the line style constants in DJChartOptions class
 	 */
-	public abstract T setLineStyle(byte lineStyle);
+	public abstract T setLineStyle(LineStyleEnum lineStyle);
 
 	/**
 	 * Sets the line width.

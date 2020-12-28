@@ -1022,7 +1022,6 @@ public class Dj2JrCrosstabBuilder {
 	private void applyCellBorder(JRDesignCellContents cellContent, boolean topBorder, boolean leftBorder) {
         Border cellBorder = djcross.getCellBorder();
         if (cellBorder != null && !(cellBorder.getWidth() == 0f)){
-			byte lineStyle = cellBorder.getLineStyle();
 
             //Bottom border
             LayoutUtils.convertBorderToPen(cellBorder, cellContent.getLineBox().getBottomPen());

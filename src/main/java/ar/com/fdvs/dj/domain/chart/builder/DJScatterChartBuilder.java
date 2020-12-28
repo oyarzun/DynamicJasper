@@ -46,6 +46,7 @@ import ar.com.fdvs.dj.domain.entities.columns.PropertyColumn;
 import ar.com.fdvs.dj.domain.hyperlink.LiteralExpression;
 import net.sf.jasperreports.charts.type.EdgeEnum;
 import net.sf.jasperreports.engine.type.CalculationEnum;
+import net.sf.jasperreports.engine.type.LineStyleEnum;
 
 public class DJScatterChartBuilder extends AbstractChartBuilder<DJScatterChartBuilder> {
 	//chart
@@ -291,11 +292,11 @@ public class DJScatterChartBuilder extends AbstractChartBuilder<DJScatterChartBu
 	}
 
 	/**
-	 * Sets the line style (DJChartOptions.LINE_STYLE_SOLID, DJChartOptions.LINE_STYLE_DASHED, DJChartOptions.LINE_STYLE_DOTTED, DJChartOptions.LINE_STYLE_DOUBLE).
+	 * Sets the line style (DJChartOptions.LINE_STYLE_SOLID, DJChartOptions.LINE_STYLE_DASHED, LineStyleEnum.DOTTED, DJChartOptions.LINE_STYLE_DOUBLE).
 	 * 
 	 * @param lineStyle one of the line style constants in DJChartOptions class
 	 */
-	public DJScatterChartBuilder setLineStyle(byte lineStyle) {
+	public DJScatterChartBuilder setLineStyle(LineStyleEnum lineStyle) {
 		this.chart.getOptions().setLineStyle(lineStyle);
 		return this;
 	}

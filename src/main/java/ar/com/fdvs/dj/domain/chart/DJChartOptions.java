@@ -49,26 +49,6 @@ public class DJChartOptions extends DJBaseElement {
 	public static final byte POSITION_FOOTER = 1;
 	public static final byte POSITION_HEADER = 2;
 
-	/**
-	 * Constant useful for specifying solid line style.
-	 */
-	public static final byte LINE_STYLE_SOLID =  LineStyleEnum.SOLID.getValue();
-
-	/**
-	 * Constant useful for specifying dashed line style.
-	 */
-	public static final byte LINE_STYLE_DASHED = LineStyleEnum.DASHED.getValue();
-
-	/**
-	 * Constant useful for specifying dotted line style.
-	 */
-	public static final byte LINE_STYLE_DOTTED = LineStyleEnum.DOTTED.getValue();
-
-	/**
-	 * Constant useful for specifying double line style.
-	 */
-	public static final byte LINE_STYLE_DOUBLE = LineStyleEnum.DOUBLE.getValue();
-	
 	private Color backColor;
 	private int height;
 	private int width;
@@ -91,7 +71,7 @@ public class DJChartOptions extends DJBaseElement {
 	private StringExpression titleExpression = null;
 	private StringExpression subtitleExpression = null;
 	
-	private Byte lineStyle = null;
+	private LineStyleEnum lineStyle = null;
 	private Float lineWidth = null;
 	private Color lineColor = null;
 	private Integer padding = null;
@@ -477,7 +457,7 @@ public class DJChartOptions extends DJBaseElement {
 	 * 
 	 * @return one of the line style constants in this class
 	 */
-	public Byte getLineStyle() {
+	public LineStyleEnum getLineStyle() {
 		return lineStyle;
 	}
 
@@ -486,7 +466,7 @@ public class DJChartOptions extends DJBaseElement {
 	 * 
 	 * @param lineStyle one of the line style constants in this class
 	 */
-	public void setLineStyle(byte lineStyle) {
+	public void setLineStyle(LineStyleEnum lineStyle) {
 		this.lineStyle = lineStyle;
 	}
 
@@ -606,7 +586,7 @@ public class DJChartOptions extends DJBaseElement {
 			chart.getLineBox().setPadding(padding);
 		
 		if (lineStyle != null)
-			chart.getLineBox().getPen().setLineStyle( LineStyleEnum.getByValue(lineStyle) );
+			chart.getLineBox().getPen().setLineStyle(lineStyle);
 		if (lineWidth != null)
 			chart.getLineBox().getPen().setLineWidth(lineWidth);
 		if (lineColor != null)

@@ -184,8 +184,8 @@ public class LayoutUtils {
         if (border == null)
             return;
 
-        pen.setLineWidth(border.getWidth());
-        pen.setLineStyle(LineStyleEnum.getByValue(border.getLineStyle()));
+        pen.setLineWidth((Float)border.getWidth());
+        pen.setLineStyle(border.getLineStyle());
         pen.setLineColor(border.getColor());
 
     }

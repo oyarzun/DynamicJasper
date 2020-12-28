@@ -134,7 +134,7 @@ public class ScatterChartBuilderTest extends BaseDjReportTest {
 		.setLegendBackgroundColor(Color.WHITE)
 		.setLegendPosition(EdgeEnum.BOTTOM)
 		.setTitlePosition(EdgeEnum.TOP)
-		.setLineStyle(DJChartOptions.LINE_STYLE_DOTTED)
+		.setLineStyle(LineStyleEnum.DOTTED)
 		.setLineWidth(1)
 		.setLineColor(Color.DARK_GRAY)
 		.setPadding(5)
@@ -184,7 +184,7 @@ public class ScatterChartBuilderTest extends BaseDjReportTest {
 		assertEquals(Color.WHITE, chart.getLegendBackgroundColor());
 		assertEquals(EdgeEnum.BOTTOM, chart.getLegendPositionValue() );
 		assertEquals(EdgeEnum.TOP, chart.getTitlePositionValue());
-		assertEquals(LineStyleEnum.getByValue(new Byte(DJChartOptions.LINE_STYLE_DOTTED)), chart.getLineBox().getPen().getLineStyleValue());
+		assertEquals(LineStyleEnum.DOTTED, chart.getLineBox().getPen().getLineStyleValue());
 		assertEquals(1f, chart.getLineBox().getPen().getLineWidth());
 		assertEquals(Color.DARK_GRAY, chart.getLineBox().getPen().getLineColor());
 		assertEquals(new Integer(5), chart.getLineBox().getPadding());

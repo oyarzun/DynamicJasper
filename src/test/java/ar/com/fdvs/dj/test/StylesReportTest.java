@@ -40,6 +40,7 @@ import ar.com.fdvs.dj.domain.constants.Font;
 import ar.com.fdvs.dj.domain.constants.Transparency;
 import ar.com.fdvs.dj.domain.entities.columns.AbstractColumn;
 import net.sf.jasperreports.engine.type.HorizontalTextAlignEnum;
+import net.sf.jasperreports.engine.type.LineStyleEnum;
 import net.sf.jasperreports.engine.type.VerticalTextAlignEnum;
 import net.sf.jasperreports.view.JasperViewer;
 
@@ -62,7 +63,7 @@ public class StylesReportTest extends BaseDjReportTest {
 		titleStyle.setFont(new Font(18,Font._FONT_VERDANA,true));
 		Style numberStyle = new Style();
 		numberStyle.setHorizontalTextAlignEnum(HorizontalTextAlignEnum.RIGHT);
-        detailStyle.setBorder(new Border(Border.BORDER_WIDTH_THIN, Border.BORDER_STYLE_SOLID, Color.green));
+        detailStyle.setBorder(new Border(Border.BORDER_WIDTH_THIN, LineStyleEnum.SOLID, Color.green));
 		Style amountStyle = new Style();
 		amountStyle.setHorizontalTextAlignEnum(HorizontalTextAlignEnum.RIGHT);
 		amountStyle.setBackgroundColor(Color.cyan);
