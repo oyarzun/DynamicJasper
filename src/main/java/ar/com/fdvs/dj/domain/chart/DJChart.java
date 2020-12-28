@@ -48,8 +48,6 @@ public class DJChart extends DJBaseElement {
 	
 	private static final long serialVersionUID = Entity.SERIAL_VERSION_UID;
 	
-	public static final byte CALCULATION_COUNT = CalculationEnum.COUNT.getValue();
-	public static final byte CALCULATION_SUM = CalculationEnum.SUM.getValue();
 
 	public static final byte AREA_CHART = JRDesignChart.CHART_TYPE_AREA;
 	public static final byte STACKEDAREA_CHART = JRDesignChart.CHART_TYPE_STACKEDAREA;
@@ -69,7 +67,7 @@ public class DJChart extends DJBaseElement {
 	private byte chartType;
 	private AbstractDataset dataset;
 	private AbstractPlot plot;
-	private byte operation = CalculationEnum.SUM.getValue();
+	private CalculationEnum operation = CalculationEnum.SUM;
 	private DJChartOptions chartOptions = new DJChartOptions();
 	private DJHyperLink link;
 	
@@ -138,7 +136,7 @@ public class DJChart extends DJBaseElement {
 	 *
 	 * @param operation the chart data operation
 	 **/
-	public void setOperation(byte operation) {
+	public void setOperation(CalculationEnum operation) {
 		this.operation = operation;
 	}
 
@@ -147,7 +145,7 @@ public class DJChart extends DJBaseElement {
 	 *
 	 * @return	the chart data operation
 	 **/
-	public byte getOperation() {
+	public CalculationEnum getOperation() {
 		return operation;
 	}
 

@@ -1115,7 +1115,7 @@ public abstract class AbstractLayoutManager implements LayoutManager {
             JRDesignVariable var = new JRDesignVariable();
             var.setValueClass(clazz);
             var.setExpression(expression);
-            var.setCalculation(CalculationEnum.getByValue(chart.getOperation()));
+            var.setCalculation(chart.getOperation());
             var.setResetGroup(group);
             var.setResetType(ResetTypeEnum.GROUP);
 

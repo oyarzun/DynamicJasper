@@ -53,6 +53,7 @@ import ar.com.fdvs.dj.domain.constants.Transparency;
 import ar.com.fdvs.dj.domain.entities.DJGroup;
 import ar.com.fdvs.dj.domain.entities.columns.AbstractColumn;
 import ar.com.fdvs.dj.domain.entities.columns.PropertyColumn;
+import net.sf.jasperreports.engine.type.CalculationEnum;
 import net.sf.jasperreports.engine.type.HorizontalTextAlignEnum;
 import net.sf.jasperreports.engine.type.VerticalTextAlignEnum;
 import net.sf.jasperreports.view.JasperViewer;
@@ -186,7 +187,7 @@ public class FullFeatureReportTest extends BaseDjReportTest {
 		//Charts
 		DJBarChartBuilder cb = new DJBarChartBuilder();
 		DJChart chart =  cb
-						.setOperation(DJChart.CALCULATION_SUM)
+						.setOperation(CalculationEnum.SUM)
 						.setColumnGroup((PropertyColumn) columnBranch).setHeight(150)
 						.addSerie(columnAmount)
 						.build();

@@ -29,9 +29,13 @@
 
 package ar.com.fdvs.dj.domain.chart.builder;
 
+import java.awt.Color;
+import java.util.List;
+
+import org.jfree.chart.plot.PlotOrientation;
+
 import ar.com.fdvs.dj.domain.DJHyperLink;
 import ar.com.fdvs.dj.domain.StringExpression;
-import ar.com.fdvs.dj.domain.builders.DynamicReportBuilder;
 import ar.com.fdvs.dj.domain.chart.DJChart;
 import ar.com.fdvs.dj.domain.chart.dataset.CategoryDataset;
 import ar.com.fdvs.dj.domain.chart.plot.BarPlot;
@@ -40,10 +44,7 @@ import ar.com.fdvs.dj.domain.constants.Font;
 import ar.com.fdvs.dj.domain.entities.columns.AbstractColumn;
 import ar.com.fdvs.dj.domain.entities.columns.PropertyColumn;
 import ar.com.fdvs.dj.domain.hyperlink.LiteralExpression;
-import org.jfree.chart.plot.PlotOrientation;
-
-import java.awt.*;
-import java.util.List;
+import net.sf.jasperreports.engine.type.CalculationEnum;
 
 public class DJBarChartBuilder extends AbstractChartBuilder<DJBarChartBuilder> {
 	//chart
@@ -52,7 +53,7 @@ public class DJBarChartBuilder extends AbstractChartBuilder<DJBarChartBuilder> {
 	 *
 	 * @param operation the chart data operation
 	 **/
-	public DJBarChartBuilder setOperation(byte operation) {
+	public DJBarChartBuilder setOperation(CalculationEnum operation) {
 		this.chart.setOperation(operation);
 		return this;
 	}
