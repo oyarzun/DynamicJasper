@@ -4,8 +4,6 @@ import ar.com.fdvs.dj.core.DJException;
 import ar.com.fdvs.dj.core.layout.LayoutManager;
 import ar.com.fdvs.dj.domain.DynamicJasperDesign;
 import ar.com.fdvs.dj.domain.DynamicReport;
-import ar.com.fdvs.dj.domain.constants.DJVariableIncrementType;
-import ar.com.fdvs.dj.domain.constants.DJVariableResetType;
 import ar.com.fdvs.dj.domain.entities.DJVariable;
 import ar.com.fdvs.dj.domain.entities.Entity;
 import ar.com.fdvs.dj.util.ExpressionUtils;
@@ -57,19 +55,19 @@ public class VariableRegistrationManager extends
 		}
 		
 		if (var.getResetType() != null){
-			jrvar.setResetType(ResetTypeEnum.getByValue( var.getResetType().getValue() ));
+			jrvar.setResetType(var.getResetType());
 		}		
 		
-		if (var.getResetGroup() != null && DJVariableResetType.GROUP.equals(var.getResetType())){
+		if (ResetTypeEnum.GROUP == var.getResetType()){
 			JRDesignGroup jrgroup = LayoutUtils.getJRDesignGroup(getDjd(),getLayoutManager(), var.getResetGroup());
 			jrvar.setResetGroup(jrgroup);
 		}
 		
 		if (var.getIncrementType() != null){
-			jrvar.setIncrementType(IncrementTypeEnum.getByValue( var.getIncrementType().getValue()) );
+			jrvar.setIncrementType(var.getIncrementType() );
 		}
 		
-		if (var.getIncrementGroup() != null && DJVariableIncrementType.GROUP.equals(var.getIncrementType())){
+		if (IncrementTypeEnum.GROUP == var.getIncrementType()){
 			JRDesignGroup jrgroup = LayoutUtils.getJRDesignGroup(getDjd(),getLayoutManager(), var.getResetGroup());
 			jrvar.setIncrementGroup(jrgroup);
 		}		

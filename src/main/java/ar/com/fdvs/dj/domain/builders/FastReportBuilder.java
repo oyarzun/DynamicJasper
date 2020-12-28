@@ -44,7 +44,6 @@ import ar.com.fdvs.dj.domain.DJValueFormatter;
 import ar.com.fdvs.dj.domain.DynamicReport;
 import ar.com.fdvs.dj.domain.Style;
 import ar.com.fdvs.dj.domain.constants.Border;
-import ar.com.fdvs.dj.domain.constants.DJVariableResetType;
 import ar.com.fdvs.dj.domain.constants.Font;
 import ar.com.fdvs.dj.domain.constants.GroupLayout;
 import ar.com.fdvs.dj.domain.entities.DJGroup;
@@ -55,6 +54,7 @@ import ar.com.fdvs.dj.domain.entities.columns.PropertyColumn;
 import net.sf.jasperreports.engine.type.CalculationEnum;
 import net.sf.jasperreports.engine.type.HorizontalTextAlignEnum;
 import net.sf.jasperreports.engine.type.ModeEnum;
+import net.sf.jasperreports.engine.type.ResetTypeEnum;
 import net.sf.jasperreports.engine.type.ScaleImageEnum;
 import net.sf.jasperreports.engine.type.VerticalTextAlignEnum;
 
@@ -721,13 +721,13 @@ public class FastReportBuilder extends DynamicReportBuilder {
 	 * @throws BuilderException 
 	 */
 	public FastReportBuilder addVariable(String name, CalculationEnum calculation,
-			CustomExpression expression, CustomExpression initialValueExpression, DJVariableResetType resetType, int resetGroup) throws BuilderException {
+			CustomExpression expression, CustomExpression initialValueExpression, ResetTypeEnum resetType, int resetGroup) throws BuilderException {
 		
 		DJVariable var = new DJVariable(name,expression.getClassName(),calculation,expression);
 		var.setInitialValueExpression(initialValueExpression);
 		var.setResetType(resetType);
 		
-		if (DJVariableResetType.GROUP.equals(resetType) && (resetGroup < 1 || resetGroup > report.getColumnsGroups().size())){
+		if (ResetTypeEnum.GROUP == resetType && (resetGroup < 1 || resetGroup > report.getColumnsGroups().size())){
 			throw new BuilderException("Invalid parameter [resetGroup = " + resetGroup +"], must be >= 1 and <= group count ");
 		}
 		DJGroup group = getGroup(resetGroup -1);

@@ -2,9 +2,9 @@ package ar.com.fdvs.dj.domain.entities;
 
 import ar.com.fdvs.dj.domain.CustomExpression;
 import ar.com.fdvs.dj.domain.DJBaseElement;
-import ar.com.fdvs.dj.domain.constants.DJVariableIncrementType;
-import ar.com.fdvs.dj.domain.constants.DJVariableResetType;
 import net.sf.jasperreports.engine.type.CalculationEnum;
+import net.sf.jasperreports.engine.type.IncrementTypeEnum;
+import net.sf.jasperreports.engine.type.ResetTypeEnum;
 
 public class DJVariable extends DJBaseElement {
 	
@@ -24,10 +24,10 @@ public class DJVariable extends DJBaseElement {
 	private CalculationEnum calculation = CalculationEnum.NOTHING;
 	
 	private DJGroup resetGroup;
-	private DJVariableResetType resetType = DJVariableResetType.REPORT;
+	private ResetTypeEnum resetType = ResetTypeEnum.REPORT;
 	
 	private DJGroup incrementGroup;
-	private DJVariableIncrementType incrementType = DJVariableIncrementType.NONE;
+	private IncrementTypeEnum incrementType = IncrementTypeEnum.NONE;
 	
 	private CustomExpression expression;
 	private CustomExpression initialValueExpression;
@@ -68,10 +68,10 @@ public class DJVariable extends DJBaseElement {
 	public void setResetGroup(DJGroup resetGroup) {
 		this.resetGroup = resetGroup;
 	}
-	public void setResetType(DJVariableResetType resetType) {
+	public void setResetType(ResetTypeEnum resetType) {
 		this.resetType = resetType;
 	}
-	public DJVariableResetType getResetType() {
+	public ResetTypeEnum getResetType() {
 		return resetType;
 	}
 	public DJGroup getIncrementGroup() {
@@ -80,10 +80,10 @@ public class DJVariable extends DJBaseElement {
 	public void setIncrementGroup(DJGroup incrementGroup) {
 		this.incrementGroup = incrementGroup;
 	}
-	public DJVariableIncrementType getIncrementType() {
+	public IncrementTypeEnum getIncrementType() {
 		return incrementType;
 	}
-	public void setIncrementType(DJVariableIncrementType incrementType) {
+	public void setIncrementType(IncrementTypeEnum incrementType) {
 		this.incrementType = incrementType;
 	}
 	
