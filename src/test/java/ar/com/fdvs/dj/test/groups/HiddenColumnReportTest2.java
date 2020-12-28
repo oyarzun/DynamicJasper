@@ -66,8 +66,8 @@ public class HiddenColumnReportTest2 extends BaseDjReportTest {
 		Style headerStyle = new Style();
 		headerStyle.setFont(Font.VERDANA_MEDIUM_BOLD);
 		headerStyle.setBorderBottom(Border.PEN_2_POINT());
-		headerStyle.setHorizontalTextAlignEnum(HorizontalTextAlignEnum.CENTER);
-		headerStyle.setVerticalTextAlignEnum(VerticalTextAlignEnum.MIDDLE);
+		headerStyle.setHorizontalTextAlign(HorizontalTextAlignEnum.CENTER);
+		headerStyle.setVerticalTextAlign(VerticalTextAlignEnum.MIDDLE);
 		headerStyle.setBackgroundColor(Color.DARK_GRAY);
 		headerStyle.setTextColor(Color.WHITE);
 		headerStyle.setTransparency(ModeEnum.OPAQUE);
@@ -75,7 +75,7 @@ public class HiddenColumnReportTest2 extends BaseDjReportTest {
 		Style titleStyle = new Style();
 		titleStyle.setFont(new Font(18, Font._FONT_VERDANA, true));
 		Style importeStyle = new Style();
-		importeStyle.setHorizontalTextAlignEnum(HorizontalTextAlignEnum.RIGHT);
+		importeStyle.setHorizontalTextAlign(HorizontalTextAlignEnum.RIGHT);
 		Style oddRowStyle = new Style();
 		oddRowStyle.setBorder(Border.NO_BORDER());
 		oddRowStyle.setBackgroundColor(Color.LIGHT_GRAY);

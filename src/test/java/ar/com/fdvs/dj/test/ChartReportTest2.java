@@ -62,26 +62,26 @@ public class ChartReportTest2 extends BaseDjReportTest {
 		headerStyle.setBorderBottom(Border.PEN_1_POINT());
 		headerStyle.setBackgroundColor(Color.gray);
 		headerStyle.setTextColor(Color.white);
-		headerStyle.setHorizontalTextAlignEnum(HorizontalTextAlignEnum.CENTER);
-		headerStyle.setVerticalTextAlignEnum(VerticalTextAlignEnum.MIDDLE);
+		headerStyle.setHorizontalTextAlign(HorizontalTextAlignEnum.CENTER);
+		headerStyle.setVerticalTextAlign(VerticalTextAlignEnum.MIDDLE);
 		headerStyle.setTransparency(ModeEnum.OPAQUE);
 		
 		Style g2Variables = new Style();
 		g2Variables.setFont(Font.ARIAL_MEDIUM_BOLD);
 //		headerVariables.setBorderBottom(Border.THIN());
-		g2Variables.setHorizontalTextAlignEnum(HorizontalTextAlignEnum.RIGHT);
-		g2Variables.setVerticalTextAlignEnum(VerticalTextAlignEnum.MIDDLE);
+		g2Variables.setHorizontalTextAlign(HorizontalTextAlignEnum.RIGHT);
+		g2Variables.setVerticalTextAlign(VerticalTextAlignEnum.MIDDLE);
 		
 		Style g1Variables = new Style();
 		g1Variables.setFont(Font.ARIAL_MEDIUM_BOLD);
 		g1Variables.setTextColor(Color.red);
-		g1Variables.setHorizontalTextAlignEnum(HorizontalTextAlignEnum.RIGHT);
-		g1Variables.setVerticalTextAlignEnum(VerticalTextAlignEnum.MIDDLE);				
+		g1Variables.setHorizontalTextAlign(HorizontalTextAlignEnum.RIGHT);
+		g1Variables.setVerticalTextAlign(VerticalTextAlignEnum.MIDDLE);				
 
 		Style titleStyle = new Style();
 		titleStyle.setFont(new Font(18, Font._FONT_VERDANA, true));
 		Style importeStyle = new Style();
-		importeStyle.setHorizontalTextAlignEnum(HorizontalTextAlignEnum.RIGHT);
+		importeStyle.setHorizontalTextAlign(HorizontalTextAlignEnum.RIGHT);
 		Style oddRowStyle = new Style();
 		oddRowStyle.setBorder(Border.NO_BORDER());
 		oddRowStyle.setBackgroundColor(Color.LIGHT_GRAY);

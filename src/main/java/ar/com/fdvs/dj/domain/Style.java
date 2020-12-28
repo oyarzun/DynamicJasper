@@ -87,7 +87,6 @@ public class Style implements Serializable, Cloneable {
 	private VerticalTextAlignEnum verticalTextAlign = VerticalTextAlignEnum.BOTTOM;
 	private VerticalImageAlignEnum verticalImageAlign = VerticalImageAlignEnum.BOTTOM;
 
-	@Deprecated
     private HorizontalTextAlignEnum horizontalTextAlign = HorizontalTextAlignEnum.LEFT;
     private HorizontalImageAlignEnum horizontalImageAlign = HorizontalImageAlignEnum.LEFT;
 
@@ -135,8 +134,8 @@ public class Style implements Serializable, Cloneable {
 		style.setFont(null);
 		style.setPadding(null);
 		style.setRadius(null);
-		style.setVerticalTextAlignEnum(null);
-		style.setHorizontalTextAlignEnum(null);
+		style.setVerticalTextAlign(null);
+		style.setHorizontalTextAlign(null);
 		style.setRotation(null);
 		style.setStreching(null);
 
@@ -192,11 +191,11 @@ public class Style implements Serializable, Cloneable {
 		else this.font = null;
 	}
 
-	public HorizontalTextAlignEnum getHorizontalAlign() {
+	public HorizontalTextAlignEnum getHorizontalTextAlign() {
 		return horizontalTextAlign;
 	}
 
-	public void setHorizontalTextAlignEnum(HorizontalTextAlignEnum horizontalAlign) {
+	public void setHorizontalTextAlign(HorizontalTextAlignEnum horizontalAlign) {
 		this.horizontalTextAlign = horizontalAlign;
 	}
 
@@ -251,11 +250,11 @@ public class Style implements Serializable, Cloneable {
 			this.setTransparency(ModeEnum.OPAQUE);
 	}
 
-	public VerticalTextAlignEnum getVerticalAlign() {
+	public VerticalTextAlignEnum getVerticalTextAlign() {
 		return verticalTextAlign;
 	}
 
-	public void setVerticalTextAlignEnum(VerticalTextAlignEnum verticalAlign) {
+	public void setVerticalTextAlign(VerticalTextAlignEnum verticalAlign) {
 		this.verticalTextAlign = verticalAlign;
 	}
 
@@ -301,22 +300,22 @@ public class Style implements Serializable, Cloneable {
             transformedStyle.getLineBox().setRightPadding(paddingRight);
 
 
-		if (getHorizontalAlign() != null) {
-			transformedStyle.setHorizontalTextAlign(getHorizontalAlign());
+		if (getHorizontalTextAlign() != null) {
+			transformedStyle.setHorizontalTextAlign(getHorizontalTextAlign());
 		}
 
 		//Vertical TEXT aligns
-		if (getVerticalAlign() != null) {
-			transformedStyle.setVerticalTextAlign(getVerticalAlign());
+		if (getVerticalTextAlign() != null) {
+			transformedStyle.setVerticalTextAlign(getVerticalTextAlign());
 		}
 
 		//Horizontal Image align
-		if (getHorizontalImageAlignEnum() != null) {
-			transformedStyle.setHorizontalImageAlign(getHorizontalImageAlignEnum());
+		if (getHorizontalImageAlign() != null) {
+			transformedStyle.setHorizontalImageAlign(getHorizontalImageAlign());
 		}
 		//Vertical Image align
-		if (getVerticalImageAlignEnum() != null){
-			transformedStyle.setVerticalImageAlign(getVerticalImageAlignEnum());
+		if (getVerticalImageAlign() != null){
+			transformedStyle.setVerticalImageAlign(getVerticalImageAlign());
 		}
 
 		transformedStyle.setBlankWhenNull(Boolean.valueOf(blankWhenNull));
@@ -490,19 +489,20 @@ public class Style implements Serializable, Cloneable {
 		return style;
 	}
 
-	public HorizontalTextAlignEnum getHorizontalTextAlignEnum() {
-		return horizontalTextAlign;
-	}
 
-	public VerticalTextAlignEnum getVerticalTextAlignEnum() {
-		return verticalTextAlign;
-	}
-
-	public HorizontalImageAlignEnum getHorizontalImageAlignEnum() {
+	public HorizontalImageAlignEnum getHorizontalImageAlign() {
 		return horizontalImageAlign;
 	}
-
-	public VerticalImageAlignEnum getVerticalImageAlignEnum() {
+	
+	public void setHorizontalImageAlign(HorizontalImageAlignEnum horizontalImageAlign) {
+        this.horizontalImageAlign = horizontalImageAlign;
+    }
+	
+	public VerticalImageAlignEnum getVerticalImageAlign() {
 		return verticalImageAlign;
 	}
+	
+	public void setVerticalImageAlign(VerticalImageAlignEnum verticalImageAlign) {
+        this.verticalImageAlign = verticalImageAlign;
+    }
 }

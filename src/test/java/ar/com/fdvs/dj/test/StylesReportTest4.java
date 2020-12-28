@@ -74,7 +74,7 @@ public class StylesReportTest4 extends BaseDjReportTest {
 
 		Style style1 = new Style("style1");
 		style1.setFont(Font.ARIAL_MEDIUM_BOLD);
-		style1.setHorizontalTextAlignEnum(HorizontalTextAlignEnum.CENTER);
+		style1.setHorizontalTextAlign(HorizontalTextAlignEnum.CENTER);
 		drb.addStyle(style1);
 
 		Style style2 = Style.createBlankStyle("style2", "style1");

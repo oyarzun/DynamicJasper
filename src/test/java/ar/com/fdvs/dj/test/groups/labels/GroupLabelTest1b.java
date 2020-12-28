@@ -66,21 +66,21 @@ public class GroupLabelTest1b extends BaseDjReportTest {
 		headerStyle.setBorderBottom(Border.PEN_1_POINT());
 		headerStyle.setBackgroundColor(Color.gray);
 		headerStyle.setTextColor(Color.white);
-		headerStyle.setHorizontalTextAlignEnum(HorizontalTextAlignEnum.CENTER);
-		headerStyle.setVerticalTextAlignEnum(VerticalTextAlignEnum.MIDDLE);
+		headerStyle.setHorizontalTextAlign(HorizontalTextAlignEnum.CENTER);
+		headerStyle.setVerticalTextAlign(VerticalTextAlignEnum.MIDDLE);
 		headerStyle.setTransparency(ModeEnum.OPAQUE);
 
 		Style headerVariables = new Style();
 		headerVariables.setFont(Font.ARIAL_MEDIUM_BOLD);
 //		headerVariables.setBorder(Border.THIN());
-		headerVariables.setHorizontalTextAlignEnum(HorizontalTextAlignEnum.RIGHT);
+		headerVariables.setHorizontalTextAlign(HorizontalTextAlignEnum.RIGHT);
 		headerVariables.setStreching(StretchTypeEnum.NO_STRETCH);
-		headerVariables.setVerticalTextAlignEnum(VerticalTextAlignEnum.TOP);
+		headerVariables.setVerticalTextAlign(VerticalTextAlignEnum.TOP);
 
 		Style titleStyle = new Style();
 		titleStyle.setFont(new Font(18, Font._FONT_VERDANA, true));
 		Style importeStyle = new Style();
-		importeStyle.setHorizontalTextAlignEnum(HorizontalTextAlignEnum.RIGHT);
+		importeStyle.setHorizontalTextAlign(HorizontalTextAlignEnum.RIGHT);
 		Style oddRowStyle = new Style();
 		oddRowStyle.setBorder(Border.NO_BORDER());
 		oddRowStyle.setBackgroundColor(Color.LIGHT_GRAY);

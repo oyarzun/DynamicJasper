@@ -52,7 +52,7 @@ public class TemplateStyleReportTest extends BaseDjReportTest {
 		headerStyle.setBackgroundColor(new Color(230,230,230));
 		headerStyle.setBorderBottom(Border.THIN());
 		headerStyle.getBorderBottom().setColor(Color.black);
-		headerStyle.setHorizontalTextAlignEnum(HorizontalTextAlignEnum.CENTER);
+		headerStyle.setHorizontalTextAlign(HorizontalTextAlignEnum.CENTER);
 		headerStyle.setTransparency(ModeEnum.OPAQUE);
 
 		/*
@@ -72,7 +72,7 @@ public class TemplateStyleReportTest extends BaseDjReportTest {
 		Style subtitleStyle = Style.createBlankStyle("subtitleStyle","subtitleParent");
 		subtitleStyle.setFont(Font.GEORGIA_SMALL_BOLD);
 
-		Style amountStyle = new Style(); amountStyle.setHorizontalTextAlignEnum(HorizontalTextAlignEnum.RIGHT);
+		Style amountStyle = new Style(); amountStyle.setHorizontalTextAlign(HorizontalTextAlignEnum.RIGHT);
 
 		/*
 		  Creates the DynamicReportBuilder and sets the basic options for

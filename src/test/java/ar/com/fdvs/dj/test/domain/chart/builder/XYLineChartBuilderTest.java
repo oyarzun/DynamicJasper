@@ -74,8 +74,8 @@ public class XYLineChartBuilderTest extends BaseDjReportTest {
 		Style headerStyle = new Style();
 		headerStyle.setFont(Font.VERDANA_MEDIUM_BOLD);
 		headerStyle.setBorderBottom(Border.PEN_2_POINT());
-		headerStyle.setHorizontalTextAlignEnum(HorizontalTextAlignEnum.CENTER);
-		headerStyle.setVerticalTextAlignEnum(VerticalTextAlignEnum.MIDDLE);
+		headerStyle.setHorizontalTextAlign(HorizontalTextAlignEnum.CENTER);
+		headerStyle.setVerticalTextAlign(VerticalTextAlignEnum.MIDDLE);
 		headerStyle.setBackgroundColor(Color.DARK_GRAY);
 		headerStyle.setTextColor(Color.WHITE);
 		headerStyle.setTransparency(ModeEnum.OPAQUE);

@@ -46,7 +46,7 @@ public class ReportWithVariablesTest extends BaseDjReportTest {
 
 	public DynamicReport buildReport() throws Exception {
 		Style style = new Style("currency");
-		style.setHorizontalTextAlignEnum(HorizontalTextAlignEnum.RIGHT);
+		style.setHorizontalTextAlign(HorizontalTextAlignEnum.RIGHT);
 		style.setPattern("$ #,###.00");
 
 		/*

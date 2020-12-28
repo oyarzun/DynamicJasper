@@ -97,7 +97,7 @@ public class SubreportWithParametersReportTest extends BaseDjReportTest {
 		Style vstyle = StyleFactory.createGroup2VariableStyle("v2g");
 		Style header = StyleFactory.createHeaderStyle2("s1header");
 		header.setTransparency(ModeEnum.TRANSPARENT);
-		vstyle.setHorizontalTextAlignEnum(HorizontalTextAlignEnum.RIGHT);
+		vstyle.setHorizontalTextAlign(HorizontalTextAlignEnum.RIGHT);
 		FastReportBuilder rb = new FastReportBuilder();
 		DynamicReport dr = rb
 			.addColumn("Invoice", "invoiceid", Long.class.getName(), 40)

@@ -57,7 +57,7 @@ public class FixedColumnWidhTest extends BaseDjReportTest {
         Style titleStyle = new Style();
         Style subtitleStyle = new Style();
         Style amountStyle = new Style();
-        amountStyle.setHorizontalTextAlignEnum(HorizontalTextAlignEnum.RIGHT);
+        amountStyle.setHorizontalTextAlign(HorizontalTextAlignEnum.RIGHT);
 
 		/*
           Creates the DynamicReportBuilder and sets the basic options for

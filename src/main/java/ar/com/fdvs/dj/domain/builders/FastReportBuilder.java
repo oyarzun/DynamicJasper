@@ -85,23 +85,23 @@ public class FastReportBuilder extends DynamicReportBuilder {
 
 	public FastReportBuilder(){
 		currencyStyle = new Style("currencyStyle");
-		currencyStyle.setHorizontalTextAlignEnum(HorizontalTextAlignEnum.RIGHT);
+		currencyStyle.setHorizontalTextAlign(HorizontalTextAlignEnum.RIGHT);
 
 		numberStyle = new Style("numberStyle");
-		numberStyle.setHorizontalTextAlignEnum(HorizontalTextAlignEnum.RIGHT);
+		numberStyle.setHorizontalTextAlign(HorizontalTextAlignEnum.RIGHT);
 
 		Style defaultHeaderStyle = options.getDefaultHeaderStyle();
 		defaultHeaderStyle.setFont(Font.ARIAL_MEDIUM_BOLD);
-		defaultHeaderStyle.setHorizontalTextAlignEnum(HorizontalTextAlignEnum.CENTER);
+		defaultHeaderStyle.setHorizontalTextAlign(HorizontalTextAlignEnum.CENTER);
 		defaultHeaderStyle.setBorderBottom(Border.THIN());
-		defaultHeaderStyle.setVerticalTextAlignEnum(VerticalTextAlignEnum.MIDDLE);
+		defaultHeaderStyle.setVerticalTextAlign(VerticalTextAlignEnum.MIDDLE);
 		defaultHeaderStyle.setBackgroundColor(Color.LIGHT_GRAY);
 		defaultHeaderStyle.setTransparency(ModeEnum.OPAQUE);
 
 		Style titleStyle2 = report.getTitleStyle();
 		titleStyle2.setFont(Font.ARIAL_BIG_BOLD);
-		titleStyle2.setHorizontalTextAlignEnum(HorizontalTextAlignEnum.CENTER);
-		titleStyle2.setVerticalTextAlignEnum(VerticalTextAlignEnum.TOP);
+		titleStyle2.setHorizontalTextAlign(HorizontalTextAlignEnum.CENTER);
+		titleStyle2.setVerticalTextAlign(VerticalTextAlignEnum.TOP);
 	}
 
 	public DynamicReport build(){

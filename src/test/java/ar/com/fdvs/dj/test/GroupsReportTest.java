@@ -61,28 +61,28 @@ public class GroupsReportTest extends BaseDjReportTest {
 		headerStyle.setBorderBottom(Border.PEN_1_POINT());
 		headerStyle.setBackgroundColor(Color.gray);
 		headerStyle.setTextColor(Color.white);
-		headerStyle.setHorizontalTextAlignEnum(HorizontalTextAlignEnum.CENTER);
-		headerStyle.setVerticalTextAlignEnum(VerticalTextAlignEnum.MIDDLE);
+		headerStyle.setHorizontalTextAlign(HorizontalTextAlignEnum.CENTER);
+		headerStyle.setVerticalTextAlign(VerticalTextAlignEnum.MIDDLE);
 		headerStyle.setTransparency(ModeEnum.OPAQUE);
 
 		Style headerVariables = new Style("headerVariables");
 		headerVariables.setFont(Font.ARIAL_BIG_BOLD);
 		headerVariables.setBorderBottom(Border.THIN());
-		headerVariables.setHorizontalTextAlignEnum(HorizontalTextAlignEnum.RIGHT);
-		headerVariables.setVerticalTextAlignEnum(VerticalTextAlignEnum.TOP);
+		headerVariables.setHorizontalTextAlign(HorizontalTextAlignEnum.RIGHT);
+		headerVariables.setVerticalTextAlign(VerticalTextAlignEnum.TOP);
 		headerVariables.setStretchWithOverflow(true);
 
 		Style groupVariables = new Style("groupVariables");
 		groupVariables.setFont(Font.ARIAL_MEDIUM_BOLD);
 		groupVariables.setTextColor(Color.BLUE);
 		groupVariables.setBorderBottom(Border.THIN());
-		groupVariables.setHorizontalTextAlignEnum(HorizontalTextAlignEnum.RIGHT);
-		groupVariables.setVerticalTextAlignEnum(VerticalTextAlignEnum.BOTTOM);
+		groupVariables.setHorizontalTextAlign(HorizontalTextAlignEnum.RIGHT);
+		groupVariables.setVerticalTextAlign(VerticalTextAlignEnum.BOTTOM);
 
 		Style titleStyle = new Style("titleStyle");
 		titleStyle.setFont(new Font(18, Font._FONT_VERDANA, true));
 		Style importeStyle = new Style();
-		importeStyle.setHorizontalTextAlignEnum(HorizontalTextAlignEnum.RIGHT);
+		importeStyle.setHorizontalTextAlign(HorizontalTextAlignEnum.RIGHT);
 		Style oddRowStyle = new Style();
 		oddRowStyle.setBorder(Border.NO_BORDER());
 		oddRowStyle.setBackgroundColor(Color.LIGHT_GRAY);

@@ -82,7 +82,7 @@ public class ConditionalStyleReportTest2 extends TestCase {
         alertStyle.setTransparency(ModeEnum.OPAQUE);
         alertStyle.setBackgroundColor(Color.RED);
         alertStyle.setTextColor(Color.BLACK);
-        alertStyle.setVerticalTextAlignEnum(VerticalTextAlignEnum.TOP);
+        alertStyle.setVerticalTextAlign(VerticalTextAlignEnum.TOP);
         return alertStyle;
     }
 
@@ -91,7 +91,7 @@ public class ConditionalStyleReportTest2 extends TestCase {
         alertStyle.setTransparency(ModeEnum.OPAQUE);
         alertStyle.setBackgroundColor(Color.BLUE);
         alertStyle.setTextColor(Color.BLACK);
-        alertStyle.setVerticalTextAlignEnum(VerticalTextAlignEnum.TOP);
+        alertStyle.setVerticalTextAlign(VerticalTextAlignEnum.TOP);
         return alertStyle;
     }
 
@@ -100,7 +100,7 @@ public class ConditionalStyleReportTest2 extends TestCase {
         alertStyle.setTransparency(ModeEnum.OPAQUE);
         alertStyle.setBackgroundColor(Color.LIGHT_GRAY);
         alertStyle.setTextColor(Color.BLACK);
-        alertStyle.setVerticalTextAlignEnum(VerticalTextAlignEnum.TOP);
+        alertStyle.setVerticalTextAlign(VerticalTextAlignEnum.TOP);
         return alertStyle;
     }
 
@@ -109,7 +109,7 @@ public class ConditionalStyleReportTest2 extends TestCase {
         alertStyle.setTransparency(ModeEnum.OPAQUE);
         alertStyle.setBackgroundColor(Color.GREEN);
         alertStyle.setTextColor(Color.BLACK);
-        alertStyle.setVerticalTextAlignEnum(VerticalTextAlignEnum.TOP);
+        alertStyle.setVerticalTextAlign(VerticalTextAlignEnum.TOP);
         return alertStyle;
     }
 
@@ -118,7 +118,7 @@ public class ConditionalStyleReportTest2 extends TestCase {
         alertStyle.setTransparency(ModeEnum.OPAQUE);
         alertStyle.setBackgroundColor(Color.YELLOW);
         alertStyle.setTextColor(Color.BLACK);
-        alertStyle.setVerticalTextAlignEnum(VerticalTextAlignEnum.TOP);
+        alertStyle.setVerticalTextAlign(VerticalTextAlignEnum.TOP);
         return alertStyle;
     }
 
@@ -127,7 +127,7 @@ public class ConditionalStyleReportTest2 extends TestCase {
         alertStyle.setTransparency(ModeEnum.OPAQUE);
         alertStyle.setBackgroundColor(Color.ORANGE);
         alertStyle.setTextColor(Color.BLACK);
-        alertStyle.setVerticalTextAlignEnum(VerticalTextAlignEnum.TOP);
+        alertStyle.setVerticalTextAlign(VerticalTextAlignEnum.TOP);
         return alertStyle;
     }
 
@@ -137,9 +137,9 @@ public class ConditionalStyleReportTest2 extends TestCase {
         headerStyle.setTransparency(ModeEnum.OPAQUE);
         headerStyle.setBackgroundColor(Color.BLUE);
         headerStyle.setTextColor(Color.WHITE);
-        headerStyle.setVerticalTextAlignEnum(VerticalTextAlignEnum.TOP);
+        headerStyle.setVerticalTextAlign(VerticalTextAlignEnum.TOP);
 
-        headerStyle.setHorizontalTextAlignEnum(HorizontalTextAlignEnum.CENTER);
+        headerStyle.setHorizontalTextAlign(HorizontalTextAlignEnum.CENTER);
         return headerStyle;
     }
 
@@ -147,7 +147,7 @@ public class ConditionalStyleReportTest2 extends TestCase {
         Style dataStyle = new Style();
         dataStyle.setTransparency(ModeEnum.TRANSPARENT);
         dataStyle.setTextColor(Color.BLACK);
-        dataStyle.setVerticalTextAlignEnum(VerticalTextAlignEnum.TOP);
+        dataStyle.setVerticalTextAlign(VerticalTextAlignEnum.TOP);
         return dataStyle;
     }
 

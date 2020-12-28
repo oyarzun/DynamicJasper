@@ -57,12 +57,12 @@ public class VariableValueFormatterReportTest extends BaseDjReportTest {
 		Style detailStyle = new Style();
 		Style headerStyle = new Style();
 		headerStyle.setFont(Font.ARIAL_MEDIUM_BOLD); headerStyle.setBorder(Border.PEN_2_POINT());
-		headerStyle.setHorizontalTextAlignEnum(HorizontalTextAlignEnum.CENTER); headerStyle.setVerticalTextAlignEnum(VerticalTextAlignEnum.MIDDLE);
+		headerStyle.setHorizontalTextAlign(HorizontalTextAlignEnum.CENTER); headerStyle.setVerticalTextAlign(VerticalTextAlignEnum.MIDDLE);
 
 		Style titleStyle = new Style();
 		titleStyle.setFont(new Font(18,Font._FONT_VERDANA,true));
 		Style amountStyle = new Style();
-		amountStyle.setHorizontalTextAlignEnum(HorizontalTextAlignEnum.RIGHT);
+		amountStyle.setHorizontalTextAlign(HorizontalTextAlignEnum.RIGHT);
 		amountStyle.setStretchWithOverflow(true);
 		Style oddRowStyle = new Style();
 		oddRowStyle.setBorder(Border.NO_BORDER());

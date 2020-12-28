@@ -58,7 +58,7 @@ public class MultiLineTitleReportTest extends BaseDjReportTest {
 		Style subtitleStyle = new Style("subtitle_style");
 		subtitleStyle.setStretchWithOverflow(true);
 		subtitleStyle.setStreching(StretchTypeEnum.NO_STRETCH);
-		subtitleStyle.setVerticalTextAlignEnum(VerticalTextAlignEnum.TOP);
+		subtitleStyle.setVerticalTextAlign(VerticalTextAlignEnum.TOP);
 		
 		drb.addColumn("State", "state", String.class.getName(),30)
 			.addColumn("Branch", "branch", String.class.getName(),30)

@@ -98,12 +98,12 @@ public class StyleBuilder {
 	}
 
 	public StyleBuilder setHorizontalTextAlignEnum(HorizontalTextAlignEnum horizontalAlign){
-		style.setHorizontalTextAlignEnum(horizontalAlign);
+		style.setHorizontalTextAlign(horizontalAlign);
 		return this;
 	}
 
 	public StyleBuilder setVerticalTextAlignEnum(VerticalTextAlignEnum verticalAlign){
-		style.setVerticalTextAlignEnum(verticalAlign);
+		style.setVerticalTextAlign(verticalAlign);
 		return this;
 	}
 

@@ -52,14 +52,14 @@ public class TemplateFileReportTest extends BaseDjReportTest {
 		headerStyle.setBackgroundColor(new Color(230,230,230));
 		headerStyle.setBorderBottom(Border.THIN());
 		headerStyle.getBorderBottom().setColor(Color.black);
-		headerStyle.setHorizontalTextAlignEnum(HorizontalTextAlignEnum.CENTER);
+		headerStyle.setHorizontalTextAlign(HorizontalTextAlignEnum.CENTER);
 		headerStyle.setTransparency(ModeEnum.OPAQUE);
 
 		Style titleStyle = new Style();
-		titleStyle.setHorizontalTextAlignEnum(HorizontalTextAlignEnum.CENTER);
+		titleStyle.setHorizontalTextAlign(HorizontalTextAlignEnum.CENTER);
 		titleStyle.setFont(Font.ARIAL_BIG_BOLD);
 		Style subtitleStyle = new Style();
-		Style amountStyle = new Style(); amountStyle.setHorizontalTextAlignEnum(HorizontalTextAlignEnum.RIGHT);
+		Style amountStyle = new Style(); amountStyle.setHorizontalTextAlign(HorizontalTextAlignEnum.RIGHT);
 
 		/*
 		  Creates the DynamicReportBuilder and sets the basic options for

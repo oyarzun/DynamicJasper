@@ -56,16 +56,16 @@ public class StylesReportTest extends BaseDjReportTest {
 		headerStyle.setBackgroundColor(Color.blue);
 		headerStyle.setTransparency(ModeEnum.OPAQUE);
 		headerStyle.setTextColor(Color.white);
-		headerStyle.setHorizontalTextAlignEnum(HorizontalTextAlignEnum.CENTER);
-		headerStyle.setVerticalTextAlignEnum(VerticalTextAlignEnum.MIDDLE);
+		headerStyle.setHorizontalTextAlign(HorizontalTextAlignEnum.CENTER);
+		headerStyle.setVerticalTextAlign(VerticalTextAlignEnum.MIDDLE);
 
 		Style titleStyle = new Style();
 		titleStyle.setFont(new Font(18,Font._FONT_VERDANA,true));
 		Style numberStyle = new Style();
-		numberStyle.setHorizontalTextAlignEnum(HorizontalTextAlignEnum.RIGHT);
+		numberStyle.setHorizontalTextAlign(HorizontalTextAlignEnum.RIGHT);
         detailStyle.setBorder(new Border(Border.BORDER_WIDTH_THIN, LineStyleEnum.SOLID, Color.green));
 		Style amountStyle = new Style();
-		amountStyle.setHorizontalTextAlignEnum(HorizontalTextAlignEnum.RIGHT);
+		amountStyle.setHorizontalTextAlign(HorizontalTextAlignEnum.RIGHT);
 		amountStyle.setBackgroundColor(Color.cyan);
 		amountStyle.setTransparency(ModeEnum.OPAQUE);
 		Style oddRowStyle = new Style();
