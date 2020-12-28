@@ -56,6 +56,7 @@ import ar.com.fdvs.dj.domain.hyperlink.LiteralExpression;
 import ar.com.fdvs.dj.test.BaseDjReportTest;
 import net.sf.jasperreports.charts.design.JRDesignPie3DPlot;
 import net.sf.jasperreports.charts.design.JRDesignPieDataset;
+import net.sf.jasperreports.charts.type.EdgeEnum;
 import net.sf.jasperreports.engine.JRFont;
 import net.sf.jasperreports.engine.design.JRDesignChart;
 import net.sf.jasperreports.engine.design.JRDesignGroup;
@@ -137,8 +138,8 @@ public class Pie3DChartBuilderTest extends BaseDjReportTest {
 		.setLegendColor(Color.DARK_GRAY)
 		.setLegendFont(Font.COURIER_NEW_MEDIUM_BOLD)
 		.setLegendBackgroundColor(Color.WHITE)
-		.setLegendPosition(DJChartOptions.EDGE_BOTTOM)
-		.setTitlePosition(DJChartOptions.EDGE_TOP)
+		.setLegendPosition(EdgeEnum.BOTTOM)
+		.setTitlePosition(EdgeEnum.TOP)
 		.setLineStyle(DJChartOptions.LINE_STYLE_DOTTED)
 		.setLineWidth(1)
 		.setLineColor(Color.DARK_GRAY)
@@ -184,8 +185,8 @@ public class Pie3DChartBuilderTest extends BaseDjReportTest {
 		assertEquals(Color.DARK_GRAY, chart.getLegendColor());
 		testFont(Font.COURIER_NEW_MEDIUM_BOLD, chart.getLegendFont());
 		assertEquals(Color.WHITE, chart.getLegendBackgroundColor());
-		assertEquals(new Byte(DJChartOptions.EDGE_BOTTOM), chart.getLegendPositionValue().getValueByte() );
-		assertEquals(new Byte(DJChartOptions.EDGE_TOP), chart.getTitlePositionValue().getValueByte());
+		assertEquals(EdgeEnum.BOTTOM, chart.getLegendPositionValue() );
+		assertEquals(EdgeEnum.TOP, chart.getTitlePositionValue());
         assertEquals(LineStyleEnum.getByValue(new Byte(DJChartOptions.LINE_STYLE_DOTTED)), chart.getLineBox().getPen().getLineStyleValue());
 		assertEquals(1f, chart.getLineBox().getPen().getLineWidth());
 		assertEquals(Color.DARK_GRAY, chart.getLineBox().getPen().getLineColor());

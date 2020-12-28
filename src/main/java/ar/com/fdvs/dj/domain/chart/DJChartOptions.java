@@ -29,6 +29,8 @@
 
 package ar.com.fdvs.dj.domain.chart;
 
+import java.awt.Color;
+
 import ar.com.fdvs.dj.domain.DJBaseElement;
 import ar.com.fdvs.dj.domain.DynamicJasperDesign;
 import ar.com.fdvs.dj.domain.StringExpression;
@@ -40,8 +42,6 @@ import net.sf.jasperreports.engine.design.JRDesignChart;
 import net.sf.jasperreports.engine.design.JRDesignExpression;
 import net.sf.jasperreports.engine.type.LineStyleEnum;
 
-import java.awt.*;
-
 public class DJChartOptions extends DJBaseElement {
 	
 	private static final long serialVersionUID = Entity.SERIAL_VERSION_UID;
@@ -49,11 +49,6 @@ public class DJChartOptions extends DJBaseElement {
 	public static final byte POSITION_FOOTER = 1;
 	public static final byte POSITION_HEADER = 2;
 
-	public static final byte EDGE_TOP = EdgeEnum.TOP.getValue();
-	public static final byte EDGE_BOTTOM = EdgeEnum.BOTTOM.getValue();
-	public static final byte EDGE_LEFT = EdgeEnum.LEFT.getValue();
-	public static final byte EDGE_RIGHT = EdgeEnum.RIGHT.getValue();
-	
 	/**
 	 * Constant useful for specifying solid line style.
 	 */
@@ -91,8 +86,8 @@ public class DJChartOptions extends DJBaseElement {
 	private Font titleFont = null;
 	private Font subtitleFont = null;
 	private Font legendFont = null;
-	private Byte legendPosition = null;
-	private Byte titlePosition = null;
+	private EdgeEnum legendPosition = null;
+	private EdgeEnum titlePosition = null;
 	private StringExpression titleExpression = null;
 	private StringExpression subtitleExpression = null;
 	
@@ -410,7 +405,7 @@ public class DJChartOptions extends DJBaseElement {
 	 *
 	 * @return	the legend position
 	 **/
-	public Byte getLegendPosition() {
+	public EdgeEnum getLegendPosition() {
 		return legendPosition;
 	}
 
@@ -419,7 +414,7 @@ public class DJChartOptions extends DJBaseElement {
 	 *
 	 * @param legendPosition the legend position
 	 **/
-	public void setLegendPosition(byte legendPosition) {
+	public void setLegendPosition(EdgeEnum legendPosition) {
 		this.legendPosition = legendPosition;
 	}
 
@@ -428,7 +423,7 @@ public class DJChartOptions extends DJBaseElement {
 	 *
 	 * @return	the title position
 	 **/
-	public Byte getTitlePosition() {
+	public EdgeEnum getTitlePosition() {
 		return titlePosition;
 	}
 
@@ -437,7 +432,7 @@ public class DJChartOptions extends DJBaseElement {
 	 *
 	 * @param titlePosition the title position
 	 **/
-	public void setTitlePosition(byte titlePosition) {
+	public void setTitlePosition(EdgeEnum titlePosition) {
 		this.titlePosition = titlePosition;
 	}
 
@@ -603,9 +598,9 @@ public class DJChartOptions extends DJBaseElement {
 		if (legendFont != null)
 			chart.setLegendFont(legendFont.transform());
 		if (legendPosition != null)
-			chart.setLegendPosition( EdgeEnum.getByValue(legendPosition) );
+			chart.setLegendPosition(legendPosition);
 		if (titlePosition != null)
-			chart.setTitlePosition( EdgeEnum.getByValue(titlePosition) );
+			chart.setTitlePosition(titlePosition);
 		
 		if (padding != null)
 			chart.getLineBox().setPadding(padding);

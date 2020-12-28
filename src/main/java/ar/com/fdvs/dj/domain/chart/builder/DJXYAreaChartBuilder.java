@@ -44,6 +44,7 @@ import ar.com.fdvs.dj.domain.constants.Font;
 import ar.com.fdvs.dj.domain.entities.columns.AbstractColumn;
 import ar.com.fdvs.dj.domain.entities.columns.PropertyColumn;
 import ar.com.fdvs.dj.domain.hyperlink.LiteralExpression;
+import net.sf.jasperreports.charts.type.EdgeEnum;
 import net.sf.jasperreports.engine.type.CalculationEnum;
 
 public class DJXYAreaChartBuilder extends AbstractChartBuilder<DJXYAreaChartBuilder> {
@@ -230,21 +231,21 @@ public class DJXYAreaChartBuilder extends AbstractChartBuilder<DJXYAreaChartBuil
 	}
 
 	/**
-	 * Sets the legend position (DJChartOptions.EDGE_TOP, DJChartOptions.EDGE_BOTTOM, DJChartOptions.EDGE_LEFT, DJChartOptions.EDGE_RIGHT).
+	 * Sets the legend position (EdgeEnum.TOP, EdgeEnum.BOTTOM, DJChartOptions.EDGE_LEFT, DJChartOptions.EDGE_RIGHT).
 	 *
 	 * @param legendPosition the legend position
 	 **/
-	public DJXYAreaChartBuilder setLegendPosition(byte legendPosition) {
+	public DJXYAreaChartBuilder setLegendPosition(EdgeEnum legendPosition) {
 		this.chart.getOptions().setLegendPosition(legendPosition);
 		return this;
 	}
 
 	/**
-	 * Sets the title position (DJChartOptions.EDGE_TOP, DJChartOptions.EDGE_BOTTOM, DJChartOptions.EDGE_LEFT, DJChartOptions.EDGE_RIGHT).
+	 * Sets the title position (EdgeEnum.TOP, EdgeEnum.BOTTOM, DJChartOptions.EDGE_LEFT, DJChartOptions.EDGE_RIGHT).
 	 *
 	 * @param titlePosition the title position
 	 **/
-	public DJXYAreaChartBuilder setTitlePosition(byte titlePosition) {
+	public DJXYAreaChartBuilder setTitlePosition(EdgeEnum titlePosition) {
 		this.chart.getOptions().setTitlePosition(titlePosition);
 		return this;
 	}
