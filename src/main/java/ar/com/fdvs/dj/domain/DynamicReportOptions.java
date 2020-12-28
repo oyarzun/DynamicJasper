@@ -36,6 +36,7 @@ import java.util.Map;
 import ar.com.fdvs.dj.domain.builders.StyleBuilder;
 import ar.com.fdvs.dj.domain.constants.Page;
 import ar.com.fdvs.dj.domain.entities.Entity;
+import net.sf.jasperreports.engine.type.HorizontalImageAlignEnum;
 
 /**
  * Class that defines the report configuration.
@@ -99,34 +100,34 @@ public class DynamicReportOptions extends DJBaseElement {
 	private Style defaultGroupFooterStyle = new Style("defaultGroupFooterStyle");
 
 	/**
-	 * Key: Byte (ImageBanner.Alignment.Right, ImageBanner.Alignment.Left, ImageBanner.ALIGN_CENTER)<br>
+	 * Key: Byte (HorizontalImageAlignEnum.RIGHT, HorizontalImageAlignEnum.LEFT, ImageBanner.ALIGN_CENTER)<br>
 	 * value: ImageBanner
 	 */
-	private final Map<ImageBanner.Alignment, ImageBanner> imageBanners = new HashMap<ImageBanner.Alignment, ImageBanner>();
+	private final Map<HorizontalImageAlignEnum, ImageBanner> imageBanners = new HashMap<HorizontalImageAlignEnum, ImageBanner>();
 
     /**
-     * Key: Byte (ImageBanner.Alignment.Right, ImageBanner.Alignment.Left, ImageBanner.ALIGN_CENTER)<br>
+     * Key: Byte (HorizontalImageAlignEnum.RIGHT, HorizontalImageAlignEnum.LEFT, ImageBanner.ALIGN_CENTER)<br>
      * value: ImageBanner
      */
-    private final Map<ImageBanner.Alignment, ImageBanner> footerImageBanners = new HashMap<ImageBanner.Alignment, ImageBanner>();
+    private final Map<HorizontalImageAlignEnum, ImageBanner> footerImageBanners = new HashMap<HorizontalImageAlignEnum, ImageBanner>();
 
 	/**
-	 * Key: Byte (ImageBanner.Alignment.Right, ImageBanner.Alignment.Left, ImageBanner.ALIGN_CENTER)<br>
+	 * Key: Byte (HorizontalImageAlignEnum.RIGHT, HorizontalImageAlignEnum.LEFT, ImageBanner.ALIGN_CENTER)<br>
 	 * value: ImageBanner
 	 */
-	private final Map<ImageBanner.Alignment, ImageBanner> firstPageImageBanners = new HashMap<ImageBanner.Alignment, ImageBanner>();
+	private final Map<HorizontalImageAlignEnum, ImageBanner> firstPageImageBanners = new HashMap<HorizontalImageAlignEnum, ImageBanner>();
 
     /**
-     * Key: Byte (ImageBanner.Alignment.Right, ImageBanner.Alignment.Left, ImageBanner.ALIGN_CENTER)<br>
+     * Key: Byte (HorizontalImageAlignEnum.RIGHT, HorizontalImageAlignEnum.LEFT, ImageBanner.ALIGN_CENTER)<br>
      * value: ImageBanner
      */
-	private final Map<ImageBanner.Alignment, ImageBanner> firstPageFooterImageBanners = new HashMap<ImageBanner.Alignment, ImageBanner>();
+	private final Map<HorizontalImageAlignEnum, ImageBanner> firstPageFooterImageBanners = new HashMap<HorizontalImageAlignEnum, ImageBanner>();
 
-    public Map<ImageBanner.Alignment, ImageBanner> getFirstPageFooterImageBanners() {
+    public Map<HorizontalImageAlignEnum, ImageBanner> getFirstPageFooterImageBanners() {
         return firstPageFooterImageBanners;
     }
 
-    public Map<ImageBanner.Alignment, ImageBanner> getImageBanners() {
+    public Map<HorizontalImageAlignEnum, ImageBanner> getImageBanners() {
 		return imageBanners;
 	}
 
@@ -275,7 +276,7 @@ public class DynamicReportOptions extends DJBaseElement {
 		this.titleHeight = titleHeight;
 	}
 
-	public Map<ImageBanner.Alignment, ImageBanner> getFirstPageImageBanners() {
+	public Map<HorizontalImageAlignEnum, ImageBanner> getFirstPageImageBanners() {
 		return firstPageImageBanners;
 	}
 
@@ -393,7 +394,7 @@ public class DynamicReportOptions extends DJBaseElement {
 		this.summaryNewPage = summaryNewPage;
 	}
 
-    public Map<ImageBanner.Alignment, ImageBanner> getFooterImageBanners() {
+    public Map<HorizontalImageAlignEnum, ImageBanner> getFooterImageBanners() {
         return footerImageBanners;
     }
 }

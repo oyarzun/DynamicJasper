@@ -71,6 +71,7 @@ import ar.com.fdvs.dj.domain.entities.columns.PercentageColumn;
 import ar.com.fdvs.dj.domain.entities.columns.PropertyColumn;
 import net.sf.jasperreports.engine.JasperReport;
 import net.sf.jasperreports.engine.type.CalculationEnum;
+import net.sf.jasperreports.engine.type.HorizontalImageAlignEnum;
 import net.sf.jasperreports.engine.type.ScaleImageEnum;
 import net.sf.jasperreports.engine.type.WhenNoDataTypeEnum;
 import net.sf.jasperreports.engine.type.WhenResourceMissingTypeEnum;
@@ -782,55 +783,23 @@ public class DynamicReportBuilder {
         return this;
     }
 
-    @Deprecated
-    public DynamicReportBuilder addImageBanner(String path, int width, int height, byte align) {
-        ImageBanner.Alignment alignment = ImageBanner.Alignment.fromValue(align);
-        if (alignment == null)
-            throw new DJException("Invalid ImageBanner.Alignment");
+    public DynamicReportBuilder addImageBanner(String path, int width, int height, HorizontalImageAlignEnum align) {
+        if (align == null)
+            throw new DJException("Invalid HorizontalImageAlignEnum");
 
-        ImageBanner banner = new ImageBanner(path, width, height, alignment);
-        options.getImageBanners().put(alignment, banner);
+        ImageBanner banner = new ImageBanner(path, width, height, align);
+        options.getImageBanners().put(align, banner);
         return this;
     }
 
-    public DynamicReportBuilder addImageBanner(String path, int width, int height, ImageBanner.Alignment alignment) {
-        ImageBanner banner = new ImageBanner(path, width, height, alignment);
-        options.getImageBanners().put(alignment, banner);
-        return this;
-    }
-
-    @Deprecated
-    public DynamicReportBuilder addImageBanner(String path, int width, int height, byte align, ScaleImageEnum scaleMode) {
-        ImageBanner.Alignment alignment = ImageBanner.Alignment.fromValue(align);
-        if (alignment == null)
-            throw new DJException("Invalid ImageBanner.Alignment");
-
+    public DynamicReportBuilder addImageBanner(String path, int width, int height, HorizontalImageAlignEnum alignment, ScaleImageEnum scaleMode) {
         ImageBanner banner = new ImageBanner(path, width, height, alignment);
         banner.setScaleMode(scaleMode);
         options.getImageBanners().put(alignment, banner);
         return this;
     }
 
-    public DynamicReportBuilder addImageBanner(String path, int width, int height, ImageBanner.Alignment alignment, ScaleImageEnum scaleMode) {
-        ImageBanner banner = new ImageBanner(path, width, height, alignment);
-        banner.setScaleMode(scaleMode);
-        options.getImageBanners().put(alignment, banner);
-        return this;
-    }
-
-    @Deprecated
-    public DynamicReportBuilder addFooterImageBanner(String path, int width, int height, byte align, ScaleImageEnum scaleMode) {
-        ImageBanner.Alignment alignment = ImageBanner.Alignment.fromValue(align);
-        if (alignment == null)
-            throw new DJException("Invalid ImageBanner.Alignment");
-
-        ImageBanner banner = new ImageBanner(path, width, height, alignment);
-        banner.setScaleMode(scaleMode);
-        options.getFooterImageBanners().put(alignment, banner);
-        return this;
-    }
-
-    public DynamicReportBuilder addFooterImageBanner(String path, int width, int height, ImageBanner.Alignment alignment, ScaleImageEnum scaleMode) {
+    public DynamicReportBuilder addFooterImageBanner(String path, int width, int height, HorizontalImageAlignEnum alignment, ScaleImageEnum scaleMode) {
         ImageBanner banner = new ImageBanner(path, width, height, alignment);
         banner.setScaleMode(scaleMode);
         options.getFooterImageBanners().put(alignment, banner);
@@ -838,53 +807,19 @@ public class DynamicReportBuilder {
     }
 
 
-    public DynamicReportBuilder addFirstPageImageBanner(String path, int width, int height, ImageBanner.Alignment align) {
+    public DynamicReportBuilder addFirstPageImageBanner(String path, int width, int height, HorizontalImageAlignEnum align) {
         ImageBanner banner = new ImageBanner(path, width, height, align);
         options.getFirstPageImageBanners().put(align, banner);
         return this;
     }
 
-    @Deprecated
-    public DynamicReportBuilder addFirstPageImageBanner(String path, int width, int height, byte align) {
-        ImageBanner.Alignment alignment = ImageBanner.Alignment.fromValue(align);
-        if (alignment == null)
-            throw new DJException("Invalid ImageBanner.Alignment");
-
-        ImageBanner banner = new ImageBanner(path, width, height, alignment);
-        options.getFirstPageImageBanners().put(alignment, banner);
-        return this;
-    }
-
-    @Deprecated
-    public DynamicReportBuilder addFirstPageFooterImageBanner(String path, int width, int height, byte align) {
-        ImageBanner.Alignment alignment = ImageBanner.Alignment.fromValue(align);
-        if (alignment == null)
-            throw new DJException("Invalid ImageBanner.Alignment");
-
+    public DynamicReportBuilder addFirstPageFooterImageBanner(String path, int width, int height, HorizontalImageAlignEnum alignment) {
         ImageBanner banner = new ImageBanner(path, width, height, alignment);
         options.getFirstPageFooterImageBanners().put(alignment, banner);
         return this;
     }
 
-    public DynamicReportBuilder addFirstPageFooterImageBanner(String path, int width, int height, ImageBanner.Alignment alignment) {
-        ImageBanner banner = new ImageBanner(path, width, height, alignment);
-        options.getFirstPageFooterImageBanners().put(alignment, banner);
-        return this;
-    }
-
-    @Deprecated
-    public DynamicReportBuilder addFirstPageImageBanner(String path, int width, int height, byte align, ScaleImageEnum scaleMode) {
-        ImageBanner.Alignment alignment = ImageBanner.Alignment.fromValue(align);
-        if (alignment == null)
-            throw new DJException("Invalid ImageBanner.Alignment");
-
-        ImageBanner banner = new ImageBanner(path, width, height, alignment);
-        banner.setScaleMode(scaleMode);
-        options.getFirstPageImageBanners().put(alignment, banner);
-        return this;
-    }
-
-    public DynamicReportBuilder addFirstPageImageBanner(String path, int width, int height, ImageBanner.Alignment alignment, ScaleImageEnum scaleMode) {
+    public DynamicReportBuilder addFirstPageImageBanner(String path, int width, int height, HorizontalImageAlignEnum alignment, ScaleImageEnum scaleMode) {
         ImageBanner banner = new ImageBanner(path, width, height, alignment);
         banner.setScaleMode(scaleMode);
         options.getFirstPageImageBanners().put(alignment, banner);

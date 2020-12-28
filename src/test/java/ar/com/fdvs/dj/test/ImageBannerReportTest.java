@@ -32,7 +32,6 @@ package ar.com.fdvs.dj.test;
 import java.awt.Color;
 
 import ar.com.fdvs.dj.domain.DynamicReport;
-import ar.com.fdvs.dj.domain.ImageBanner;
 import ar.com.fdvs.dj.domain.Style;
 import ar.com.fdvs.dj.domain.builders.ColumnBuilder;
 import ar.com.fdvs.dj.domain.builders.DynamicReportBuilder;
@@ -44,6 +43,7 @@ import ar.com.fdvs.dj.domain.entities.DJGroup;
 import ar.com.fdvs.dj.domain.entities.columns.AbstractColumn;
 import ar.com.fdvs.dj.domain.entities.columns.PropertyColumn;
 import net.sf.jasperreports.engine.type.CalculationEnum;
+import net.sf.jasperreports.engine.type.HorizontalImageAlignEnum;
 import net.sf.jasperreports.engine.type.HorizontalTextAlignEnum;
 import net.sf.jasperreports.engine.type.ModeEnum;
 import net.sf.jasperreports.engine.type.ScaleImageEnum;
@@ -84,10 +84,10 @@ public class ImageBannerReportTest extends BaseDjReportTest {
 			.setBottomMargin(margin)
 			.setPrintBackgroundOnOddRows(true)
 			.setOddRowBackgroundStyle(oddRowStyle)
-			.addFirstPageImageBanner(System.getProperty("user.dir") +"/target/test-classes/images/logo_fdv_solutions_60.png", 197, 60, ImageBanner.Alignment.Left)
-			.addFirstPageImageBanner(System.getProperty("user.dir") +"/target/test-classes/images/dynamicJasper_60.jpg", 300, 60, ImageBanner.Alignment.Right)
-			.addImageBanner(System.getProperty("user.dir") +"/target/test-classes/images/logo_fdv_solutions_60.png", 100, 25, ImageBanner.Alignment.Left, ScaleImageEnum.FILL_FRAME)
-			.addImageBanner(System.getProperty("user.dir") +"/target/test-classes/images/dynamicJasper_60.jpg", 150, 25, ImageBanner.Alignment.Right, ScaleImageEnum.FILL_FRAME);
+			.addFirstPageImageBanner(System.getProperty("user.dir") +"/target/test-classes/images/logo_fdv_solutions_60.png", 197, 60, HorizontalImageAlignEnum.LEFT)
+			.addFirstPageImageBanner(System.getProperty("user.dir") +"/target/test-classes/images/dynamicJasper_60.jpg", 300, 60, HorizontalImageAlignEnum.RIGHT)
+			.addImageBanner(System.getProperty("user.dir") +"/target/test-classes/images/logo_fdv_solutions_60.png", 100, 25, HorizontalImageAlignEnum.LEFT, ScaleImageEnum.FILL_FRAME)
+			.addImageBanner(System.getProperty("user.dir") +"/target/test-classes/images/dynamicJasper_60.jpg", 150, 25, HorizontalImageAlignEnum.RIGHT, ScaleImageEnum.FILL_FRAME);
 
 		AbstractColumn columnState = ColumnBuilder.getNew().setColumnProperty("state", String.class.getName())
 			.setTitle("State").setWidth(new Integer(85))

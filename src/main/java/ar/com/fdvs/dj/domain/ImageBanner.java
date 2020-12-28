@@ -30,25 +30,17 @@
 package ar.com.fdvs.dj.domain;
 
 import ar.com.fdvs.dj.domain.entities.Entity;
+import net.sf.jasperreports.engine.type.HorizontalImageAlignEnum;
 import net.sf.jasperreports.engine.type.ScaleImageEnum;
 
 public class ImageBanner extends DJBaseElement {
 
 	private static final long serialVersionUID = Entity.SERIAL_VERSION_UID;
 
-	@Deprecated
-	public static final byte ALIGN_LEFT = 0;
-
-	@Deprecated
-	public static final byte ALIGN_RIGHT = 1;
-
-	@Deprecated
-	public static final byte ALIGN_CENTER = 2;
-
 	private String imagePath;
 	private int width = 0;
 	private int height= 0;
-	private Alignment align = Alignment.Left;
+	private HorizontalImageAlignEnum align = HorizontalImageAlignEnum.LEFT;
 
 	private ScaleImageEnum scaleMode = ScaleImageEnum.RETAIN_SHAPE;
 	
@@ -66,15 +58,11 @@ public class ImageBanner extends DJBaseElement {
 	public void setImagePath(String imagePath) {
 		this.imagePath = imagePath;
 	}
-	public Alignment getAlign() {
+	public HorizontalImageAlignEnum getAlign() {
 		return align;
 	}
 
-	@Deprecated
-	public void setAlign(byte orientation) {
-		this.align = Alignment.fromValue(orientation);
-	}
-	public void setAlign(Alignment orientation) {
+	public void setAlign(HorizontalImageAlignEnum orientation) {
 		this.align = orientation;
 	}
 	public int getWidth() {
@@ -92,43 +80,11 @@ public class ImageBanner extends DJBaseElement {
 		this.scaleMode = scaleMode;
 	}
 
-	@Deprecated
-	public ImageBanner(String imagePath, int width, int height, byte align) {
+	public ImageBanner(String imagePath, int width, int height, HorizontalImageAlignEnum align) {
 		this.imagePath = imagePath;
 		this.width = width;
 		this.height = height;
-		Alignment alignment = Alignment.fromValue(align);
-		this.align = (alignment!=null?alignment:Alignment.Left);
-	}
-
-	public ImageBanner(String imagePath, int width, int height, Alignment align) {
-		this.imagePath = imagePath;
-		this.width = width;
-		this.height = height;
-		this.align = align!=null?align:Alignment.Left;
-	}
-
-	public enum Alignment {
-		Left((byte)0), Right((byte)1), Center((byte)2);
-
-		Alignment(byte value){
-			this.value = value;
-		}
-
-		private byte value;
-
-		public byte getValue() {
-			return value;
-		}
-
-		public static Alignment fromValue(byte value) {
-			for (Alignment alignment : Alignment.values()) {
-				if (alignment.getValue() == value)
-					return alignment;
-			}
-
-			return null;
-		}
+		this.align = align!=null?align:HorizontalImageAlignEnum.LEFT;
 	}
 
 }

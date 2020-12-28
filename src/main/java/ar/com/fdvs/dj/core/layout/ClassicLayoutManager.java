@@ -85,6 +85,7 @@ import net.sf.jasperreports.engine.design.JRDesignSubreportParameter;
 import net.sf.jasperreports.engine.design.JRDesignTextField;
 import net.sf.jasperreports.engine.type.CalculationEnum;
 import net.sf.jasperreports.engine.type.EvaluationTimeEnum;
+import net.sf.jasperreports.engine.type.HorizontalImageAlignEnum;
 import net.sf.jasperreports.engine.type.ModeEnum;
 import net.sf.jasperreports.engine.type.PositionTypeEnum;
 import net.sf.jasperreports.engine.type.ScaleImageEnum;
@@ -342,11 +343,11 @@ public class ClassicLayoutManager extends AbstractLayoutManager {
 				image.setRemoveLineWhenBlank(true);
 				image.setScaleImage(ScaleImageEnum.getByValue(imageBanner.getScaleMode().getValue()));
 
-				if (imageBanner.getAlign() == ImageBanner.Alignment.Left)
+				if (imageBanner.getAlign() == HorizontalImageAlignEnum.LEFT)
 					image.setX(0);
-				else if (imageBanner.getAlign() == ImageBanner.Alignment.Right)
+				else if (imageBanner.getAlign() == HorizontalImageAlignEnum.RIGHT)
 					image.setX(getReport().getOptions().getPage().getWidth() - getReport().getOptions().getLeftMargin() - getReport().getOptions().getRightMargin() - imageBanner.getWidth());
-				else if (imageBanner.getAlign() == ImageBanner.Alignment.Center) {
+				else if (imageBanner.getAlign() == HorizontalImageAlignEnum.CENTER) {
 					int x = (getReport().getOptions().getPage().getWidth() -
 							getReport().getOptions().getRightMargin() -
 							getReport().getOptions().getLeftMargin() - imageBanner.getWidth()) / 2;
