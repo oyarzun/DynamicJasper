@@ -42,11 +42,11 @@ import ar.com.fdvs.dj.domain.builders.StyleBuilder;
 import ar.com.fdvs.dj.domain.constants.Border;
 import ar.com.fdvs.dj.domain.constants.Font;
 import ar.com.fdvs.dj.domain.constants.GroupLayout;
-import ar.com.fdvs.dj.domain.constants.LabelPosition;
 import ar.com.fdvs.dj.domain.entities.DJGroup;
 import ar.com.fdvs.dj.domain.entities.columns.AbstractColumn;
 import ar.com.fdvs.dj.domain.entities.columns.PropertyColumn;
 import ar.com.fdvs.dj.test.BaseDjReportTest;
+import net.sf.jasperreports.charts.type.EdgeEnum;
 import net.sf.jasperreports.engine.type.CalculationEnum;
 import net.sf.jasperreports.engine.type.HorizontalImageAlignEnum;
 import net.sf.jasperreports.engine.type.HorizontalTextAlignEnum;
@@ -156,7 +156,7 @@ public class GroupLabelTest3 extends BaseDjReportTest {
 		.setStretchWithOverflow(false)
 		.build();
 		
-		DJGroupLabel glabel3 = new DJGroupLabel("Subtotal"  ,glabelStyle2,LabelPosition.TOP);
+		DJGroupLabel glabel3 = new DJGroupLabel("Subtotal"  ,glabelStyle2,EdgeEnum.TOP);
 		
 		//		 define the criteria column to group by (columnState)
 		DJGroup g1 = gb1.setCriteriaColumn((PropertyColumn) columnState)

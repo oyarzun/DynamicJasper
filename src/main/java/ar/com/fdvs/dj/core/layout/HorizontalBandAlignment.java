@@ -49,10 +49,8 @@ public abstract class HorizontalBandAlignment {
 			return RIGHT;
 		else if (aligment == HorizontalTextAlignEnum.LEFT)
 			return LEFT;
-		else if (aligment == HorizontalTextAlignEnum.CENTER)
-			return CENTER;
 
-		return LEFT;
+		return CENTER;
 	}
 
 	public static final HorizontalBandAlignment RIGHT = new HorizontalBandAlignment() {

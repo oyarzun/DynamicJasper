@@ -1,7 +1,7 @@
 package ar.com.fdvs.dj.domain;
 
-import ar.com.fdvs.dj.domain.constants.LabelPosition;
 import ar.com.fdvs.dj.domain.entities.Entity;
+import net.sf.jasperreports.charts.type.EdgeEnum;
 
 public class DJLabel extends DJBaseElement {
 
@@ -33,7 +33,7 @@ public class DJLabel extends DJBaseElement {
 	 * @Deprecated
 	 */	
 	public DJLabel(String text, Style labelStyle,
-			LabelPosition labelPosition) {
+			EdgeEnum EdgeEnum) {
 		super();
 		this.text = text;
 		this.style = labelStyle;

@@ -42,11 +42,11 @@ import ar.com.fdvs.dj.domain.builders.StyleBuilder;
 import ar.com.fdvs.dj.domain.constants.Border;
 import ar.com.fdvs.dj.domain.constants.Font;
 import ar.com.fdvs.dj.domain.constants.GroupLayout;
-import ar.com.fdvs.dj.domain.constants.LabelPosition;
 import ar.com.fdvs.dj.domain.entities.DJGroup;
 import ar.com.fdvs.dj.domain.entities.columns.AbstractColumn;
 import ar.com.fdvs.dj.domain.entities.columns.PropertyColumn;
 import ar.com.fdvs.dj.test.BaseDjReportTest;
+import net.sf.jasperreports.charts.type.EdgeEnum;
 import net.sf.jasperreports.engine.type.CalculationEnum;
 import net.sf.jasperreports.engine.type.HorizontalImageAlignEnum;
 import net.sf.jasperreports.engine.type.HorizontalTextAlignEnum;
@@ -152,8 +152,8 @@ public class GroupLabelTest1 extends BaseDjReportTest {
 			.setHorizontalTextAlignEnum(HorizontalTextAlignEnum.RIGHT).setBorderTop(Border.THIN())
 			.setStretchWithOverflow(false)
 			.build();
-		DJGroupLabel glabel1 = new DJGroupLabel("Total amount",glabelStyle,LabelPosition.TOP);
-		DJGroupLabel glabel2 = new DJGroupLabel("Total quantity",glabelStyle,LabelPosition.TOP);
+		DJGroupLabel glabel1 = new DJGroupLabel("Total amount",glabelStyle,EdgeEnum.TOP);
+		DJGroupLabel glabel2 = new DJGroupLabel("Total quantity",glabelStyle,EdgeEnum.TOP);
 		
 		//		 define the criteria column to group by (columnState)
 		DJGroup g1 = gb1.setCriteriaColumn((PropertyColumn) columnState)

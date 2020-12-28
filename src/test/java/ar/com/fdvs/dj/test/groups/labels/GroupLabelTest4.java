@@ -45,11 +45,11 @@ import ar.com.fdvs.dj.domain.builders.StyleBuilder;
 import ar.com.fdvs.dj.domain.constants.Border;
 import ar.com.fdvs.dj.domain.constants.Font;
 import ar.com.fdvs.dj.domain.constants.GroupLayout;
-import ar.com.fdvs.dj.domain.constants.LabelPosition;
 import ar.com.fdvs.dj.domain.entities.DJGroup;
 import ar.com.fdvs.dj.domain.entities.columns.AbstractColumn;
 import ar.com.fdvs.dj.domain.entities.columns.PropertyColumn;
 import ar.com.fdvs.dj.test.BaseDjReportTest;
+import net.sf.jasperreports.charts.type.EdgeEnum;
 import net.sf.jasperreports.engine.type.CalculationEnum;
 import net.sf.jasperreports.engine.type.HorizontalImageAlignEnum;
 import net.sf.jasperreports.engine.type.HorizontalTextAlignEnum;
@@ -159,8 +159,8 @@ public class GroupLabelTest4 extends BaseDjReportTest {
 			public Object evaluate(Map fields, Map variables, Map parameters) {
 				return "Total amount";
 			}
-		},glabelStyle,LabelPosition.TOP);
-		DJGroupLabel glabel2 = new DJGroupLabel("Total quantity",glabelStyle,LabelPosition.TOP);
+		},glabelStyle,EdgeEnum.TOP);
+		DJGroupLabel glabel2 = new DJGroupLabel("Total quantity",glabelStyle,EdgeEnum.TOP);
 		
 		Style glabelStyle2 = new Style();
 		glabelStyle2.setHorizontalTextAlignEnum(HorizontalTextAlignEnum.CENTER);
@@ -169,7 +169,7 @@ public class GroupLabelTest4 extends BaseDjReportTest {
 			public Object evaluate(Map fields, Map variables, Map parameters) {
 				return "group: \"" + variables.get("state_name") + "\", count: " + ExpressionHelper.getGroupCount("group_state", variables);
 			}
-		},glabelStyle2,LabelPosition.TOP);
+		},glabelStyle2,EdgeEnum.TOP);
 		
 		//		 define the criteria column to group by (columnState)
 		DJGroup g1 = gb1.setCriteriaColumn((PropertyColumn) columnState)

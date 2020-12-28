@@ -53,7 +53,6 @@ import ar.com.fdvs.dj.domain.ImageBanner;
 import ar.com.fdvs.dj.domain.Style;
 import ar.com.fdvs.dj.domain.constants.Border;
 import ar.com.fdvs.dj.domain.constants.GroupLayout;
-import ar.com.fdvs.dj.domain.constants.LabelPosition;
 import ar.com.fdvs.dj.domain.entities.DJGroup;
 import ar.com.fdvs.dj.domain.entities.DJGroupVariable;
 import ar.com.fdvs.dj.domain.entities.Subreport;
@@ -65,6 +64,7 @@ import ar.com.fdvs.dj.domain.entities.columns.PropertyColumn;
 import ar.com.fdvs.dj.util.ExpressionUtils;
 import ar.com.fdvs.dj.util.LayoutUtils;
 import ar.com.fdvs.dj.util.Utils;
+import net.sf.jasperreports.charts.type.EdgeEnum;
 import net.sf.jasperreports.crosstabs.design.JRDesignCrosstab;
 import net.sf.jasperreports.engine.JRChild;
 import net.sf.jasperreports.engine.JRElement;
@@ -504,7 +504,7 @@ public class ClassicLayoutManager extends AbstractLayoutManager {
 				int width = getDesign().getPageWidth() - getDesign().getLeftMargin() - getDesign().getRightMargin();
 				int height = label.getHeight();
 				int yOffset = 0;
-				if (label.getLabelPosition() == LabelPosition.LEFT) {
+				if (label.getEdgeEnum() == EdgeEnum.LEFT) {
 					DJGroupVariable lmvar = findLeftMostColumn(footerVariables);
 
 					x = col.getPosX(); //label starts in the column-to-group-by x position
@@ -515,7 +515,7 @@ public class ClassicLayoutManager extends AbstractLayoutManager {
 					} else
 						width -= x;
 					height = getFooterVariableHeight(columnsGroup);
-				} else if (label.getLabelPosition() == LabelPosition.RIGHT) {
+				} else if (label.getEdgeEnum() == EdgeEnum.RIGHT) {
 					DJGroupVariable rmvar = findRightMostColumn(footerVariables);
 
 					if (rmvar != null) {
@@ -526,11 +526,11 @@ public class ClassicLayoutManager extends AbstractLayoutManager {
 					y = findYOffsetForGroupLabel(footer);
 					width -= x;
 					height = getFooterVariableHeight(columnsGroup);
-				} else if (label.getLabelPosition() == LabelPosition.TOP) {
+				} else if (label.getEdgeEnum() == EdgeEnum.TOP) {
 					x = col.getPosX(); //label starts in the column-to-group-by x position
 					width -= x;
 					yOffset = height;
-				} else if (label.getLabelPosition() == LabelPosition.BOTTOM) {
+				} else if (label.getEdgeEnum() == EdgeEnum.BOTTOM) {
 					x = col.getPosX(); //label starts in the column-to-group-by x position
 					y = getFooterVariableHeight(columnsGroup);
 					width -= x;

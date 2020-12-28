@@ -40,9 +40,9 @@ import ar.com.fdvs.dj.domain.StringExpression;
 import ar.com.fdvs.dj.domain.Style;
 import ar.com.fdvs.dj.domain.builders.FastReportBuilder;
 import ar.com.fdvs.dj.domain.constants.Border;
-import ar.com.fdvs.dj.domain.constants.LabelPosition;
 import ar.com.fdvs.dj.domain.entities.DJGroupVariable;
 import ar.com.fdvs.dj.test.BaseDjReportTest;
+import net.sf.jasperreports.charts.type.EdgeEnum;
 import net.sf.jasperreports.engine.type.CalculationEnum;
 import net.sf.jasperreports.view.JasperDesignViewer;
 import net.sf.jasperreports.view.JasperViewer;
@@ -85,7 +85,7 @@ public class LabelFooterValuesTest extends BaseDjReportTest {
             public Object evaluate(Map fields, Map variables, Map parameters) {
                 return "SUM for state " + fields.get("state");
             }
-        },labelStyle, LabelPosition.BOTTOM);
+        },labelStyle, EdgeEnum.BOTTOM);
 
         DJGroupVariable groupVariable = new DJGroupVariable(drb.getColumn(5), CalculationEnum.SUM, labelStyle, null, label);
         drb.getGroup(0).addFooterVariable(groupVariable);
