@@ -35,7 +35,7 @@ import java.util.Date;
 import ar.com.fdvs.dj.domain.DynamicReport;
 import ar.com.fdvs.dj.domain.Style;
 import ar.com.fdvs.dj.domain.builders.FastReportBuilder;
-import ar.com.fdvs.dj.domain.constants.Stretching;
+import net.sf.jasperreports.engine.type.StretchTypeEnum;
 import net.sf.jasperreports.engine.type.VerticalTextAlignEnum;
 import net.sf.jasperreports.view.JasperDesignViewer;
 import net.sf.jasperreports.view.JasperViewer;
@@ -57,7 +57,7 @@ public class MultiLineTitleReportTest extends BaseDjReportTest {
 		FastReportBuilder drb = new FastReportBuilder();
 		Style subtitleStyle = new Style("subtitle_style");
 		subtitleStyle.setStretchWithOverflow(true);
-		subtitleStyle.setStreching(Stretching.NO_STRETCH);
+		subtitleStyle.setStreching(StretchTypeEnum.NO_STRETCH);
 		subtitleStyle.setVerticalTextAlignEnum(VerticalTextAlignEnum.TOP);
 		
 		drb.addColumn("State", "state", String.class.getName(),30)

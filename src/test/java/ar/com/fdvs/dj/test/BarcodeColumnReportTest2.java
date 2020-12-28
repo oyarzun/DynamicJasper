@@ -39,12 +39,12 @@ import ar.com.fdvs.dj.domain.Style;
 import ar.com.fdvs.dj.domain.builders.FastReportBuilder;
 import ar.com.fdvs.dj.domain.builders.StyleBuilder;
 import ar.com.fdvs.dj.domain.constants.Border;
-import ar.com.fdvs.dj.domain.constants.Stretching;
 import ar.com.fdvs.dj.test.domain.Product;
 import ar.com.fdvs.dj.util.SortUtils;
 import net.sf.jasperreports.engine.JRDataSource;
 import net.sf.jasperreports.engine.data.JRBeanCollectionDataSource;
 import net.sf.jasperreports.engine.type.ScaleImageEnum;
+import net.sf.jasperreports.engine.type.StretchTypeEnum;
 import net.sf.jasperreports.view.JasperDesignViewer;
 import net.sf.jasperreports.view.JasperViewer;
 
@@ -56,7 +56,7 @@ public class BarcodeColumnReportTest2 extends BaseDjReportTest {
 
 		Style defStyle = new StyleBuilder(true).
 			setBorderBottom(Border.THIN())
-			.setStretching(Stretching.RELATIVE_TO_TALLEST_OBJECT)
+			.setStretching(StretchTypeEnum.RELATIVE_TO_TALLEST_OBJECT)
 			.setPaddingBottom(3)
 			.setPaddingTop(3)
 			.build();

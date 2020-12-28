@@ -43,7 +43,6 @@ import java.util.Map;
 import ar.com.fdvs.dj.core.DJConstants;
 import ar.com.fdvs.dj.core.JasperDesignDecorator;
 import ar.com.fdvs.dj.domain.builders.StyleBuilder;
-import ar.com.fdvs.dj.domain.constants.Stretching;
 import ar.com.fdvs.dj.domain.entities.DJGroup;
 import ar.com.fdvs.dj.domain.entities.DJVariable;
 import ar.com.fdvs.dj.domain.entities.Entity;
@@ -51,6 +50,7 @@ import ar.com.fdvs.dj.domain.entities.Parameter;
 import ar.com.fdvs.dj.domain.entities.columns.AbstractColumn;
 import ar.com.fdvs.dj.domain.entities.columns.ExpressionColumn;
 import ar.com.fdvs.dj.domain.entities.columns.SimpleColumn;
+import net.sf.jasperreports.engine.type.StretchTypeEnum;
 import net.sf.jasperreports.engine.type.WhenNoDataTypeEnum;
 import net.sf.jasperreports.engine.type.WhenResourceMissingTypeEnum;
 
@@ -78,10 +78,10 @@ public class DynamicReport extends DJBaseElement {
 	private boolean titleIsJrExpression = false;
 	private String subtitle;
 	private Style titleStyle = new StyleBuilder(false,"reportTitleStyle")
-								.setStretching(Stretching.NO_STRETCH)
+								.setStretching(StretchTypeEnum.NO_STRETCH)
 								.build();
 	private Style subtitleStyle = new StyleBuilder(false,"reportSubtitleStyle")
-									.setStretching(Stretching.NO_STRETCH)
+									.setStretching(StretchTypeEnum.NO_STRETCH)
 									.build();
 	private Locale reportLocale = Locale.getDefault();
 	private String resourceBundle = null;

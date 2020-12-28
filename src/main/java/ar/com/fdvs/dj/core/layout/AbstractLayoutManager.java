@@ -40,6 +40,7 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
+import java.util.Random;
 
 import javax.imageio.ImageIO;
 
@@ -120,7 +121,7 @@ public abstract class AbstractLayoutManager implements LayoutManager {
 
     protected abstract void transformDetailBandTextField(AbstractColumn column, JRDesignTextField textField);
 
-    private Map<String, JRStyle> reportStyles = new HashMap<String, JRStyle>();
+//    private Map<String, JRStyle> reportStyles = new HashMap<String, JRStyle>();
 
     /**
      * Holds the original groups binded to a column.
@@ -128,14 +129,6 @@ public abstract class AbstractLayoutManager implements LayoutManager {
      * List<JRDesignGroup>
      */
     protected final List<JRGroup> realGroups = new ArrayList<JRGroup>();
-
-    public Map<String, JRStyle> getReportStyles() {
-        return reportStyles;
-    }
-
-    public void setReportStyles(Map<String, JRStyle> reportStyles) {
-        this.reportStyles = reportStyles;
-    }
 
     public void applyLayout(JasperDesign design, DynamicReport report) throws LayoutException {
         log.debug("Applying Layout...");
@@ -298,7 +291,6 @@ public abstract class AbstractLayoutManager implements LayoutManager {
                 String name = createUniqueStyleName();
                 jrstyle.setName(name);
                 style.setName(name);
-                getReportStyles().put(name, jrstyle);
                 design.addStyle(jrstyle);
             }
 
@@ -322,11 +314,11 @@ public abstract class AbstractLayoutManager implements LayoutManager {
 
     protected String createUniqueStyleName() {
         synchronized (this) {
-            int counter = getReportStyles().values().size() + 1;
+            Random r = new Random();
+            int counter = r.nextInt();
             String tryName = "dj_style_" + counter + "_"; //FIX for issue 3002761 @SF tracker
             while (design.getStylesMap().get(tryName) != null) {
-                counter++;
-                tryName = "dj_style_" + counter;
+                tryName = "dj_style_" + r.nextInt();
             }
             return tryName;
         }
@@ -373,12 +365,11 @@ public abstract class AbstractLayoutManager implements LayoutManager {
                 imageExp.setText("ar.com.fdvs.dj.core.BarcodeHelper.getBarcodeImage(" + barcodeColumn.getBarcodeType() + ", " + column.getTextForExpression() + ", " + barcodeColumn.isShowText() + ", " + barcodeColumn.isCheckSum() + ", " + applicationIdentifier + ",0,0 )");
 
 
-                imageExp.setValueClass(Image.class);
                 image.setExpression(imageExp);
                 image.setHeight(getReport().getOptions().getDetailHeight());
                 image.setWidth(column.getWidth());
                 image.setX(column.getPosX());
-                image.setScaleImage(ScaleImageEnum.getByValue(barcodeColumn.getScaleMode().getValue()));
+                image.setScaleImage(barcodeColumn.getScaleMode());
 
                 image.setOnErrorType(OnErrorTypeEnum.ICON); //FIXME should we provide control of this to the user?
 
@@ -400,7 +391,6 @@ public abstract class AbstractLayoutManager implements LayoutManager {
                 JRDesignExpression imageExp = new JRDesignExpression();
                 imageExp.setText(column.getTextForExpression());
 
-                imageExp.setValueClassName(imageColumn.getValueClassNameForExpression());
                 image.setExpression(imageExp);
                 image.setHeight(getReport().getOptions().getDetailHeight());
                 image.setWidth(column.getWidth());
@@ -524,7 +514,6 @@ public abstract class AbstractLayoutManager implements LayoutManager {
             //Set colspan
             JRDesignTextField spanTitle = new JRDesignTextField();
             JRDesignExpression colspanExpression = new JRDesignExpression();
-            colspanExpression.setValueClassName(String.class.getName());
             colspanExpression.setText("\"" + col.getColSpan().getTitle() + "\"");
 
             spanTitle.setExpression(colspanExpression);

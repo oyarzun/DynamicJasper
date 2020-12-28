@@ -40,9 +40,9 @@ import ar.com.fdvs.dj.domain.Style;
 import ar.com.fdvs.dj.domain.builders.FastReportBuilder;
 import ar.com.fdvs.dj.domain.builders.StyleBuilder;
 import ar.com.fdvs.dj.domain.constants.Border;
-import ar.com.fdvs.dj.domain.constants.Stretching;
 import net.sf.jasperreports.engine.type.HorizontalTextAlignEnum;
 import net.sf.jasperreports.engine.type.ScaleImageEnum;
+import net.sf.jasperreports.engine.type.StretchTypeEnum;
 import net.sf.jasperreports.view.JasperViewer;
 
 public class ImageExpressionColumnReportTest extends BaseDjReportTest {
@@ -51,7 +51,7 @@ public class ImageExpressionColumnReportTest extends BaseDjReportTest {
 
 
 		Style style = new StyleBuilder(false).setHorizontalTextAlignEnum(HorizontalTextAlignEnum.CENTER)
-		.setStretching(Stretching.RELATIVE_TO_TALLEST_OBJECT)
+		.setStretching(StretchTypeEnum.RELATIVE_TO_TALLEST_OBJECT)
 		.setBorderColor(Color.BLACK).setBorder(Border.THIN()).build();
 		/*
 		  Creates the DynamicReportBuilder and sets the basic options for

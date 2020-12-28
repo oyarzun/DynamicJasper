@@ -44,13 +44,13 @@ import ar.com.fdvs.dj.domain.builders.StyleBuilder;
 import ar.com.fdvs.dj.domain.constants.Border;
 import ar.com.fdvs.dj.domain.constants.Font;
 import ar.com.fdvs.dj.domain.constants.GroupLayout;
-import ar.com.fdvs.dj.domain.constants.Stretching;
 import ar.com.fdvs.dj.domain.entities.DJGroup;
 import ar.com.fdvs.dj.domain.entities.columns.AbstractColumn;
 import ar.com.fdvs.dj.domain.entities.columns.PropertyColumn;
 import ar.com.fdvs.dj.test.BaseDjReportTest;
 import net.sf.jasperreports.engine.type.HorizontalTextAlignEnum;
 import net.sf.jasperreports.engine.type.ModeEnum;
+import net.sf.jasperreports.engine.type.StretchTypeEnum;
 import net.sf.jasperreports.engine.type.VerticalTextAlignEnum;
 import net.sf.jasperreports.view.JasperDesignViewer;
 import net.sf.jasperreports.view.JasperViewer;
@@ -74,7 +74,7 @@ public class GroupLabelTest1b extends BaseDjReportTest {
 		headerVariables.setFont(Font.ARIAL_MEDIUM_BOLD);
 //		headerVariables.setBorder(Border.THIN());
 		headerVariables.setHorizontalTextAlignEnum(HorizontalTextAlignEnum.RIGHT);
-		headerVariables.setStreching(Stretching.NO_STRETCH);
+		headerVariables.setStreching(StretchTypeEnum.NO_STRETCH);
 		headerVariables.setVerticalTextAlignEnum(VerticalTextAlignEnum.TOP);
 
 		Style titleStyle = new Style();

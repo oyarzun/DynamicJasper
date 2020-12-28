@@ -34,7 +34,6 @@ import java.io.Serializable;
 
 import ar.com.fdvs.dj.domain.constants.Border;
 import ar.com.fdvs.dj.domain.constants.Font;
-import ar.com.fdvs.dj.domain.constants.Stretching;
 import ar.com.fdvs.dj.domain.entities.Entity;
 import ar.com.fdvs.dj.util.LayoutUtils;
 import net.sf.jasperreports.engine.base.JRBaseStyle;
@@ -44,6 +43,7 @@ import net.sf.jasperreports.engine.type.HorizontalImageAlignEnum;
 import net.sf.jasperreports.engine.type.HorizontalTextAlignEnum;
 import net.sf.jasperreports.engine.type.ModeEnum;
 import net.sf.jasperreports.engine.type.RotationEnum;
+import net.sf.jasperreports.engine.type.StretchTypeEnum;
 import net.sf.jasperreports.engine.type.VerticalImageAlignEnum;
 import net.sf.jasperreports.engine.type.VerticalTextAlignEnum;
 
@@ -93,7 +93,7 @@ public class Style implements Serializable, Cloneable {
 
     private RotationEnum rotation = RotationEnum.NONE;
 
-    private Stretching streching = Stretching.RELATIVE_TO_TALLEST_OBJECT;
+    private StretchTypeEnum streching = StretchTypeEnum.ELEMENT_GROUP_HEIGHT;
 
     private boolean stretchWithOverflow = true;
     private boolean blankWhenNull = true;
@@ -208,11 +208,11 @@ public class Style implements Serializable, Cloneable {
 		this.padding = padding;
 	}
 
-	public Stretching getStreching() {
+	public StretchTypeEnum getStreching() {
 		return streching;
 	}
 
-	public void setStreching(Stretching streching) {
+	public void setStreching(StretchTypeEnum streching) {
 		this.streching = streching;
 	}
 
