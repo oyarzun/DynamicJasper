@@ -29,9 +29,11 @@
 
 package ar.com.fdvs.dj.core.registration;
 
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
+
 import ar.com.fdvs.dj.core.layout.LayoutManager;
 import ar.com.fdvs.dj.domain.ColumnProperty;
-import ar.com.fdvs.dj.domain.DJCalculation;
 import ar.com.fdvs.dj.domain.DynamicJasperDesign;
 import ar.com.fdvs.dj.domain.DynamicReport;
 import ar.com.fdvs.dj.domain.entities.DJGroup;
@@ -47,8 +49,6 @@ import net.sf.jasperreports.engine.design.JRDesignGroup;
 import net.sf.jasperreports.engine.design.JRDesignVariable;
 import net.sf.jasperreports.engine.type.CalculationEnum;
 import net.sf.jasperreports.engine.type.ResetTypeEnum;
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
 
 /**
  * Manager invoked to register temporal variables for groups of columns. <br>
@@ -69,7 +69,7 @@ public class DJGroupVariableDefRegistrationManager extends AbstractEntityRegistr
 	protected void registerEntity(Entity entity) {
 		try {
             DJGroupVariableDef columnsGroupVariable = (DJGroupVariableDef) entity;
-            DJCalculation op = columnsGroupVariable.getOperation();
+            CalculationEnum op = columnsGroupVariable.getOperation();
 
             columnsGroupVariable.setName(this.getDjd().getName() + "_" + columnsGroupVariable.getName());
 
@@ -86,7 +86,7 @@ public class DJGroupVariableDefRegistrationManager extends AbstractEntityRegistr
 	protected Object transformEntity(Entity entity) {
 
 		DJGroupVariableDef columnsGroupVariable = (DJGroupVariableDef) entity;
-		DJCalculation op = columnsGroupVariable.getOperation();
+		CalculationEnum op = columnsGroupVariable.getOperation();
 
 		JRDesignExpression expression = new JRDesignExpression();
 		

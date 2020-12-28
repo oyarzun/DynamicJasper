@@ -32,7 +32,6 @@ package ar.com.fdvs.dj.test;
 import java.awt.Color;
 
 import ar.com.fdvs.dj.domain.AutoText;
-import ar.com.fdvs.dj.domain.DJCalculation;
 import ar.com.fdvs.dj.domain.DynamicReport;
 import ar.com.fdvs.dj.domain.Style;
 import ar.com.fdvs.dj.domain.builders.ColumnBuilder;
@@ -44,6 +43,7 @@ import ar.com.fdvs.dj.domain.constants.GroupLayout;
 import ar.com.fdvs.dj.domain.entities.DJGroup;
 import ar.com.fdvs.dj.domain.entities.columns.AbstractColumn;
 import ar.com.fdvs.dj.domain.entities.columns.PropertyColumn;
+import net.sf.jasperreports.engine.type.CalculationEnum;
 import net.sf.jasperreports.engine.type.HorizontalTextAlignEnum;
 import net.sf.jasperreports.engine.type.ModeEnum;
 import net.sf.jasperreports.engine.type.VerticalTextAlignEnum;
@@ -139,10 +139,10 @@ public class GroupsReportTest extends BaseDjReportTest {
 				.setPattern("$ 0.00").setStyle(importeStyle).setHeaderStyle(
 						headerStyle).build();
 
-		drb.addGlobalHeaderVariable(columnAmount, DJCalculation.SUM,headerVariables);
-		drb.addGlobalHeaderVariable(columnaQuantity, DJCalculation.SUM,headerVariables);
-		drb.addGlobalFooterVariable(columnAmount, DJCalculation.SUM,headerVariables);
-		drb.addGlobalFooterVariable(columnaQuantity, DJCalculation.SUM,headerVariables);
+		drb.addGlobalHeaderVariable(columnAmount, CalculationEnum.SUM,headerVariables);
+		drb.addGlobalHeaderVariable(columnaQuantity, CalculationEnum.SUM,headerVariables);
+		drb.addGlobalFooterVariable(columnAmount, CalculationEnum.SUM,headerVariables);
+		drb.addGlobalFooterVariable(columnaQuantity, CalculationEnum.SUM,headerVariables);
 		drb.setGlobalHeaderVariableHeight(25);
 		drb.setGlobalFooterVariableHeight(25);
 
@@ -150,10 +150,10 @@ public class GroupsReportTest extends BaseDjReportTest {
 
 //		 define the criteria column to group by (columnState)
 		DJGroup g1 = gb1.setCriteriaColumn((PropertyColumn) columnState)
-				.addFooterVariable(columnaQuantity,DJCalculation.SUM,groupVariables) // idem for the columnaQuantity column
-//				.addFooterVariable(columnAmount,DJCalculation.SUM,groupVariables) // tell the group place a variable footer of the column "columnAmount" with the SUM of allvalues of the columnAmount in this group.
-				.addHeaderVariable(columnaQuantity,DJCalculation.SUM,groupVariables) // idem for the columnaQuantity column
-				.addHeaderVariable(columnAmount,DJCalculation.SUM,groupVariables) // tell the group place a variable footer of the column "columnAmount" with the SUM of allvalues of the columnAmount in this group.
+				.addFooterVariable(columnaQuantity,CalculationEnum.SUM,groupVariables) // idem for the columnaQuantity column
+//				.addFooterVariable(columnAmount,CalculationEnum.SUM,groupVariables) // tell the group place a variable footer of the column "columnAmount" with the SUM of allvalues of the columnAmount in this group.
+				.addHeaderVariable(columnaQuantity,CalculationEnum.SUM,groupVariables) // idem for the columnaQuantity column
+				.addHeaderVariable(columnAmount,CalculationEnum.SUM,groupVariables) // tell the group place a variable footer of the column "columnAmount" with the SUM of allvalues of the columnAmount in this group.
 				.setGroupLayout(GroupLayout.VALUE_IN_HEADER) // tells the group how to be shown, there are manyposibilities, see the GroupLayout for more.
 				.setFooterVariablesHeight(20)
 				.setFooterHeight(50,true)
@@ -163,8 +163,8 @@ public class GroupsReportTest extends BaseDjReportTest {
 		GroupBuilder gb2 = new GroupBuilder(); // Create another group (using another column as criteria)
 		DJGroup g2 = gb2.setCriteriaColumn((PropertyColumn) columnBranch) // and we add the same operations for the columnAmount and
 				.addFooterVariable(columnAmount,
-						DJCalculation.SUM) // columnaQuantity columns
-				.addFooterVariable(columnaQuantity,	DJCalculation.SUM)
+						CalculationEnum.SUM) // columnaQuantity columns
+				.addFooterVariable(columnaQuantity,	CalculationEnum.SUM)
 				.build();
 
 		drb.addColumn(columnState);

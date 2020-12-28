@@ -31,7 +31,6 @@ package ar.com.fdvs.dj.test;
 
 import java.awt.Color;
 
-import ar.com.fdvs.dj.domain.DJCalculation;
 import ar.com.fdvs.dj.domain.DynamicReport;
 import ar.com.fdvs.dj.domain.Style;
 import ar.com.fdvs.dj.domain.builders.ColumnBuilder;
@@ -125,9 +124,9 @@ public class ChartReportTest extends BaseDjReportTest {
 
 //		 define the criteria column to group by (columnState)
 		DJGroup g1 = gb1.setCriteriaColumn((PropertyColumn) columnState).addFooterVariable(columnAmount,
-						DJCalculation.SUM) // tell the group place a variable footer of the column "columnAmount" with the SUM of allvalues of the columnAmount in this group.
+						CalculationEnum.SUM) // tell the group place a variable footer of the column "columnAmount" with the SUM of allvalues of the columnAmount in this group.
 				.addFooterVariable(columnaQuantity,
-						DJCalculation.SUM) // idem for the columnaQuantity column
+						CalculationEnum.SUM) // idem for the columnaQuantity column
 				.setGroupLayout(GroupLayout.DEFAULT_WITH_HEADER) // tells the group how to be shown, there are manyposibilities, see the GroupLayout for more.
 				.build();
 
@@ -135,9 +134,9 @@ public class ChartReportTest extends BaseDjReportTest {
 		GroupBuilder gb2 = new GroupBuilder(); // Create another group (using another column as criteria)
 		DJGroup g2 = gb2.setCriteriaColumn((PropertyColumn) columnBranch) // and we add the same operations for the columnAmount and
 				.addFooterVariable(columnAmount,
-						DJCalculation.SUM) // columnaQuantity columns
+						CalculationEnum.SUM) // columnaQuantity columns
 				.addFooterVariable(columnaQuantity,
-						DJCalculation.SUM).build();
+						CalculationEnum.SUM).build();
 
 		drb.addColumn(columnState);
 		drb.addColumn(columnBranch);

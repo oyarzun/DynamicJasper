@@ -31,7 +31,6 @@ package ar.com.fdvs.dj.test;
 
 import java.awt.Color;
 
-import ar.com.fdvs.dj.domain.DJCalculation;
 import ar.com.fdvs.dj.domain.DynamicReport;
 import ar.com.fdvs.dj.domain.Style;
 import ar.com.fdvs.dj.domain.builders.ColumnBuilder;
@@ -131,8 +130,8 @@ public class ChartsMultipleReportTest extends BaseDjReportTest {
 		
 		GroupBuilder gb2 = new GroupBuilder(); // Create another group (using another column as criteria)
 		DJGroup g2 = gb2.setCriteriaColumn((PropertyColumn) columnBranch) // and we add the same operations for the columnAmount and
-				.addFooterVariable(columnAmount,DJCalculation.SUM) // columnaQuantity columns
-				.addFooterVariable(columnaQuantity,	DJCalculation.SUM)
+				.addFooterVariable(columnAmount,CalculationEnum.SUM) // columnaQuantity columns
+				.addFooterVariable(columnaQuantity,	CalculationEnum.SUM)
 				.setGroupLayout(GroupLayout.DEFAULT)
 				.build();
 

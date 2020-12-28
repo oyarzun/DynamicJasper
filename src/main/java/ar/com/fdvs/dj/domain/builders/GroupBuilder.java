@@ -31,7 +31,6 @@ package ar.com.fdvs.dj.domain.builders;
 
 import ar.com.fdvs.dj.domain.ColumnProperty;
 import ar.com.fdvs.dj.domain.CustomExpression;
-import ar.com.fdvs.dj.domain.DJCalculation;
 import ar.com.fdvs.dj.domain.DJCrosstab;
 import ar.com.fdvs.dj.domain.DJGroupLabel;
 import ar.com.fdvs.dj.domain.DJValueFormatter;
@@ -43,6 +42,7 @@ import ar.com.fdvs.dj.domain.entities.DJGroupVariableDef;
 import ar.com.fdvs.dj.domain.entities.Subreport;
 import ar.com.fdvs.dj.domain.entities.columns.AbstractColumn;
 import ar.com.fdvs.dj.domain.entities.columns.PropertyColumn;
+import net.sf.jasperreports.engine.type.CalculationEnum;
 
 /**
  * Builder created to give users a friendly way of adding groups to a report.<br>
@@ -97,22 +97,22 @@ public class GroupBuilder {
 		return this;
 	}
 
-	public GroupBuilder addHeaderVariable(AbstractColumn column, DJCalculation operation) {
+	public GroupBuilder addHeaderVariable(AbstractColumn column, CalculationEnum operation) {
 		group.addHeaderVariable(new DJGroupVariable(column,operation));
 		return this;
 	}
 
-	public GroupBuilder addHeaderVariable(AbstractColumn column, DJCalculation operation, Style style) {
+	public GroupBuilder addHeaderVariable(AbstractColumn column, CalculationEnum operation, Style style) {
 		group.addHeaderVariable(new DJGroupVariable(column,operation,style));
 		return this;
 	}
 
-	public GroupBuilder addHeaderVariable(AbstractColumn column, DJCalculation operation, Style style, DJValueFormatter formatter) {
+	public GroupBuilder addHeaderVariable(AbstractColumn column, CalculationEnum operation, Style style, DJValueFormatter formatter) {
 		group.addHeaderVariable(new DJGroupVariable(column,operation,style,formatter));
 		return this;
 	}	
 	
-	public GroupBuilder addHeaderVariable(AbstractColumn column, DJCalculation operation, Style style, DJValueFormatter formatter, DJGroupLabel glabel1) {
+	public GroupBuilder addHeaderVariable(AbstractColumn column, CalculationEnum operation, Style style, DJValueFormatter formatter, DJGroupLabel glabel1) {
 		group.addHeaderVariable(new DJGroupVariable(column,operation,style,formatter,glabel1));
 		return this;
 	}	
@@ -132,22 +132,22 @@ public class GroupBuilder {
 		return this;
 	}
 	
-	public GroupBuilder addFooterVariable(AbstractColumn column3, DJCalculation operation) {
+	public GroupBuilder addFooterVariable(AbstractColumn column3, CalculationEnum operation) {
 		group.addFooterVariable(new DJGroupVariable(column3,operation));
 		return this;
 	}
 	
-	public GroupBuilder addFooterVariable(AbstractColumn column3, DJCalculation operation, Style style) {
+	public GroupBuilder addFooterVariable(AbstractColumn column3, CalculationEnum operation, Style style) {
 		group.addFooterVariable(new DJGroupVariable(column3,operation,style));
 		return this;
 	}
 
-	public GroupBuilder addFooterVariable(AbstractColumn column3, DJCalculation operation, Style style, DJValueFormatter valueFormatter) {
+	public GroupBuilder addFooterVariable(AbstractColumn column3, CalculationEnum operation, Style style, DJValueFormatter valueFormatter) {
 		group.addFooterVariable(new DJGroupVariable(column3,operation,style,valueFormatter));
 		return this;
 	}
 
-	public GroupBuilder addFooterVariable(AbstractColumn column3, DJCalculation operation, Style style, DJValueFormatter valueFormatter, DJGroupLabel label) {
+	public GroupBuilder addFooterVariable(AbstractColumn column3, CalculationEnum operation, Style style, DJValueFormatter valueFormatter, DJGroupLabel label) {
 		group.addFooterVariable(new DJGroupVariable(column3,operation,style,valueFormatter,label));
 		return this;
 	}
@@ -174,17 +174,17 @@ public class GroupBuilder {
 	 * @param operation
 	 * @return
 	 */
-	public GroupBuilder addVariable(String name, String property, String className, DJCalculation operation) {		
+	public GroupBuilder addVariable(String name, String property, String className, CalculationEnum operation) {		
 		group.getVariables().add(new DJGroupVariableDef(name, new ColumnProperty(property,className), operation));
 		return this;
 	}
 
-	public GroupBuilder addVariable(String name, ColumnProperty prop, DJCalculation operation) {		
+	public GroupBuilder addVariable(String name, ColumnProperty prop, CalculationEnum operation) {		
 		group.getVariables().add(new DJGroupVariableDef(name, prop, operation));
 		return this;
 	}
 	
-	public GroupBuilder addVariable(String name, AbstractColumn column, DJCalculation operation) {
+	public GroupBuilder addVariable(String name, AbstractColumn column, CalculationEnum operation) {
 		group.getVariables().add(new DJGroupVariableDef(name, column, operation));
 		return this;
 	}

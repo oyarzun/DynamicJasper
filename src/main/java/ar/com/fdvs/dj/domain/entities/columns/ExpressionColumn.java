@@ -36,10 +36,10 @@ import org.apache.commons.logging.LogFactory;
 
 import ar.com.fdvs.dj.domain.ColumnProperty;
 import ar.com.fdvs.dj.domain.CustomExpression;
-import ar.com.fdvs.dj.domain.DJCalculation;
 import ar.com.fdvs.dj.domain.entities.Entity;
 import ar.com.fdvs.dj.util.ExpressionUtils;
 import net.sf.jasperreports.engine.JRVariable;
+import net.sf.jasperreports.engine.type.CalculationEnum;
 
 /**
  * Column created to handle Custom Expressions.<br>
@@ -129,8 +129,8 @@ public class ExpressionColumn extends SimpleColumn {
 		this.expressionForCalculation = expressionForCalculation;
 	}
 	
-	public String getVariableClassName(DJCalculation op) {
-		if (op == DJCalculation.COUNT || op == DJCalculation.DISTINCT_COUNT)
+	public String getVariableClassName(CalculationEnum op) {
+		if (op == CalculationEnum.COUNT || op == CalculationEnum.DISTINCT_COUNT)
 			return Long.class.getName();
 		
 		if (expressionForCalculation != null)
@@ -143,10 +143,10 @@ public class ExpressionColumn extends SimpleColumn {
 			
 	}	
 	
-	public String getInitialExpression(DJCalculation op) {
-		if (op == DJCalculation.COUNT  || op == DJCalculation.DISTINCT_COUNT)
+	public String getInitialExpression(CalculationEnum op) {
+		if (op == CalculationEnum.COUNT  || op == CalculationEnum.DISTINCT_COUNT)
 			return "new java.lang.Long(\"0\")";
-		else if (op == DJCalculation.SUM) {
+		else if (op == CalculationEnum.SUM) {
 			
 			return "new " + getVariableClassName(op) +"(\"0\")";
 		}

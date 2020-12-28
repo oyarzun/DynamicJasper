@@ -14,7 +14,6 @@ import net.sf.jasperreports.engine.JRException;
 import net.sf.jasperreports.engine.design.JRDesignExpression;
 import net.sf.jasperreports.engine.design.JRDesignGroup;
 import net.sf.jasperreports.engine.design.JRDesignVariable;
-import net.sf.jasperreports.engine.type.CalculationEnum;
 import net.sf.jasperreports.engine.type.IncrementTypeEnum;
 import net.sf.jasperreports.engine.type.ResetTypeEnum;
 
@@ -44,7 +43,7 @@ public class VariableRegistrationManager extends
 		jrvar.setValueClassName(var.getClassName());
 		
 		if (var.getCalculation() != null){
-			jrvar.setCalculation(CalculationEnum.getByValue(var.getCalculation().getValue()));
+			jrvar.setCalculation(var.getCalculation());
 		}
 		
 		String expressionParamName = var.getName() + "_expression";

@@ -37,7 +37,6 @@ import java.util.Map;
 
 import ar.com.fdvs.dj.core.DJConstants;
 import ar.com.fdvs.dj.core.layout.TwoSeedCrossTabColorShema;
-import ar.com.fdvs.dj.domain.DJCalculation;
 import ar.com.fdvs.dj.domain.DJCrosstab;
 import ar.com.fdvs.dj.domain.DJHyperLink;
 import ar.com.fdvs.dj.domain.DynamicReport;
@@ -53,6 +52,7 @@ import ar.com.fdvs.dj.test.BaseDjReportTest;
 import ar.com.fdvs.dj.test.TestRepositoryProducts;
 import ar.com.fdvs.dj.util.SortUtils;
 import net.sf.jasperreports.engine.JRDataSource;
+import net.sf.jasperreports.engine.type.CalculationEnum;
 import net.sf.jasperreports.engine.type.HorizontalTextAlignEnum;
 import net.sf.jasperreports.engine.type.ModeEnum;
 import net.sf.jasperreports.engine.type.VerticalTextAlignEnum;
@@ -111,8 +111,8 @@ public class CrosstabHyperLinkReportTest extends BaseDjReportTest {
 			.addColumn("Product Line", "productLine", String.class.getName(),true)
 //			.addColumn("Item", "item", String.class.getName(),true)
 //			.addColumn("ID","id",Long.class.getName(), true)
-			.addMeasure("id",Long.class.getName(), DJCalculation.SUM , "Id", measureStyle)
-			.addMeasure("amount",Float.class.getName(), DJCalculation.SUM , "Amount",measureStyle2)
+			.addMeasure("id",Long.class.getName(), CalculationEnum.SUM , "Id", measureStyle)
+			.addMeasure("amount",Float.class.getName(), CalculationEnum.SUM , "Amount",measureStyle2)
 			.setRowStyles(rowHeaderStyle, totalStyle, totalHeaderStyle)
 			.setColumnStyles(colHeaderStyle, totalStyle, totalHeaderStyle)
 			.setCellDimension(34, 60)

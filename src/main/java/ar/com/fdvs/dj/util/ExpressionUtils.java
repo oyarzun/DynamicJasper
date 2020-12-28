@@ -29,10 +29,17 @@
 
 package ar.com.fdvs.dj.util;
 
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.util.Collection;
+
 import ar.com.fdvs.dj.core.DJConstants;
 import ar.com.fdvs.dj.core.DJDefaultScriptlet;
 import ar.com.fdvs.dj.core.DJException;
-import ar.com.fdvs.dj.domain.*;
+import ar.com.fdvs.dj.domain.ColumnProperty;
+import ar.com.fdvs.dj.domain.CustomExpression;
+import ar.com.fdvs.dj.domain.DJDataSource;
+import ar.com.fdvs.dj.domain.DynamicJasperDesign;
 import ar.com.fdvs.dj.domain.customexpression.DJSimpleExpression;
 import ar.com.fdvs.dj.domain.entities.Subreport;
 import ar.com.fdvs.dj.domain.entities.SubreportParameter;
@@ -48,10 +55,7 @@ import net.sf.jasperreports.engine.design.JRDesignExpression;
 import net.sf.jasperreports.engine.design.JRDesignField;
 import net.sf.jasperreports.engine.design.JRDesignParameter;
 import net.sf.jasperreports.engine.design.JasperDesign;
-
-import java.sql.Connection;
-import java.sql.ResultSet;
-import java.util.Collection;
+import net.sf.jasperreports.engine.type.CalculationEnum;
 
 public class ExpressionUtils {
 
@@ -361,18 +365,18 @@ public class ExpressionUtils {
         return "((" + DJDefaultScriptlet.class.getName() + ")$P{REPORT_PARAMETERS_MAP}.get(\"REPORT_SCRIPTLET\")).getCurrentFields()";
     }
 
-    public static String getValueClassNameForOperation(DJCalculation calc, ColumnProperty prop) {
-        if (calc == DJCalculation.COUNT || calc == DJCalculation.DISTINCT_COUNT)
+    public static String getValueClassNameForOperation(CalculationEnum calc, ColumnProperty prop) {
+        if (calc == CalculationEnum.COUNT || calc == CalculationEnum.DISTINCT_COUNT)
             return Number.class.getName();
         else
             return prop.getValueClassName();
 
     }
 
-    public static String getInitialValueExpressionForOperation(DJCalculation calc, ColumnProperty prop) {
-        if (calc == DJCalculation.COUNT || calc == DJCalculation.DISTINCT_COUNT)
+    public static String getInitialValueExpressionForOperation(CalculationEnum calc, ColumnProperty prop) {
+        if (calc == CalculationEnum.COUNT || calc == CalculationEnum.DISTINCT_COUNT)
             return "new java.lang.Long(\"0\")";
-        else if (calc == DJCalculation.SUM)
+        else if (calc == CalculationEnum.SUM)
             return "new " + prop.getValueClassName() + "(\"0\")";
         else return null;
 

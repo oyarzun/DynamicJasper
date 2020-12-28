@@ -30,18 +30,18 @@
 package ar.com.fdvs.dj.test.decorator;
 
 
+import java.util.Date;
+import java.util.Map;
+
 import ar.com.fdvs.dj.core.JasperDesignDecorator;
-import ar.com.fdvs.dj.domain.DJCalculation;
 import ar.com.fdvs.dj.domain.DJValueFormatter;
 import ar.com.fdvs.dj.domain.DynamicReport;
 import ar.com.fdvs.dj.domain.builders.FastReportBuilder;
 import ar.com.fdvs.dj.test.BaseDjReportTest;
 import net.sf.jasperreports.engine.design.JasperDesign;
+import net.sf.jasperreports.engine.type.CalculationEnum;
 import net.sf.jasperreports.view.JasperDesignViewer;
 import net.sf.jasperreports.view.JasperViewer;
-
-import java.util.Date;
-import java.util.Map;
 
 public class JasperDesignDecoratorReportTest extends BaseDjReportTest {
 
@@ -68,7 +68,7 @@ public class JasperDesignDecoratorReportTest extends BaseDjReportTest {
                 .setTopMargin(0)
                 .setJasperDesignDecorator(buildDecorator());
 
-        drb.addGlobalFooterVariable(drb.getColumn(4), DJCalculation.COUNT, null, new DJValueFormatter() {
+        drb.addGlobalFooterVariable(drb.getColumn(4), CalculationEnum.COUNT, null, new DJValueFormatter() {
 
             public String getClassName() {
                 return String.class.getName();

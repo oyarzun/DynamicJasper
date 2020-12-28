@@ -35,7 +35,6 @@ import java.util.Date;
 import java.util.Map;
 
 import ar.com.fdvs.dj.core.DJConstants;
-import ar.com.fdvs.dj.domain.DJCalculation;
 import ar.com.fdvs.dj.domain.DJCrosstab;
 import ar.com.fdvs.dj.domain.DjBaseMMValueFormatter;
 import ar.com.fdvs.dj.domain.DynamicReport;
@@ -49,6 +48,7 @@ import ar.com.fdvs.dj.domain.constants.Page;
 import ar.com.fdvs.dj.test.BaseDjReportTest;
 import ar.com.fdvs.dj.test.TestRepositoryProducts;
 import ar.com.fdvs.dj.util.SortUtils;
+import net.sf.jasperreports.engine.type.CalculationEnum;
 import net.sf.jasperreports.engine.type.HorizontalTextAlignEnum;
 import net.sf.jasperreports.engine.type.ModeEnum;
 import net.sf.jasperreports.engine.type.VerticalTextAlignEnum;
@@ -101,7 +101,7 @@ public class CrosstabReportWithInvisibleMeasure extends BaseDjReportTest {
             //this measure won't be displayed. The actual function of this measure is to decide how to format a visible measure
 			.addInvisibleMeasure("showAsPrices", Boolean.class.getName(), "showAsPrices")
 
-			.addMeasure("quantity", Long.class.getName(), DJCalculation.SUM, "Time", measureStyle2, new DjBaseMMValueFormatter() {
+			.addMeasure("quantity", Long.class.getName(), CalculationEnum.SUM, "Time", measureStyle2, new DjBaseMMValueFormatter() {
 
                 public String getClassName() {
                     return String.class.getName();

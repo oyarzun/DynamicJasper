@@ -34,7 +34,6 @@ import java.util.HashMap;
 import java.util.Map;
 
 import ar.com.fdvs.dj.domain.CustomExpression;
-import ar.com.fdvs.dj.domain.DJCalculation;
 import ar.com.fdvs.dj.domain.DJHyperLink;
 import ar.com.fdvs.dj.domain.DynamicJasperDesign;
 import ar.com.fdvs.dj.domain.DynamicReport;
@@ -63,6 +62,7 @@ import net.sf.jasperreports.engine.JRFont;
 import net.sf.jasperreports.engine.design.JRDesignChart;
 import net.sf.jasperreports.engine.design.JRDesignGroup;
 import net.sf.jasperreports.engine.design.JRDesignVariable;
+import net.sf.jasperreports.engine.type.CalculationEnum;
 import net.sf.jasperreports.engine.type.HorizontalTextAlignEnum;
 import net.sf.jasperreports.engine.type.LineStyleEnum;
 import net.sf.jasperreports.engine.type.ModeEnum;
@@ -116,9 +116,9 @@ public class BarChartBuilderExpressionColumnTest extends BaseDjReportTest {
 		
 		GroupBuilder gb1 = new GroupBuilder();
 		DJGroup g1 = gb1.setCriteriaColumn((PropertyColumn) columnState)
-				.addFooterVariable(columnAmount,DJCalculation.SUM)
-			.addFooterVariable(columnaQuantity,DJCalculation.SUM) 
-			.addVariable("group_state_name", columnState, DJCalculation.FIRST)
+				.addFooterVariable(columnAmount,CalculationEnum.SUM)
+			.addFooterVariable(columnaQuantity,CalculationEnum.SUM) 
+			.addVariable("group_state_name", columnState, CalculationEnum.FIRST)
 			.setGroupLayout(GroupLayout.DEFAULT)
 			.build();		
 /*		GroupBuilder gb2 = new GroupBuilder(); 

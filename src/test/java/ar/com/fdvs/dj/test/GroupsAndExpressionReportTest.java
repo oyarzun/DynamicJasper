@@ -34,7 +34,6 @@ import java.util.Map;
 
 import ar.com.fdvs.dj.domain.AutoText;
 import ar.com.fdvs.dj.domain.CustomExpression;
-import ar.com.fdvs.dj.domain.DJCalculation;
 import ar.com.fdvs.dj.domain.DynamicReport;
 import ar.com.fdvs.dj.domain.Style;
 import ar.com.fdvs.dj.domain.builders.ColumnBuilder;
@@ -46,6 +45,7 @@ import ar.com.fdvs.dj.domain.constants.GroupLayout;
 import ar.com.fdvs.dj.domain.entities.DJGroup;
 import ar.com.fdvs.dj.domain.entities.columns.AbstractColumn;
 import ar.com.fdvs.dj.domain.entities.columns.PropertyColumn;
+import net.sf.jasperreports.engine.type.CalculationEnum;
 import net.sf.jasperreports.engine.type.HorizontalTextAlignEnum;
 import net.sf.jasperreports.engine.type.ModeEnum;
 import net.sf.jasperreports.engine.type.VerticalTextAlignEnum;
@@ -132,10 +132,10 @@ public class GroupsAndExpressionReportTest extends BaseDjReportTest {
 				.setPattern("$ 0.00").setStyle(importeStyle).setHeaderStyle(
 						headerStyle).build();
 
-		drb.addGlobalHeaderVariable(columnAmount, DJCalculation.SUM,headerVariables);
-		drb.addGlobalHeaderVariable(columnaQuantity, DJCalculation.SUM,headerVariables);
-		drb.addGlobalFooterVariable(columnAmount, DJCalculation.SUM,headerVariables);
-		drb.addGlobalFooterVariable(columnaQuantity, DJCalculation.SUM,headerVariables);
+		drb.addGlobalHeaderVariable(columnAmount, CalculationEnum.SUM,headerVariables);
+		drb.addGlobalHeaderVariable(columnaQuantity, CalculationEnum.SUM,headerVariables);
+		drb.addGlobalFooterVariable(columnAmount, CalculationEnum.SUM,headerVariables);
+		drb.addGlobalFooterVariable(columnaQuantity, CalculationEnum.SUM,headerVariables);
 
 		CustomExpression customExpression = new CustomExpression(){
 			public Object evaluate(Map fields, Map variables, Map parameters) {

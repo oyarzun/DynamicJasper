@@ -29,8 +29,12 @@
 
 package ar.com.fdvs.dj.core.registration;
 
+import java.util.List;
+
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
+
 import ar.com.fdvs.dj.core.layout.LayoutManager;
-import ar.com.fdvs.dj.domain.DJCalculation;
 import ar.com.fdvs.dj.domain.DJValueFormatter;
 import ar.com.fdvs.dj.domain.DynamicJasperDesign;
 import ar.com.fdvs.dj.domain.DynamicReport;
@@ -49,10 +53,6 @@ import net.sf.jasperreports.engine.design.JRDesignParameter;
 import net.sf.jasperreports.engine.design.JRDesignVariable;
 import net.sf.jasperreports.engine.type.CalculationEnum;
 import net.sf.jasperreports.engine.type.ResetTypeEnum;
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
-
-import java.util.List;
 
 /**
  * Manager invoked to register variables for groups of columns. <br>
@@ -136,7 +136,7 @@ public class ColumnsGroupVariablesRegistrationManager extends AbstractEntityRegi
 
         String variableName =  groupVariable.getName();
         log.debug("transforming group variable " +variableName);
-		DJCalculation op = groupVariable.getOperation();
+		CalculationEnum op = groupVariable.getOperation();
 
 		JRDesignExpression expression = new JRDesignExpression();
 
@@ -179,7 +179,7 @@ public class ColumnsGroupVariablesRegistrationManager extends AbstractEntityRegi
 		String valueClassName = col.getVariableClassName(op);
 		String initialExpression = col.getInitialExpression(op);
 
-//		if (DJCalculation.SYSTEM.equals(groupVariable.getOperation())){
+//		if (CalculationEnum.SYSTEM.equals(groupVariable.getOperation())){
 //			variable.setValueClassName(Object.class.getName());
 //		} else {
 //		}

@@ -30,8 +30,8 @@
 package ar.com.fdvs.dj.domain.entities.columns;
 
 import ar.com.fdvs.dj.domain.ColumnProperty;
-import ar.com.fdvs.dj.domain.DJCalculation;
 import ar.com.fdvs.dj.domain.entities.Entity;
+import net.sf.jasperreports.engine.type.CalculationEnum;
 
 /**
  * Column created to handle global variables.
@@ -56,7 +56,7 @@ public class GlobalGroupColumn extends PropertyColumn {
 		return null;
 	}
 
-	public String getInitialExpression(DJCalculation op) {
+	public String getInitialExpression(CalculationEnum op) {
 		return null;
 	}
 
@@ -68,7 +68,7 @@ public class GlobalGroupColumn extends PropertyColumn {
 		return String.class.getName();
 	}
 
-	public String getVariableClassName(DJCalculation op) {
+	public String getVariableClassName(CalculationEnum op) {
 		return null;
 	}
 

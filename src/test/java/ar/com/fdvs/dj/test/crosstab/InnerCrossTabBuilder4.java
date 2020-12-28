@@ -17,7 +17,6 @@ import ar.com.fdvs.dj.core.DynamicJasperHelper;
 import ar.com.fdvs.dj.core.layout.ClassicLayoutManager;
 import ar.com.fdvs.dj.core.layout.LayoutManager;
 import ar.com.fdvs.dj.domain.CustomExpression;
-import ar.com.fdvs.dj.domain.DJCalculation;
 import ar.com.fdvs.dj.domain.DJCrosstab;
 import ar.com.fdvs.dj.domain.DJLabel;
 import ar.com.fdvs.dj.domain.DynamicReport;
@@ -40,6 +39,7 @@ import net.sf.jasperreports.engine.JasperFillManager;
 import net.sf.jasperreports.engine.JasperPrint;
 import net.sf.jasperreports.engine.JasperReport;
 import net.sf.jasperreports.engine.data.JRBeanCollectionDataSource;
+import net.sf.jasperreports.engine.type.CalculationEnum;
 import net.sf.jasperreports.engine.type.HorizontalTextAlignEnum;
 import net.sf.jasperreports.view.JasperViewer;
 
@@ -148,7 +148,7 @@ public class InnerCrossTabBuilder4 extends TestCase {
 
         cb.addColumn("Type", "field2", String.class.getName(), false);
         cb.addRow("Genre", "field3", String.class.getName(), false);
-        cb.addMeasure("field1", Integer.class.getName(), DJCalculation.SUM, "Sales", null);
+        cb.addMeasure("field1", Integer.class.getName(), CalculationEnum.SUM, "Sales", null);
 
         return cb.build();
     }

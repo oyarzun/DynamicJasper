@@ -31,7 +31,6 @@ package ar.com.fdvs.dj.test;
 
 import java.awt.Color;
 
-import ar.com.fdvs.dj.domain.DJCalculation;
 import ar.com.fdvs.dj.domain.DynamicReport;
 import ar.com.fdvs.dj.domain.ImageBanner;
 import ar.com.fdvs.dj.domain.Style;
@@ -44,6 +43,7 @@ import ar.com.fdvs.dj.domain.constants.GroupLayout;
 import ar.com.fdvs.dj.domain.entities.DJGroup;
 import ar.com.fdvs.dj.domain.entities.columns.AbstractColumn;
 import ar.com.fdvs.dj.domain.entities.columns.PropertyColumn;
+import net.sf.jasperreports.engine.type.CalculationEnum;
 import net.sf.jasperreports.engine.type.HorizontalTextAlignEnum;
 import net.sf.jasperreports.engine.type.ModeEnum;
 import net.sf.jasperreports.engine.type.ScaleImageEnum;
@@ -119,19 +119,19 @@ public class SVGImageBannerReportTest extends BaseDjReportTest {
 
 		GroupBuilder gb1 = new GroupBuilder();
 		DJGroup g1 = gb1.setCriteriaColumn((PropertyColumn) columnState)		//define the criteria column to group by (columnState)
-			.addFooterVariable(columnAmount,DJCalculation.SUM)		//tell the group place a variable in the footer
+			.addFooterVariable(columnAmount,CalculationEnum.SUM)		//tell the group place a variable in the footer
 																					//of the column "columnAmount" with the SUM of all
 																					//values of the columnAmount in this group.
 
-			.addFooterVariable(columnaQuantity,DJCalculation.SUM)	//idem for the columnaQuantity column
+			.addFooterVariable(columnaQuantity,CalculationEnum.SUM)	//idem for the columnaQuantity column
 			.setGroupLayout(GroupLayout.VALUE_IN_HEADER)				//tells the group how to be shown, there are many
 																					//posibilities, see the GroupLayout for more.
 			.build();
 
 		GroupBuilder gb2 = new GroupBuilder();										//Create another group (using another column as criteria)
 		DJGroup g2 = gb2.setCriteriaColumn((PropertyColumn) columnBranch)		//and we add the same operations for the columnAmount and
-			.addFooterVariable(columnAmount,DJCalculation.SUM)		//columnaQuantity columns
-			.addFooterVariable(columnaQuantity,DJCalculation.SUM)
+			.addFooterVariable(columnAmount,CalculationEnum.SUM)		//columnaQuantity columns
+			.addFooterVariable(columnaQuantity,CalculationEnum.SUM)
 			.build();
 
 		drb.addColumn(columnState);

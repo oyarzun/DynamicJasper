@@ -44,7 +44,6 @@ import ar.com.fdvs.dj.core.DJConstants;
 import ar.com.fdvs.dj.core.FontHelper;
 import ar.com.fdvs.dj.core.registration.ColumnsGroupVariablesRegistrationManager;
 import ar.com.fdvs.dj.domain.AutoText;
-import ar.com.fdvs.dj.domain.DJCalculation;
 import ar.com.fdvs.dj.domain.DJCrosstab;
 import ar.com.fdvs.dj.domain.DJGroupLabel;
 import ar.com.fdvs.dj.domain.DJLabel;
@@ -84,6 +83,7 @@ import net.sf.jasperreports.engine.design.JRDesignStyle;
 import net.sf.jasperreports.engine.design.JRDesignSubreport;
 import net.sf.jasperreports.engine.design.JRDesignSubreportParameter;
 import net.sf.jasperreports.engine.design.JRDesignTextField;
+import net.sf.jasperreports.engine.type.CalculationEnum;
 import net.sf.jasperreports.engine.type.EvaluationTimeEnum;
 import net.sf.jasperreports.engine.type.ModeEnum;
 import net.sf.jasperreports.engine.type.PositionTypeEnum;
@@ -1076,7 +1076,7 @@ public class ClassicLayoutManager extends AbstractLayoutManager {
 			else
 				setTextAndClassToExpression(expression,var,col,variableName);
 
-			if (var.getOperation() != DJCalculation.COUNT && var.getOperation() != DJCalculation.DISTINCT_COUNT )
+			if (var.getOperation() != CalculationEnum.COUNT && var.getOperation() != CalculationEnum.DISTINCT_COUNT )
 				textField.setPattern(col.getPattern());
 
 			if (col instanceof PercentageColumn) {

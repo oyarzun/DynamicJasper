@@ -34,12 +34,12 @@ import java.util.ArrayList;
 import java.util.List;
 
 import ar.com.fdvs.dj.domain.DJBaseElement;
-import ar.com.fdvs.dj.domain.DJCalculation;
 import ar.com.fdvs.dj.domain.DJHyperLink;
 import ar.com.fdvs.dj.domain.Style;
 import ar.com.fdvs.dj.domain.entities.DJColSpan;
 import ar.com.fdvs.dj.domain.entities.Entity;
 import ar.com.fdvs.dj.domain.entities.conditionalStyle.ConditionalStyle;
+import net.sf.jasperreports.engine.type.CalculationEnum;
 
 /**
  * Abstract Class used as base for the different Column types.
@@ -174,9 +174,9 @@ public abstract class AbstractColumn extends DJBaseElement {
 	 */
 	public abstract String getGroupVariableName(String type, String columnToGroupByProperty);
 
-	public abstract String getVariableClassName(DJCalculation op);
+	public abstract String getVariableClassName(CalculationEnum op);
 
-	public abstract String getInitialExpression(DJCalculation op);
+	public abstract String getInitialExpression(CalculationEnum op);
 
 	public String getName() {
 		return name;

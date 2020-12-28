@@ -33,8 +33,8 @@ import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 
 import ar.com.fdvs.dj.domain.ColumnProperty;
-import ar.com.fdvs.dj.domain.DJCalculation;
 import ar.com.fdvs.dj.domain.entities.columns.AbstractColumn;
+import net.sf.jasperreports.engine.type.CalculationEnum;
 
 /**
  * This class is meant for variable registration purposes only.
@@ -53,15 +53,15 @@ public class DJGroupVariableDef implements Entity {
 	private String name;
 	private AbstractColumn columnToApplyOperation;
 	private ColumnProperty columnProperty;
-	private DJCalculation operation;
+	private CalculationEnum operation;
 	
-	public DJGroupVariableDef(String name, AbstractColumn columnToApplyOperation, DJCalculation operation) {
+	public DJGroupVariableDef(String name, AbstractColumn columnToApplyOperation, CalculationEnum operation) {
 		this.name = name;
 		this.columnToApplyOperation = columnToApplyOperation;
 		this.operation = operation;
 	}
 	
-	public DJGroupVariableDef(String name, ColumnProperty columnProperty, DJCalculation operation) {
+	public DJGroupVariableDef(String name, ColumnProperty columnProperty, CalculationEnum operation) {
 		this.name = name;
 		this.columnProperty = columnProperty;
 		this.operation = operation;
@@ -76,11 +76,11 @@ public class DJGroupVariableDef implements Entity {
 		this.columnToApplyOperation = columnToApplyOperation;
 	}
 
-	public DJCalculation getOperation() {
+	public CalculationEnum getOperation() {
 		return operation;
 	}
 
-	public void setOperation(DJCalculation operation) {
+	public void setOperation(CalculationEnum operation) {
 		this.operation = operation;
 	}
 

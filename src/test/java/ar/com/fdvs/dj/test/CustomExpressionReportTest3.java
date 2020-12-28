@@ -33,7 +33,6 @@ import java.awt.Color;
 import java.util.Map;
 
 import ar.com.fdvs.dj.domain.CustomExpression;
-import ar.com.fdvs.dj.domain.DJCalculation;
 import ar.com.fdvs.dj.domain.DynamicReport;
 import ar.com.fdvs.dj.domain.ExpressionHelper;
 import ar.com.fdvs.dj.domain.Style;
@@ -47,6 +46,7 @@ import ar.com.fdvs.dj.domain.entities.DJGroup;
 import ar.com.fdvs.dj.domain.entities.DJGroupVariable;
 import ar.com.fdvs.dj.domain.entities.columns.AbstractColumn;
 import ar.com.fdvs.dj.domain.entities.columns.PropertyColumn;
+import net.sf.jasperreports.engine.type.CalculationEnum;
 import net.sf.jasperreports.engine.type.HorizontalTextAlignEnum;
 import net.sf.jasperreports.engine.type.ModeEnum;
 import net.sf.jasperreports.engine.type.VerticalTextAlignEnum;
@@ -132,19 +132,19 @@ public class CustomExpressionReportTest3 extends BaseDjReportTest {
 		drb.addColumn(columnAmount);
 		drb.addColumn(columnaCustomExpression);
 		
-		drb.addGlobalVariable("quantity_sum", columnaCantidad, DJCalculation.SUM);
-		drb.addGlobalVariable("amount_sum", columnAmount, DJCalculation.SUM);
+		drb.addGlobalVariable("quantity_sum", columnaCantidad, CalculationEnum.SUM);
+		drb.addGlobalVariable("amount_sum", columnAmount, CalculationEnum.SUM);
 		drb.addGlobalFooterVariable(columnaCustomExpression, getGlobalRatioExpression());
 		
 		GroupBuilder gb1 = new GroupBuilder("g1");
-		DJGroupVariable var = new DJGroupVariable(columnaCantidad, DJCalculation.SUM);		
+		DJGroupVariable var = new DJGroupVariable(columnaCantidad, CalculationEnum.SUM);		
 		var.setPrintWhenExpression(ExpressionHelper.printWhenGroupHasMoreThanOneRecord("g1"));
 		
 //	 define the criteria column to group by (columnState)
 	DJGroup g1 = gb1.setCriteriaColumn((PropertyColumn) columnState)
 			.addFooterVariable(var)
-			.addVariable("quantity_sum_g1", columnaCantidad,DJCalculation.SUM)
-			.addVariable("amount_sum_g1", columnAmount,DJCalculation.SUM)
+			.addVariable("quantity_sum_g1", columnaCantidad,CalculationEnum.SUM)
+			.addVariable("amount_sum_g1", columnAmount,CalculationEnum.SUM)
 			.addFooterVariable(columnaCustomExpression, getGroupRatioExpression())
 			.setGroupLayout(GroupLayout.VALUE_IN_HEADER) // tells the group how to be shown, there are manyposibilities, see the GroupLayout for more.
 			.setFooterVariablesHeight(20)

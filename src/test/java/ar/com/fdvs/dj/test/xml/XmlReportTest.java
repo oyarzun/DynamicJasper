@@ -2,19 +2,18 @@ package ar.com.fdvs.dj.test.xml;
 
 import java.util.Date;
 
-import net.sf.jasperreports.engine.JRDataSource;
-import net.sf.jasperreports.engine.JRException;
-import net.sf.jasperreports.engine.data.JRXmlDataSource;
-import net.sf.jasperreports.engine.util.JRLoader;
-import net.sf.jasperreports.engine.util.JRXmlUtils;
-import net.sf.jasperreports.view.JasperViewer;
-
 import org.w3c.dom.Document;
 
-import ar.com.fdvs.dj.domain.DJCalculation;
 import ar.com.fdvs.dj.domain.DynamicReport;
 import ar.com.fdvs.dj.domain.builders.FastReportBuilder;
 import ar.com.fdvs.dj.test.BaseDjReportTest;
+import net.sf.jasperreports.engine.JRDataSource;
+import net.sf.jasperreports.engine.JRException;
+import net.sf.jasperreports.engine.data.JRXmlDataSource;
+import net.sf.jasperreports.engine.type.CalculationEnum;
+import net.sf.jasperreports.engine.util.JRLoader;
+import net.sf.jasperreports.engine.util.JRXmlUtils;
+import net.sf.jasperreports.view.JasperViewer;
 
 public class XmlReportTest extends BaseDjReportTest {
 	
@@ -27,7 +26,7 @@ public class XmlReportTest extends BaseDjReportTest {
 	       drb.addColumn("Tipo", "ACTPAS",String.class.getName(),50,false,"",null,"ACTPAS");
 	       drb.setTitle("Plan Contable");
 	       drb.setSubtitle("This report was generated at " + new Date());
-	       drb.addGlobalFooterVariable(1, DJCalculation.COUNT, null);
+	       drb.addGlobalFooterVariable(1, CalculationEnum.COUNT, null);
 	       drb.setUseFullPageWidth(true);
 //	       drb.setQuery("/data/linea", DJConstants.QUERY_LANGUAGE_XPATH);
 	       DynamicReport dr = drb.build();

@@ -33,10 +33,10 @@ package ar.com.fdvs.dj.test;
 import java.util.Date;
 import java.util.Map;
 
-import ar.com.fdvs.dj.domain.DJCalculation;
 import ar.com.fdvs.dj.domain.DJValueFormatter;
 import ar.com.fdvs.dj.domain.DynamicReport;
 import ar.com.fdvs.dj.domain.builders.FastReportBuilder;
+import net.sf.jasperreports.engine.type.CalculationEnum;
 import net.sf.jasperreports.view.JasperDesignViewer;
 import net.sf.jasperreports.view.JasperViewer;
 
@@ -63,7 +63,7 @@ public class FastReportTest extends BaseDjReportTest {
 			.setPrintBackgroundOnOddRows(true)			
 			.setUseFullPageWidth(true);
 
-        drb.addGlobalFooterVariable(drb.getColumn(4), DJCalculation.COUNT, null, new DJValueFormatter() {
+        drb.addGlobalFooterVariable(drb.getColumn(4), CalculationEnum.COUNT, null, new DJValueFormatter() {
 
             public String getClassName() {
                 return String.class.getName();

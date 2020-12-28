@@ -34,7 +34,6 @@ import java.util.Map;
 
 import ar.com.fdvs.dj.domain.AutoText;
 import ar.com.fdvs.dj.domain.CustomExpression;
-import ar.com.fdvs.dj.domain.DJCalculation;
 import ar.com.fdvs.dj.domain.DynamicReport;
 import ar.com.fdvs.dj.domain.Style;
 import ar.com.fdvs.dj.domain.builders.ColumnBuilder;
@@ -47,6 +46,7 @@ import ar.com.fdvs.dj.domain.entities.DJGroup;
 import ar.com.fdvs.dj.domain.entities.columns.AbstractColumn;
 import ar.com.fdvs.dj.domain.entities.columns.PropertyColumn;
 import ar.com.fdvs.dj.test.BaseDjReportTest;
+import net.sf.jasperreports.engine.type.CalculationEnum;
 import net.sf.jasperreports.engine.type.HorizontalTextAlignEnum;
 import net.sf.jasperreports.engine.type.ModeEnum;
 import net.sf.jasperreports.engine.type.VerticalTextAlignEnum;
@@ -147,10 +147,10 @@ public class GroupsVariableTest1 extends BaseDjReportTest {
 				.setPattern("$ 0.00").setStyle(importeStyle).setHeaderStyle(
 						headerStyle).build();
 
-		drb.addGlobalHeaderVariable(columnAmount, DJCalculation.SUM,headerVariables);
-		drb.addGlobalHeaderVariable(columnaQuantity, DJCalculation.SUM,headerVariables);
-		drb.addGlobalFooterVariable(columnAmount, DJCalculation.SUM,headerVariables);
-		drb.addGlobalFooterVariable(columnaQuantity, DJCalculation.SUM,headerVariables);
+		drb.addGlobalHeaderVariable(columnAmount, CalculationEnum.SUM,headerVariables);
+		drb.addGlobalHeaderVariable(columnaQuantity, CalculationEnum.SUM,headerVariables);
+		drb.addGlobalFooterVariable(columnAmount, CalculationEnum.SUM,headerVariables);
+		drb.addGlobalFooterVariable(columnaQuantity, CalculationEnum.SUM,headerVariables);
 		drb.setGlobalHeaderVariableHeight(25);
 		drb.setGlobalFooterVariableHeight(25);
 
@@ -162,7 +162,7 @@ public class GroupsVariableTest1 extends BaseDjReportTest {
 				.setFooterVariablesHeight(20)
 				.setFooterHeight(50,true)
 				.setHeaderVariablesHeight(35)
-                .addVariable("myVar",columnAmount,DJCalculation.SUM)   //Here define the variable "myVar"
+                .addVariable("myVar",columnAmount,CalculationEnum.SUM)   //Here define the variable "myVar"
                 .addFooterVariable(columnAmount, new CustomExpression() {
                     public Object evaluate(Map fields, Map variables, Map parameters) {
                         Float myVar = (Float) variables.get("myVar"); //And here we use it!

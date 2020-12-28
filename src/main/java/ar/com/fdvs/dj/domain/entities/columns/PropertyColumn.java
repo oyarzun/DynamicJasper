@@ -31,8 +31,8 @@ package ar.com.fdvs.dj.domain.entities.columns;
 
 import ar.com.fdvs.dj.domain.ColumnProperty;
 import ar.com.fdvs.dj.domain.CustomExpression;
-import ar.com.fdvs.dj.domain.DJCalculation;
 import ar.com.fdvs.dj.domain.entities.Entity;
+import net.sf.jasperreports.engine.type.CalculationEnum;
 
 /**
  * Basic abstract column type representing a property from the obtained <br>
@@ -81,17 +81,17 @@ public abstract class PropertyColumn extends AbstractColumn {
 		return "variable-"+type+"_"+columnToGroupByProperty+"_"+getColumnProperty().getProperty();
 	}
 
-	public String getVariableClassName(DJCalculation op) {
-		if (op == DJCalculation.COUNT || op == DJCalculation.DISTINCT_COUNT)
+	public String getVariableClassName(CalculationEnum op) {
+		if (op == CalculationEnum.COUNT || op == CalculationEnum.DISTINCT_COUNT)
 			return Long.class.getName();
 		else
 			return getColumnProperty().getValueClassName();
 	}
 
-	public String getInitialExpression(DJCalculation op) {
-		if (op == DJCalculation.COUNT  || op == DJCalculation.DISTINCT_COUNT)
+	public String getInitialExpression(CalculationEnum op) {
+		if (op == CalculationEnum.COUNT  || op == CalculationEnum.DISTINCT_COUNT)
 			return "new java.lang.Long(\"0\")";
-		else if (op == DJCalculation.SUM)
+		else if (op == CalculationEnum.SUM)
 			return "new " + getColumnProperty().getValueClassName()+"(\"0\")";
 		else return null;
 	}

@@ -34,7 +34,6 @@ import java.awt.Color;
 import java.util.Date;
 
 import ar.com.fdvs.dj.core.DJConstants;
-import ar.com.fdvs.dj.domain.DJCalculation;
 import ar.com.fdvs.dj.domain.DJCrosstab;
 import ar.com.fdvs.dj.domain.DJCrosstabColumn;
 import ar.com.fdvs.dj.domain.DJCrosstabRow;
@@ -53,6 +52,7 @@ import ar.com.fdvs.dj.domain.entities.DJGroup;
 import ar.com.fdvs.dj.test.BaseDjReportTest;
 import ar.com.fdvs.dj.test.TestRepositoryProducts;
 import ar.com.fdvs.dj.util.SortUtils;
+import net.sf.jasperreports.engine.type.CalculationEnum;
 import net.sf.jasperreports.engine.type.HorizontalTextAlignEnum;
 import net.sf.jasperreports.engine.type.VerticalTextAlignEnum;
 import net.sf.jasperreports.view.JasperDesignViewer;
@@ -84,8 +84,8 @@ public class CrosstabReportTest3 extends BaseDjReportTest {
 			.addColumn("Amount", "amount", Float.class.getName(),80,true)
 			.addGroups(1)
 			.setGroupLayout(1, GroupLayout.DEFAULT_WITH_HEADER)
-			.addFooterVariable(1, 7, DJCalculation.SUM, null)
-			.addFooterVariable(1, 6, DJCalculation.SUM, null)
+			.addFooterVariable(1, 7, CalculationEnum.SUM, null)
+			.addFooterVariable(1, 6, CalculationEnum.SUM, null)
 			.setTitle("November " + getYear() +" sales report")
 			.setSubtitle("This report was generated at " + new Date())
 			.setPageSizeAndOrientation(Page.Page_A4_Landscape())
@@ -126,7 +126,7 @@ public class CrosstabReportTest3 extends BaseDjReportTest {
 			.setAutomaticTitle(true)
 			.setCellBorder(Border.THIN());
 
-		cb.addMeasure("amount",Float.class.getName(), DJCalculation.SUM , "Amount",measureStyle);
+		cb.addMeasure("amount",Float.class.getName(), CalculationEnum.SUM , "Amount",measureStyle);
 
 		DJCrosstabRow row = new CrosstabRowBuilder().setProperty("productLine",String.class.getName())
 			.setHeaderWidth(100).setHeight(0)

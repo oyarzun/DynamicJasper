@@ -1,9 +1,9 @@
 package ar.com.fdvs.dj.domain.entities.columns;
 
 import ar.com.fdvs.dj.core.CoreException;
-import ar.com.fdvs.dj.domain.DJCalculation;
 import ar.com.fdvs.dj.domain.entities.DJGroup;
 import ar.com.fdvs.dj.domain.entities.Entity;
+import net.sf.jasperreports.engine.type.CalculationEnum;
 
 /**
  * This column shows a percentage relative to another column.
@@ -41,14 +41,14 @@ public class PercentageColumn extends AbstractColumn {
 		return "variable-" + type + "_" + columnToGroupByProperty + "_" + getPercentageColumn().getColumnProperty().getProperty() + "_percentage";
 	}
 
-	public String getVariableClassName(DJCalculation op) {
-		if (op == DJCalculation.COUNT || op == DJCalculation.DISTINCT_COUNT)
+	public String getVariableClassName(CalculationEnum op) {
+		if (op == CalculationEnum.COUNT || op == CalculationEnum.DISTINCT_COUNT)
 			return Long.class.getName();
 		else
 			return Number.class.getName();
 	}
 
-	public String getInitialExpression(DJCalculation op) {
+	public String getInitialExpression(CalculationEnum op) {
 		return "new java.lang.Long(\"0\")";
 	}
 

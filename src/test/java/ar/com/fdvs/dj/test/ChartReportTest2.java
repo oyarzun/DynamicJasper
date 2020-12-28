@@ -31,7 +31,6 @@ package ar.com.fdvs.dj.test;
 
 import java.awt.Color;
 
-import ar.com.fdvs.dj.domain.DJCalculation;
 import ar.com.fdvs.dj.domain.DynamicReport;
 import ar.com.fdvs.dj.domain.Style;
 import ar.com.fdvs.dj.domain.builders.ColumnBuilder;
@@ -137,23 +136,23 @@ public class ChartReportTest2 extends BaseDjReportTest {
 				.setPattern("$ 0.00").setStyle(importeStyle).setHeaderStyle(
 						headerStyle).build();
 		
-		drb.addGlobalFooterVariable(columnAmount,DJCalculation.SUM,g1Variables);
-		drb.addGlobalFooterVariable(columnaQuantity,DJCalculation.SUM,g1Variables);
+		drb.addGlobalFooterVariable(columnAmount,CalculationEnum.SUM,g1Variables);
+		drb.addGlobalFooterVariable(columnaQuantity,CalculationEnum.SUM,g1Variables);
 
 		GroupBuilder gb1 = new GroupBuilder();
 
 //		 define the criteria column to group by (columnState)
 		DJGroup g1 = gb1.setCriteriaColumn((PropertyColumn) columnState)
-					.addFooterVariable(columnAmount,DJCalculation.SUM,g1Variables)
-				.addFooterVariable(columnaQuantity,DJCalculation.SUM,g1Variables) 
+					.addFooterVariable(columnAmount,CalculationEnum.SUM,g1Variables)
+				.addFooterVariable(columnaQuantity,CalculationEnum.SUM,g1Variables) 
 				.setGroupLayout(GroupLayout.VALUE_IN_HEADER_WITH_HEADERS) 
 				.build();
 
 
 		GroupBuilder gb2 = new GroupBuilder(); 
 		DJGroup g2 = gb2.setCriteriaColumn((PropertyColumn) columnBranch) 
-				.addFooterVariable(columnAmount,DJCalculation.SUM,g2Variables) 
-				.addFooterVariable(columnaQuantity,DJCalculation.SUM,g2Variables)
+				.addFooterVariable(columnAmount,CalculationEnum.SUM,g2Variables) 
+				.addFooterVariable(columnaQuantity,CalculationEnum.SUM,g2Variables)
 				.build();
 
 		drb.addColumn(columnState);

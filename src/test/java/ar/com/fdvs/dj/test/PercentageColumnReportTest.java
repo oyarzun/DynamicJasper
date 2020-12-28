@@ -31,7 +31,6 @@ package ar.com.fdvs.dj.test;
 
 import java.awt.Color;
 
-import ar.com.fdvs.dj.domain.DJCalculation;
 import ar.com.fdvs.dj.domain.DynamicReport;
 import ar.com.fdvs.dj.domain.Style;
 import ar.com.fdvs.dj.domain.builders.ColumnBuilder;
@@ -43,6 +42,7 @@ import ar.com.fdvs.dj.domain.constants.GroupLayout;
 import ar.com.fdvs.dj.domain.entities.DJGroup;
 import ar.com.fdvs.dj.domain.entities.columns.AbstractColumn;
 import ar.com.fdvs.dj.domain.entities.columns.PropertyColumn;
+import net.sf.jasperreports.engine.type.CalculationEnum;
 import net.sf.jasperreports.engine.type.HorizontalTextAlignEnum;
 import net.sf.jasperreports.engine.type.ModeEnum;
 import net.sf.jasperreports.engine.type.VerticalTextAlignEnum;
@@ -128,7 +128,7 @@ public class PercentageColumnReportTest extends BaseDjReportTest {
 		GroupBuilder gb1 = new GroupBuilder();		
 //	 define the criteria column to group by (columnState)
 	DJGroup g1 = gb1.setCriteriaColumn((PropertyColumn) columnState)
-			.addFooterVariable(columnAmount,DJCalculation.SUM)
+			.addFooterVariable(columnAmount,CalculationEnum.SUM)
 			.setGroupLayout(GroupLayout.DEFAULT) // tells the group how to be shown, there are manyposibilities, see the GroupLayout for more.
 			.setFooterVariablesHeight(20)
 			.setFooterHeight(50,true)
@@ -137,8 +137,8 @@ public class PercentageColumnReportTest extends BaseDjReportTest {
 	
 	GroupBuilder gb2 = new GroupBuilder();		
 	DJGroup g2 = gb2.setCriteriaColumn((PropertyColumn) columnBranch)
-	.addFooterVariable(columnAmount,DJCalculation.SUM)
-	.addFooterVariable(columnPercentageAmount,DJCalculation.SUM)
+	.addFooterVariable(columnAmount,CalculationEnum.SUM)
+	.addFooterVariable(columnPercentageAmount,CalculationEnum.SUM)
 	.setGroupLayout(GroupLayout.DEFAULT) // tells the group how to be shown, there are manyposibilities, see the GroupLayout for more.
 	.setFooterVariablesHeight(20)
 	.setFooterHeight(50,true)

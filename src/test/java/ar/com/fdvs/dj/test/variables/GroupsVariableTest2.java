@@ -36,7 +36,6 @@ import java.util.Map;
 
 import ar.com.fdvs.dj.domain.AutoText;
 import ar.com.fdvs.dj.domain.CustomExpression;
-import ar.com.fdvs.dj.domain.DJCalculation;
 import ar.com.fdvs.dj.domain.DynamicReport;
 import ar.com.fdvs.dj.domain.Style;
 import ar.com.fdvs.dj.domain.builders.ColumnBuilder;
@@ -53,6 +52,7 @@ import ar.com.fdvs.dj.test.TestRepositoryProducts;
 import ar.com.fdvs.dj.util.SortUtils;
 import net.sf.jasperreports.engine.JRDataSource;
 import net.sf.jasperreports.engine.data.JRBeanCollectionDataSource;
+import net.sf.jasperreports.engine.type.CalculationEnum;
 import net.sf.jasperreports.engine.type.HorizontalTextAlignEnum;
 import net.sf.jasperreports.engine.type.ModeEnum;
 import net.sf.jasperreports.engine.type.VerticalTextAlignEnum;
@@ -153,10 +153,10 @@ public class GroupsVariableTest2 extends BaseDjReportTest {
 				.setPattern("$ 0.00").setStyle(importeStyle).setHeaderStyle(
 						headerStyle).build();
 
-//		drb.addGlobalHeaderVariable(columnAmount, DJCalculation.SUM,headerVariables);
-//		drb.addGlobalHeaderVariable(columnaQuantity, DJCalculation.SUM,headerVariables);
-//		drb.addGlobalFooterVariable(columnAmount, DJCalculation.SUM,headerVariables);
-//		drb.addGlobalFooterVariable(columnaQuantity, DJCalculation.SUM,headerVariables);
+//		drb.addGlobalHeaderVariable(columnAmount, CalculationEnum.SUM,headerVariables);
+//		drb.addGlobalHeaderVariable(columnaQuantity, CalculationEnum.SUM,headerVariables);
+//		drb.addGlobalFooterVariable(columnAmount, CalculationEnum.SUM,headerVariables);
+//		drb.addGlobalFooterVariable(columnaQuantity, CalculationEnum.SUM,headerVariables);
 //		drb.setGlobalHeaderVariableHeight(25);
 //		drb.setGlobalFooterVariableHeight(25);
 
@@ -215,7 +215,7 @@ public class GroupsVariableTest2 extends BaseDjReportTest {
 
 		for (Object column: drb.getColumns()) {
 			PropertyColumn abstractColumn = (PropertyColumn) column;
-			gb1.addVariable("var_" +abstractColumn.getColumnProperty().getProperty(), abstractColumn,DJCalculation.NOTHING);
+			gb1.addVariable("var_" +abstractColumn.getColumnProperty().getProperty(), abstractColumn,CalculationEnum.NOTHING);
 		}
 
 		DJGroup g1 = gb1.build();

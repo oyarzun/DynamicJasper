@@ -29,6 +29,11 @@
 
 package ar.com.fdvs.dj.core.registration;
 
+import java.util.Collection;
+
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
+
 import ar.com.fdvs.dj.core.DJConstants;
 import ar.com.fdvs.dj.core.layout.AbstractLayoutManager;
 import ar.com.fdvs.dj.core.layout.LayoutManager;
@@ -38,10 +43,6 @@ import ar.com.fdvs.dj.domain.DynamicReport;
 import ar.com.fdvs.dj.domain.entities.Entity;
 import net.sf.jasperreports.engine.JRException;
 import net.sf.jasperreports.engine.design.JRDesignParameter;
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
-
-import java.util.Collection;
 
 /**
  * Abstract Class used as base for the different Entities Registration Managers.<br>

@@ -38,7 +38,6 @@ import java.util.Map;
 
 import ar.com.fdvs.dj.core.DJConstants;
 import ar.com.fdvs.dj.core.layout.TwoSeedCrossTabColorShema;
-import ar.com.fdvs.dj.domain.DJCalculation;
 import ar.com.fdvs.dj.domain.DJCrosstab;
 import ar.com.fdvs.dj.domain.DJValueFormatter;
 import ar.com.fdvs.dj.domain.DynamicReport;
@@ -53,6 +52,7 @@ import ar.com.fdvs.dj.test.BaseDjReportTest;
 import ar.com.fdvs.dj.test.TestRepositoryProducts;
 import ar.com.fdvs.dj.util.SortUtils;
 import net.sf.jasperreports.engine.JRDataSource;
+import net.sf.jasperreports.engine.type.CalculationEnum;
 import net.sf.jasperreports.engine.type.HorizontalTextAlignEnum;
 import net.sf.jasperreports.engine.type.ModeEnum;
 import net.sf.jasperreports.engine.type.VerticalTextAlignEnum;
@@ -121,8 +121,8 @@ public class CrosstabReportWithPercentageMeasure extends BaseDjReportTest {
 			.setCellBorder(Border.PEN_1_POINT())
 			.addRow("State","state",String.class.getName(),true)
 			.addColumn("Product Line", "productLine", String.class.getName(),true)
-			.addMeasure("amount",Float.class.getName(), DJCalculation.SUM , "Amount",measureStyle2, false)
-			.addMeasure("amount",Float.class.getName(), DJCalculation.SUM , "%",measureStyle2, valueFormatter ,true)
+			.addMeasure("amount",Float.class.getName(), CalculationEnum.SUM , "Amount",measureStyle2, false)
+			.addMeasure("amount",Float.class.getName(), CalculationEnum.SUM , "%",measureStyle2, valueFormatter ,true)
 			.setRowStyles(rowHeaderStyle, totalStyle, totalHeaderStyle)
 			.setColumnStyles(colHeaderStyle, totalStyle, totalHeaderStyle)
 			.setCellDimension(34, 70)

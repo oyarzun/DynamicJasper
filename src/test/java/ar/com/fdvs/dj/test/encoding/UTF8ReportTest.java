@@ -30,7 +30,12 @@
 package ar.com.fdvs.dj.test.encoding;
 
 
-import ar.com.fdvs.dj.domain.DJCalculation;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.List;
+import java.util.Map;
+
 import ar.com.fdvs.dj.domain.DJValueFormatter;
 import ar.com.fdvs.dj.domain.DynamicReport;
 import ar.com.fdvs.dj.domain.Style;
@@ -41,14 +46,9 @@ import ar.com.fdvs.dj.test.ReportExporter;
 import ar.com.fdvs.dj.test.domain.Product;
 import net.sf.jasperreports.engine.JRDataSource;
 import net.sf.jasperreports.engine.data.JRBeanCollectionDataSource;
+import net.sf.jasperreports.engine.type.CalculationEnum;
 import net.sf.jasperreports.view.JasperDesignViewer;
 import net.sf.jasperreports.view.JasperViewer;
-
-import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.List;
-import java.util.Map;
 
 public class UTF8ReportTest extends BaseDjReportTest {
 
@@ -94,7 +94,7 @@ public class UTF8ReportTest extends BaseDjReportTest {
                 .setDefaultStyles(titleStyle, subtitleStyle, headerStyle, detailStyle)
                 .setUseFullPageWidth(true);
 
-        drb.addGlobalFooterVariable(drb.getColumn(4), DJCalculation.COUNT, null, new DJValueFormatter() {
+        drb.addGlobalFooterVariable(drb.getColumn(4), CalculationEnum.COUNT, null, new DJValueFormatter() {
 
             public String getClassName() {
                 return String.class.getName();

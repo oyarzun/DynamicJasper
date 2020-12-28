@@ -39,7 +39,6 @@ import ar.com.fdvs.dj.core.BarcodeTypes;
 import ar.com.fdvs.dj.core.DJConstants;
 import ar.com.fdvs.dj.domain.ColumnProperty;
 import ar.com.fdvs.dj.domain.CustomExpression;
-import ar.com.fdvs.dj.domain.DJCalculation;
 import ar.com.fdvs.dj.domain.DJCrosstab;
 import ar.com.fdvs.dj.domain.DJValueFormatter;
 import ar.com.fdvs.dj.domain.DynamicReport;
@@ -53,6 +52,7 @@ import ar.com.fdvs.dj.domain.entities.DJGroupVariable;
 import ar.com.fdvs.dj.domain.entities.DJVariable;
 import ar.com.fdvs.dj.domain.entities.columns.AbstractColumn;
 import ar.com.fdvs.dj.domain.entities.columns.PropertyColumn;
+import net.sf.jasperreports.engine.type.CalculationEnum;
 import net.sf.jasperreports.engine.type.HorizontalTextAlignEnum;
 import net.sf.jasperreports.engine.type.ModeEnum;
 import net.sf.jasperreports.engine.type.ScaleImageEnum;
@@ -544,7 +544,7 @@ public class FastReportBuilder extends DynamicReportBuilder {
 		return this;
 	}
 
-	public FastReportBuilder addGlobalHeaderVariable(int colNumber, DJCalculation op, Style style) {
+	public FastReportBuilder addGlobalHeaderVariable(int colNumber, CalculationEnum op, Style style) {
 		PropertyColumn column = (PropertyColumn) report.getColumns().get(colNumber -1);
 //		if (this.globalHeaderVariables == null)
 //			this.globalHeaderVariables = new ArrayList();
@@ -556,7 +556,7 @@ public class FastReportBuilder extends DynamicReportBuilder {
 		return this;
 	}
 
-	public FastReportBuilder addHeaderVariable(int groupNum, int colNumber, DJCalculation op, Style style) throws BuilderException {
+	public FastReportBuilder addHeaderVariable(int groupNum, int colNumber, CalculationEnum op, Style style) throws BuilderException {
 		DJGroup group = getGroupByNumber(groupNum);
 		PropertyColumn column = (PropertyColumn) report.getColumns().get(colNumber -1);
 		if (style == null)
@@ -567,7 +567,7 @@ public class FastReportBuilder extends DynamicReportBuilder {
 		return this;
 	}
 	
-	public FastReportBuilder addHeaderVariable(int groupNum, int colNumber, DJCalculation op, Style style, DJValueFormatter valueFormatter) throws BuilderException {
+	public FastReportBuilder addHeaderVariable(int groupNum, int colNumber, CalculationEnum op, Style style, DJValueFormatter valueFormatter) throws BuilderException {
 		DJGroup group = getGroupByNumber(groupNum);
 		PropertyColumn column = (PropertyColumn) report.getColumns().get(colNumber -1);
 		if (style == null)
@@ -596,11 +596,11 @@ public class FastReportBuilder extends DynamicReportBuilder {
 	/**
 	 * 
 	 * @param colNumber the column number (1, 2, 3,...)
-	 * @param op {@link DJCalculation}
+	 * @param op {@link CalculationEnum}
 	 * @param style OPTIONAL, may be null
 	 * @return
 	 */
-	public FastReportBuilder addGlobalFooterVariable(int colNumber, DJCalculation op, Style style) {
+	public FastReportBuilder addGlobalFooterVariable(int colNumber, CalculationEnum op, Style style) {
 		PropertyColumn column = (PropertyColumn) report.getColumns().get(colNumber -1);
 
 		if (style == null)
@@ -614,12 +614,12 @@ public class FastReportBuilder extends DynamicReportBuilder {
 	 * 
 	 * @param groupNum the group number (1, 2, 3, ...)
 	 * @param colNumber the column number (1, 2, 3,...)
-	 * @param op {@link DJCalculation}
+	 * @param op {@link CalculationEnum}
 	 * @param style {@link Style}
 	 * @return
 	 * @throws BuilderException
 	 */
-	public FastReportBuilder addFooterVariable(int groupNum, int colNumber, DJCalculation op, Style style) throws BuilderException {
+	public FastReportBuilder addFooterVariable(int groupNum, int colNumber, CalculationEnum op, Style style) throws BuilderException {
 		DJGroup group = getGroupByNumber(groupNum);
 		PropertyColumn column = (PropertyColumn) report.getColumns().get(colNumber -1);
 		if (style == null)
@@ -635,12 +635,12 @@ public class FastReportBuilder extends DynamicReportBuilder {
 	 * @param position {@link DJConstants#FOOTER} or {@link DJConstants#HEADER}
 	 * @param groupNum the group number (1, 2, 3, ...)
 	 * @param colNumber the column number (1, 2, 3,...)
-	 * @param op {@link DJCalculation}
+	 * @param op {@link CalculationEnum}
 	 * @param style {@link Style}
 	 * @return
 	 * @throws BuilderException
 	 */
-	public FastReportBuilder addGroupVariable(String position, int groupNum, int colNumber, DJCalculation op, Style style) throws BuilderException {
+	public FastReportBuilder addGroupVariable(String position, int groupNum, int colNumber, CalculationEnum op, Style style) throws BuilderException {
 		if (DJConstants.FOOTER.equals(position)){
 			addFooterVariable(groupNum, colNumber, op, style);
 		} else {
@@ -653,13 +653,13 @@ public class FastReportBuilder extends DynamicReportBuilder {
 	 * 
 	 * @param groupNum the group number (1, 2, 3, ...)
 	 * @param colNumber the column number (1, 2, 3,...)
-	 * @param op {@link DJCalculation}
+	 * @param op {@link CalculationEnum}
 	 * @param style {@link Style}
 	 * @param valueFormatter {@link DJValueFormatter}
 	 * @return
 	 * @throws BuilderException
 	 */
-	public FastReportBuilder addFooterVariable(int groupNum, int colNumber, DJCalculation op, Style style, DJValueFormatter valueFormatter) throws BuilderException {
+	public FastReportBuilder addFooterVariable(int groupNum, int colNumber, CalculationEnum op, Style style, DJValueFormatter valueFormatter) throws BuilderException {
 		DJGroup group = getGroupByNumber(groupNum);
 		PropertyColumn column = (PropertyColumn) report.getColumns().get(colNumber -1);
 		if (style == null)
@@ -675,13 +675,13 @@ public class FastReportBuilder extends DynamicReportBuilder {
 	 * @param position {@link DJConstants#FOOTER} or {@link DJConstants#HEADER} 
 	 * @param groupNum the group number (1, 2, 3, ...)
 	 * @param colNumber the column number (1, 2, 3,...)
-	 * @param op {@link DJCalculation}
+	 * @param op {@link CalculationEnum}
 	 * @param style {@link Style}
 	 * @param valueFormatter {@link DJValueFormatter}
 	 * @return
 	 * @throws BuilderException
 	 */
-	public FastReportBuilder addGroupVariable(String position, int groupNum, int colNumber, DJCalculation op, Style style, DJValueFormatter valueFormatter) throws BuilderException {
+	public FastReportBuilder addGroupVariable(String position, int groupNum, int colNumber, CalculationEnum op, Style style, DJValueFormatter valueFormatter) throws BuilderException {
 		if (DJConstants.FOOTER.equals(position)){
 			addFooterVariable(groupNum, colNumber, op, style, valueFormatter);
 		} else {
@@ -702,7 +702,7 @@ public class FastReportBuilder extends DynamicReportBuilder {
 		return this;
 	}
 
-	public FastReportBuilder addVariable(String name, DJCalculation calculation,
+	public FastReportBuilder addVariable(String name, CalculationEnum calculation,
 			CustomExpression expression) {
 		DJVariable var = new DJVariable(name,expression.getClassName(),calculation,expression);
 		super.addVariable(var);
@@ -720,7 +720,7 @@ public class FastReportBuilder extends DynamicReportBuilder {
 	 * @return
 	 * @throws BuilderException 
 	 */
-	public FastReportBuilder addVariable(String name, DJCalculation calculation,
+	public FastReportBuilder addVariable(String name, CalculationEnum calculation,
 			CustomExpression expression, CustomExpression initialValueExpression, DJVariableResetType resetType, int resetGroup) throws BuilderException {
 		
 		DJVariable var = new DJVariable(name,expression.getClassName(),calculation,expression);

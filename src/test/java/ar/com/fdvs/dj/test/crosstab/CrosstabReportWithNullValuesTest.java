@@ -34,7 +34,6 @@ import java.awt.Color;
 import java.util.Date;
 
 import ar.com.fdvs.dj.core.DJConstants;
-import ar.com.fdvs.dj.domain.DJCalculation;
 import ar.com.fdvs.dj.domain.DJCrosstab;
 import ar.com.fdvs.dj.domain.DynamicReport;
 import ar.com.fdvs.dj.domain.Style;
@@ -47,6 +46,7 @@ import ar.com.fdvs.dj.domain.constants.Page;
 import ar.com.fdvs.dj.test.BaseDjReportTest;
 import ar.com.fdvs.dj.test.TestRepositoryProducts;
 import ar.com.fdvs.dj.util.SortUtils;
+import net.sf.jasperreports.engine.type.CalculationEnum;
 import net.sf.jasperreports.engine.type.HorizontalTextAlignEnum;
 import net.sf.jasperreports.engine.type.ModeEnum;
 import net.sf.jasperreports.engine.type.VerticalTextAlignEnum;
@@ -95,8 +95,8 @@ public class CrosstabReportWithNullValuesTest extends BaseDjReportTest {
 			.addColumn("State","state",String.class.getName(),true)
 			.addRow("Branch","branch",String.class.getName(),true)
 			.addColumn("Item", "item", String.class.getName(),true)
-//			.addMeasure("id",Long.class.getName(), DJCalculation.SUM , "Id", measureStyle)
-			.addMeasure("quantity",Long.class.getName(), DJCalculation.FIRST , "Time",measureStyle2, null/* new DJValueFormatter() {
+//			.addMeasure("id",Long.class.getName(), CalculationEnum.SUM , "Id", measureStyle)
+			.addMeasure("quantity",Long.class.getName(), CalculationEnum.FIRST , "Time",measureStyle2, null/* new DJValueFormatter() {
 
 				public String getClassName() {
 					return String.class.getName();

@@ -35,7 +35,6 @@ import java.util.Comparator;
 import java.util.Date;
 
 import ar.com.fdvs.dj.core.DJConstants;
-import ar.com.fdvs.dj.domain.DJCalculation;
 import ar.com.fdvs.dj.domain.DJCrosstab;
 import ar.com.fdvs.dj.domain.DJCrosstabColumn;
 import ar.com.fdvs.dj.domain.DJCrosstabRow;
@@ -53,6 +52,7 @@ import ar.com.fdvs.dj.test.BaseDjReportTest;
 import ar.com.fdvs.dj.test.TestRepositoryProducts;
 import ar.com.fdvs.dj.test.util.StringUtils;
 import ar.com.fdvs.dj.util.SortUtils;
+import net.sf.jasperreports.engine.type.CalculationEnum;
 import net.sf.jasperreports.engine.type.HorizontalTextAlignEnum;
 import net.sf.jasperreports.engine.type.VerticalTextAlignEnum;
 import net.sf.jasperreports.view.JasperDesignViewer;
@@ -94,7 +94,7 @@ public class CrosstabReportWithComparator2Test extends BaseDjReportTest {
 			.setAutomaticTitle(true)
 			.setCellBorder(Border.PEN_1_POINT());
 
-		cb.addMeasure("amount",Float.class.getName(), DJCalculation.SUM , "Amount",measureStyle);
+		cb.addMeasure("amount",Float.class.getName(), CalculationEnum.SUM , "Amount",measureStyle);
 
 		DJCrosstabRow row = new CrosstabRowBuilder().setProperty("productLine",String.class.getName())
 			.setHeaderWidth(100).setHeight(0)

@@ -33,7 +33,6 @@ import java.awt.Color;
 
 import org.apache.commons.beanutils.BeanUtils;
 
-import ar.com.fdvs.dj.domain.DJCalculation;
 import ar.com.fdvs.dj.domain.DynamicReport;
 import ar.com.fdvs.dj.domain.Style;
 import ar.com.fdvs.dj.domain.builders.ColumnBuilder;
@@ -45,6 +44,7 @@ import ar.com.fdvs.dj.domain.constants.Font;
 import ar.com.fdvs.dj.domain.entities.DJGroup;
 import ar.com.fdvs.dj.domain.entities.columns.AbstractColumn;
 import ar.com.fdvs.dj.domain.entities.columns.PropertyColumn;
+import net.sf.jasperreports.engine.type.CalculationEnum;
 import net.sf.jasperreports.engine.type.HorizontalTextAlignEnum;
 import net.sf.jasperreports.engine.type.ModeEnum;
 import net.sf.jasperreports.engine.type.RotationEnum;
@@ -154,12 +154,12 @@ public class StylesReport2Test extends BaseDjReportTest {
 
 		DJGroup group = new GroupBuilder()
 			.setCriteriaColumn((PropertyColumn) columnState)
-			.addFooterVariable(columnAmount, DJCalculation.SUM,variableStyle).build();
+			.addFooterVariable(columnAmount, CalculationEnum.SUM,variableStyle).build();
 		drb.addGroup(group);
 
 		DJGroup group2 = new GroupBuilder()
 		.setCriteriaColumn((PropertyColumn) columnaItem)
-		.addFooterVariable(columnAmount, DJCalculation.SUM).build();
+		.addFooterVariable(columnAmount, CalculationEnum.SUM).build();
 		drb.addGroup(group2);
 
 		group2.setDefaulFooterVariableStyle(variableStyle2);

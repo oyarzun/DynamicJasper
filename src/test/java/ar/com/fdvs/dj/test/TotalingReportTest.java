@@ -32,7 +32,6 @@ package ar.com.fdvs.dj.test;
 
 import java.util.Date;
 
-import ar.com.fdvs.dj.domain.DJCalculation;
 import ar.com.fdvs.dj.domain.DynamicReport;
 import ar.com.fdvs.dj.domain.Style;
 import ar.com.fdvs.dj.domain.builders.FastReportBuilder;
@@ -41,6 +40,7 @@ import ar.com.fdvs.dj.domain.constants.Border;
 import ar.com.fdvs.dj.domain.constants.Font;
 import ar.com.fdvs.dj.domain.constants.GroupLayout;
 import ar.com.fdvs.dj.domain.entities.DJGroupVariable;
+import net.sf.jasperreports.engine.type.CalculationEnum;
 import net.sf.jasperreports.engine.type.HorizontalTextAlignEnum;
 import net.sf.jasperreports.view.JasperDesignViewer;
 import net.sf.jasperreports.view.JasperViewer;
@@ -73,8 +73,8 @@ public class TotalingReportTest extends BaseDjReportTest {
 					
 			Style hstyle1 = new StyleBuilder(false).setHorizontalTextAlignEnum(HorizontalTextAlignEnum.RIGHT).setBorderBottom(Border.THIN()).build();
 			Style hstyle2 = new StyleBuilder(false).setHorizontalTextAlignEnum(HorizontalTextAlignEnum.RIGHT).setFont(Font.ARIAL_SMALL).build();
-			drb.getGroup(0).addHeaderVariable(new DJGroupVariable(drb.getColumn(2),DJCalculation.SUM,hstyle1));
-			drb.getGroup(1).addHeaderVariable(new DJGroupVariable(drb.getColumn(2),DJCalculation.SUM, hstyle2));
+			drb.getGroup(0).addHeaderVariable(new DJGroupVariable(drb.getColumn(2),CalculationEnum.SUM,hstyle1));
+			drb.getGroup(1).addHeaderVariable(new DJGroupVariable(drb.getColumn(2),CalculationEnum.SUM, hstyle2));
 			
 			drb.getGroup(0).setLayout(GroupLayout.VALUE_IN_HEADER);
 

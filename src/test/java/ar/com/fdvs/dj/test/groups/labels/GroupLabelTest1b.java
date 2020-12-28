@@ -32,7 +32,6 @@ package ar.com.fdvs.dj.test.groups.labels;
 import java.awt.Color;
 
 import ar.com.fdvs.dj.domain.AutoText;
-import ar.com.fdvs.dj.domain.DJCalculation;
 import ar.com.fdvs.dj.domain.DJGroupLabel;
 import ar.com.fdvs.dj.domain.DynamicReport;
 import ar.com.fdvs.dj.domain.ImageBanner;
@@ -48,6 +47,7 @@ import ar.com.fdvs.dj.domain.entities.DJGroup;
 import ar.com.fdvs.dj.domain.entities.columns.AbstractColumn;
 import ar.com.fdvs.dj.domain.entities.columns.PropertyColumn;
 import ar.com.fdvs.dj.test.BaseDjReportTest;
+import net.sf.jasperreports.engine.type.CalculationEnum;
 import net.sf.jasperreports.engine.type.HorizontalTextAlignEnum;
 import net.sf.jasperreports.engine.type.ModeEnum;
 import net.sf.jasperreports.engine.type.StretchTypeEnum;
@@ -148,8 +148,8 @@ public class GroupLabelTest1b extends BaseDjReportTest {
 		//		 define the criteria column to group by (columnState)
 		DJGroup g1 = gb1.setCriteriaColumn((PropertyColumn) columnState)
 				.setHeaderHeight(30)
-				.addHeaderVariable(columnAmount,DJCalculation.SUM,headerVariables, null, glabel1) // tell the group place a variable footer of the column "columnAmount" with the SUM of all values of the columnAmount in this group.
-				.addHeaderVariable(columnaQuantity,DJCalculation.SUM,headerVariables, null, glabel2) // idem for the columnaQuantity column
+				.addHeaderVariable(columnAmount,CalculationEnum.SUM,headerVariables, null, glabel1) // tell the group place a variable footer of the column "columnAmount" with the SUM of all values of the columnAmount in this group.
+				.addHeaderVariable(columnaQuantity,CalculationEnum.SUM,headerVariables, null, glabel2) // idem for the columnaQuantity column
 				.setGroupLayout(GroupLayout.VALUE_IN_HEADER) // tells the group how to be shown, there are manyposibilities, see the GroupLayout for more.
 				.build();
 
@@ -160,8 +160,8 @@ public class GroupLabelTest1b extends BaseDjReportTest {
 		drb.addColumn(columnaQuantity);
 		drb.addColumn(columnAmount);
 		
-		drb.addGlobalFooterVariable(columnAmount, DJCalculation.SUM, headerVariables, null);
-		drb.addGlobalFooterVariable(columnaQuantity, DJCalculation.SUM, headerVariables, null);
+		drb.addGlobalFooterVariable(columnAmount, CalculationEnum.SUM, headerVariables, null);
+		drb.addGlobalFooterVariable(columnaQuantity, CalculationEnum.SUM, headerVariables, null);
 
 		drb.addGroup(g1); // add group g1
 

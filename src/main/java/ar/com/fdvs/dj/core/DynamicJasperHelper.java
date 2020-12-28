@@ -55,7 +55,6 @@ import ar.com.fdvs.dj.core.registration.DJGroupRegistrationManager;
 import ar.com.fdvs.dj.core.registration.DJGroupVariableDefRegistrationManager;
 import ar.com.fdvs.dj.core.registration.VariableRegistrationManager;
 import ar.com.fdvs.dj.domain.ColumnProperty;
-import ar.com.fdvs.dj.domain.DJCalculation;
 import ar.com.fdvs.dj.domain.DynamicJasperDesign;
 import ar.com.fdvs.dj.domain.DynamicReport;
 import ar.com.fdvs.dj.domain.entities.DJGroup;
@@ -82,6 +81,7 @@ import net.sf.jasperreports.engine.design.JRDesignField;
 import net.sf.jasperreports.engine.design.JRDesignGroup;
 import net.sf.jasperreports.engine.design.JRDesignParameter;
 import net.sf.jasperreports.engine.design.JasperDesign;
+import net.sf.jasperreports.engine.type.CalculationEnum;
 import net.sf.jasperreports.engine.xml.JRXmlLoader;
 import net.sf.jasperreports.engine.xml.JRXmlWriter;
 
@@ -149,7 +149,7 @@ public class DynamicJasperHelper {
                 for (DJGroup djGroup : dr.getColumnsGroups()) {
                     JRDesignGroup jrGroup = LayoutUtils.getJRDesignGroup(jd, layoutManager, djGroup);
                     DJGroupVariableDefRegistrationManager variablesRM = new DJGroupVariableDefRegistrationManager(jd, dr, layoutManager, jrGroup);
-                    DJGroupVariableDef variable = new DJGroupVariableDef(percentageColumn.getGroupVariableName(djGroup), percentageColumn.getPercentageColumn(), DJCalculation.SUM);
+                    DJGroupVariableDef variable = new DJGroupVariableDef(percentageColumn.getGroupVariableName(djGroup), percentageColumn.getPercentageColumn(), CalculationEnum.SUM);
                     Collection<DJGroupVariableDef> entities = new ArrayList<DJGroupVariableDef>();
                     entities.add(variable);
                     variablesRM.registerEntities(entities);

@@ -2,15 +2,15 @@ package ar.com.fdvs.dj.domain.entities;
 
 import ar.com.fdvs.dj.domain.CustomExpression;
 import ar.com.fdvs.dj.domain.DJBaseElement;
-import ar.com.fdvs.dj.domain.DJCalculation;
 import ar.com.fdvs.dj.domain.constants.DJVariableIncrementType;
 import ar.com.fdvs.dj.domain.constants.DJVariableResetType;
+import net.sf.jasperreports.engine.type.CalculationEnum;
 
 public class DJVariable extends DJBaseElement {
 	
 	public DJVariable(){}
 
-	public DJVariable(String name, String className, DJCalculation calculation, CustomExpression expression) {
+	public DJVariable(String name, String className, CalculationEnum calculation, CustomExpression expression) {
 		super();
 		this.name = name;
 		this.className = className;
@@ -21,7 +21,7 @@ public class DJVariable extends DJBaseElement {
 	
 	private String name;
 	private String className;
-	private DJCalculation calculation = DJCalculation.NOTHING;
+	private CalculationEnum calculation = CalculationEnum.NOTHING;
 	
 	private DJGroup resetGroup;
 	private DJVariableResetType resetType = DJVariableResetType.REPORT;
@@ -44,10 +44,10 @@ public class DJVariable extends DJBaseElement {
 	public void setClassName(String className) {
 		this.className = className;
 	}
-	public DJCalculation getCalculation() {
+	public CalculationEnum getCalculation() {
 		return calculation;
 	}
-	public void setCalculation(DJCalculation calculation) {
+	public void setCalculation(CalculationEnum calculation) {
 		this.calculation = calculation;
 	}
 	public CustomExpression getExpression() {

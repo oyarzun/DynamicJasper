@@ -34,7 +34,6 @@ import java.util.HashMap;
 import java.util.Map;
 
 import ar.com.fdvs.dj.domain.AutoText;
-import ar.com.fdvs.dj.domain.DJCalculation;
 import ar.com.fdvs.dj.domain.DynamicReport;
 import ar.com.fdvs.dj.domain.ImageBanner;
 import ar.com.fdvs.dj.domain.Style;
@@ -49,6 +48,7 @@ import ar.com.fdvs.dj.domain.entities.columns.AbstractColumn;
 import ar.com.fdvs.dj.domain.entities.columns.PropertyColumn;
 import ar.com.fdvs.dj.test.BaseDjReportTest;
 import net.sf.jasperreports.engine.JRParameter;
+import net.sf.jasperreports.engine.type.CalculationEnum;
 import net.sf.jasperreports.engine.type.HorizontalTextAlignEnum;
 import net.sf.jasperreports.engine.type.ModeEnum;
 import net.sf.jasperreports.engine.type.VerticalTextAlignEnum;
@@ -137,8 +137,8 @@ public class SystemVariableReportTest extends BaseDjReportTest {
 
 //		 define the criteria column to group by (columnState)
 		DJGroup g1 = gb1.setCriteriaColumn((PropertyColumn) columnState)
-				.addHeaderVariable(columnAmount,DJCalculation.SUM,headerVariables) 
-				.addHeaderVariable(columnaQuantity,DJCalculation.SYSTEM,headerVariables) 
+				.addHeaderVariable(columnAmount,CalculationEnum.SUM,headerVariables) 
+				.addHeaderVariable(columnaQuantity,CalculationEnum.SYSTEM,headerVariables) 
 				.setGroupLayout(GroupLayout.VALUE_IN_HEADER) 
 				
 				.build();

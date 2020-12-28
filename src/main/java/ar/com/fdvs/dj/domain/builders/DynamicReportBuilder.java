@@ -46,7 +46,6 @@ import ar.com.fdvs.dj.core.layout.LayoutManager;
 import ar.com.fdvs.dj.domain.AutoText;
 import ar.com.fdvs.dj.domain.ColumnProperty;
 import ar.com.fdvs.dj.domain.CustomExpression;
-import ar.com.fdvs.dj.domain.DJCalculation;
 import ar.com.fdvs.dj.domain.DJCrosstab;
 import ar.com.fdvs.dj.domain.DJQuery;
 import ar.com.fdvs.dj.domain.DJValueFormatter;
@@ -71,6 +70,7 @@ import ar.com.fdvs.dj.domain.entities.columns.GlobalGroupColumn;
 import ar.com.fdvs.dj.domain.entities.columns.PercentageColumn;
 import ar.com.fdvs.dj.domain.entities.columns.PropertyColumn;
 import net.sf.jasperreports.engine.JasperReport;
+import net.sf.jasperreports.engine.type.CalculationEnum;
 import net.sf.jasperreports.engine.type.ScaleImageEnum;
 import net.sf.jasperreports.engine.type.WhenNoDataTypeEnum;
 import net.sf.jasperreports.engine.type.WhenResourceMissingTypeEnum;
@@ -592,17 +592,17 @@ public class DynamicReportBuilder {
      * @param op
      * @return
      */
-    public DynamicReportBuilder addGlobalHeaderVariable(AbstractColumn col, DJCalculation op) {
+    public DynamicReportBuilder addGlobalHeaderVariable(AbstractColumn col, CalculationEnum op) {
         globalVariablesGroup.addHeaderVariable(new DJGroupVariable(col, op));
         return this;
     }
 
-    public DynamicReportBuilder addGlobalHeaderVariable(AbstractColumn col, DJCalculation op, Style style) {
+    public DynamicReportBuilder addGlobalHeaderVariable(AbstractColumn col, CalculationEnum op, Style style) {
         globalVariablesGroup.addHeaderVariable(new DJGroupVariable(col, op, style));
         return this;
     }
 
-    public DynamicReportBuilder addGlobalHeaderVariable(AbstractColumn col, DJCalculation op, Style style, DJValueFormatter valueFormatter) {
+    public DynamicReportBuilder addGlobalHeaderVariable(AbstractColumn col, CalculationEnum op, Style style, DJValueFormatter valueFormatter) {
         globalVariablesGroup.addHeaderVariable(new DJGroupVariable(col, op, style, valueFormatter));
         return this;
     }
@@ -627,17 +627,17 @@ public class DynamicReportBuilder {
      * @param op
      * @return
      */
-    public DynamicReportBuilder addGlobalFooterVariable(AbstractColumn col, DJCalculation op) {
+    public DynamicReportBuilder addGlobalFooterVariable(AbstractColumn col, CalculationEnum op) {
         globalVariablesGroup.addFooterVariable(new DJGroupVariable(col, op));
         return this;
     }
 
-    public DynamicReportBuilder addGlobalFooterVariable(AbstractColumn col, DJCalculation op, Style style) {
+    public DynamicReportBuilder addGlobalFooterVariable(AbstractColumn col, CalculationEnum op, Style style) {
         globalVariablesGroup.addFooterVariable(new DJGroupVariable(col, op, style));
         return this;
     }
 
-    public DynamicReportBuilder addGlobalFooterVariable(AbstractColumn col, DJCalculation op, Style style, DJValueFormatter valueFormatter) {
+    public DynamicReportBuilder addGlobalFooterVariable(AbstractColumn col, CalculationEnum op, Style style, DJValueFormatter valueFormatter) {
         globalVariablesGroup.addFooterVariable(new DJGroupVariable(col, op, style, valueFormatter));
         return this;
     }
@@ -657,7 +657,7 @@ public class DynamicReportBuilder {
         return this;
     }
 
-    public DynamicReportBuilder addGlobalColumnVariable(String position, AbstractColumn col, DJCalculation op) {
+    public DynamicReportBuilder addGlobalColumnVariable(String position, AbstractColumn col, CalculationEnum op) {
         if (DJConstants.FOOTER.equals(position)) {
             globalVariablesGroup.addFooterVariable(new DJGroupVariable(col, op));
         } else {
@@ -666,7 +666,7 @@ public class DynamicReportBuilder {
         return this;
     }
 
-    public DynamicReportBuilder addGlobalColumnVariable(String position, AbstractColumn col, DJCalculation op, Style style) {
+    public DynamicReportBuilder addGlobalColumnVariable(String position, AbstractColumn col, CalculationEnum op, Style style) {
         if (DJConstants.FOOTER.equals(position)) {
             globalVariablesGroup.addFooterVariable(new DJGroupVariable(col, op, style));
         } else {
@@ -675,7 +675,7 @@ public class DynamicReportBuilder {
         return this;
     }
 
-    public DynamicReportBuilder addGlobalColumnVariable(String position, AbstractColumn col, DJCalculation op, Style style, DJValueFormatter valueFormatter) {
+    public DynamicReportBuilder addGlobalColumnVariable(String position, AbstractColumn col, CalculationEnum op, Style style, DJValueFormatter valueFormatter) {
         if (DJConstants.FOOTER.equals(position)) {
             globalVariablesGroup.addFooterVariable(new DJGroupVariable(col, op, style, valueFormatter));
         } else {
@@ -727,7 +727,7 @@ public class DynamicReportBuilder {
      * @param op
      * @return
      */
-    public DynamicReportBuilder addGlobalVariable(String name, AbstractColumn col, DJCalculation op) {
+    public DynamicReportBuilder addGlobalVariable(String name, AbstractColumn col, CalculationEnum op) {
         globalVariablesGroup.addVariable(new DJGroupVariableDef(name, col, op));
         return this;
     }
@@ -738,9 +738,9 @@ public class DynamicReportBuilder {
      * @param op
      * @return
      * @see DynamicReportBuilder#addGlobalVariable(String, AbstractColumn,
-     * DJCalculation)
+     * CalculationEnum)
      */
-    public DynamicReportBuilder addGlobalVariable(String name, ColumnProperty prop, DJCalculation op) {
+    public DynamicReportBuilder addGlobalVariable(String name, ColumnProperty prop, CalculationEnum op) {
         globalVariablesGroup.addVariable(new DJGroupVariableDef(name, prop, op));
         return this;
     }
@@ -752,9 +752,9 @@ public class DynamicReportBuilder {
      * @param op
      * @return
      * @see DynamicReportBuilder#addGlobalVariable(String, AbstractColumn,
-     * DJCalculation)
+     * CalculationEnum)
      */
-    public DynamicReportBuilder addGlobalVariable(String name, String property, String className, DJCalculation op) {
+    public DynamicReportBuilder addGlobalVariable(String name, String property, String className, CalculationEnum op) {
         globalVariablesGroup.addVariable(new DJGroupVariableDef(name, new ColumnProperty(property, className), op));
         return this;
     }

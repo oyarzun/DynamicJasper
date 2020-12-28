@@ -35,7 +35,6 @@ import ar.com.fdvs.dj.core.DJConstants;
 import ar.com.fdvs.dj.core.layout.CrossTabColorShema;
 import ar.com.fdvs.dj.core.layout.LayoutException;
 import ar.com.fdvs.dj.domain.DJCRosstabMeasurePrecalculatedTotalProvider;
-import ar.com.fdvs.dj.domain.DJCalculation;
 import ar.com.fdvs.dj.domain.DJCrosstab;
 import ar.com.fdvs.dj.domain.DJCrosstabColumn;
 import ar.com.fdvs.dj.domain.DJCrosstabMeasure;
@@ -45,6 +44,7 @@ import ar.com.fdvs.dj.domain.DJLabel;
 import ar.com.fdvs.dj.domain.DJValueFormatter;
 import ar.com.fdvs.dj.domain.Style;
 import ar.com.fdvs.dj.domain.constants.Border;
+import net.sf.jasperreports.engine.type.CalculationEnum;
 
 public class CrosstabBuilder {
 
@@ -181,14 +181,14 @@ public class CrosstabBuilder {
 	 * @param style
 	 * @return
 	 */
-	public CrosstabBuilder addMeasure(String property, String className, DJCalculation operation, String title, Style style) {
+	public CrosstabBuilder addMeasure(String property, String className, CalculationEnum operation, String title, Style style) {
 		DJCrosstabMeasure measure = new DJCrosstabMeasure(property,className, operation , title);
 		measure.setStyle(style);
 		crosstab.getMeasures().add(measure);
 		return this;
 	}
 
-	public CrosstabBuilder addMeasure(String property, String className, DJCalculation operation, String title, Style style, boolean isPercentage) {
+	public CrosstabBuilder addMeasure(String property, String className, CalculationEnum operation, String title, Style style, boolean isPercentage) {
 		DJCrosstabMeasure measure = new DJCrosstabMeasure(property,className, operation , title);
 		measure.setStyle(style);
 		measure.setIsPercentage(isPercentage);
@@ -216,7 +216,7 @@ public class CrosstabBuilder {
 	 * @return
      */
     public CrosstabBuilder addInvisibleMeasure(String property, String className, String title) {
-        DJCrosstabMeasure measure = new DJCrosstabMeasure(property, className, DJCalculation.NOTHING, title);
+        DJCrosstabMeasure measure = new DJCrosstabMeasure(property, className, CalculationEnum.NOTHING, title);
         measure.setVisible(false);
         crosstab.getMeasures().add(measure);
         return this;
@@ -486,7 +486,7 @@ public class CrosstabBuilder {
 		return this;
 	}
 
-	public CrosstabBuilder addMeasure(String property, String className, DJCalculation operation, String title, Style style,
+	public CrosstabBuilder addMeasure(String property, String className, CalculationEnum operation, String title, Style style,
 			DJValueFormatter valueFormatter) {
 		DJCrosstabMeasure measure = new DJCrosstabMeasure(property,className, operation , title);
 		measure.setStyle(style);
@@ -495,7 +495,7 @@ public class CrosstabBuilder {
 		return this;	
 	}
 
-	public CrosstabBuilder addMeasure(String property, String className, DJCalculation operation, String title, Style style,
+	public CrosstabBuilder addMeasure(String property, String className, CalculationEnum operation, String title, Style style,
 			DJValueFormatter valueFormatter, boolean isPercentage) {
 		DJCrosstabMeasure measure = new DJCrosstabMeasure(property,className, operation , title);
 		measure.setStyle(style);
@@ -505,7 +505,7 @@ public class CrosstabBuilder {
 		return this;	
 	}
 	
-	public CrosstabBuilder addMeasure(String property, String className, DJCalculation operation, String title, Style style,
+	public CrosstabBuilder addMeasure(String property, String className, CalculationEnum operation, String title, Style style,
 			DJValueFormatter valueFormatter, DJCRosstabMeasurePrecalculatedTotalProvider totalProvider) {
 		DJCrosstabMeasure measure = new DJCrosstabMeasure(property,className, operation , title);
 		measure.setStyle(style);

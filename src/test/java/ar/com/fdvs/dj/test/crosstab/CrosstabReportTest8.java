@@ -38,7 +38,6 @@ import java.util.Date;
 import org.apache.commons.beanutils.BeanUtils;
 
 import ar.com.fdvs.dj.core.DJConstants;
-import ar.com.fdvs.dj.domain.DJCalculation;
 import ar.com.fdvs.dj.domain.DJCrosstab;
 import ar.com.fdvs.dj.domain.DJCrosstabMeasure;
 import ar.com.fdvs.dj.domain.DynamicReport;
@@ -54,6 +53,7 @@ import ar.com.fdvs.dj.domain.entities.conditionalStyle.StatusLightCondition;
 import ar.com.fdvs.dj.test.BaseDjReportTest;
 import ar.com.fdvs.dj.test.TestRepositoryProducts;
 import ar.com.fdvs.dj.util.SortUtils;
+import net.sf.jasperreports.engine.type.CalculationEnum;
 import net.sf.jasperreports.engine.type.HorizontalTextAlignEnum;
 import net.sf.jasperreports.engine.type.ModeEnum;
 import net.sf.jasperreports.engine.type.VerticalTextAlignEnum;
@@ -85,7 +85,7 @@ public class CrosstabReportTest8 extends BaseDjReportTest {
 			.setDefaultStyles(titleStyle, null, null, null);
 
 			ArrayList conditionalStyles = createConditionalStyles(measureStyle2);
-			DJCrosstabMeasure measure = new DJCrosstabMeasure("amount",Float.class.getName(), DJCalculation.SUM , "Amount");
+			DJCrosstabMeasure measure = new DJCrosstabMeasure("amount",Float.class.getName(), CalculationEnum.SUM , "Amount");
 			measure.setStyle(measureStyle2);
 			measure.setConditionalStyles(conditionalStyles);
 			
@@ -102,7 +102,7 @@ public class CrosstabReportTest8 extends BaseDjReportTest {
 			.addColumn("State","state",String.class.getName(),false)
 			.addColumn("Branch","branch",String.class.getName(),true)
 			.addColumn("Item", "item", String.class.getName(),true)
-			.addMeasure("id",Long.class.getName(), DJCalculation.SUM , "Id", measureStyle)
+			.addMeasure("id",Long.class.getName(), CalculationEnum.SUM , "Id", measureStyle)
 			.addMeasure(measure)
 			.setRowStyles(colAndRowHeaderStyle, null, totalHeaderStyle)
 			.setColumnStyles(colAndRowHeaderStyle, null, totalHeaderStyle)

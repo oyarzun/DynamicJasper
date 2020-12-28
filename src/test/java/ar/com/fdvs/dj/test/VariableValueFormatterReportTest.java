@@ -33,7 +33,6 @@ import java.awt.Color;
 import java.util.Map;
 
 import ar.com.fdvs.dj.domain.CustomExpression;
-import ar.com.fdvs.dj.domain.DJCalculation;
 import ar.com.fdvs.dj.domain.DJValueFormatter;
 import ar.com.fdvs.dj.domain.DynamicReport;
 import ar.com.fdvs.dj.domain.Style;
@@ -45,6 +44,7 @@ import ar.com.fdvs.dj.domain.constants.Font;
 import ar.com.fdvs.dj.domain.entities.DJGroup;
 import ar.com.fdvs.dj.domain.entities.columns.AbstractColumn;
 import ar.com.fdvs.dj.domain.entities.columns.PropertyColumn;
+import net.sf.jasperreports.engine.type.CalculationEnum;
 import net.sf.jasperreports.engine.type.HorizontalTextAlignEnum;
 import net.sf.jasperreports.engine.type.ModeEnum;
 import net.sf.jasperreports.engine.type.VerticalTextAlignEnum;
@@ -122,7 +122,7 @@ public class VariableValueFormatterReportTest extends BaseDjReportTest {
 		
 		DJGroup group = new GroupBuilder()
 			.setCriteriaColumn((PropertyColumn) columnState)
-			.addFooterVariable(columnaCustomExpression, DJCalculation.SUM, null, getValueFormatter())
+			.addFooterVariable(columnaCustomExpression, CalculationEnum.SUM, null, getValueFormatter())
 			.build();
 		
 		drb.addGroup(group);
@@ -132,7 +132,7 @@ public class VariableValueFormatterReportTest extends BaseDjReportTest {
 		drb.addField("productLine", String.class.getName());
 		drb.addField("branch", String.class.getName());
 
-		drb.addGlobalFooterVariable(columnaCustomExpression, DJCalculation.SUM,amountStyle, getValueFormatter());
+		drb.addGlobalFooterVariable(columnaCustomExpression, CalculationEnum.SUM,amountStyle, getValueFormatter());
 		drb.setGrandTotalLegend("");
 		
 		DynamicReport dr = drb.build();

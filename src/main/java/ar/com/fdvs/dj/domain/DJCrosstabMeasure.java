@@ -39,6 +39,7 @@ import org.apache.commons.logging.LogFactory;
 import ar.com.fdvs.dj.domain.entities.Entity;
 import ar.com.fdvs.dj.domain.entities.conditionalStyle.ConditionalStyle;
 import ar.com.fdvs.dj.util.ExpressionUtils;
+import net.sf.jasperreports.engine.type.CalculationEnum;
 
 
 public class DJCrosstabMeasure extends DJBaseElement {
@@ -54,7 +55,7 @@ public class DJCrosstabMeasure extends DJBaseElement {
 	private static final long serialVersionUID = Entity.SERIAL_VERSION_UID;
 	
 	private ColumnProperty property;
-	private DJCalculation operation;
+	private CalculationEnum operation;
 	private String title;
 	private List<ConditionalStyle> conditionalStyles = new ArrayList<ConditionalStyle>();
 	private DJValueFormatter valueFormatter;
@@ -82,14 +83,14 @@ public class DJCrosstabMeasure extends DJBaseElement {
 		this.conditionalStyles = conditionalStyles;
 	}
 	
-	public DJCrosstabMeasure(String propertyName, String className, DJCalculation operation, String title) {
+	public DJCrosstabMeasure(String propertyName, String className, CalculationEnum operation, String title) {
 		super();
 		this.property = new ColumnProperty(propertyName, className);
 		this.operation = operation;
 		this.title = title;
 	}
 
-	public DJCrosstabMeasure(ColumnProperty measure, DJCalculation operation, String title) {
+	public DJCrosstabMeasure(ColumnProperty measure, CalculationEnum operation, String title) {
 		super();
 		this.property = measure;
 		this.operation = operation;
@@ -106,10 +107,10 @@ public class DJCrosstabMeasure extends DJBaseElement {
 	public void setProperty(ColumnProperty measure) {
 		this.property = measure;
 	}
-	public DJCalculation getOperation() {
+	public CalculationEnum getOperation() {
 		return operation;
 	}
-	public void setOperation(DJCalculation operation) {
+	public void setOperation(CalculationEnum operation) {
 		this.operation = operation;
 	}
 	public String getTitle() {

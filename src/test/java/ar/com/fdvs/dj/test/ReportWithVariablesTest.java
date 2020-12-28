@@ -32,12 +32,12 @@ package ar.com.fdvs.dj.test;
 
 import java.util.Date;
 
-import ar.com.fdvs.dj.domain.DJCalculation;
 import ar.com.fdvs.dj.domain.DynamicReport;
 import ar.com.fdvs.dj.domain.Style;
 import ar.com.fdvs.dj.domain.builders.FastReportBuilder;
 import ar.com.fdvs.dj.domain.customexpression.DJSimpleExpression;
 import ar.com.fdvs.dj.domain.entities.DJVariable;
+import net.sf.jasperreports.engine.type.CalculationEnum;
 import net.sf.jasperreports.engine.type.HorizontalTextAlignEnum;
 import net.sf.jasperreports.view.JasperDesignViewer;
 import net.sf.jasperreports.view.JasperViewer;
@@ -62,7 +62,7 @@ public class ReportWithVariablesTest extends BaseDjReportTest {
 			.addColumn("Quantity", "quantity", Long.class.getName(),60,true)
 			.addColumn("Amount", "amount", Float.class.getName(),70,true)
 			.addColumn("Balance",new DJSimpleExpression(DJSimpleExpression.TYPE_VARIABLE, "acum", Float.class.getName()),80,false,null,style)
-			.addVariable("acum", DJCalculation.SUM, new DJSimpleExpression(DJSimpleExpression.TYPE_FIELD, "amount", Float.class.getName()))
+			.addVariable("acum", CalculationEnum.SUM, new DJSimpleExpression(DJSimpleExpression.TYPE_FIELD, "amount", Float.class.getName()))
 			.addGroups(2)
 			.setTitle("November " + getYear() + " sales report")
 			.setSubtitle("This report was generated at " + new Date())
@@ -88,7 +88,7 @@ public class ReportWithVariablesTest extends BaseDjReportTest {
 
 	private DJVariable createVariable() {
 		DJSimpleExpression expression = new DJSimpleExpression(DJSimpleExpression.TYPE_FIELD, "amount", Float.class.getName());
-		DJVariable var = new DJVariable("acum",Float.class.getName(),DJCalculation.SUM,expression);
+		DJVariable var = new DJVariable("acum",Float.class.getName(),CalculationEnum.SUM,expression);
 		return var;
 	}
 

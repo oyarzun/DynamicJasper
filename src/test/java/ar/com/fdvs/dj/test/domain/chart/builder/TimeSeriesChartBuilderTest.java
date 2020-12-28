@@ -40,7 +40,6 @@ import java.util.Map;
 
 import org.jfree.data.time.Month;
 
-import ar.com.fdvs.dj.domain.DJCalculation;
 import ar.com.fdvs.dj.domain.DJHyperLink;
 import ar.com.fdvs.dj.domain.DynamicJasperDesign;
 import ar.com.fdvs.dj.domain.DynamicReport;
@@ -67,6 +66,7 @@ import net.sf.jasperreports.engine.data.JRBeanCollectionDataSource;
 import net.sf.jasperreports.engine.design.JRDesignChart;
 import net.sf.jasperreports.engine.design.JRDesignGroup;
 import net.sf.jasperreports.engine.design.JRDesignVariable;
+import net.sf.jasperreports.engine.type.CalculationEnum;
 import net.sf.jasperreports.engine.type.HorizontalTextAlignEnum;
 import net.sf.jasperreports.engine.type.LineStyleEnum;
 import net.sf.jasperreports.engine.type.ModeEnum;
@@ -105,8 +105,8 @@ public class TimeSeriesChartBuilderTest extends BaseDjReportTest {
 		drb.addColumn(columnaQuantity);
 		drb.addColumn(columnAmount);
 		
-		drb.addGlobalVariable("min_date", columnDate, DJCalculation.LOWEST);
-		drb.addGlobalVariable("max_date", columnDate, DJCalculation.HIGHEST);
+		drb.addGlobalVariable("min_date", columnDate, CalculationEnum.LOWEST);
+		drb.addGlobalVariable("max_date", columnDate, CalculationEnum.HIGHEST);
 		
 		drb.setUseFullPageWidth(true);
 		

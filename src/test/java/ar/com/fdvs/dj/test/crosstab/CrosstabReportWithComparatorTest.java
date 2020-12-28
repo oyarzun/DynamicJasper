@@ -35,7 +35,6 @@ import java.util.Comparator;
 import java.util.Date;
 
 import ar.com.fdvs.dj.core.DJConstants;
-import ar.com.fdvs.dj.domain.DJCalculation;
 import ar.com.fdvs.dj.domain.DJCrosstab;
 import ar.com.fdvs.dj.domain.DynamicReport;
 import ar.com.fdvs.dj.domain.Style;
@@ -48,6 +47,7 @@ import ar.com.fdvs.dj.test.BaseDjReportTest;
 import ar.com.fdvs.dj.test.TestRepositoryProducts;
 import ar.com.fdvs.dj.test.util.StringUtils;
 import ar.com.fdvs.dj.util.SortUtils;
+import net.sf.jasperreports.engine.type.CalculationEnum;
 import net.sf.jasperreports.engine.type.HorizontalTextAlignEnum;
 import net.sf.jasperreports.engine.type.ModeEnum;
 import net.sf.jasperreports.engine.type.VerticalTextAlignEnum;
@@ -106,8 +106,8 @@ public class CrosstabReportWithComparatorTest extends BaseDjReportTest {
 			.addColumn("State","state",String.class.getName(),false, null, inverseStringComparator)
 			.addColumn("Branch","branch",String.class.getName(), true, "Branch's total")
 			.addColumn("Item", "item", String.class.getName(),true)
-			.addMeasure("id",Long.class.getName(), DJCalculation.SUM , "Id", measureStyle)
-			.addMeasure("amount",Float.class.getName(), DJCalculation.SUM , "Amount",measureStyle)
+			.addMeasure("id",Long.class.getName(), CalculationEnum.SUM , "Id", measureStyle)
+			.addMeasure("amount",Float.class.getName(), CalculationEnum.SUM , "Amount",measureStyle)
 			.setRowStyles(colAndRowHeaderStyle, totalStyle, totalHeaderStyle)
 			.setColumnStyles(colAndRowHeaderStyle, totalStyle, totalHeaderStyle)
 			.setCellDimension(34, 60)

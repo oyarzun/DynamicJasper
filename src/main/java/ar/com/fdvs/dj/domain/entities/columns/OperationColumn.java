@@ -33,8 +33,8 @@ import java.util.Iterator;
 import java.util.List;
 
 import ar.com.fdvs.dj.domain.ColumnOperation;
-import ar.com.fdvs.dj.domain.DJCalculation;
 import ar.com.fdvs.dj.domain.entities.Entity;
+import net.sf.jasperreports.engine.type.CalculationEnum;
 
 /**
  * Column created to handle numerical operations between two or more <br>
@@ -85,13 +85,13 @@ public class OperationColumn extends AbstractColumn {
 		return "variable-"+type+"_"+columnToGroupByProperty+"_"+columnOperation.getValue();
 	}
 
-	public String getVariableClassName(DJCalculation op) {
-		if (op == DJCalculation.COUNT || op == DJCalculation.DISTINCT_COUNT )
+	public String getVariableClassName(CalculationEnum op) {
+		if (op == CalculationEnum.COUNT || op == CalculationEnum.DISTINCT_COUNT )
 			return Long.class.getName();
 		else return Number.class.getName();
 	}
 
-	public String getInitialExpression(DJCalculation op) {
+	public String getInitialExpression(CalculationEnum op) {
 		return "new java.lang.Long(\"0\")";
 	}
 

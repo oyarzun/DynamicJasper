@@ -33,19 +33,19 @@ import org.apache.commons.logging.LogFactory;
 import ar.com.fdvs.dj.domain.BooleanExpression;
 import ar.com.fdvs.dj.domain.CustomExpression;
 import ar.com.fdvs.dj.domain.DJBaseElement;
-import ar.com.fdvs.dj.domain.DJCalculation;
 import ar.com.fdvs.dj.domain.DJGroupLabel;
 import ar.com.fdvs.dj.domain.DJValueFormatter;
 import ar.com.fdvs.dj.domain.Style;
 import ar.com.fdvs.dj.domain.entities.columns.AbstractColumn;
 import ar.com.fdvs.dj.util.ExpressionUtils;
+import net.sf.jasperreports.engine.type.CalculationEnum;
 
 /**
  * Entity used to handle global and group variables that represent the value of <br>
  * an operation applied to the corresponding rows.<br>
  * DJGroupVariable(s) are shown at the header or footer of the column they operate on.
  * <br>
- * @see DJCalculation
+ * @see CalculationEnum
  */
 public class DJGroupVariable extends DJBaseElement {
 	
@@ -54,7 +54,7 @@ public class DJGroupVariable extends DJBaseElement {
 	private static final Log log = LogFactory.getLog(DJGroupVariable.class);
 
 	private AbstractColumn columnToApplyOperation;
-	private DJCalculation operation;
+	private CalculationEnum operation;
 	private Style style;
 	private DJValueFormatter valueFormatter;
 	private BooleanExpression printWhenExpression;
@@ -72,18 +72,18 @@ public class DJGroupVariable extends DJBaseElement {
 	 */
 	private DJGroup group;
 	
-	public DJGroupVariable(AbstractColumn columnToApplyOperation, DJCalculation operation) {
+	public DJGroupVariable(AbstractColumn columnToApplyOperation, CalculationEnum operation) {
 		this.columnToApplyOperation = columnToApplyOperation;
 		this.operation = operation;
 	}
 
-	public DJGroupVariable(AbstractColumn columnToApplyOperation, DJCalculation operation, Style style) {
+	public DJGroupVariable(AbstractColumn columnToApplyOperation, CalculationEnum operation, Style style) {
 		this.columnToApplyOperation = columnToApplyOperation;
 		this.operation = operation;
 		this.style = style;
 	}
 
-	public DJGroupVariable(AbstractColumn columnToApplyOperation, DJCalculation operation, Style style, DJValueFormatter formatter) {
+	public DJGroupVariable(AbstractColumn columnToApplyOperation, CalculationEnum operation, Style style, DJValueFormatter formatter) {
 		this.columnToApplyOperation = columnToApplyOperation;
 		this.operation = operation;
 		this.style = style;
@@ -133,11 +133,11 @@ public class DJGroupVariable extends DJBaseElement {
 		this.columnToApplyOperation = columnToApplyOperation;
 	}
 
-	public DJCalculation getOperation() {
+	public CalculationEnum getOperation() {
 		return operation;
 	}
 
-	public void setOperation(DJCalculation operation) {
+	public void setOperation(CalculationEnum operation) {
 		this.operation = operation;
 	}
 
@@ -162,7 +162,7 @@ public class DJGroupVariable extends DJBaseElement {
 	}
 
 	public DJGroupVariable(AbstractColumn columnToApplyOperation,
-			DJCalculation operation, Style style,
+			CalculationEnum operation, Style style,
 			DJValueFormatter valueFormatter, DJGroupLabel label) {
 		super();
 		this.columnToApplyOperation = columnToApplyOperation;
