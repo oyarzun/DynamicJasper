@@ -118,8 +118,8 @@ public class DJJRDesignHelper {
     protected static void populateBehavioralOptions(DynamicReport dr, DynamicJasperDesign des) {
         DynamicReportOptions options = dr.getOptions();
         des.setColumnCount(options.getColumnsPerPage());
-        des.setWhenNoDataType(WhenNoDataTypeEnum.getByValue(dr.getWhenNoDataType()));
-        des.setWhenResourceMissingType(WhenResourceMissingTypeEnum.getByValue(dr.getWhenResourceMissing()));
+        des.setWhenNoDataType(dr.getWhenNoDataType());
+        des.setWhenResourceMissingType(dr.getWhenResourceMissing());
         des.setTitleNewPage(options.isTitleNewPage());
         des.setIgnorePagination(options.isIgnorePagination());
 

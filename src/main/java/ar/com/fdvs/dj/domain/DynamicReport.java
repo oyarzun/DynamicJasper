@@ -51,6 +51,8 @@ import ar.com.fdvs.dj.domain.entities.Parameter;
 import ar.com.fdvs.dj.domain.entities.columns.AbstractColumn;
 import ar.com.fdvs.dj.domain.entities.columns.ExpressionColumn;
 import ar.com.fdvs.dj.domain.entities.columns.SimpleColumn;
+import net.sf.jasperreports.engine.type.WhenNoDataTypeEnum;
+import net.sf.jasperreports.engine.type.WhenResourceMissingTypeEnum;
 
 /**
  * One of the main classes of this product. It represents the report itself.
@@ -138,7 +140,7 @@ public class DynamicReport extends DJBaseElement {
 	 *
 	 * Defatul is: DJConstants.WHEN_NO_DATA_TYPE_NO_PAGES
 	 */
-	private byte whenNoDataType = DJConstants.WHEN_NO_DATA_TYPE_NO_PAGES;
+	private WhenNoDataTypeEnum whenNoDataType = WhenNoDataTypeEnum.NO_PAGES;
 
 	/**********************
 	 * Defines what to show if a missing resource is referenced
@@ -148,7 +150,7 @@ public class DynamicReport extends DJBaseElement {
 	 * DJConstants.WHEN_RESOURCE_MISSING_TYPE_KEY: Shows the key of the missing resource.<br>
 	 * DJConstants.WHEN_RESOURCE_MISSING_TYPE_NULL: returns NULL
 	 **********************/
-	private byte whenResourceMissing = DJConstants.WHEN_RESOURCE_MISSING_TYPE_KEY;
+	private WhenResourceMissingTypeEnum whenResourceMissing = WhenResourceMissingTypeEnum.KEY;
 
 	private DJWaterMark waterMark;
 
@@ -324,19 +326,19 @@ public class DynamicReport extends DJBaseElement {
 		this.fontsMap = fontsMap;
 	}
 
-	public byte getWhenNoDataType() {
+	public WhenNoDataTypeEnum getWhenNoDataType() {
 		return whenNoDataType;
 	}
 
-	public void setWhenNoDataType(byte whenNoDataType) {
+	public void setWhenNoDataType(WhenNoDataTypeEnum whenNoDataType) {
 		this.whenNoDataType = whenNoDataType;
 	}
 
-	public byte getWhenResourceMissing() {
+	public WhenResourceMissingTypeEnum getWhenResourceMissing() {
 		return whenResourceMissing;
 	}
 
-	public void setWhenResourceMissing(byte whenResourceMissing) {
+	public void setWhenResourceMissing(WhenResourceMissingTypeEnum whenResourceMissing) {
 		this.whenResourceMissing = whenResourceMissing;
 	}
 

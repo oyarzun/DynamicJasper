@@ -44,7 +44,6 @@ import ar.com.fdvs.dj.test.domain.Product;
 import ar.com.fdvs.dj.util.SortUtils;
 import net.sf.jasperreports.engine.JRDataSource;
 import net.sf.jasperreports.engine.data.JRBeanCollectionDataSource;
-import net.sf.jasperreports.engine.type.HorizontalTextAlignEnum;
 import net.sf.jasperreports.engine.type.ScaleImageEnum;
 import net.sf.jasperreports.view.JasperDesignViewer;
 import net.sf.jasperreports.view.JasperViewer;
@@ -55,7 +54,6 @@ public class BarcodeColumnReportTest2 extends BaseDjReportTest {
 	public DynamicReport buildReport() throws Exception {
 
 
-		Style style = new StyleBuilder(true).setHorizontalTextAlignEnum(HorizontalTextAlignEnum.CENTER).build();
 		Style defStyle = new StyleBuilder(true).
 			setBorderBottom(Border.THIN())
 			.setStretching(Stretching.RELATIVE_TO_TALLEST_OBJECT)
@@ -88,14 +86,14 @@ public class BarcodeColumnReportTest2 extends BaseDjReportTest {
 	
 	protected JRDataSource getDataSource() {
 		List<Product> dummyCollection = TestRepositoryProducts.getDummyCollection();
-		dummyCollection.add(new Product( new Long("1"),
+		dummyCollection.add(new Product( 1l,
 				"book",
 				"Harry Potter 7",
 				"Florida",
 				"Main Street, Main Street, Main Street, Main Street, Main Street, Main Street, " +
 				"Main Street, Main Street, Main Street, Main Street, Main Street, Main Street, " +
 				"Main Street, Main Street, Main Street, Main Street, Main Street (end)",
-				new Long("2500"), new Float("10000")));
+				2500l, 10000.0f));
 		dummyCollection = SortUtils.sortCollection(dummyCollection,dr.getColumns());
 
 		//here contains dummy hardcoded objects...

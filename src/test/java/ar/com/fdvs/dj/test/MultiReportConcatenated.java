@@ -12,6 +12,7 @@ import ar.com.fdvs.dj.domain.entities.Subreport;
 import net.sf.jasperreports.engine.JRDataSource;
 import net.sf.jasperreports.engine.JRException;
 import net.sf.jasperreports.engine.JasperPrint;
+import net.sf.jasperreports.engine.type.WhenNoDataTypeEnum;
 import net.sf.jasperreports.view.JasperViewer;
 
 /**
@@ -40,7 +41,7 @@ public class MultiReportConcatenated {
 			try {
 				report.dr = report.buildReport();
 				report.dr.setTitle("REPORT N°: " + i);
-				report.dr.setWhenNoDataType(DJConstants.WHEN_NO_DATA_TYPE_ALL_SECTIONS_NO_DETAIL);
+				report.dr.setWhenNoDataType(WhenNoDataTypeEnum.ALL_SECTIONS_NO_DETAIL);
 				
 				String dataSourcePath = "DataSource" + i;
 				JRDataSource dataSource = report.getDataSource();

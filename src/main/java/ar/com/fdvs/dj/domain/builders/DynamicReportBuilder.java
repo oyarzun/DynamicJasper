@@ -73,6 +73,8 @@ import ar.com.fdvs.dj.domain.entities.columns.PercentageColumn;
 import ar.com.fdvs.dj.domain.entities.columns.PropertyColumn;
 import net.sf.jasperreports.engine.JasperReport;
 import net.sf.jasperreports.engine.type.ScaleImageEnum;
+import net.sf.jasperreports.engine.type.WhenNoDataTypeEnum;
+import net.sf.jasperreports.engine.type.WhenResourceMissingTypeEnum;
 
 /**
  * Builder created to give users a friendly way of creating a
@@ -1432,7 +1434,7 @@ public class DynamicReportBuilder {
      *
      * @return A Dynamic Report Builder
      */
-    public DynamicReportBuilder setWhenNoDataType(byte whenNoDataType) {
+    public DynamicReportBuilder setWhenNoDataType(WhenNoDataTypeEnum whenNoDataType) {
         this.report.setWhenNoDataType(whenNoDataType);
         return this;
     }
@@ -1442,7 +1444,7 @@ public class DynamicReportBuilder {
      * @see DynamicReportBuilder#setWhenNoDataType
      */
     public DynamicReportBuilder setWhenNoDataNoPages() {
-        this.report.setWhenNoDataType(DJConstants.WHEN_NO_DATA_TYPE_NO_PAGES);
+        this.report.setWhenNoDataType(WhenNoDataTypeEnum.NO_PAGES);
         return this;
     }
 
@@ -1451,7 +1453,7 @@ public class DynamicReportBuilder {
      * @see DynamicReportBuilder#setWhenNoDataType
      */
     public DynamicReportBuilder setWhenNoDataBlankPage() {
-        this.report.setWhenNoDataType(DJConstants.WHEN_NO_DATA_TYPE_BLANK_PAGE);
+        this.report.setWhenNoDataType(WhenNoDataTypeEnum.BLANK_PAGE);
         return this;
     }
 
@@ -1460,7 +1462,7 @@ public class DynamicReportBuilder {
      * @see DynamicReportBuilder#setWhenNoDataType
      */
     public DynamicReportBuilder setWhenNoDataAllSectionNoDetail() {
-        this.report.setWhenNoDataType(DJConstants.WHEN_NO_DATA_TYPE_ALL_SECTIONS_NO_DETAIL);
+        this.report.setWhenNoDataType(WhenNoDataTypeEnum.ALL_SECTIONS_NO_DETAIL);
         return this;
     }
 
@@ -1469,7 +1471,7 @@ public class DynamicReportBuilder {
      * @see DynamicReportBuilder#setWhenNoDataType
      */
     public DynamicReportBuilder setWhenNoDataShowNoDataSection() {
-        this.report.setWhenNoDataType(DJConstants.WHEN_NO_DATA_TYPE_NO_DATA_SECTION);
+        this.report.setWhenNoDataType(WhenNoDataTypeEnum.NO_DATA_SECTION);
         return this;
     }
 
@@ -1485,28 +1487,28 @@ public class DynamicReportBuilder {
      * @param whenResourceMissing
      * @return
      */
-    public DynamicReportBuilder setWhenResourceMissing(byte whenResourceMissing) {
+    public DynamicReportBuilder setWhenResourceMissing(WhenResourceMissingTypeEnum whenResourceMissing) {
         this.report.setWhenResourceMissing(whenResourceMissing);
         return this;
     }
 
     public DynamicReportBuilder setWhenResourceMissingLeaveEmptySpace() {
-        this.report.setWhenResourceMissing(DJConstants.WHEN_RESOURCE_MISSING_TYPE_EMPTY);
+        this.report.setWhenResourceMissing(WhenResourceMissingTypeEnum.EMPTY);
         return this;
     }
 
     public DynamicReportBuilder setWhenResourceMissingThrowException() {
-        this.report.setWhenResourceMissing(DJConstants.WHEN_RESOURCE_MISSING_TYPE_ERROR);
+        this.report.setWhenResourceMissing(WhenResourceMissingTypeEnum.ERROR);
         return this;
     }
 
     public DynamicReportBuilder setWhenResourceMissingShowKey() {
-        this.report.setWhenResourceMissing(DJConstants.WHEN_RESOURCE_MISSING_TYPE_KEY);
+        this.report.setWhenResourceMissing(WhenResourceMissingTypeEnum.KEY);
         return this;
     }
 
     public DynamicReportBuilder setWhenResourceMissingReturnNull() {
-        this.report.setWhenResourceMissing(DJConstants.WHEN_RESOURCE_MISSING_TYPE_NULL);
+        this.report.setWhenResourceMissing(WhenResourceMissingTypeEnum.NULL);
         return this;
     }
 
@@ -1521,7 +1523,7 @@ public class DynamicReportBuilder {
     public DynamicReportBuilder setWhenNoData(String text, Style style) {
         this.report.setWhenNoDataStyle(style);
         this.report.setWhenNoDataText(text);
-        this.report.setWhenNoDataType(DJConstants.WHEN_NO_DATA_TYPE_NO_DATA_SECTION);
+        this.report.setWhenNoDataType(WhenNoDataTypeEnum.NO_DATA_SECTION);
         return this;
     }
 
@@ -1537,7 +1539,7 @@ public class DynamicReportBuilder {
     public DynamicReportBuilder setWhenNoData(String text, Style style, boolean showTitle, boolean showColumnHeader) {
         this.report.setWhenNoDataStyle(style);
         this.report.setWhenNoDataText(text);
-        this.report.setWhenNoDataType(DJConstants.WHEN_NO_DATA_TYPE_NO_DATA_SECTION);
+        this.report.setWhenNoDataType(WhenNoDataTypeEnum.NO_DATA_SECTION);
         this.report.setWhenNoDataShowColumnHeader(showColumnHeader);
         this.report.setWhenNoDataShowTitle(showTitle);
         return this;

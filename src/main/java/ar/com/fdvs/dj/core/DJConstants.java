@@ -29,9 +29,6 @@
 
 package ar.com.fdvs.dj.core;
 
-import net.sf.jasperreports.engine.type.WhenNoDataTypeEnum;
-import net.sf.jasperreports.engine.type.WhenResourceMissingTypeEnum;
-
 /**
  * See value of constants here: 
  * http://jasperreports.sourceforge.net/api/constant-values.html
@@ -79,16 +76,6 @@ public interface DJConstants {
 	String QUERY_LANGUAGE_HQL = "hql";
 	String QUERY_LANGUAGE_XPATH = "xPath";
 	String QUERY_LANGUAGE_MONDRIAN = "mdx";
-
-	byte WHEN_NO_DATA_TYPE_NO_PAGES = WhenNoDataTypeEnum.NO_PAGES.getValue();
-	byte WHEN_NO_DATA_TYPE_BLANK_PAGE = WhenNoDataTypeEnum.BLANK_PAGE.getValue();
-	byte WHEN_NO_DATA_TYPE_ALL_SECTIONS_NO_DETAIL = WhenNoDataTypeEnum.ALL_SECTIONS_NO_DETAIL.getValue();
-	byte WHEN_NO_DATA_TYPE_NO_DATA_SECTION = WhenNoDataTypeEnum.NO_DATA_SECTION.getValue();
-
-	byte WHEN_RESOURCE_MISSING_TYPE_EMPTY = WhenResourceMissingTypeEnum.EMPTY.getValue();
-	byte WHEN_RESOURCE_MISSING_TYPE_ERROR = WhenResourceMissingTypeEnum.ERROR.getValue();
-	byte WHEN_RESOURCE_MISSING_TYPE_KEY = WhenResourceMissingTypeEnum.KEY.getValue();
-	byte WHEN_RESOURCE_MISSING_TYPE_NULL = WhenResourceMissingTypeEnum.NULL.getValue();
 
 	int SUBREPORT_PARAM_ORIGIN_FIELD = 1;
 	int SUBREPORT_PARAM_ORIGIN_PARAMETER = 2;

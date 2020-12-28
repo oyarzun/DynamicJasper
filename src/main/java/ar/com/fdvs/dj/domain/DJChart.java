@@ -41,7 +41,6 @@ import net.sf.jasperreports.engine.type.CalculationEnum;
 /**
  * Charts to be displayed by dynamicjasper
  * @author msimone
- * @deprecated
  */
 public class DJChart extends DJBaseElement{
 
