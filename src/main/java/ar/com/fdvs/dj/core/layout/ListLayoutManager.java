@@ -32,8 +32,8 @@ package ar.com.fdvs.dj.core.layout;
 import java.util.HashMap;
 import java.util.Map;
 
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import ar.com.fdvs.dj.domain.entities.columns.AbstractColumn;
 import net.sf.jasperreports.engine.design.JRDesignBand;
@@ -47,7 +47,7 @@ import net.sf.jasperreports.engine.design.JRDesignTextField;
  */
 public class ListLayoutManager extends AbstractLayoutManager {
 
-    private static final Log log = LogFactory.getLog(ListLayoutManager.class);
+    private static final Logger log = LoggerFactory.getLogger(ListLayoutManager.class);
 
     protected Map<String, Object> referencesMap = new HashMap<String, Object>();
 

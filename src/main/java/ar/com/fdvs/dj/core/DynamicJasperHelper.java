@@ -46,8 +46,8 @@ import java.util.MissingResourceException;
 import java.util.Random;
 import java.util.ResourceBundle;
 
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import ar.com.fdvs.dj.core.layout.LayoutManager;
 import ar.com.fdvs.dj.core.registration.ColumnRegistrationManager;
@@ -86,7 +86,8 @@ import net.sf.jasperreports.engine.xml.JRXmlWriter;
  */
 public class DynamicJasperHelper {
 
-    private static final Log log = LogFactory.getLog(DynamicJasperHelper.class);
+    private static final Logger log = LoggerFactory.getLogger(DynamicJasperHelper.class);
+    
     public static final String DEFAULT_XML_ENCODING = "UTF-8";
     private static final String DJ_RESOURCE_BUNDLE = "dj-messages";
 
@@ -513,7 +514,6 @@ public class DynamicJasperHelper {
         return generateJasperReport(dr, layoutManager, generatedParams, "r");
     }
 
-    @SuppressWarnings("unchecked")
     public static JasperReport generateJasperReport(DynamicReport dr, LayoutManager layoutManager, Map generatedParams, String nameprefix) throws JRException {
         log.info("generating JasperReport with prefix: " + nameprefix);
         JasperReport jr;
@@ -556,7 +556,6 @@ public class DynamicJasperHelper {
      * @param _parameters
      * @throws JRException
      */
-    @SuppressWarnings("unchecked")
     protected static void visitSubreports(DynamicReport dr, Map _parameters) {
         for (DJGroup group : dr.getColumnsGroups()) {
             //Header Subreports

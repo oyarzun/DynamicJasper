@@ -31,8 +31,8 @@ package ar.com.fdvs.dj.core;
 
 import java.awt.image.BufferedImage;
 
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import net.sourceforge.barbecue.Barcode;
 import net.sourceforge.barbecue.BarcodeFactory;
@@ -41,10 +41,8 @@ import net.sourceforge.barbecue.linear.code39.Code39Barcode;
 import net.sourceforge.barbecue.linear.ean.UCCEAN128Barcode;
 
 public class BarcodeHelper implements BarcodeTypes {
-	/**
-	 * Logger for this class
-	 */
-	private static final Log logger = LogFactory.getLog(BarcodeHelper.class);
+    private static final Logger log = LoggerFactory.getLogger(BarcodeHelper.class);
+
 
 	private static Barcode bc = null;
 
@@ -158,7 +156,7 @@ public class BarcodeHelper implements BarcodeTypes {
 	        return BarcodeImageHandler.getImage(bc);
 
         } catch (Exception e) {
-			logger.error("Error generating BarCode," + e.getMessage(),e);
+			log.error("Error generating BarCode," + e.getMessage(),e);
 		}
 		return null;
     }

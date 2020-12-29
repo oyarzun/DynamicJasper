@@ -33,8 +33,8 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import net.sf.jasperreports.engine.JRException;
 import net.sf.jasperreports.engine.JasperPrint;
@@ -52,8 +52,9 @@ public class ReportExporter {
     /**
      * Logger for this class
      */
-    private static final Log logger = LogFactory.getLog(ReportExporter.class);
-
+    
+    private static final Logger log = LoggerFactory.getLogger(ReportExporter.class);
+    
     /**
      * The path to the file must exist.
      *
@@ -63,7 +64,7 @@ public class ReportExporter {
      * @throws FileNotFoundException
      */
     public static void exportReport(JasperPrint jp, String path) throws JRException, FileNotFoundException {
-        logger.debug("Exporing report to: " + path);
+        log.debug("Exporing report to: {}", path);
         JRPdfExporter exporter = new JRPdfExporter();
 
         File outputFile = new File(path);
@@ -80,7 +81,7 @@ public class ReportExporter {
 
         exporter.exportReport();
 
-        logger.debug("Report exported: " + path);
+        log.debug("Report exported: {}", path);
     }
 
     public static void exportReportXls(JasperPrint jp, String path, SimpleXlsReportConfiguration configuration) throws JRException, FileNotFoundException {
@@ -102,7 +103,7 @@ public class ReportExporter {
 
         exporter.exportReport();
 
-        logger.debug("Xlsx Report exported: " + path);
+        log.debug("Xlsx Report exported: {}", path);
     }
 
     public static void exportReportXls(JasperPrint jp, String path) throws JRException, FileNotFoundException {
@@ -135,7 +136,7 @@ public class ReportExporter {
 
         exporter.exportReport();
 
-        logger.debug("HTML Report exported: " + path);
+        log.debug("HTML Report exported: {}", path);
     }
 
 }

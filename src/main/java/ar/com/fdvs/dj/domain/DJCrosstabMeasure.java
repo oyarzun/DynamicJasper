@@ -33,8 +33,8 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import ar.com.fdvs.dj.domain.entities.Entity;
 import ar.com.fdvs.dj.domain.entities.conditionalStyle.ConditionalStyle;
@@ -46,7 +46,7 @@ public class DJCrosstabMeasure extends DJBaseElement {
 	/**
 	 * Logger for this class
 	 */
-	private static final Log logger = LogFactory.getLog(DJCrosstabMeasure.class);
+	private static final Logger log = LoggerFactory.getLogger(DJCrosstabMeasure.class);
 
 	/**
 	 * Logger for this class
@@ -179,7 +179,7 @@ public class DJCrosstabMeasure extends DJBaseElement {
                     + "$V{"+variableName+"}, " + fieldsMap +", " + variablesMap + ", " + parametersMap +" ))";
         }
 
-        logger.debug("Expression for crosstab DJValueFormatter = " + stringExpression);
+        log.debug("Expression for crosstab DJValueFormatter = {} ", stringExpression);
 
 		return stringExpression;
 	}

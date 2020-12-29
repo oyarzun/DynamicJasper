@@ -38,8 +38,8 @@ import java.util.List;
 import java.util.Random;
 
 import org.apache.commons.beanutils.BeanUtils;
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import ar.com.fdvs.dj.core.DJDefaultScriptlet;
 import ar.com.fdvs.dj.core.registration.EntitiesRegistrationException;
@@ -85,7 +85,7 @@ import net.sf.jasperreports.engine.type.TextAdjustEnum;
 
 public class Dj2JrCrosstabBuilder {
 
-	private static final Log log = LogFactory.getLog(Dj2JrCrosstabBuilder.class);
+	private static final Logger log = LoggerFactory.getLogger(Dj2JrCrosstabBuilder.class);
 	private static final Random random = new Random();
 
 	private JasperDesign design;

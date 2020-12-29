@@ -38,8 +38,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import ar.com.fdvs.dj.core.DynamicJasperHelper;
 import ar.com.fdvs.dj.core.layout.ClassicLayoutManager;
@@ -59,7 +59,7 @@ public abstract class BaseDjReportTest extends TestCase {
         return params;
     }
 
-    protected static final Log log = LogFactory.getLog(BaseDjReportTest.class);
+    protected static final Logger log = LoggerFactory.getLogger(BaseDjReportTest.class);
 
     protected JasperPrint jp;
     protected JasperReport jr;

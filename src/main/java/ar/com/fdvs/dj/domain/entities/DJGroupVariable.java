@@ -27,8 +27,8 @@
 
 package ar.com.fdvs.dj.domain.entities;
 
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import ar.com.fdvs.dj.domain.BooleanExpression;
 import ar.com.fdvs.dj.domain.CustomExpression;
@@ -51,7 +51,7 @@ public class DJGroupVariable extends DJBaseElement {
 	
 	private static final long serialVersionUID = Entity.SERIAL_VERSION_UID;
 	
-	private static final Log log = LogFactory.getLog(DJGroupVariable.class);
+	private static final Logger log = LoggerFactory.getLogger(DJGroupVariable.class);
 
 	private AbstractColumn columnToApplyOperation;
 	private CalculationEnum operation;
@@ -111,7 +111,7 @@ public class DJGroupVariable extends DJBaseElement {
 		String stringExpression = "((("+DJValueFormatter.class.getName()+")$P{"+variableName+"_vf}).evaluate( "
 			+ "$V{"+variableName+"}, " + fieldsMap +", " + variablesMap + ", " + parametersMap +" ))";
 
-		log.debug("Expression for DJValueFormatter = " + stringExpression);
+		log.debug("Expression for DJValueFormatter = {}", stringExpression);
 
 		return stringExpression;
 	}	
@@ -155,10 +155,6 @@ public class DJGroupVariable extends DJBaseElement {
 
 	public void setLabel(DJGroupLabel label) {
 		this.label = label;
-	}
-
-	public static Log getLog() {
-		return log;
 	}
 
 	public DJGroupVariable(AbstractColumn columnToApplyOperation,

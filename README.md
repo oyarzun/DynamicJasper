@@ -1,3 +1,11 @@
+# About this fork
+
+DynamicJasper is a VERY NICE™ library that helps driving reports programatically. But it is showing its age, and the cost of backwads compatibility is just too high. Webworks is 15 years dead. Byte mungling and static instances are replaced by enums since 20 yeras ago.
+
+This fork started to add Java 11 compatibility. Now it is full striped down, not compatible, DynamicJasper replacement. If you start fresh and target Java 11+ take this version instead.
+
+The maven group is changed to reflect the incompatibility, but the packages are keep to preserve better upstream merging and code migration. If original authors wants them changed, just drop me a comment to mcosta (at) nebulo.se.
+
 # DynamicJasper
 
 DynamicJasper (DJ) is an API that hides the complexity of __JasperReports__, it helps developers to save time when designing 

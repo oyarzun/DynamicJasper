@@ -1,7 +1,7 @@
 package ar.com.fdvs.dj.core.registration;
 
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import ar.com.fdvs.dj.core.layout.LayoutManager;
 import ar.com.fdvs.dj.domain.DJCrosstab;
@@ -11,7 +11,7 @@ import ar.com.fdvs.dj.domain.entities.Entity;
 
 public class DJCrosstabRegistrationManager extends AbstractEntityRegistrationManager {
 
-	private static final Log log = LogFactory.getLog(DJCrosstabRegistrationManager.class);
+	private static final Logger log = LoggerFactory.getLogger(DJCrosstabRegistrationManager.class);
 	private String type;
 	
 	public DJCrosstabRegistrationManager(String type, DynamicJasperDesign jd,  DynamicReport dr, LayoutManager layoutManager) {

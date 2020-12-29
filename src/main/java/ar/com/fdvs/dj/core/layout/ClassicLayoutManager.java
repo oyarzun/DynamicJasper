@@ -36,8 +36,8 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import ar.com.fdvs.dj.core.CoreException;
 import ar.com.fdvs.dj.core.DJConstants;
@@ -101,7 +101,7 @@ public class ClassicLayoutManager extends AbstractLayoutManager {
 
 	protected static final int SUBREPORT_DEFAULT_HEIGHT = 30;
 
-	private static final Log log = LogFactory.getLog(ClassicLayoutManager.class);
+	private static final Logger log = LoggerFactory.getLogger(ClassicLayoutManager.class);
 
 	protected static final String EXPRESSION_TRUE_WHEN_NOT_FIRST_PAGE = "new java.lang.Boolean(((Number)$V{PAGE_NUMBER}).doubleValue() != 1)";
 	protected static final String EXPRESSION_TRUE_WHEN_FIRST_PAGE = "new java.lang.Boolean(((Number)$V{PAGE_NUMBER}).doubleValue() == 1)";

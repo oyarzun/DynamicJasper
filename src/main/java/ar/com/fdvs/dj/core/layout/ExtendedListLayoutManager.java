@@ -1,7 +1,7 @@
 package ar.com.fdvs.dj.core.layout;
 
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import ar.com.fdvs.dj.util.Utils;
 import net.sf.jasperreports.engine.design.JRDesignBand;
@@ -15,7 +15,7 @@ import net.sf.jasperreports.engine.type.StretchTypeEnum;
  */
 public class ExtendedListLayoutManager extends ListLayoutManager {
 
-    private static final Log log = LogFactory.getLog(ListLayoutManager.class);
+    private static final Logger log = LoggerFactory.getLogger(ListLayoutManager.class);
 
     @Override
     protected void startLayout() {

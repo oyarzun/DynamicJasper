@@ -52,7 +52,7 @@ public class ReflectiveReportTest extends TestCase {
 	/**
 	 * Test N� 1. With only the collection, the ReflectiveReportBuilder make some guesses
 	 */
-	public void testReport() {
+	public void testReport() throws Exception {
         final Collection data = TestRepositoryProducts.getDummyCollection();
         DynamicReport dynamicReport = new ReflectiveReportBuilder(data).build();
 		doReport(dynamicReport, data, "");
@@ -61,7 +61,7 @@ public class ReflectiveReportTest extends TestCase {
 	/**
 	 * Test N�2, the same but we tell the builder the order of the columns, we also add 3 groups
 	 */
-	public void testOrderedReport() {
+	public void testOrderedReport() throws Exception {
         final Collection data = TestRepositoryProducts.getDummyCollection();
         final List items = SortUtils.sortCollection(data, Arrays.asList(new String[]{"productLine", "item", "state"}));
         String[] columOrders = new String[]{"productLine", "item", "state", "id", "branch", "quantity", "amount"};
@@ -81,7 +81,7 @@ public class ReflectiveReportTest extends TestCase {
 		}
 	}
 
-	public static void main(final String[] _args) {
+	public static void main(final String[] _args) throws Exception  {
         final ReflectiveReportTest reportTest = new ReflectiveReportTest();
         reportTest.testReport();
         reportTest.testOrderedReport();

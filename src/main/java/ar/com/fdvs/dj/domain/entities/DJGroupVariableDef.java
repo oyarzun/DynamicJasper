@@ -29,9 +29,6 @@
 
 package ar.com.fdvs.dj.domain.entities;
 
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
-
 import ar.com.fdvs.dj.domain.ColumnProperty;
 import ar.com.fdvs.dj.domain.entities.columns.AbstractColumn;
 import net.sf.jasperreports.engine.type.CalculationEnum;
@@ -48,8 +45,6 @@ import net.sf.jasperreports.engine.type.CalculationEnum;
  */
 public class DJGroupVariableDef implements Entity {
 	
-	private static final Log log = LogFactory.getLog(DJGroupVariableDef.class);
-
 	private String name;
 	private AbstractColumn columnToApplyOperation;
 	private ColumnProperty columnProperty;
@@ -90,10 +85,6 @@ public class DJGroupVariableDef implements Entity {
 
 	public void setName(String name) {
 		this.name = name;
-	}
-
-	public static Log getLog() {
-		return log;
 	}
 
 	public ColumnProperty getColumnProperty() {

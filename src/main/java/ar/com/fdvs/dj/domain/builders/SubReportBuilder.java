@@ -33,8 +33,8 @@ import java.io.File;
 import java.io.IOException;
 import java.net.URL;
 
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import ar.com.fdvs.dj.core.DJConstants;
 import ar.com.fdvs.dj.core.DynamicJasperHelper;
@@ -49,10 +49,7 @@ import net.sf.jasperreports.engine.JasperReport;
 import net.sf.jasperreports.engine.util.JRLoader;
 
 public class SubReportBuilder {
-	/**
-	 * Logger for this class
-	 */
-	private static final Log logger = LogFactory.getLog(SubReportBuilder.class);
+    private static final Logger log = LoggerFactory.getLogger(SubReportBuilder.class);
 
 
 	private Subreport subreport = new Subreport();
@@ -66,14 +63,14 @@ public class SubReportBuilder {
 			JasperReport jr;
 			File file = new File(subreport.getPath());
 			if (file.exists()){
-				logger.debug("Loading subreport from file path");
+				log.debug("Loading subreport from file path");
 				try {
 					jr = (JasperReport) JRLoader.loadObject(file);
 				} catch (JRException e) {
 					throw new DJBuilderException("Could not load subreport.",e);
 				}
 			} else {
-				logger.debug("Loading subreport from classpath");
+				log.debug("Loading subreport from classpath");
 				URL url = DynamicJasperHelper.class.getClassLoader().getResource(subreport.getPath());
 				try {
 					jr = (JasperReport) JRLoader.loadObject(url.openStream());

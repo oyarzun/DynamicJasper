@@ -31,8 +31,8 @@ package ar.com.fdvs.dj.core.registration;
 
 import java.util.List;
 
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import ar.com.fdvs.dj.core.layout.LayoutManager;
 import ar.com.fdvs.dj.domain.DJValueFormatter;
@@ -62,7 +62,7 @@ import net.sf.jasperreports.engine.type.ResetTypeEnum;
  */
 public class ColumnsGroupVariablesRegistrationManager extends AbstractEntityRegistrationManager {
 
-	private static final Log log = LogFactory.getLog(ColumnsGroupVariablesRegistrationManager.class);
+	private static final Logger log = LoggerFactory.getLogger(ColumnsGroupVariablesRegistrationManager.class);
 
     /**
      * It can be "header" o "footer"

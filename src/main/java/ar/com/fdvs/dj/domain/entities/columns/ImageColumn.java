@@ -29,8 +29,8 @@
 
 package ar.com.fdvs.dj.domain.entities.columns;
 
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import ar.com.fdvs.dj.core.DJException;
 import ar.com.fdvs.dj.domain.entities.Entity;
@@ -46,7 +46,7 @@ public class ImageColumn extends ExpressionColumn {
 
 	private static final long serialVersionUID = Entity.SERIAL_VERSION_UID;
 	
-	private static final Log log = LogFactory.getLog(ImageColumn.class);
+	private static final Logger log = LoggerFactory.getLogger(ImageColumn.class);
 	
 	private ScaleImageEnum scaleMode = ScaleImageEnum.RETAIN_SHAPE;
 

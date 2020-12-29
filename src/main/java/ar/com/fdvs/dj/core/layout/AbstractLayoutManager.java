@@ -36,19 +36,17 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Date;
 import java.util.HashMap;
-import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import java.util.Random;
+import java.util.stream.Collectors;
 
 import javax.imageio.ImageIO;
 
-import org.apache.commons.collections.CollectionUtils;
-import org.apache.commons.collections.Predicate;
 import org.apache.commons.collections4.MultiValuedMap;
 import org.apache.commons.collections4.multimap.ArrayListValuedHashMap;
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import ar.com.fdvs.dj.core.DJException;
 import ar.com.fdvs.dj.domain.DJWaterMark;
@@ -108,8 +106,8 @@ import net.sf.jasperreports.engine.util.JRExpressionUtil;
  */
 public abstract class AbstractLayoutManager implements LayoutManager {
 
-    private static final Log log = LogFactory.getLog(AbstractLayoutManager.class);
-
+    private static final Logger log = LoggerFactory.getLogger(AbstractLayoutManager.class);
+    
     protected static final String EXPRESSION_TRUE_WHEN_ODD = "new java.lang.Boolean(((Number)$V{REPORT_COUNT}).doubleValue() % 2 == 0)";
 
     protected static final String EXPRESSION_TRUE_WHEN_EVEN = "new java.lang.Boolean(((Number)$V{REPORT_COUNT}).doubleValue() % 2 != 0)";
@@ -603,7 +601,7 @@ public abstract class AbstractLayoutManager implements LayoutManager {
         int printableArea = report.getOptions().getColumnWidth();
 
         //Create a list with only the visible columns.
-        List visibleColums = getVisibleColumns();
+        List<AbstractColumn> visibleColums = getVisibleColumns();
 
 
         if (report.getOptions().isUseFullPageWidth()) {
@@ -631,16 +629,10 @@ public abstract class AbstractLayoutManager implements LayoutManager {
             int colFinalWidth;
 
             //Select the non-resizable columns
-            Collection resizableColumns = CollectionUtils.select(visibleColums, new Predicate() {
-                public boolean evaluate(Object arg0) {
-                    return !((AbstractColumn) arg0).isFixedWidth();
-                }
-
-            });
-
+            var resizableColumns =  visibleColums.stream().filter(c -> !c.isFixedWidth()).collect(Collectors.toList());
             //Finally, set the new width to the resizable columns
-            for (Iterator iter = resizableColumns.iterator(); iter.hasNext(); ) {
-                AbstractColumn col = (AbstractColumn) iter.next();
+            for (var iter = resizableColumns.iterator(); iter.hasNext(); ) {
+                AbstractColumn col = iter.next();
 
                 if (!iter.hasNext()) {
                     col.setWidth(printableArea - notRezisableWidth - acumulated);

@@ -29,8 +29,8 @@
 
 package ar.com.fdvs.dj.core.registration;
 
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import ar.com.fdvs.dj.core.layout.LayoutManager;
 import ar.com.fdvs.dj.domain.CustomExpression;
@@ -58,7 +58,7 @@ import net.sf.jasperreports.engine.type.CalculationEnum;
  */
 public class DJGroupRegistrationManager extends AbstractEntityRegistrationManager {
 
-	private static final Log log = LogFactory.getLog(DJGroupRegistrationManager.class);
+	private static final Logger log = LoggerFactory.getLogger(DJGroupRegistrationManager.class);
 
 	public DJGroupRegistrationManager(DynamicJasperDesign jd, DynamicReport dr, LayoutManager layoutManager) {
 		super(jd,dr,layoutManager);

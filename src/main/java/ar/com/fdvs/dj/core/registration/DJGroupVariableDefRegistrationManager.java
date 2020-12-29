@@ -29,8 +29,8 @@
 
 package ar.com.fdvs.dj.core.registration;
 
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import ar.com.fdvs.dj.core.layout.LayoutManager;
 import ar.com.fdvs.dj.domain.ColumnProperty;
@@ -58,7 +58,7 @@ import net.sf.jasperreports.engine.type.ResetTypeEnum;
  */
 public class DJGroupVariableDefRegistrationManager extends AbstractEntityRegistrationManager {
 
-	private static final Log log = LogFactory.getLog(DJGroupVariableDefRegistrationManager.class);
+	private static final Logger log = LoggerFactory.getLogger(DJGroupVariableDefRegistrationManager.class);
 	JRDesignGroup group = null;
 	
 	public DJGroupVariableDefRegistrationManager(DynamicJasperDesign jd,  DynamicReport dr, LayoutManager layoutManager, JRDesignGroup group) {

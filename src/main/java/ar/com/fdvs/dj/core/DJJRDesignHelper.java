@@ -33,8 +33,8 @@ import java.lang.reflect.InvocationTargetException;
 import java.util.List;
 
 import org.apache.commons.beanutils.BeanUtils;
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import ar.com.fdvs.dj.domain.DJQuery;
 import ar.com.fdvs.dj.domain.DynamicJasperDesign;
@@ -62,7 +62,7 @@ import net.sf.jasperreports.engine.type.PrintOrderEnum;
 
 public class DJJRDesignHelper {
 
-    private static final Log log = LogFactory.getLog(DJJRDesignHelper.class);
+    private static final Logger log = LoggerFactory.getLogger(DJJRDesignHelper.class);
 
     public static DynamicJasperDesign getNewDesign(DynamicReport dr) {
         log.info("Creating DynamicJasperDesign");

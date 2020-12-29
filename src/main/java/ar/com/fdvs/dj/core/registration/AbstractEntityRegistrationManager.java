@@ -31,8 +31,8 @@ package ar.com.fdvs.dj.core.registration;
 
 import java.util.Collection;
 
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import ar.com.fdvs.dj.core.DJConstants;
 import ar.com.fdvs.dj.core.layout.AbstractLayoutManager;
@@ -61,7 +61,7 @@ import net.sf.jasperreports.engine.design.JRDesignParameter;
  */
 public abstract class AbstractEntityRegistrationManager implements DJConstants {
 
-	private static final Log log = LogFactory.getLog(AbstractEntityRegistrationManager.class);
+	private static final Logger log = LoggerFactory.getLogger(AbstractEntityRegistrationManager.class);
 
 	private DynamicJasperDesign djd;
 

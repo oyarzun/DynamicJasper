@@ -1,14 +1,14 @@
 package ar.com.fdvs.dj.test.hibernate;
 
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.hibernate.cfg.Configuration;
 
 import java.net.URL;
 
 public class TestSchema {
 
-    private static final Log log = LogFactory.getLog(TestSchema.class);
+    private static final Logger log = LoggerFactory.getLogger(TestSchema.class);
     
     public static void buildConfiguration() {
         String db_path = TestSchema.class.getResource("/hsql").getPath();

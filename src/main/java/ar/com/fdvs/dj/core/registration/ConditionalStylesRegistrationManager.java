@@ -29,8 +29,8 @@
 
 package ar.com.fdvs.dj.core.registration;
 
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import ar.com.fdvs.dj.core.layout.LayoutManager;
 import ar.com.fdvs.dj.domain.DynamicJasperDesign;
@@ -47,7 +47,7 @@ import ar.com.fdvs.dj.domain.entities.conditionalStyle.ConditionalStyle;
  */
 public class ConditionalStylesRegistrationManager extends AbstractEntityRegistrationManager {
 
-	private static final Log log = LogFactory.getLog(ConditionalStylesRegistrationManager.class);
+	private static final Logger log = LoggerFactory.getLogger(ConditionalStylesRegistrationManager.class);
 	private String columnName;
 	int counter = 0;
 

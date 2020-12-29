@@ -29,13 +29,13 @@
 
 package ar.com.fdvs.dj.util;
 
-import org.apache.commons.beanutils.PropertyUtils;
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
-
 import java.lang.reflect.InvocationTargetException;
 import java.util.Comparator;
 import java.util.List;
+
+import org.apache.commons.beanutils.PropertyUtils;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  * @author Alejandro Gomez
@@ -44,7 +44,7 @@ import java.util.List;
 */
 public class MultiPropertyComparator<T> implements Comparator<T> {
 
-    private static final Log LOGGER = LogFactory.getLog(MultiPropertyComparator.class);
+    private static final Logger log = LoggerFactory.getLogger(MultiPropertyComparator.class);
 
     private final List info;
 
@@ -66,12 +66,8 @@ public class MultiPropertyComparator<T> implements Comparator<T> {
                 final Comparable value1 = getValue(o1, propertyName);
                 final Comparable value2 = getValue(o2, propertyName);
                 result = compare(value1, value2) * (sortInfo.isAscending() ? 1 : -1);
-            } catch (IllegalAccessException ex) {
-                LOGGER.warn(ex);
-            } catch (InvocationTargetException ex) {
-                LOGGER.warn(ex);
-            } catch (NoSuchMethodException ex) {
-                LOGGER.warn(ex);
+            } catch (Exception ex) {
+                log.warn("Error comparing "+ex.getMessage());
             }
         }
         return result;

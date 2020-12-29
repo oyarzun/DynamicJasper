@@ -4,8 +4,8 @@ import java.lang.reflect.Constructor;
 import java.util.Map;
 
 import org.apache.commons.beanutils.BeanUtils;
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import ar.com.fdvs.dj.core.DJException;
 import ar.com.fdvs.dj.core.layout.LayoutManager;
@@ -31,7 +31,7 @@ import net.sf.jasperreports.engine.type.SplitTypeEnum;
 
 public class LayoutUtils {
 	
-	static final Log log = LogFactory.getLog(LayoutUtils.class);
+	static final Logger log = LoggerFactory.getLogger(LayoutUtils.class);
 	
 	/**
 	 * Finds "Y" coordinate value in which more elements could be added in the band
