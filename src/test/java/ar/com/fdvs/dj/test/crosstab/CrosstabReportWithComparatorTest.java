@@ -45,7 +45,6 @@ import ar.com.fdvs.dj.domain.constants.Border;
 import ar.com.fdvs.dj.domain.constants.Font;
 import ar.com.fdvs.dj.test.BaseDjReportTest;
 import ar.com.fdvs.dj.test.TestRepositoryProducts;
-import ar.com.fdvs.dj.test.util.StringUtils;
 import ar.com.fdvs.dj.util.SortUtils;
 import net.sf.jasperreports.engine.type.CalculationEnum;
 import net.sf.jasperreports.engine.type.HorizontalTextAlignEnum;
@@ -87,7 +86,7 @@ public class CrosstabReportWithComparatorTest extends BaseDjReportTest {
 		Comparator inverseStringComparator = new Comparator() {
 			@Override
 			public int compare(Object o1, Object o2) {
-				return -1 * StringUtils.compare((String) o1, (String) o2);
+                return -1 * (""+o1).compareTo(""+o2);
 			}
 		};
 

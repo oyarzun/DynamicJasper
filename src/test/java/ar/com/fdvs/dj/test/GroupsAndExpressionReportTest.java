@@ -158,8 +158,6 @@ public class GroupsAndExpressionReportTest extends BaseDjReportTest {
 				.setStartInNewPage(true)
 				.build();
 
-		GroupBuilder gb2 = new GroupBuilder(); // Create another group (using another column as criteria)
-
 		drb.addColumn(exprCol);
 		drb.addColumn(columnState);
 		drb.addColumn(columnBranch);

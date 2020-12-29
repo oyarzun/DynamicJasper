@@ -157,11 +157,11 @@ public class GroupLabelTest5 extends BaseDjReportTest {
 			.setHorizontalTextAlignEnum(HorizontalTextAlignEnum.RIGHT).setBorderTop(Border.THIN())
 			.setStretchWithOverflow(false)
 			.build();
-		DJGroupLabel glabel1 = new DJGroupLabel(new StringExpression() {			
-			public Object evaluate(Map fields, Map variables, Map parameters) {
-				return "Total amount";
-			}
-		},glabelStyle,EdgeEnum.TOP);
+//		DJGroupLabel glabel1 = new DJGroupLabel(new StringExpression() {			
+//			public Object evaluate(Map fields, Map variables, Map parameters) {
+//				return "Total amount";
+//			}
+//		},glabelStyle,EdgeEnum.TOP);
 		DJGroupLabel glabel2 = new DJGroupLabel("Total quantity",glabelStyle,EdgeEnum.TOP);
 		
 		Style glabelStyle2 = new Style();

@@ -80,17 +80,12 @@ public class QueryReportTest extends BaseDjReportTest {
 	}
 
 	public void testReport() throws Exception {
-		Connection con = null;
-		try {
+		try (var con = createSQLConnection()){
 			dr = buildReport();
-			con = createSQLConnection();
+			
 			jp = DynamicJasperHelper.generateJasperPrint(dr, new ClassicLayoutManager(), con,params );
 			ReportExporter.exportReport(jp, System.getProperty("user.dir")+ "/target/"+this.getClass().getName()+".pdf");
 			jr = DynamicJasperHelper.generateJasperReport(dr,  new ClassicLayoutManager(),params);
-		} finally {
-			try {
-				con.close();
-			} catch (Exception e1) { }
 		}
 	}
 

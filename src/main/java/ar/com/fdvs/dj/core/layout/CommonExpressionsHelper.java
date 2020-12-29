@@ -286,7 +286,7 @@ public class CommonExpressionsHelper {
      * @param autoText
      */
     private static JRDesignExpression getPrintWhenExpression(DynamicJasperDesign design, AutoText autoText) {
-        long random_ = Math.abs(random.nextLong());
+        int random_ = random.nextInt(2_000_000_000);
         String name = "autotext_" + random_ + "_printWhenExpression";
         return ExpressionUtils.createAndRegisterExpression(design, name, autoText.getPrintWhenExpression());
     }

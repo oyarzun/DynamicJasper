@@ -1117,7 +1117,9 @@ public class ClassicLayoutManager extends AbstractLayoutManager {
 				try {
 					style = (Style) style.clone();
 					style.setName(null); //set to null to make applyStyleToElement(...) assign a name
-				} catch (Exception e) {	}
+				} catch (Exception e) {
+				    log.warn("Error cloning style", e);
+				}
 				applyStyleToElement(style, textField);
 			}
 			else if (defStyle != null)

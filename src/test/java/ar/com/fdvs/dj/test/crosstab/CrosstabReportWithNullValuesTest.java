@@ -57,7 +57,7 @@ public class CrosstabReportWithNullValuesTest extends BaseDjReportTest {
 	private Style totalColHeaderStyle;
 	private Style totalRowHeaderStyle;
 
-	private Style colHeaderStyle;
+//	private Style colHeaderStyle;
 	private Style rowHeaderStyle;
 
 	private Style mainHeaderStyle;
@@ -108,7 +108,7 @@ public class CrosstabReportWithNullValuesTest extends BaseDjReportTest {
 				}
 			}*/)
 			.setRowStyles(rowHeaderStyle, totalRowStyle, totalRowHeaderStyle)
-			.setColumnStyles(colHeaderStyle, totalColStyle, totalColHeaderStyle)
+			.setColumnStyles(null, totalColStyle, totalColHeaderStyle)
 			.setCellDimension(34, 60)
 			.setColumnHeaderHeight(30)
 			.setRowHeaderWidth(80)

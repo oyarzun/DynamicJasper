@@ -319,10 +319,11 @@ public class Dj2JrCrosstabBuilder {
 //		}
 
 		jrcross.setDataset(dataset);
-		String dsName = "crosstabDataSource_" + Math.abs(random.nextLong());
+		String dsName = "crosstabDataSource_" + random.nextInt(2_000_000_000);
+
 
 		while (design.getDatasetMap().containsKey(dsName)){
-			dsName = "crosstabDataSource_" + Math.abs(random.nextLong());
+			dsName = "crosstabDataSource_" + random.nextInt(2_000_000_000);
 		}
 
 		datasetRun.setDatasetName(dsName);

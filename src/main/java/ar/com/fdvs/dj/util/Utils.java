@@ -56,7 +56,7 @@ public class Utils {
 					}
 
 					Class propertyType = origDescriptor.getPropertyType();
-					if (!Boolean.class.equals(propertyType) && !(Boolean.class.equals(propertyType)))
+					if (!Boolean.class.equals(propertyType))
 						continue;
 
 					if (!PropertyUtils.isReadable(orig, name)) { //because of bad convention

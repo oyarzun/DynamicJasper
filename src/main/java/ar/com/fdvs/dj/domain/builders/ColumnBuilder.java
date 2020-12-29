@@ -212,7 +212,7 @@ public class ColumnBuilder {
 			column.setExpressionToGroupBy(customExpressionToGroupBy);
 			column.setFieldDescription(fieldDescription);		
 		} else {
-			long random_ = Math.abs(random.nextLong());
+	        int random_ = random.nextInt(2_000_000_000);
 			column.setColumnProperty(new ColumnProperty("__name_to_be_replaced_in_registration_manager_" + random_,CustomExpression.class.getName()));
 		}
 	}

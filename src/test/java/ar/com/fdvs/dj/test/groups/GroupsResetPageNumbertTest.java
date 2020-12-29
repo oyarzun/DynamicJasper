@@ -160,7 +160,6 @@ public class GroupsResetPageNumbertTest extends BaseDjReportTest {
 				.setStartInNewPage(true)
 				.build();
 
-		GroupBuilder gb2 = new GroupBuilder(); // Create another group (using another column as criteria)
 
 
 		drb.addColumn(columnState);

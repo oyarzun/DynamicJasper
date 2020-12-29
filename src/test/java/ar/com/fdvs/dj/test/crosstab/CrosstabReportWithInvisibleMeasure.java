@@ -60,7 +60,7 @@ public class CrosstabReportWithInvisibleMeasure extends BaseDjReportTest {
 	private Style totalColHeaderStyle;
 	private Style totalRowHeaderStyle;
 
-	private Style colHeaderStyle;
+//	private Style colHeaderStyle;
 	private Style rowHeaderStyle;
 
 	private Style mainHeaderStyle;
@@ -117,7 +117,7 @@ public class CrosstabReportWithInvisibleMeasure extends BaseDjReportTest {
                 }
             })
 			.setRowStyles(rowHeaderStyle, totalRowStyle, totalRowHeaderStyle)
-			.setColumnStyles(colHeaderStyle, totalColStyle, totalColHeaderStyle)
+			.setColumnStyles(null, totalColStyle, totalColHeaderStyle)
 			.setCellDimension(34, 60)
 			.setColumnHeaderHeight(30)
 			.setRowHeaderWidth(80)
@@ -197,10 +197,10 @@ public class CrosstabReportWithInvisibleMeasure extends BaseDjReportTest {
 			.setTextColor(Color.MAGENTA)
 			.build();
 
-        Style measureStyle = new StyleBuilder(false).setPattern("#,###.##")
-                .setHorizontalTextAlignEnum(HorizontalTextAlignEnum.RIGHT)
-                .setFont(Font.ARIAL_MEDIUM)
-                .build();
+//        Style measureStyle = new StyleBuilder(false).setPattern("#,###.##")
+//                .setHorizontalTextAlignEnum(HorizontalTextAlignEnum.RIGHT)
+//                .setFont(Font.ARIAL_MEDIUM)
+//                .build();
 
 		measureStyle2 = new StyleBuilder(false).setPattern("#,###.##")
 		.setHorizontalTextAlignEnum(HorizontalTextAlignEnum.RIGHT)
