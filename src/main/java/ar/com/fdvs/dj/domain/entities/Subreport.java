@@ -29,8 +29,14 @@
 
 package ar.com.fdvs.dj.domain.entities;
 
+import java.io.ByteArrayInputStream;
+import java.io.ByteArrayOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
+
+import javax.annotation.WillClose;
 
 import ar.com.fdvs.dj.core.DJConstants;
 import ar.com.fdvs.dj.core.layout.LayoutManager;
@@ -52,9 +58,9 @@ public class Subreport extends DJBaseElement {
 	private String name;
 	
 	/**
-	 * The full path or URI in the class path of the compiled .jasper report file
+	 * The bytes of the template if provided
 	 */
-	private String path;
+	private byte[] template;
 
 	/**
 	 * The DynamicReport to use
@@ -143,12 +149,30 @@ public class Subreport extends DJBaseElement {
 	public void setReport(JasperReport design) {
 		this.report = design;
 	}
-	public String getPath() {
-		return path;
-	}
-	public void setPath(String path) {
-		this.path = path;
-	}
+    public boolean hasTemplate() {
+        return template != null;
+    }
+    
+    /**
+     * Creates a new stream with the template data
+     * @return
+     */
+    public InputStream newTemplateStream() {
+        return new ByteArrayInputStream(template);
+    }
+
+    /**
+     * Reads the stream fully and closes it.
+     *  
+     * @param templateStream
+     * @throws IOException
+     */
+    public void readTemplateStream(@WillClose InputStream templateStream) throws IOException {
+        ByteArrayOutputStream bytes = new ByteArrayOutputStream(16*1024);
+        templateStream.transferTo(bytes);
+        templateStream.close();
+        this.template = bytes.toByteArray();
+    }
 	public DynamicReport getDynamicReport() {
 		return dynamicReport;
 	}

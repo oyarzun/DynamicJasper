@@ -29,6 +29,7 @@
 package ar.com.fdvs.dj.domain.builders;
 
 import java.awt.Color;
+import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
@@ -69,12 +70,14 @@ import ar.com.fdvs.dj.domain.entities.columns.AbstractColumn;
 import ar.com.fdvs.dj.domain.entities.columns.GlobalGroupColumn;
 import ar.com.fdvs.dj.domain.entities.columns.PercentageColumn;
 import ar.com.fdvs.dj.domain.entities.columns.PropertyColumn;
+import net.sf.jasperreports.engine.JRException;
 import net.sf.jasperreports.engine.JasperReport;
 import net.sf.jasperreports.engine.type.CalculationEnum;
 import net.sf.jasperreports.engine.type.HorizontalImageAlignEnum;
 import net.sf.jasperreports.engine.type.ScaleImageEnum;
 import net.sf.jasperreports.engine.type.WhenNoDataTypeEnum;
 import net.sf.jasperreports.engine.type.WhenResourceMissingTypeEnum;
+import net.sf.jasperreports.engine.util.JRLoader;
 
 /**
  * Builder created to give users a friendly way of creating a
@@ -1230,12 +1233,15 @@ public class DynamicReportBuilder {
     public DynamicReportBuilder addSubreportInGroupFooter(int groupNumber,
                                                           String pathToSubreport, String dataSourcePath,
                                                           int dataSourceOrigin, int dataSourceType) throws DJBuilderException {
+        try {
+            JasperReport jreport = (JasperReport) JRLoader.loadObject(new File(pathToSubreport));
+            Subreport subreport = new SubReportBuilder().setDataSource(dataSourceOrigin, dataSourceType, dataSourcePath)
+                    .setReport(jreport).build();
 
-        Subreport subreport = new SubReportBuilder().setDataSource(
-                dataSourceOrigin, dataSourceType, dataSourcePath)
-                .setPathToReport(pathToSubreport).build();
-
-        return addSubreportInGroupFooter(groupNumber, subreport);
+            return addSubreportInGroupFooter(groupNumber, subreport);
+        } catch (JRException e) {
+            throw new DJBuilderException(e);
+        }
     }
 
     public DynamicReportBuilder addSubreportInGroupFooter(int groupNumber,
@@ -1243,12 +1249,14 @@ public class DynamicReportBuilder {
                                                           int dataSourceOrigin, int dataSourceType, boolean startInNewPage)
             throws DJBuilderException {
 
-        Subreport subreport = new SubReportBuilder().setDataSource(
-                dataSourceOrigin, dataSourceType, dataSourcePath)
-                .setPathToReport(pathToSubreport).setStartInNewPage(
-                        startInNewPage).build();
-
-        return addSubreportInGroupFooter(groupNumber, subreport);
+        try {
+            JasperReport jreport = (JasperReport) JRLoader.loadObject(new File(pathToSubreport));
+            Subreport subreport = new SubReportBuilder().setDataSource(dataSourceOrigin, dataSourceType, dataSourcePath)
+                    .setReport(jreport).setStartInNewPage(startInNewPage).build();
+            return addSubreportInGroupFooter(groupNumber, subreport);
+        } catch (JRException e) {
+            throw new DJBuilderException(e);
+        }
     }
 
     public DynamicReportBuilder addSubreportInGroupHeader(int groupNumber, Subreport subreport) {
@@ -1265,13 +1273,15 @@ public class DynamicReportBuilder {
     }
 
     public DynamicReportBuilder addSubreportInGroupHeader(int groupNumber, String pathToSubreport, String dataSourcePath, int dataSourceOrigin, int dataSourceType) throws DJBuilderException {
+        try {
+            JasperReport jreport = (JasperReport) JRLoader.loadObject(new File(pathToSubreport));
+            Subreport subreport = new SubReportBuilder().setDataSource(dataSourceOrigin, dataSourceType, dataSourcePath)
+                    .setReport(jreport).build();
 
-        Subreport subreport = new SubReportBuilder()
-                .setDataSource(dataSourceOrigin, dataSourceType, dataSourcePath)
-                .setPathToReport(pathToSubreport)
-                .build();
-
-        return addSubreportInGroupHeader(groupNumber, subreport);
+            return addSubreportInGroupHeader(groupNumber, subreport);
+        } catch (JRException e) {
+            throw new DJBuilderException(e);
+        }
     }
 
     /**

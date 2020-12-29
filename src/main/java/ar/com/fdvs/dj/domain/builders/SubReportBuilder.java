@@ -29,24 +29,25 @@
 
 package ar.com.fdvs.dj.domain.builders;
 
-import java.io.File;
 import java.io.IOException;
-import java.net.URL;
+import java.io.InputStream;
+
+import javax.annotation.WillClose;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import ar.com.fdvs.dj.core.DJConstants;
-import ar.com.fdvs.dj.core.DynamicJasperHelper;
 import ar.com.fdvs.dj.core.layout.LayoutManager;
 import ar.com.fdvs.dj.domain.DJDataSource;
 import ar.com.fdvs.dj.domain.DynamicReport;
 import ar.com.fdvs.dj.domain.entities.Subreport;
 import ar.com.fdvs.dj.domain.entities.SubreportParameter;
 import net.sf.jasperreports.engine.JRDataSource;
-import net.sf.jasperreports.engine.JRException;
+import net.sf.jasperreports.engine.JasperCompileManager;
 import net.sf.jasperreports.engine.JasperReport;
-import net.sf.jasperreports.engine.util.JRLoader;
+import net.sf.jasperreports.engine.design.JasperDesign;
+import net.sf.jasperreports.engine.xml.JRXmlLoader;
 
 public class SubReportBuilder {
     private static final Logger log = LoggerFactory.getLogger(SubReportBuilder.class);
@@ -55,33 +56,22 @@ public class SubReportBuilder {
 	private Subreport subreport = new Subreport();
 
 	public Subreport build() throws DJBuilderException {
-		if (subreport.getPath() == null && subreport.getDynamicReport() == null && subreport.getReport() == null)
+		if (!subreport.hasTemplate() && subreport.getDynamicReport() == null && subreport.getReport() == null)
 			throw new DJBuilderException("No subreport origin defined (path, dynamicReport, jasperReport)");
 
 		//If the subreport comes from a file, then we load it now
-		if (subreport.getPath() != null) {
-			JasperReport jr;
-			File file = new File(subreport.getPath());
-			if (file.exists()){
-				log.debug("Loading subreport from file path");
-				try {
-					jr = (JasperReport) JRLoader.loadObject(file);
-				} catch (JRException e) {
-					throw new DJBuilderException("Could not load subreport.",e);
-				}
-			} else {
-				log.debug("Loading subreport from classpath");
-				URL url = DynamicJasperHelper.class.getClassLoader().getResource(subreport.getPath());
-				try {
-					jr = (JasperReport) JRLoader.loadObject(url.openStream());
-				} catch (IOException e) {
-					throw new DJBuilderException("Could not open subreport as an input stream",e);
-				} catch (JRException e) {
-					throw new DJBuilderException("Could not load subreport.",e);
-				}
-			}
+		if (subreport.hasTemplate()) {
+		    try {
+                InputStream templateStream = subreport.newTemplateStream();
+                log.debug("about to load template stream " + templateStream + ", available="
+                        + templateStream.available());
+                JasperDesign jdesign = JRXmlLoader.load(templateStream);
+                JasperReport jr = JasperCompileManager.compileReport(jdesign);
+                subreport.setReport(jr);
+		    } catch (Exception e) {
+		        throw new DJBuilderException(e);
+		    }
 
-			subreport.setReport(jr);
 		}
 
 		return subreport;
@@ -139,8 +129,8 @@ public class SubReportBuilder {
 		return this;
 	}
 
-	public SubReportBuilder setPathToReport(String path) {
-		subreport.setPath(path);
+	public SubReportBuilder readStream(@WillClose InputStream stream) throws IOException {
+		subreport.readTemplateStream(stream);
 		return this;
 	}
 
