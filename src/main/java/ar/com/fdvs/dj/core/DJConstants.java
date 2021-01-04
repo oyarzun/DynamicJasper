@@ -84,14 +84,6 @@ public interface DJConstants {
 
 	String CUSTOM_EXPRESSION__PARAMETERS_MAP = "REPORT_PARAMETERS_MAP";
 	
-	String FORMAT_CSV = "CSV";
-	String FORMAT_HTML = "HTML";
-	String FORMAT_PDF = "PDF";
-	String FORMAT_XLS = "XLS";
-	String FORMAT_XML = "XML";
-	String FORMAT_RTF = "RTF";
-
-
     String REPORT_LANGUAGE_JAVA = "java";
     String REPORT_LANGUAGE_GROOVY = "groovy";
     String REPORT_LANGUAGE_JAVASCRIPT = "javascript";
